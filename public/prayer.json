@@ -1,0 +1,1824 @@
+{
+  "categories": [
+    {
+      "id": "morning",
+      "name": "Morning Prayers",
+      "icon": "ic_morning",
+      "prayers": [
+        {
+          "id": "morning_prayer_001",
+          "title": "Prayer for a New Day",
+          "text": "Heavenly Father, thank You for the gift of this new day. As I begin today, guide my steps and help me walk in Your wisdom. Fill my heart with peace and joy. Protect me from harm and help me show kindness to everyone I meet. Let my thoughts, words, and actions honor You. Thank You for Your faithfulness that never ends. In Jesus' name, Amen.",
+          "verse": "Lamentations 3:23",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_002",
+          "title": "Prayer for Strength Today",
+          "text": "Lord, I may face challenges today, but I know You are with me. Give me strength when I feel weak and courage when I feel uncertain. Help me trust You instead of worrying about what lies ahead. Fill me with confidence and peace as I go through this day. Let me remember that Your power is made perfect in weakness. Thank You for carrying me. Amen.",
+          "verse": "Isaiah 40:31",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_003",
+          "title": "Prayer for God's Guidance",
+          "text": "Father, as I start this morning, I ask for Your guidance in every decision I make. Help me choose what is right and pleasing to You. Open the doors You want me to walk through and close the ones that are not for me. Give me wisdom, patience, and understanding. Let Your voice be louder than my fears. Lead me throughout this day. Amen.",
+          "verse": "Proverbs 3:5-6",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_004",
+          "title": "Prayer for Peace",
+          "text": "Dear Lord, thank You for this beautiful morning. Please fill my heart with Your peace today. Calm every worry and remove every fear that tries to distract me. Help me focus on Your goodness and trust that You are working all things for my good. Let Your peace guide my thoughts and decisions. May I rest in Your presence throughout the day. Amen.",
+          "verse": "John 14:27",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_005",
+          "title": "Prayer for Joy",
+          "text": "Father God, thank You for waking me up today. Fill my heart with joy that comes from knowing You. Help me not to be discouraged by problems or disappointments. Let me notice the blessings around me and be thankful for them. May Your joy strengthen me and shine through my life. Help me spread encouragement and kindness wherever I go today. Amen.",
+          "verse": "Nehemiah 8:10",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_006",
+          "title": "Prayer for Protection",
+          "text": "Lord, as I step into this day, I ask for Your protection over my life and my loved ones. Keep us safe wherever we go. Guard us from danger, accidents, and anything that seeks to harm us. Cover us with Your peace and surround us with Your presence. Thank You for being our refuge and strength. I place this day into Your hands. Amen.",
+          "verse": "Psalm 121:7-8",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_007",
+          "title": "Prayer for Gratitude",
+          "text": "Heavenly Father, thank You for the breath in my lungs and the blessings You provide each day. Help me begin this morning with a grateful heart. Teach me to appreciate even the small gifts You place in my life. Let gratitude replace complaining and faith replace doubt. Thank You for Your love, mercy, and care that never fail. In Jesus' name, Amen.",
+          "verse": "1 Thessalonians 5:18",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_008",
+          "title": "Prayer for Wisdom",
+          "text": "Lord, I need Your wisdom today. Help me think clearly, speak kindly, and make choices that honor You. Guide me in my work, relationships, and responsibilities. Keep me from acting out of pride or fear. Teach me to listen before speaking and trust You before reacting. Thank You for generously giving wisdom to those who ask. Lead me throughout this day. Amen.",
+          "verse": "James 1:5",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_009",
+          "title": "Prayer for Faith",
+          "text": "Father, thank You for another day to trust You. Strengthen my faith this morning and help me believe Your promises. When doubts arise, remind me of Your faithfulness. Help me walk by faith and not by sight. Give me confidence that You are working in ways I cannot see. Let my heart remain steady because my hope is in You alone. Amen.",
+          "verse": "2 Corinthians 5:7",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_010",
+          "title": "Prayer for Patience",
+          "text": "Lord, help me be patient today. When things do not go as planned, remind me to trust Your timing. Give me grace when dealing with difficult situations and people. Help me respond with kindness instead of frustration. Teach me to wait on You with a peaceful heart. Thank You for working even when I cannot see immediate results. In Jesus' name, Amen.",
+          "verse": "Psalm 27:14",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_011",
+          "title": "Prayer for God's Presence",
+          "text": "Dear Lord, thank You for being with me as this day begins. Help me stay aware of Your presence in every moment. When I feel overwhelmed, remind me that I am never alone. Guide my heart, strengthen my faith, and fill me with peace. Let Your presence bring comfort, wisdom, and confidence throughout the day. Thank You for walking beside me wherever I go. Amen.",
+          "verse": "Joshua 1:9",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_012",
+          "title": "Prayer for a Productive Day",
+          "text": "Father, thank You for the opportunities this day brings. Help me use my time wisely and stay focused on what truly matters. Give me energy to complete my responsibilities and wisdom to make good decisions. Keep me from distractions that pull me away from my purpose. Let my work be done with excellence and a thankful heart. Bless everything I put my hands to today. Amen.",
+          "verse": "Colossians 3:23",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_013",
+          "title": "Prayer for a Thankful Heart",
+          "text": "Lord, before I begin this day, I want to thank You for Your goodness. Thank You for life, health, family, and the blessings I often overlook. Help me focus on what I have instead of what I lack. Let gratitude fill my heart and shape my attitude today. May I remember that every good gift comes from You. Thank You for Your endless love. Amen.",
+          "verse": "James 1:17",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_014",
+          "title": "Prayer for Courage",
+          "text": "Heavenly Father, I place this day into Your hands. Give me courage to face challenges with confidence and faith. Help me not to be controlled by fear or uncertainty. Remind me that You are my strength and my helper. When difficult moments come, help me stand firm and trust Your promises. Thank You for giving me the courage to move forward today. Amen.",
+          "verse": "Deuteronomy 31:6",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_015",
+          "title": "Prayer for Kindness",
+          "text": "Lord, help me reflect Your love in the way I treat others today. Give me a kind heart, gentle words, and a patient spirit. Help me notice people who need encouragement and show compassion to those who are hurting. Let my actions bring peace instead of conflict. May I be a blessing wherever I go and honor You through my relationships. Amen.",
+          "verse": "Ephesians 4:32",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_016",
+          "title": "Prayer for Trust",
+          "text": "Father, I do not know everything this day will bring, but I know You are already there. Help me trust You completely, even when circumstances seem uncertain. Keep me from worrying about things beyond my control. Fill my heart with confidence in Your love and faithfulness. Thank You for guiding my path and caring for every detail of my life. Amen.",
+          "verse": "Psalm 56:3",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_017",
+          "title": "Prayer for a Clean Heart",
+          "text": "Lord, thank You for Your mercy that is new every morning. Search my heart and remove anything that keeps me from You. Forgive my mistakes and help me walk in Your truth today. Create in me a clean heart and renew a right spirit within me. Let my thoughts and actions reflect Your goodness. Thank You for Your grace and forgiveness. Amen.",
+          "verse": "Psalm 51:10",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_018",
+          "title": "Prayer for Family",
+          "text": "Heavenly Father, I lift my family to You this morning. Bless each one of them and watch over them throughout the day. Protect them, guide them, and fill their hearts with peace. Strengthen our relationships and help us support one another with love and understanding. May our home be filled with kindness, unity, and faith. Thank You for the gift of family. Amen.",
+          "verse": "Joshua 24:15",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_019",
+          "title": "Prayer for Hope",
+          "text": "Lord, as I begin this day, fill my heart with hope. When challenges arise, remind me that You are still in control. Help me look beyond my current circumstances and trust Your plans for my future. Strengthen my faith and help me keep my eyes on You. Thank You for being my source of hope, peace, and confidence every day. Amen.",
+          "verse": "Romans 15:13",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_020",
+          "title": "Prayer for Humility",
+          "text": "Father, help me walk in humility today. Teach me to put others before myself and serve with a willing heart. Keep me from pride and help me remember that every blessing comes from You. Let my words and actions reflect Your love and grace. Give me a teachable spirit and help me honor You in everything I do. In Jesus' name, Amen.",
+          "verse": "Philippians 2:3",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_021",
+          "title": "Prayer for God's Favor",
+          "text": "Dear Lord, thank You for this new morning. I ask for Your favor in the work I do and the decisions I make. Open the right doors and guide me toward opportunities that align with Your will. Help me remain faithful and diligent in all things. Let Your hand be upon me and give me wisdom throughout this day. Thank You for Your blessings. Amen.",
+          "verse": "Psalm 90:17",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_022",
+          "title": "Prayer for Self-Control",
+          "text": "Lord, help me practice self-control in my thoughts, words, and actions today. When I am tempted to react in anger or frustration, remind me to respond with grace. Give me strength to make wise choices and follow Your ways. Let Your Spirit guide my heart and help me grow in maturity. Thank You for helping me become more like You each day. Amen.",
+          "verse": "Galatians 5:22-23",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_023",
+          "title": "Prayer for Contentment",
+          "text": "Father, thank You for all that You have provided. Help me be content with the blessings You have given me today. Keep me from comparing myself to others or chasing things that do not bring lasting peace. Teach me to find joy in Your presence and trust Your provision. Thank You for meeting my needs and caring for me each day. Amen.",
+          "verse": "Philippians 4:11",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_024",
+          "title": "Prayer for Love",
+          "text": "Lord, fill my heart with Your love this morning. Help me love others the way You love me. Give me patience, understanding, and compassion in every interaction. Let my words bring encouragement and my actions reflect kindness. Help me see people through Your eyes and treat them with grace. Thank You for the love You pour into my life every day. Amen.",
+          "verse": "1 Corinthians 16:14",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_025",
+          "title": "Prayer to Start the Day with God",
+          "text": "Heavenly Father, before I do anything else today, I choose to spend this moment with You. Thank You for Your love, mercy, and faithfulness. Guide my steps, guard my heart, and direct my thoughts. Help me honor You in everything I do. Let this day be filled with purpose, peace, and opportunities to reflect Your goodness. I place this day completely in Your hands. Amen.",
+          "verse": "Psalm 143:8",
+          "category": "morning"
+        }
+      ]
+    },
+    {
+      "id": "anxiety",
+      "name": "Anxiety Prayers",
+      "icon": "ic_anxiety",
+      "prayers": [
+        {
+          "id": "anxiety_prayer_001",
+          "title": "Prayer for Peace of Mind",
+          "text": "Lord, my thoughts feel heavy today, and my heart is anxious. Please calm my mind and fill me with Your peace. Help me release every worry that I have been carrying. Remind me that You are in control and that I do not have to face this alone. Let Your presence quiet every fear and bring rest to my soul. Thank You for caring for me. Amen.",
+          "verse": "Philippians 4:6-7",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_002",
+          "title": "Prayer to Release Worry",
+          "text": "Heavenly Father, I give You every concern weighing on my heart. Help me stop replaying problems and trust You with my future. When worry tries to take over my thoughts, remind me that You are my provider and protector. Fill me with confidence in Your promises. Thank You for carrying burdens that are too heavy for me. I place my worries into Your hands today. Amen.",
+          "verse": "Matthew 6:34",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_003",
+          "title": "Prayer During Stress",
+          "text": "Lord, life feels overwhelming right now, and I need Your help. Give me strength to face today's challenges without fear. Calm my racing thoughts and help me focus on what truly matters. Remind me that You are greater than every problem I face. Fill my heart with peace and my mind with clarity. Thank You for walking beside me through every difficult moment. Amen.",
+          "verse": "Psalm 55:22",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_004",
+          "title": "Prayer for Trust",
+          "text": "Father, anxiety often makes me doubt and fear the future. Today, I choose to trust You instead. Help me believe that You are working even when I cannot see the outcome. Give me faith to rest in Your promises and confidence in Your love. Replace my anxious thoughts with peace and hope. Thank You for always being faithful. In Jesus' name, Amen.",
+          "verse": "Proverbs 3:5-6",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_005",
+          "title": "Prayer for a Restless Heart",
+          "text": "Dear God, my heart feels restless and unsettled. Please bring calm to the storms inside me. Help me stop dwelling on things I cannot control and focus on Your goodness instead. Fill me with Your peace and remind me that You are near. Let Your love drive away my fears and help me rest securely in Your care. Thank You for being my refuge. Amen.",
+          "verse": "John 14:27",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_006",
+          "title": "Prayer for Courage",
+          "text": "Lord, anxiety often makes me feel weak and afraid. Today, I ask for courage. Help me face challenges with faith instead of fear. Remind me that You are with me wherever I go and that I am never alone. Strengthen my heart and give me confidence in Your promises. Thank You for being my source of strength when I feel overwhelmed. Amen.",
+          "verse": "Isaiah 41:10",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_007",
+          "title": "Prayer for God's Comfort",
+          "text": "Father, when anxiety fills my heart, I turn to You for comfort. Wrap me in Your love and remind me that You care deeply for me. Help me find rest in Your presence and peace in Your promises. Let Your comforting Spirit quiet every fear and worry. Thank You for being close to me in difficult times and never leaving my side. Amen.",
+          "verse": "Psalm 94:19",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_008",
+          "title": "Prayer for Sleep",
+          "text": "Lord, my mind is full of worries, and I struggle to rest. Tonight, I place every concern into Your hands. Calm my thoughts and remove the stress I am carrying. Help me trust that You are watching over me and working things out for my good. Give me peaceful sleep and renewed strength for tomorrow. Thank You for Your protection and care. Amen.",
+          "verse": "Psalm 4:8",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_009",
+          "title": "Prayer for Strength in Difficult Times",
+          "text": "Heavenly Father, these challenges feel bigger than me, but I know they are not bigger than You. Give me strength to keep moving forward one step at a time. Help me trust Your plan even when I do not understand it. Fill me with peace and confidence. Thank You for being my rock and my source of hope through every storm. Amen.",
+          "verse": "Psalm 46:1",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_010",
+          "title": "Prayer to Let Go",
+          "text": "Lord, I hold on tightly to things that make me anxious. Today, help me let go and place everything in Your hands. Teach me to trust You more than my fears. Give me peace when answers do not come quickly and patience when situations take time. Thank You for carrying me through every uncertainty and never failing me. Amen.",
+          "verse": "1 Peter 5:7",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_011",
+          "title": "Prayer for Calm Thoughts",
+          "text": "Father, my thoughts are moving faster than my heart can handle. Please slow me down and help me focus on Your truth. Replace confusion with clarity and fear with faith. Remind me that You are still in control. Thank You for being my peace when life feels uncertain. Help me rest in the knowledge that You are working for my good. Amen.",
+          "verse": "Isaiah 26:3",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_012",
+          "title": "Prayer for Hope",
+          "text": "Lord, anxiety often makes me focus on what could go wrong. Today, help me focus on the hope I have in You. Lift my eyes above my fears and remind me of Your promises. Strengthen my faith and fill my heart with confidence. Thank You for being my source of hope, even in difficult seasons. I trust You with my future. Amen.",
+          "verse": "Romans 15:13",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_013",
+          "title": "Prayer Against Fear",
+          "text": "Dear God, fear tries to control my thoughts, but I know You have not given me a spirit of fear. Fill me with power, love, and a sound mind. Help me reject anxious thoughts and trust in Your protection. Thank You for standing beside me through every challenge. Strengthen my heart and help me walk in faith today. Amen.",
+          "verse": "2 Timothy 1:7",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_014",
+          "title": "Prayer for Confidence",
+          "text": "Father, anxiety often makes me doubt myself and my abilities. Remind me that my confidence comes from You. Help me trust the gifts and opportunities You have given me. Strengthen my heart and remove fear of failure. Thank You for leading me and equipping me for what lies ahead. I place my confidence in You alone. Amen.",
+          "verse": "Philippians 4:13",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_015",
+          "title": "Prayer for God's Help",
+          "text": "Lord, I need Your help today. My worries feel heavy, and my heart feels tired. Please carry the burdens I cannot carry myself. Give me wisdom, strength, and peace. Help me remember that I do not have to face life's challenges alone. Thank You for being my helper and my refuge. I trust You completely. Amen.",
+          "verse": "Psalm 121:1-2",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_016",
+          "title": "Prayer for God's Protection",
+          "text": "Father, when anxiety fills my mind with fear, remind me that You are my protector. Keep me safe in Your care and help me trust Your guidance. Thank You for watching over me and surrounding me with Your love. Give me peace knowing that nothing happens outside Your knowledge. Help me rest securely in You today. Amen.",
+          "verse": "Psalm 91:1-2",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_017",
+          "title": "Prayer for Patience",
+          "text": "Lord, waiting often makes me anxious. Help me trust Your timing when answers seem delayed. Give me patience to wait with faith instead of fear. Remind me that You are working behind the scenes even when I cannot see it. Thank You for never forgetting me and always keeping Your promises. Amen.",
+          "verse": "Psalm 27:14",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_018",
+          "title": "Prayer for Financial Worries",
+          "text": "Father, I bring my financial concerns before You. You know every need and every burden I carry. Help me trust You as my provider. Give me wisdom to manage what I have and peace while I wait for solutions. Thank You for always caring for me and meeting my needs according to Your riches and grace. Amen.",
+          "verse": "Philippians 4:19",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_019",
+          "title": "Prayer for Family Concerns",
+          "text": "Lord, I place my family into Your hands. Calm the worries I carry about those I love. Protect them, guide them, and bless them today. Help me trust that You love them even more than I do. Fill my heart with peace and confidence in Your care. Thank You for watching over my family. Amen.",
+          "verse": "Joshua 1:9",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_020",
+          "title": "Prayer for Inner Peace",
+          "text": "Dear God, my heart longs for peace. Remove the anxiety that steals my joy and fill me with Your calming presence. Help me focus on Your goodness rather than my fears. Thank You for being my shelter and strength. Let Your peace guard my heart and mind throughout this day. Amen.",
+          "verse": "Colossians 3:15",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_021",
+          "title": "Prayer for Overthinking",
+          "text": "Lord, I often overthink situations and create fears in my mind. Help me stop dwelling on possibilities and trust You with reality. Fill my thoughts with truth and peace. Teach me to focus on what is good and leave the future in Your hands. Thank You for giving me peace that surpasses understanding. Amen.",
+          "verse": "Philippians 4:8",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_022",
+          "title": "Prayer for a Heavy Heart",
+          "text": "Father, my heart feels burdened today. Please lift the weight I am carrying and replace it with Your peace. Help me find comfort in Your promises and strength in Your presence. Thank You for understanding every struggle I face. Remind me that I can come to You with every concern. Amen.",
+          "verse": "Matthew 11:28",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_023",
+          "title": "Prayer for Faith Over Fear",
+          "text": "Lord, help me choose faith over fear today. When anxious thoughts come, remind me of Your goodness and faithfulness. Strengthen my trust in You and help me focus on Your promises. Thank You for walking with me through every challenge. Let my heart be filled with faith and confidence in Your care. Amen.",
+          "verse": "Psalm 56:3",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_024",
+          "title": "Prayer for God's Nearness",
+          "text": "Father, when I feel anxious and alone, remind me that You are near. Help me sense Your presence and find comfort in Your love. Thank You for never abandoning me and always listening to my prayers. Fill my heart with peace and confidence. Let me rest in the assurance that You are with me. Amen.",
+          "verse": "Deuteronomy 31:8",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_025",
+          "title": "Prayer for Complete Surrender",
+          "text": "Lord, today I surrender every fear, worry, and anxious thought to You. I cannot carry these burdens alone, but You can. Fill my heart with peace, my mind with truth, and my spirit with hope. Help me trust You completely and rest in Your love. Thank You for holding me securely in Your hands. Amen.",
+          "verse": "1 Peter 5:7",
+          "category": "anxiety"
+        }
+      ]
+    },
+    {
+      "id": "night",
+      "name": "Night Prayers",
+      "icon": "ic_night",
+      "prayers": [
+        {
+          "id": "night_prayer_001",
+          "title": "Prayer Before Sleep",
+          "text": "Dear Lord, as I lay down to sleep tonight, thank You for carrying me through this day. Thank You for Your love, protection, and guidance. Forgive me for the mistakes I made and help me do better tomorrow. Calm my mind and fill my heart with peace. Watch over my family and keep us safe through the night. I trust You completely. In Jesus' name, Amen.",
+          "verse": "Psalm 4:8",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_002",
+          "title": "Prayer of Gratitude",
+          "text": "Heavenly Father, before I close my eyes, I want to thank You for every blessing You gave me today. Thank You for the people I met, the strength You provided, and the ways You cared for me. Help me never take Your goodness for granted. Fill my heart with gratitude and peace as I rest tonight. Thank You for Your faithfulness. Amen.",
+          "verse": "1 Thessalonians 5:18",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_003",
+          "title": "Prayer for Peaceful Rest",
+          "text": "Lord, my body is tired and my mind is weary. Please help me release every worry and concern into Your hands. Fill my room with Your peace and calm every anxious thought. Let me sleep deeply and wake up refreshed. Thank You for watching over me through the night and for being my constant source of comfort. Amen.",
+          "verse": "Matthew 11:28",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_004",
+          "title": "Prayer for Forgiveness",
+          "text": "Father, thank You for Your mercy and grace. As I reflect on today, I ask for Your forgiveness for the times I failed You. Cleanse my heart and help me walk closer to You. Thank You that Your love never changes. Give me peace knowing that I am forgiven through Christ. Help me rest securely in Your grace tonight. Amen.",
+          "verse": "1 John 1:9",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_005",
+          "title": "Prayer for Protection",
+          "text": "Lord, I place myself and my loved ones into Your hands tonight. Protect us as we sleep and watch over our home. Keep us safe from harm and surround us with Your presence. Thank You for being our refuge and shield. Help us rest without fear, knowing that You are guarding us through every hour of the night. Amen.",
+          "verse": "Psalm 121:7-8",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_006",
+          "title": "Prayer to Let Go of Worry",
+          "text": "Father, I bring every worry and burden to You tonight. I cannot carry them any longer. Help me trust You with the things I cannot control. Replace my anxious thoughts with peace and confidence in Your care. Thank You for holding my future in Your hands. I choose to rest in Your promises and love. Amen.",
+          "verse": "1 Peter 5:7",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_007",
+          "title": "Prayer for Family",
+          "text": "Lord, thank You for my family. Please bless each one of them tonight. Keep them safe, healthy, and close to You. Strengthen our relationships and fill our home with love and understanding. Help us support one another and grow together in faith. Thank You for the gift of family and Your constant care over us. Amen.",
+          "verse": "Joshua 24:15",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_008",
+          "title": "Prayer for Strength",
+          "text": "Heavenly Father, today had its challenges, but You carried me through them. Thank You for the strength You provided when I felt weak. As I rest tonight, renew my energy and prepare me for tomorrow. Help me trust that You will continue to guide and sustain me. Thank You for being my strength every day. Amen.",
+          "verse": "Isaiah 40:31",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_009",
+          "title": "Prayer for God's Presence",
+          "text": "Lord, thank You for never leaving my side. Even in the quiet of this night, I know You are with me. Help me feel Your presence and rest in Your love. Calm every fear and fill my heart with confidence. Thank You for being my comfort, my guide, and my faithful friend. I trust You tonight. Amen.",
+          "verse": "Deuteronomy 31:8",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_010",
+          "title": "Prayer for Tomorrow",
+          "text": "Father, I place tomorrow into Your hands. You already know what lies ahead, and that gives me peace. Prepare my heart for the opportunities and challenges of a new day. Help me trust Your plan and walk in Your wisdom. Thank You for going before me and making a way. I rest knowing You are in control. Amen.",
+          "verse": "Proverbs 3:5-6",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_011",
+          "title": "Prayer for a Calm Mind",
+          "text": "Lord, quiet the noise in my mind tonight. Help me stop replaying today's problems and rest in Your peace. Fill my thoughts with Your promises and remove every fear. Thank You for caring about every detail of my life. Let Your peace guard my heart and mind as I sleep. Amen.",
+          "verse": "Philippians 4:7",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_012",
+          "title": "Prayer for Hope",
+          "text": "Father, thank You for being the source of my hope. No matter what happened today, I know my future is in Your hands. Fill me with confidence and expectation for what You will do. Help me sleep with a heart full of trust and hope. Thank You for Your promises that never fail. Amen.",
+          "verse": "Romans 15:13",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_013",
+          "title": "Prayer for Healing",
+          "text": "Lord, I ask for Your healing touch tonight. You know every pain, weakness, and struggle I face. Bring healing to my body, mind, and heart. Renew my strength as I rest and help me trust in Your perfect care. Thank You for being the God who heals and restores. Amen.",
+          "verse": "Jeremiah 17:14",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_014",
+          "title": "Prayer for God's Mercy",
+          "text": "Father, thank You for Your mercy that covers me each day. Even when I fall short, Your love remains constant. Help me receive Your forgiveness and grace tonight. Give me peace knowing that You are patient and faithful. Thank You for never giving up on me. Amen.",
+          "verse": "Lamentations 3:22-23",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_015",
+          "title": "Prayer for Trust",
+          "text": "Lord, I do not understand everything that happened today, but I trust You. Help me rest knowing that You are working all things together for good. Strengthen my faith and remove my doubts. Thank You for being trustworthy and faithful through every season of life. Amen.",
+          "verse": "Romans 8:28",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_016",
+          "title": "Prayer for Contentment",
+          "text": "Father, thank You for all You provided today. Help me be content with what I have and trust You for what I need. Guard my heart from comparison and dissatisfaction. Let me find joy in Your presence and peace in Your provision. Thank You for always taking care of me. Amen.",
+          "verse": "Philippians 4:11",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_017",
+          "title": "Prayer for Wisdom",
+          "text": "Lord, thank You for guiding me today. As I rest tonight, continue teaching me Your ways. Give me wisdom for tomorrow's decisions and help me follow Your direction. Thank You for leading me with love and patience. I place my future in Your hands and trust You completely. Amen.",
+          "verse": "James 1:5",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_018",
+          "title": "Prayer for Joy",
+          "text": "Father, thank You for the moments of joy You gave me today. Help me focus on Your blessings instead of my problems. Fill my heart with gratitude and gladness. Let me sleep knowing that Your joy is my strength. Thank You for being the reason I can smile even in difficult times. Amen.",
+          "verse": "Nehemiah 8:10",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_019",
+          "title": "Prayer for Patience",
+          "text": "Lord, teach me to trust Your timing. Some answers have not come yet, but I know You are working. Help me wait with faith instead of frustration. Fill my heart with peace and patience as I rest tonight. Thank You for always doing what is best at the right time. Amen.",
+          "verse": "Psalm 27:14",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_020",
+          "title": "Prayer for Faith",
+          "text": "Father, strengthen my faith tonight. When doubts try to enter my mind, remind me of Your faithfulness. Help me trust Your promises and believe that You are working in every situation. Thank You for never failing me. Let my faith grow stronger as I rest in Your presence. Amen.",
+          "verse": "Hebrews 11:1",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_021",
+          "title": "Prayer for Loved Ones",
+          "text": "Lord, I lift up the people I love to You tonight. Bless them, protect them, and guide them in Your ways. Meet their needs and fill their hearts with peace. Thank You for watching over them and caring for them even when I cannot. I place them safely in Your hands. Amen.",
+          "verse": "Numbers 6:24-25",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_022",
+          "title": "Prayer for Comfort",
+          "text": "Father, if my heart is hurting tonight, please comfort me. Wrap me in Your love and remind me that You are near. Help me find rest in Your presence and hope in Your promises. Thank You for understanding every pain and struggle I face. I trust You completely. Amen.",
+          "verse": "Psalm 34:18",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_023",
+          "title": "Prayer of Surrender",
+          "text": "Lord, tonight I surrender my plans, fears, worries, and dreams to You. Help me release control and trust Your will. Thank You for guiding my life with wisdom and love. Fill me with peace as I place everything into Your hands. I know You are working for my good. Amen.",
+          "verse": "Psalm 55:22",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_024",
+          "title": "Prayer for God's Love",
+          "text": "Father, thank You for loving me unconditionally. Your love never changes, even when I make mistakes. Help me rest tonight knowing I am deeply loved by You. Fill my heart with confidence and peace. Thank You for Your grace, mercy, and faithfulness that never end. Amen.",
+          "verse": "Romans 8:38-39",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_025",
+          "title": "Prayer to End the Day",
+          "text": "Heavenly Father, as this day comes to an end, I thank You for being with me through every moment. Thank You for Your protection, provision, and guidance. Forgive my failures and help me grow closer to You. Grant me peaceful sleep and renewed strength for tomorrow. I trust my life completely into Your hands. In Jesus' name, Amen.",
+          "verse": "Psalm 3:5",
+          "category": "night"
+        }
+      ]
+    },
+    {
+      "id": "healing",
+      "name": "Healing Prayers",
+      "icon": "ic_healing",
+      "prayers": [
+        {
+          "id": "healing_prayer_001",
+          "title": "Prayer for Physical Healing",
+          "text": "Heavenly Father, You know every pain and weakness in my body. I ask for Your healing touch upon me today. Strengthen me where I am weak and restore what is broken. Help me trust You through this journey and give me patience as I wait. Fill my heart with hope and peace. Thank You for Your love and care that never fail. In Jesus' name, Amen.",
+          "verse": "Jeremiah 17:14",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_002",
+          "title": "Prayer for Emotional Healing",
+          "text": "Lord, my heart carries wounds that others cannot see. You know every hurt, disappointment, and struggle I have faced. Please bring healing to the broken places in my heart. Replace pain with peace and sadness with hope. Help me let go of what is hurting me and trust Your plan. Thank You for being close to me in difficult times. Amen.",
+          "verse": "Psalm 147:3",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_003",
+          "title": "Prayer for Strength During Illness",
+          "text": "Father, this season has been difficult, but I know You are with me. Give me strength when I feel weak and courage when I feel discouraged. Help me keep my eyes on You instead of my circumstances. Fill my heart with faith and remind me that You are my healer. Thank You for carrying me through every challenge. Amen.",
+          "verse": "Isaiah 40:29",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_004",
+          "title": "Prayer for Peace While Healing",
+          "text": "Dear God, as I wait for healing, fill my heart with peace. Help me trust Your timing and rest in Your care. Remove anxiety and fear from my mind. Remind me that You are working even when I cannot see it. Thank You for being faithful through every season and for never leaving my side. Amen.",
+          "verse": "John 14:27",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_005",
+          "title": "Prayer for God's Healing Touch",
+          "text": "Lord Jesus, I ask for Your healing touch upon my life today. Reach into every area that needs restoration and renewal. Bring strength to my body, peace to my mind, and comfort to my heart. Help me trust in Your goodness and believe in Your power. Thank You for Your compassion and unfailing love. Amen.",
+          "verse": "Matthew 8:17",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_006",
+          "title": "Prayer for Recovery",
+          "text": "Father, thank You for walking with me through this healing journey. Each day, help me grow stronger and healthier. Give me patience when progress feels slow and faith when I feel discouraged. Thank You for every small improvement and every sign of Your goodness. Let my recovery bring glory to You. Amen.",
+          "verse": "Psalm 30:2",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_007",
+          "title": "Prayer for Healing from Stress",
+          "text": "Lord, stress and worry have drained my strength. Please restore my mind and heart. Help me release the burdens I have been carrying and find rest in You. Fill me with peace and renew my spirit. Thank You for being my refuge when life feels overwhelming. I trust You with every concern. Amen.",
+          "verse": "Matthew 11:28",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_008",
+          "title": "Prayer for Healing a Broken Heart",
+          "text": "Father, my heart is hurting, and I need Your comfort. Heal the wounds caused by loss, disappointment, and pain. Help me move forward without bitterness and fill me with Your love. Thank You for understanding my struggles and staying close to me through every tear. Bring restoration and peace to my heart. Amen.",
+          "verse": "Psalm 34:18",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_009",
+          "title": "Prayer for Renewed Strength",
+          "text": "Lord, I feel tired and worn out. Please renew my strength and refresh my spirit. Help me not to give up when healing takes time. Fill me with hope and confidence in Your promises. Thank You for being my source of strength when I have none of my own. I place my trust in You. Amen.",
+          "verse": "Isaiah 40:31",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_010",
+          "title": "Prayer for Complete Restoration",
+          "text": "Heavenly Father, I ask for complete restoration in every area of my life. Heal what is damaged, strengthen what is weak, and renew what has been lost. Help me trust Your process and remain faithful while I wait. Thank You for Your power to restore and make all things new. Amen.",
+          "verse": "Joel 2:25",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_011",
+          "title": "Prayer for Healing and Hope",
+          "text": "Lord, when healing feels far away, help me hold on to hope. Remind me that You are still working in my life. Fill my heart with faith and confidence in Your promises. Thank You for being my healer, my comforter, and my source of strength. I trust You completely. Amen.",
+          "verse": "Romans 15:13",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_012",
+          "title": "Prayer for Healing from Fear",
+          "text": "Father, fear often tries to overwhelm me during difficult times. Help me remember that You are with me. Replace fear with peace and worry with trust. Strengthen my faith and help me rest in Your promises. Thank You for being my protector and my healer through every challenge. Amen.",
+          "verse": "Isaiah 41:10",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_013",
+          "title": "Prayer for Family Healing",
+          "text": "Lord, I lift my family before You today. Bring healing where there is sickness, hurt, or division. Strengthen our relationships and fill our home with love and peace. Help us support one another through difficult times. Thank You for Your presence and care over our family. Amen.",
+          "verse": "Joshua 24:15",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_014",
+          "title": "Prayer for Inner Healing",
+          "text": "Father, there are wounds deep within me that only You can heal. Touch the hidden places of my heart and bring restoration. Help me release pain from the past and embrace the future You have for me. Thank You for Your healing love and endless grace. Amen.",
+          "verse": "Ezekiel 36:26",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_015",
+          "title": "Prayer for Healing Through Faith",
+          "text": "Lord, strengthen my faith as I wait for healing. Help me trust Your promises even when I do not see immediate results. Give me patience, peace, and confidence in Your care. Thank You for hearing my prayers and walking with me every step of this journey. Amen.",
+          "verse": "Mark 11:24",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_016",
+          "title": "Prayer for Daily Healing",
+          "text": "Father, thank You for each new day and each new opportunity to experience Your healing. Continue Your work in my life and help me grow stronger physically, emotionally, and spiritually. Let every day bring renewed hope and strength. Thank You for Your faithful love. Amen.",
+          "verse": "Lamentations 3:22-23",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_017",
+          "title": "Prayer for Comfort in Pain",
+          "text": "Lord, You see the pain I am carrying today. Please comfort me and help me endure this difficult season. Surround me with Your peace and remind me that I am never alone. Thank You for understanding my struggles and providing strength when I need it most. Amen.",
+          "verse": "2 Corinthians 1:3-4",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_018",
+          "title": "Prayer for God's Mercy",
+          "text": "Father, I come before You seeking Your mercy and healing. Thank You for Your compassion and kindness. Please touch every area of my life that needs restoration. Help me trust Your timing and rely on Your strength. Thank You for Your unfailing love and faithfulness. Amen.",
+          "verse": "Psalm 103:2-3",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_019",
+          "title": "Prayer for Healing Relationships",
+          "text": "Lord, bring healing to relationships that have been damaged by hurt and misunderstanding. Help us forgive one another and rebuild trust. Fill our hearts with grace, patience, and compassion. Thank You for Your power to restore what seems broken. Guide us toward peace and reconciliation. Amen.",
+          "verse": "Colossians 3:13",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_020",
+          "title": "Prayer for Strength to Keep Going",
+          "text": "Father, there are days when I feel discouraged and tired. Please give me strength to keep moving forward. Help me not lose hope while I wait for healing. Remind me that You are working even when I cannot see it. Thank You for sustaining me through every challenge. Amen.",
+          "verse": "Galatians 6:9",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_021",
+          "title": "Prayer for Healing from Grief",
+          "text": "Lord, my heart is heavy with grief and loss. Please comfort me and heal my broken heart. Help me find hope in Your promises and strength in Your presence. Thank You for staying close to me during this difficult time and carrying me through my sorrow. Amen.",
+          "verse": "Matthew 5:4",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_022",
+          "title": "Prayer for Spiritual Healing",
+          "text": "Father, renew my relationship with You and heal my spirit. Draw me closer to Your heart and help me walk faithfully in Your ways. Remove anything that separates me from You. Thank You for Your grace, forgiveness, and restoring love. Amen.",
+          "verse": "Psalm 51:10",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_023",
+          "title": "Prayer for Healing from Anxiety",
+          "text": "Lord, anxiety has taken away my peace. Please calm my heart and quiet my mind. Help me trust You with every worry and fear. Fill me with Your peace that surpasses understanding. Thank You for carrying my burdens and reminding me that I am never alone. Amen.",
+          "verse": "Philippians 4:6-7",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_024",
+          "title": "Prayer for God's Strength in Recovery",
+          "text": "Father, as I continue to recover, help me remain hopeful and patient. Give me strength for each day and courage for every challenge. Thank You for the progress You have already made possible. Continue Your healing work in my life and help me trust You fully. Amen.",
+          "verse": "Psalm 41:3",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_025",
+          "title": "Prayer for Wholeness",
+          "text": "Heavenly Father, I ask for healing in every part of my life. Restore my body, renew my mind, strengthen my spirit, and fill my heart with peace. Help me trust Your love and rest in Your promises. Thank You for making all things new and for walking with me every day. In Jesus' name, Amen.",
+          "verse": "3 John 1:2",
+          "category": "healing"
+        }
+      ]
+    },
+    {
+      "id": "fear",
+      "name": "Fear Prayers",
+      "icon": "ic_fear",
+      "prayers": [
+        {
+          "id": "fear_prayer_001",
+          "title": "Prayer to Overcome Fear",
+          "text": "Heavenly Father, fear has been weighing heavily on my heart. Today, I choose to place my trust in You. Remind me that You are greater than anything I face. Help me walk by faith instead of fear and fill my heart with Your peace. Thank You for always being with me and for giving me strength when I feel weak. In Jesus' name, Amen.",
+          "verse": "Isaiah 41:10",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_002",
+          "title": "Prayer for Courage",
+          "text": "Lord, when fear tries to hold me back, give me courage to move forward. Help me trust Your guidance and believe that You are working for my good. Strengthen my heart and remind me that I am never alone. Thank You for being my protector and source of confidence through every challenge. Amen.",
+          "verse": "Joshua 1:9",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_003",
+          "title": "Prayer for Peace in Uncertainty",
+          "text": "Father, I do not know what tomorrow will bring, but I know that You are already there. Help me stop worrying about the future and trust Your perfect plan. Fill my heart with peace and confidence in Your care. Thank You for guiding my steps and holding my future securely in Your hands. Amen.",
+          "verse": "Proverbs 3:5-6",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_004",
+          "title": "Prayer Against Anxiety and Fear",
+          "text": "Lord, fear and anxiety often fill my mind with worries. Please calm my thoughts and help me focus on Your promises. Replace fear with faith and worry with peace. Remind me that You are in control and that nothing is impossible for You. Thank You for being my refuge and strength. Amen.",
+          "verse": "Philippians 4:6-7",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_005",
+          "title": "Prayer for God's Protection",
+          "text": "Father, when fear tries to overwhelm me, remind me that You are my protector. Surround me with Your presence and keep me safe from harm. Help me rest in the knowledge that You are watching over me. Thank You for being my shield and my strong tower in every situation. Amen.",
+          "verse": "Psalm 91:2",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_006",
+          "title": "Prayer for Strength",
+          "text": "Lord, I feel weak when fear takes hold of my heart. Please strengthen me and help me stand firm in faith. Give me courage to face difficult situations and confidence to trust Your promises. Thank You for being my source of strength and helping me overcome every challenge. Amen.",
+          "verse": "Psalm 46:1",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_007",
+          "title": "Prayer for Faith Over Fear",
+          "text": "Heavenly Father, help me choose faith over fear today. When fearful thoughts arise, remind me of Your faithfulness and love. Strengthen my trust in You and help me focus on Your promises. Thank You for walking with me through every storm and giving me peace beyond understanding. Amen.",
+          "verse": "Psalm 56:3",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_008",
+          "title": "Prayer for Confidence",
+          "text": "Lord, fear often makes me doubt myself and the path ahead. Help me remember that my confidence comes from You. Give me courage to take the next step and trust that You are leading me. Thank You for equipping me with everything I need and for never leaving my side. Amen.",
+          "verse": "Philippians 4:13",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_009",
+          "title": "Prayer During Difficult Times",
+          "text": "Father, these challenges seem overwhelming, but I know You are greater than every obstacle. Help me not to give in to fear. Fill me with hope, courage, and peace. Thank You for carrying me through difficult seasons and for being my constant source of strength and comfort. Amen.",
+          "verse": "Romans 8:28",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_010",
+          "title": "Prayer for God's Presence",
+          "text": "Lord, when I feel afraid, remind me that You are right beside me. Help me sense Your presence and find comfort in Your love. Thank You for never abandoning me and for staying close through every challenge. Let Your presence bring peace to my heart and courage to my spirit. Amen.",
+          "verse": "Deuteronomy 31:8",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_011",
+          "title": "Prayer to Release Fear",
+          "text": "Father, today I surrender every fear that has been controlling my thoughts. Help me release my worries and place them in Your hands. Fill my heart with trust and confidence in Your care. Thank You for carrying burdens that are too heavy for me and for giving me peace. Amen.",
+          "verse": "1 Peter 5:7",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_012",
+          "title": "Prayer for a Calm Heart",
+          "text": "Lord, my heart feels troubled and afraid. Please calm the storms within me and fill me with Your peace. Help me remember that You are in control even when life feels uncertain. Thank You for being my safe place and my source of comfort in every season. Amen.",
+          "verse": "John 14:27",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_013",
+          "title": "Prayer Against Fear of Failure",
+          "text": "Father, I sometimes fear making mistakes or failing. Help me trust that You can use every situation for good. Give me courage to move forward without fear of the outcome. Thank You for guiding my steps and teaching me through every experience. Amen.",
+          "verse": "Psalm 37:23",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_014",
+          "title": "Prayer for God's Help",
+          "text": "Lord, I need Your help today. Fear has been stealing my peace and joy. Please strengthen my heart and remind me that You are fighting for me. Help me trust Your promises and walk confidently in faith. Thank You for being my helper in every situation. Amen.",
+          "verse": "Psalm 121:1-2",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_015",
+          "title": "Prayer for Nighttime Fears",
+          "text": "Father, when fears come during the night, help me remember that You are watching over me. Fill my heart with peace and remove every anxious thought. Thank You for protecting me while I sleep and surrounding me with Your presence. I rest safely in Your care tonight. Amen.",
+          "verse": "Psalm 4:8",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_016",
+          "title": "Prayer for Hope",
+          "text": "Lord, fear often makes me lose sight of hope. Today, help me focus on Your promises and trust Your plan. Fill me with confidence that You are working all things together for my good. Thank You for being my source of hope and strength every day. Amen.",
+          "verse": "Romans 15:13",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_017",
+          "title": "Prayer Against Fear of the Future",
+          "text": "Father, I sometimes worry about what lies ahead. Help me trust You with my future and believe that Your plans are good. Give me peace when uncertainty arises and courage to move forward in faith. Thank You for guiding my path and watching over me. Amen.",
+          "verse": "Jeremiah 29:11",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_018",
+          "title": "Prayer for Boldness",
+          "text": "Lord, give me boldness to do what You have called me to do. Help me not allow fear to stop me from following Your purpose. Fill me with courage and confidence in Your power. Thank You for equipping me and walking beside me every step of the way. Amen.",
+          "verse": "2 Timothy 1:7",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_019",
+          "title": "Prayer for Comfort",
+          "text": "Father, when fear fills my heart, comfort me with Your presence. Remind me that You understand my struggles and care deeply for me. Help me rest in Your love and trust in Your protection. Thank You for being my refuge and source of peace. Amen.",
+          "verse": "Psalm 34:4",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_020",
+          "title": "Prayer for Inner Strength",
+          "text": "Lord, strengthen me from within. Help me stand firm when fear tries to shake my faith. Fill me with courage, wisdom, and peace. Thank You for being my strength when I feel weak and my confidence when I feel uncertain. I trust You completely. Amen.",
+          "verse": "Ephesians 3:16",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_021",
+          "title": "Prayer for Family Protection",
+          "text": "Father, I place my family into Your hands. Protect them from harm and watch over them wherever they go. Help me trust Your care instead of living in fear. Thank You for Your protection, provision, and faithfulness over those I love. Amen.",
+          "verse": "Psalm 121:5",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_022",
+          "title": "Prayer for Trusting God",
+          "text": "Lord, help me trust You more than my fears. When doubts fill my mind, remind me of Your goodness and faithfulness. Give me the courage to keep moving forward even when I cannot see the whole path. Thank You for leading me and caring for me every day. Amen.",
+          "verse": "Isaiah 26:3",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_023",
+          "title": "Prayer Against Fearful Thoughts",
+          "text": "Father, help me take every fearful thought captive and replace it with Your truth. Fill my mind with hope, faith, and peace. Remind me that You are greater than every fear I face. Thank You for giving me a sound mind and a heart that can trust You. Amen.",
+          "verse": "2 Corinthians 10:5",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_024",
+          "title": "Prayer for Victory Over Fear",
+          "text": "Lord, thank You that fear does not have the final word in my life. Through Your strength, I can overcome every challenge and every worry. Help me stand firm in faith and trust Your promises. Thank You for giving me victory through Your love and power. Amen.",
+          "verse": "1 John 4:18",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_025",
+          "title": "Prayer for Complete Peace",
+          "text": "Heavenly Father, I surrender every fear, worry, and uncertainty to You. Fill my heart with Your perfect peace and help me trust You completely. Remind me daily that You are with me, guiding and protecting me. Thank You for being my refuge, strength, and source of courage. In Jesus' name, Amen.",
+          "verse": "Isaiah 26:3",
+          "category": "fear"
+        }
+      ]
+    },
+    {
+      "id": "breakthrough",
+      "name": "Breakthrough Prayers",
+      "icon": "ic_breakthrough",
+      "prayers": [
+        {
+          "id": "breakthrough_prayer_001",
+          "title": "Prayer for a Breakthrough",
+          "text": "Heavenly Father, You know the challenges I am facing right now. Some doors seem closed and some situations feel impossible. Today, I place everything in Your hands. Make a way where there seems to be no way. Give me strength to keep believing and patience to trust Your timing. Thank You for working behind the scenes even when I cannot see it. In Jesus' name, Amen.",
+          "verse": "Isaiah 43:19",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_002",
+          "title": "Prayer for Open Doors",
+          "text": "Lord, I ask You to open the doors that are according to Your will for my life. Guide my steps and lead me in the right direction. Close every door that would take me away from Your purpose. Help me trust Your guidance and recognize the opportunities You place before me. Thank You for being my provider and my guide. Amen.",
+          "verse": "Revelation 3:8",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_003",
+          "title": "Prayer for Strength While Waiting",
+          "text": "Father, waiting for a breakthrough can be difficult. Sometimes I feel discouraged and tired. Please renew my strength and help me stay faithful. Remind me that Your timing is always perfect. Give me patience to keep trusting You and courage to keep moving forward. Thank You for working all things together for my good. Amen.",
+          "verse": "Isaiah 40:31",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_004",
+          "title": "Prayer for Financial Breakthrough",
+          "text": "Lord, You know my financial needs and concerns. I ask for Your provision and wisdom in managing what You have given me. Open new opportunities and guide me toward the right decisions. Help me trust You as my provider and not live in fear. Thank You for supplying my needs according to Your riches and grace. Amen.",
+          "verse": "Philippians 4:19",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_005",
+          "title": "Prayer for God's Favor",
+          "text": "Father, I ask for Your favor upon my life today. Let Your hand guide me and open the right opportunities before me. Help me remain humble and faithful as I wait on You. Thank You for blessing me beyond what I deserve and for leading me according to Your perfect plan. Amen.",
+          "verse": "Psalm 90:17",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_006",
+          "title": "Prayer for a New Beginning",
+          "text": "Lord, thank You that You are the God of new beginnings. Help me leave behind past disappointments and trust You with the future. Give me the courage to move forward and embrace the opportunities You provide. Thank You for making all things new and for leading me into better days ahead. Amen.",
+          "verse": "2 Corinthians 5:17",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_007",
+          "title": "Prayer for Career Breakthrough",
+          "text": "Heavenly Father, I place my work and career into Your hands. Guide me toward opportunities that align with Your purpose for my life. Give me wisdom, favor, and strength in my responsibilities. Open doors that no one can shut and help me honor You through my work. Thank You for Your provision and guidance. Amen.",
+          "verse": "Colossians 3:23",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_008",
+          "title": "Prayer for Breakthrough in Difficult Times",
+          "text": "Lord, I feel surrounded by challenges, but I know nothing is impossible for You. Help me trust You when circumstances seem difficult. Give me faith to believe that You are working even now. Strengthen my heart and fill me with hope. Thank You for being my refuge and delivering me in Your perfect way. Amen.",
+          "verse": "Jeremiah 32:27",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_009",
+          "title": "Prayer for Wisdom",
+          "text": "Father, I need Your wisdom as I seek a breakthrough. Help me make good decisions and follow the path You have prepared for me. Keep me from rushing ahead or relying on my own understanding. Thank You for generously giving wisdom to those who ask. Lead me every step of the way. Amen.",
+          "verse": "James 1:5",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_010",
+          "title": "Prayer for Faith",
+          "text": "Lord, strengthen my faith during this season. Help me believe Your promises even when I do not see immediate results. Fill my heart with hope and confidence in Your power. Thank You for being faithful through every challenge and for never abandoning me. I trust You completely. Amen.",
+          "verse": "Hebrews 11:1",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_011",
+          "title": "Prayer for Family Breakthrough",
+          "text": "Father, I lift my family before You. Bring healing where there is hurt, peace where there is conflict, and hope where there is discouragement. Strengthen our relationships and help us grow closer to You. Thank You for working in our lives and leading our family according to Your purpose. Amen.",
+          "verse": "Joshua 24:15",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_012",
+          "title": "Prayer for Freedom from Worry",
+          "text": "Lord, help me stop worrying about how things will work out. Teach me to trust You with every situation and rest in Your promises. Replace anxiety with peace and fear with faith. Thank You for caring for me and working on my behalf even when I cannot see it. Amen.",
+          "verse": "1 Peter 5:7",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_013",
+          "title": "Prayer for Healing Breakthrough",
+          "text": "Father, I ask for a breakthrough in my health and well-being. Touch my body, mind, and heart with Your healing power. Restore my strength and renew my hope. Help me trust You during this process and remain confident in Your care. Thank You for being my healer and source of peace. Amen.",
+          "verse": "Jeremiah 17:14",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_014",
+          "title": "Prayer for Courage to Move Forward",
+          "text": "Lord, sometimes fear keeps me from stepping into the opportunities You provide. Give me courage to move forward with confidence and faith. Help me trust that You are leading me and preparing the way ahead. Thank You for walking beside me through every challenge. Amen.",
+          "verse": "Joshua 1:9",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_015",
+          "title": "Prayer for God's Timing",
+          "text": "Father, help me trust Your timing. When answers seem delayed, remind me that You are never late. Give me patience while I wait and faith to keep believing. Thank You for knowing what is best for my life and for working everything according to Your perfect plan. Amen.",
+          "verse": "Ecclesiastes 3:11",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_016",
+          "title": "Prayer for Hope in Delays",
+          "text": "Lord, delays can be discouraging, but I choose to place my hope in You. Help me stay focused on Your promises and not lose heart. Fill me with peace as I wait and confidence that You are still working. Thank You for being faithful in every season. Amen.",
+          "verse": "Romans 15:13",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_017",
+          "title": "Prayer for God's Direction",
+          "text": "Father, I need Your direction in my life. Show me the path You want me to follow and give me wisdom to recognize Your guidance. Help me trust You more than my own understanding. Thank You for leading me with love and faithfulness. Amen.",
+          "verse": "Psalm 32:8",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_018",
+          "title": "Prayer for Restoration",
+          "text": "Lord, restore the things that have been lost, broken, or delayed in my life. Renew my strength, my hope, and my faith. Help me trust that You can bring beauty from difficult situations. Thank You for Your power to restore and renew. Amen.",
+          "verse": "Joel 2:25",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_019",
+          "title": "Prayer for God's Provision",
+          "text": "Father, thank You for always providing for my needs. Help me trust You when resources seem limited. Open opportunities and bless the work of my hands. Fill me with wisdom and contentment as I wait for Your provision. Thank You for Your faithfulness. Amen.",
+          "verse": "Matthew 6:31-33",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_020",
+          "title": "Prayer for Unexpected Blessings",
+          "text": "Lord, thank You for the ways You work that I cannot see. Surprise me with Your goodness and open doors that only You can open. Help me remain faithful and grateful through every season. Thank You for Your abundant blessings and care. Amen.",
+          "verse": "Ephesians 3:20",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_021",
+          "title": "Prayer Against Discouragement",
+          "text": "Father, when I feel discouraged, remind me that You are still at work. Strengthen my heart and help me keep moving forward. Fill me with hope and confidence in Your promises. Thank You for never leaving me and for always being faithful. Amen.",
+          "verse": "Galatians 6:9",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_022",
+          "title": "Prayer for Peace During Waiting",
+          "text": "Lord, while I wait for my breakthrough, fill my heart with peace. Help me trust You and not be consumed by worry. Remind me that You know exactly what I need and when I need it. Thank You for caring for every detail of my life. Amen.",
+          "verse": "John 14:27",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_023",
+          "title": "Prayer for God's Help",
+          "text": "Father, I cannot do this on my own. I need Your help, wisdom, and strength. Please guide me through every challenge and open the right doors before me. Thank You for being my helper and for carrying me through difficult seasons. Amen.",
+          "verse": "Psalm 121:1-2",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_024",
+          "title": "Prayer for Confidence in God's Plan",
+          "text": "Lord, help me trust Your plan even when I do not understand it. Give me confidence that You are working for my good. Strengthen my faith and help me remain patient while I wait. Thank You for leading my life according to Your wisdom and love. Amen.",
+          "verse": "Jeremiah 29:11",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_025",
+          "title": "Prayer for a Life-Changing Breakthrough",
+          "text": "Heavenly Father, I place every dream, need, and challenge before You. I ask for a breakthrough that brings glory to Your name. Open doors, make a way, and strengthen my faith. Help me trust You completely and remain faithful through every season. Thank You for the miracles You are preparing and for Your unfailing love. In Jesus' name, Amen.",
+          "verse": "Mark 10:27",
+          "category": "breakthrough"
+        }
+      ]
+    },
+    {
+      "id": "family",
+      "name": "Family Prayers",
+      "icon": "ic_family",
+      "prayers": [
+        {
+          "id": "family_prayer_001",
+          "title": "Prayer for Family Blessings",
+          "text": "Heavenly Father, thank You for the family You have given me. I pray that You would bless our home with love, peace, and unity. Help us support one another through every season of life. Protect us from harm and guide us in Your ways. Let our home be a place where Your presence is felt every day. Thank You for Your faithfulness and care. In Jesus' name, Amen.",
+          "verse": "Joshua 24:15",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_002",
+          "title": "Prayer for Family Protection",
+          "text": "Lord, I place my family into Your loving hands. Watch over each member wherever they go and keep them safe from harm. Protect their health, their minds, and their hearts. Surround them with Your angels and guide their steps each day. Thank You for being our refuge and shield. Help us trust in Your protection and care. Amen.",
+          "verse": "Psalm 121:7-8",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_003",
+          "title": "Prayer for Family Unity",
+          "text": "Father, help our family grow stronger together. Remove any misunderstanding, pride, or division that may come between us. Teach us to listen, forgive, and love one another as You have loved us. Fill our home with patience, kindness, and understanding. Thank You for bringing us together and helping us walk in unity. Amen.",
+          "verse": "Colossians 3:14",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_004",
+          "title": "Prayer for Parents",
+          "text": "Lord, thank You for my parents and the sacrifices they have made. Bless them with good health, strength, and peace. Help them feel Your presence and guidance in every area of their lives. Give me a grateful heart and help me honor them through my words and actions. Thank You for the gift of family. Amen.",
+          "verse": "Exodus 20:12",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_005",
+          "title": "Prayer for Children",
+          "text": "Heavenly Father, I lift up the children in my family to You. Protect them, guide them, and help them grow in wisdom and faith. Surround them with good influences and keep them close to You. Give them strength to make wise choices and courage to follow Your ways. Thank You for the blessing they are. Amen.",
+          "verse": "Proverbs 22:6",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_006",
+          "title": "Prayer for a Peaceful Home",
+          "text": "Lord, let Your peace fill our home. Remove stress, tension, and conflict, and replace them with understanding and love. Help us speak kindly to one another and treat each other with respect. May our home be a place of comfort, joy, and encouragement. Thank You for being the foundation of our family. Amen.",
+          "verse": "John 14:27",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_007",
+          "title": "Prayer for Family Health",
+          "text": "Father, I pray for the health and well-being of my family. Strengthen those who are sick and protect those who are healthy. Give wisdom to doctors and caregivers and bring healing where it is needed. Thank You for being our healer and for caring about every detail of our lives. Amen.",
+          "verse": "Jeremiah 17:14",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_008",
+          "title": "Prayer for Family Relationships",
+          "text": "Lord, strengthen the relationships within our family. Help us communicate with honesty, kindness, and patience. Teach us to forgive quickly and love deeply. Remove bitterness and replace it with grace. Thank You for giving us the opportunity to grow together and support one another. Amen.",
+          "verse": "Ephesians 4:32",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_009",
+          "title": "Prayer for God's Guidance",
+          "text": "Father, guide our family in every decision we make. Help us seek Your wisdom and follow Your direction. Lead us along the right path and protect us from choices that could harm us. Thank You for Your faithful guidance and for always knowing what is best for us. Amen.",
+          "verse": "Proverbs 3:5-6",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_010",
+          "title": "Prayer for Family Strength",
+          "text": "Lord, when challenges come, help our family remain strong. Give us courage to face difficulties together and faith to trust You through every season. Help us support one another and grow closer instead of drifting apart. Thank You for being our strength and our foundation. Amen.",
+          "verse": "Isaiah 41:10",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_011",
+          "title": "Prayer for Financial Provision",
+          "text": "Father, You know the needs of our family. Please provide for us according to Your riches and grace. Give us wisdom in managing our finances and help us trust You during uncertain times. Open doors of opportunity and bless the work of our hands. Thank You for always caring for us. Amen.",
+          "verse": "Philippians 4:19",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_012",
+          "title": "Prayer for Family Faith",
+          "text": "Lord, help our family grow stronger in faith. Draw each of us closer to You and help us trust You more every day. Teach us to seek You in prayer and rely on Your Word for guidance. Thank You for Your patience, grace, and faithfulness toward our family. Amen.",
+          "verse": "Hebrews 11:6",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_013",
+          "title": "Prayer for Family Healing",
+          "text": "Father, bring healing to every area of our family that needs restoration. Heal physical illnesses, emotional wounds, and broken relationships. Help us extend grace to one another and trust You with the healing process. Thank You for Your power to restore and make things new. Amen.",
+          "verse": "Psalm 147:3",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_014",
+          "title": "Prayer for Family Hope",
+          "text": "Lord, when our family faces difficult times, fill us with hope. Help us remember that You are always working, even when we cannot see it. Strengthen our faith and remind us of Your promises. Thank You for being our source of hope and encouragement. Amen.",
+          "verse": "Romans 15:13",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_015",
+          "title": "Prayer for Married Couples",
+          "text": "Heavenly Father, bless every marriage in our family. Strengthen the bond between husband and wife and help them grow in love, patience, and understanding. Protect their relationship from division and help them honor one another. Thank You for the gift of marriage and Your guidance through every season. Amen.",
+          "verse": "Ecclesiastes 4:12",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_016",
+          "title": "Prayer for Family Joy",
+          "text": "Lord, fill our family with joy that comes from You. Help us appreciate the time we spend together and cherish the blessings You have given us. Let laughter, gratitude, and love fill our home. Thank You for the precious moments we share and for Your goodness in our lives. Amen.",
+          "verse": "Nehemiah 8:10",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_017",
+          "title": "Prayer for Wisdom as Parents",
+          "text": "Father, give parents wisdom as they guide and care for their children. Help them make decisions that honor You and benefit their family. Give them patience, understanding, and strength for each day. Thank You for helping them fulfill the responsibilities You have entrusted to them. Amen.",
+          "verse": "James 1:5",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_018",
+          "title": "Prayer for Family During Hard Times",
+          "text": "Lord, some seasons are harder than others, but we trust You through them all. Help our family remain united and strong during difficult times. Give us peace when we feel anxious and courage when we feel afraid. Thank You for carrying us through every challenge. Amen.",
+          "verse": "Psalm 46:1",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_019",
+          "title": "Prayer for Family Forgiveness",
+          "text": "Father, help us forgive one another when mistakes are made. Remove bitterness and resentment from our hearts. Teach us to show grace and understanding just as You have shown grace to us. Thank You for restoring relationships and helping us walk in love. Amen.",
+          "verse": "Colossians 3:13",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_020",
+          "title": "Prayer for Family Protection from Fear",
+          "text": "Lord, protect our family from fear and anxiety. Help us place our trust in You and find peace in Your presence. Remind us that You are watching over us and that we do not need to be afraid. Thank You for Your constant care and protection. Amen.",
+          "verse": "Isaiah 41:10",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_021",
+          "title": "Prayer for Family Gratitude",
+          "text": "Father, help our family develop grateful hearts. Teach us to recognize Your blessings and thank You for them each day. Help us focus on Your goodness instead of our problems. Thank You for providing for us and caring for us in countless ways. Amen.",
+          "verse": "1 Thessalonians 5:18",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_022",
+          "title": "Prayer for Family Purpose",
+          "text": "Lord, help our family live according to Your purpose. Guide us in using our gifts and talents to serve You and others. Give us wisdom to make choices that honor You. Thank You for creating each of us with a unique purpose and calling. Amen.",
+          "verse": "Jeremiah 29:11",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_023",
+          "title": "Prayer for God's Favor on the Family",
+          "text": "Father, let Your favor rest upon our family. Bless our work, our relationships, and our daily lives. Open doors of opportunity and guide us according to Your will. Help us remain humble and grateful for every blessing. Thank You for Your goodness and faithfulness. Amen.",
+          "verse": "Psalm 90:17",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_024",
+          "title": "Prayer for Family Unity in Christ",
+          "text": "Lord, draw our family closer to You and to one another. Help us build our home on faith, love, and trust in You. Strengthen our bond and help us encourage one another daily. Thank You for being the center of our family and the source of our strength. Amen.",
+          "verse": "Ephesians 4:3",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_025",
+          "title": "Prayer for God's Blessing on Our Home",
+          "text": "Heavenly Father, we dedicate our home and family to You. Fill our lives with Your peace, wisdom, protection, and love. Help us honor You in all we do and trust You in every season. Thank You for Your presence in our home and Your blessings upon our family. In Jesus' name, Amen.",
+          "verse": "Psalm 127:1",
+          "category": "family"
+        }
+      ]
+    },
+    {
+      "id": "forgiveness",
+      "name": "Forgiveness Prayers",
+      "icon": "ic_forgiveness",
+      "prayers": [
+        {
+          "id": "forgiveness_prayer_001",
+          "title": "Prayer for God's Forgiveness",
+          "text": "Heavenly Father, I come before You with a humble heart. Thank You for Your mercy and grace that never fail. Forgive me for the sins I have committed in my thoughts, words, and actions. Cleanse my heart and help me walk in Your truth. Thank You for loving me even when I fall short. Help me grow closer to You each day. In Jesus' name, Amen.",
+          "verse": "1 John 1:9",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_002",
+          "title": "Prayer for a Clean Heart",
+          "text": "Lord, search my heart and reveal anything that is not pleasing to You. Forgive me for the times I have ignored Your guidance and chosen my own way. Create in me a clean heart and renew a right spirit within me. Help me live according to Your will and walk in obedience. Thank You for Your grace and forgiveness. Amen.",
+          "verse": "Psalm 51:10",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_003",
+          "title": "Prayer to Forgive Others",
+          "text": "Father, there are people who have hurt me, and sometimes forgiveness feels difficult. Help me release bitterness and choose forgiveness just as You have forgiven me. Give me the strength to let go of past hurts and trust You with justice. Fill my heart with peace and compassion. Thank You for teaching me the power of forgiveness. Amen.",
+          "verse": "Colossians 3:13",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_004",
+          "title": "Prayer for Letting Go of Hurt",
+          "text": "Lord, I have been carrying pain and disappointment for too long. Help me release these burdens into Your hands. Heal the wounds in my heart and free me from resentment. Teach me to forgive and move forward with peace. Thank You for being my healer and comforter through every difficult season. Amen.",
+          "verse": "Matthew 11:28",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_005",
+          "title": "Prayer for Mercy",
+          "text": "Father, I am grateful for Your endless mercy. Even when I make mistakes, You welcome me back with love. Forgive me for the times I have failed You and help me learn from my errors. Thank You for Your patience and grace. Help me extend the same mercy to others. Amen.",
+          "verse": "Lamentations 3:22-23",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_006",
+          "title": "Prayer to Release Bitterness",
+          "text": "Lord, bitterness has no place in my heart. Help me release every angry thought and painful memory that keeps me from experiencing Your peace. Fill my heart with love, kindness, and understanding. Thank You for helping me overcome resentment and walk in freedom through forgiveness. Amen.",
+          "verse": "Ephesians 4:31-32",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_007",
+          "title": "Prayer for Healing Relationships",
+          "text": "Father, I pray for relationships that have been damaged by misunderstandings and hurt. Give us the humility to seek forgiveness and the courage to forgive one another. Restore trust where it has been broken and bring healing where there is pain. Thank You for Your power to reconcile and restore. Amen.",
+          "verse": "Romans 12:18",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_008",
+          "title": "Prayer for Forgiving Family Members",
+          "text": "Lord, family relationships can sometimes be difficult. Help me forgive those in my family who have hurt or disappointed me. Remove bitterness from my heart and replace it with love and understanding. Strengthen our relationships and bring unity to our home. Thank You for Your healing grace. Amen.",
+          "verse": "Ephesians 4:2-3",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_009",
+          "title": "Prayer for Self-Forgiveness",
+          "text": "Father, sometimes I struggle to forgive myself for past mistakes. Help me accept the forgiveness You freely give. Remind me that Your grace is greater than my failures. Teach me to learn from the past without being trapped by it. Thank You for making me new through Your love and mercy. Amen.",
+          "verse": "2 Corinthians 5:17",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_010",
+          "title": "Prayer for a Humble Heart",
+          "text": "Lord, help me approach You with humility and honesty. Show me areas where I need to change and help me quickly seek forgiveness when I am wrong. Give me a teachable spirit and a heart that desires to honor You. Thank You for Your patience and unconditional love. Amen.",
+          "verse": "James 4:10",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_011",
+          "title": "Prayer for Freedom Through Forgiveness",
+          "text": "Father, I do not want to be controlled by anger, bitterness, or resentment. Help me experience the freedom that comes through forgiveness. Release me from the weight of old wounds and fill my heart with peace. Thank You for setting me free through Your grace and love. Amen.",
+          "verse": "John 8:36",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_012",
+          "title": "Prayer for Grace",
+          "text": "Lord, thank You for the grace You have shown me. Help me show that same grace to others, even when it is difficult. Teach me to respond with kindness instead of anger and compassion instead of judgment. Thank You for being my example of perfect love and forgiveness. Amen.",
+          "verse": "Ephesians 2:8",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_013",
+          "title": "Prayer to Release the Past",
+          "text": "Father, help me let go of painful memories that continue to affect my life. Give me the strength to move forward and trust You with the future. Heal the wounds that remain and fill me with hope. Thank You for Your ability to bring beauty from brokenness. Amen.",
+          "verse": "Philippians 3:13-14",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_014",
+          "title": "Prayer for Peace After Forgiveness",
+          "text": "Lord, after choosing forgiveness, help me experience lasting peace. Remove any lingering anger or hurt from my heart. Fill me with Your joy and help me focus on the future rather than the past. Thank You for the peace that comes from walking in Your ways. Amen.",
+          "verse": "John 14:27",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_015",
+          "title": "Prayer for Restored Trust",
+          "text": "Father, rebuilding trust takes time and wisdom. Help me navigate relationships with grace and discernment. Show me how to forgive while also walking in wisdom. Thank You for being faithful and helping me heal from broken trust. Guide my heart through this process. Amen.",
+          "verse": "Proverbs 3:5-6",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_016",
+          "title": "Prayer for a Forgiving Spirit",
+          "text": "Lord, help forgiveness become a natural part of my life. Teach me not to hold grudges or keep records of wrongs. Give me a heart that reflects Your love and mercy. Thank You for forgiving me so completely and teaching me to do the same for others. Amen.",
+          "verse": "Matthew 6:14",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_017",
+          "title": "Prayer During Conflict",
+          "text": "Father, conflict can bring hurt and misunderstanding. Help me respond with wisdom, patience, and humility. Give me the courage to apologize when I am wrong and the grace to forgive when I am hurt. Thank You for helping me pursue peace and reconciliation. Amen.",
+          "verse": "Romans 12:18",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_018",
+          "title": "Prayer for Healing Old Wounds",
+          "text": "Lord, some wounds from the past still affect me today. Please bring healing to those painful places. Help me forgive fully and trust You with the outcome. Fill my heart with peace and remind me that You are restoring me day by day. Thank You for Your healing love. Amen.",
+          "verse": "Psalm 147:3",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_019",
+          "title": "Prayer for God's Compassion",
+          "text": "Father, help me see others through Your eyes. Give me compassion for those who have hurt me and wisdom to understand their struggles. Help me respond with love rather than anger. Thank You for showing me compassion every day and teaching me to do the same. Amen.",
+          "verse": "Luke 6:36",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_020",
+          "title": "Prayer for Reconciliation",
+          "text": "Lord, where reconciliation is possible, help me take steps toward peace. Give me humility, wisdom, and courage to rebuild broken relationships. Remove pride and bitterness from both hearts. Thank You for being a God of restoration and healing. Amen.",
+          "verse": "2 Corinthians 5:18",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_021",
+          "title": "Prayer for Daily Forgiveness",
+          "text": "Father, each day I need Your mercy and grace. Forgive my sins and help me live according to Your will. Teach me to quickly forgive others and not hold on to offenses. Thank You for Your constant love and faithfulness. Amen.",
+          "verse": "Matthew 6:12",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_022",
+          "title": "Prayer for God's Love",
+          "text": "Lord, fill my heart with Your love so there is no room for bitterness or resentment. Help me remember how much You have forgiven me. Let Your love guide my actions and words. Thank You for Your endless grace and compassion. Amen.",
+          "verse": "1 Corinthians 13:4-5",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_023",
+          "title": "Prayer to Walk in Grace",
+          "text": "Father, help me live each day with a heart full of grace. Teach me to forgive quickly and love deeply. Remove judgment and pride from my heart. Thank You for the grace You freely give and for helping me extend it to others. Amen.",
+          "verse": "Colossians 3:12",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_024",
+          "title": "Prayer for a Fresh Start",
+          "text": "Lord, thank You for giving me a fresh start through Your forgiveness. Help me leave behind guilt and shame and walk confidently in Your grace. Renew my mind and strengthen my faith. Thank You for making all things new and giving me hope for the future. Amen.",
+          "verse": "Isaiah 43:18-19",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_025",
+          "title": "Prayer for a Forgiving Heart",
+          "text": "Heavenly Father, create in me a heart that forgives as You forgive. Help me release every hurt, offense, and disappointment into Your hands. Fill me with love, peace, and compassion. Thank You for Your mercy that never ends and for teaching me the beauty of forgiveness. In Jesus' name, Amen.",
+          "verse": "Luke 23:34",
+          "category": "forgiveness"
+        }
+      ]
+    },
+    {
+      "id": "gratitude",
+      "name": "Gratitude Prayers",
+      "icon": "ic_gratitude",
+      "prayers": [
+        {
+          "id": "gratitude_prayer_001",
+          "title": "Prayer of Thanksgiving",
+          "text": "Heavenly Father, thank You for Your goodness and faithfulness in my life. Thank You for the gift of another day, for the breath in my lungs, and for the many blessings You provide. Help me never take Your kindness for granted. Fill my heart with gratitude and teach me to praise You in every season. Thank You for loving me and caring for me each day. In Jesus' name, Amen.",
+          "verse": "1 Thessalonians 5:18",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_002",
+          "title": "Prayer for a Grateful Heart",
+          "text": "Lord, help me begin this day with gratitude. Open my eyes to see the blessings around me and teach me to appreciate even the smallest gifts. Keep me from complaining or focusing on what I lack. Fill my heart with thankfulness and joy. Thank You for Your constant love, mercy, and provision. Amen.",
+          "verse": "Psalm 107:1",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_003",
+          "title": "Prayer for God's Faithfulness",
+          "text": "Father, thank You for being faithful through every season of my life. Even when circumstances change, Your love remains the same. Thank You for carrying me through difficult times and blessing me in ways I often overlook. Help me trust You more each day and live with a thankful heart. Amen.",
+          "verse": "Lamentations 3:22-23",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_004",
+          "title": "Prayer for Daily Blessings",
+          "text": "Lord, thank You for the blessings You pour into my life each day. Thank You for food, shelter, family, and the opportunities You provide. Help me never take these gifts for granted. Fill my heart with appreciation and help me recognize Your hand in every good thing. Amen.",
+          "verse": "James 1:17",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_005",
+          "title": "Prayer for Family",
+          "text": "Heavenly Father, thank You for my family. Thank You for the love, support, and memories we share. Help me cherish the people You have placed in my life and show them appreciation every day. Bless them, protect them, and draw them closer to You. Thank You for this precious gift. Amen.",
+          "verse": "Psalm 127:3",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_006",
+          "title": "Prayer for God's Love",
+          "text": "Lord, thank You for loving me unconditionally. Your love never fails, even when I make mistakes. Thank You for Your grace, mercy, and forgiveness. Help me live each day aware of how deeply I am loved by You. Fill my heart with gratitude and help me share Your love with others. Amen.",
+          "verse": "Romans 8:38-39",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_007",
+          "title": "Prayer for New Mercies",
+          "text": "Father, thank You that Your mercies are new every morning. Thank You for giving me fresh opportunities and new beginnings. Even when I fail, You remain faithful. Help me appreciate Your patience and grace. Fill my heart with gratitude for Your endless compassion and kindness. Amen.",
+          "verse": "Lamentations 3:23",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_008",
+          "title": "Prayer for God's Provision",
+          "text": "Lord, thank You for always providing what I need. You have never abandoned me and have always cared for me. Help me trust You more and worry less. Thank You for meeting my needs and blessing me beyond what I deserve. Let gratitude always fill my heart. Amen.",
+          "verse": "Philippians 4:19",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_009",
+          "title": "Prayer for Good Health",
+          "text": "Father, thank You for the strength and health You have given me. Help me take care of the body You have entrusted to me. Thank You for every day I can walk, work, and enjoy life. Fill my heart with gratitude for the gift of health and strength. Amen.",
+          "verse": "3 John 1:2",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_010",
+          "title": "Prayer for God's Guidance",
+          "text": "Lord, thank You for guiding my steps and leading me through life. Even when I could not see the way, You remained faithful. Help me continue trusting Your direction and following Your wisdom. Thank You for never leaving me to walk alone. Amen.",
+          "verse": "Proverbs 3:5-6",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_011",
+          "title": "Prayer for Joy",
+          "text": "Father, thank You for the joy that comes from knowing You. Even in difficult times, Your presence brings peace and strength. Help me focus on the blessings You have given rather than the problems I face. Fill my heart with joy and gratitude today. Amen.",
+          "verse": "Nehemiah 8:10",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_012",
+          "title": "Prayer for Friendships",
+          "text": "Lord, thank You for the friends You have placed in my life. Thank You for their encouragement, support, and kindness. Help me value these relationships and be a blessing to others as well. Thank You for surrounding me with people who care. Amen.",
+          "verse": "Proverbs 17:17",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_013",
+          "title": "Prayer for God's Protection",
+          "text": "Father, thank You for protecting me and my loved ones. Many times You have watched over us without us even realizing it. Help me never forget Your care and faithfulness. Thank You for being my refuge, my shield, and my protector every day. Amen.",
+          "verse": "Psalm 121:7-8",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_014",
+          "title": "Prayer for Every Season",
+          "text": "Lord, thank You for being with me in every season of life. Thank You for the lessons learned through challenges and the joy found in blessings. Help me trust You through both good times and difficult times. Fill my heart with gratitude no matter the circumstances. Amen.",
+          "verse": "Ecclesiastes 3:1",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_015",
+          "title": "Prayer for Peace",
+          "text": "Father, thank You for the peace that only You can give. When life becomes overwhelming, Your presence calms my heart. Help me rest in Your promises and trust in Your care. Thank You for being my source of peace and comfort every day. Amen.",
+          "verse": "John 14:27",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_016",
+          "title": "Prayer for Opportunities",
+          "text": "Lord, thank You for every opportunity You place before me. Thank You for the doors You open and the ways You provide. Help me use my gifts wisely and honor You through my work and actions. Fill me with gratitude for every opportunity You give. Amen.",
+          "verse": "Colossians 3:23",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_017",
+          "title": "Prayer for God's Grace",
+          "text": "Father, thank You for Your amazing grace. Even when I do not deserve it, You continue to love and bless me. Help me never take Your grace for granted. Fill my heart with humility and gratitude for all You have done in my life. Amen.",
+          "verse": "Ephesians 2:8",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_018",
+          "title": "Prayer for Contentment",
+          "text": "Lord, help me be content with what I have and grateful for what You have provided. Keep me from comparing myself to others or always wanting more. Teach me to appreciate the blessings already in my life. Thank You for Your faithful provision and care. Amen.",
+          "verse": "Philippians 4:11",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_019",
+          "title": "Prayer for Spiritual Growth",
+          "text": "Father, thank You for the ways You are shaping and growing me. Thank You for Your patience as I learn and mature in faith. Help me continue seeking You and becoming more like Christ. I am grateful for Your guidance and transforming power. Amen.",
+          "verse": "Philippians 1:6",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_020",
+          "title": "Prayer for God's Presence",
+          "text": "Lord, thank You for Your presence that never leaves me. Whether I am celebrating or struggling, You remain by my side. Help me stay aware of Your goodness and faithfulness each day. Fill my heart with gratitude for the comfort of knowing You are always near. Amen.",
+          "verse": "Deuteronomy 31:8",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_021",
+          "title": "Prayer for Simple Blessings",
+          "text": "Father, thank You for the simple blessings I often overlook. Thank You for a new day, a place to rest, food to eat, and people who care. Help me recognize Your goodness in everyday moments and cultivate a thankful heart. Amen.",
+          "verse": "Psalm 136:1",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_022",
+          "title": "Prayer for God's Goodness",
+          "text": "Lord, Your goodness has followed me throughout my life. Thank You for the countless ways You have provided, protected, and guided me. Help me remember Your faithfulness when challenges arise. Fill my heart with gratitude and praise for all You have done. Amen.",
+          "verse": "Psalm 23:6",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_023",
+          "title": "Prayer for Thankful Living",
+          "text": "Father, help me live each day with a grateful spirit. Teach me to see blessings instead of burdens and opportunities instead of obstacles. Let gratitude shape my words, thoughts, and actions. Thank You for Your constant presence and abundant love. Amen.",
+          "verse": "Colossians 3:15",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_024",
+          "title": "Prayer for Praise",
+          "text": "Lord, today I praise You for who You are. Thank You for Your holiness, faithfulness, and love. Thank You for the blessings You have poured into my life and for the hope I have in You. Help me honor You with a heart full of gratitude. Amen.",
+          "verse": "Psalm 100:4",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_025",
+          "title": "Prayer of Thankfulness",
+          "text": "Heavenly Father, thank You for every blessing, every lesson, and every moment of Your faithfulness. Thank You for Your love, grace, protection, and provision. Help me never forget Your goodness and always approach life with gratitude. Let my heart overflow with thanksgiving and praise. In Jesus' name, Amen.",
+          "verse": "Psalm 118:24",
+          "category": "gratitude"
+        }
+      ]
+    },
+    {
+      "id": "hope",
+      "name": "Hope Prayers",
+      "icon": "ic_hope",
+      "prayers": [
+        {
+          "id": "hope_prayer_001",
+          "title": "Prayer for Hope in Difficult Times",
+          "text": "Heavenly Father, when life feels overwhelming and uncertain, help me hold on to hope. Remind me that You are working even when I cannot see it. Strengthen my faith and help me trust Your promises. Fill my heart with peace and confidence in Your plan. Thank You for being my source of hope through every season. In Jesus' name, Amen.",
+          "verse": "Romans 15:13",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_002",
+          "title": "Prayer for a Brighter Tomorrow",
+          "text": "Lord, some days feel heavy, but I know my future is in Your hands. Help me look forward with faith instead of fear. Give me confidence that better days are ahead according to Your perfect plan. Fill my heart with hope and remind me that You never abandon Your children. Thank You for Your faithfulness. Amen.",
+          "verse": "Jeremiah 29:11",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_003",
+          "title": "Prayer for Hope During Waiting",
+          "text": "Father, waiting can be difficult, especially when answers seem delayed. Help me trust Your timing and remain hopeful while I wait. Give me patience and strength to keep believing Your promises. Thank You for working behind the scenes and preparing what is best for me. I place my hope in You alone. Amen.",
+          "verse": "Psalm 27:14",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_004",
+          "title": "Prayer for Renewed Hope",
+          "text": "Lord, when discouragement tries to take over my heart, renew my hope. Lift my eyes above my problems and help me focus on Your goodness. Remind me that nothing is impossible for You and that Your plans are always good. Thank You for giving me fresh hope each day. Amen.",
+          "verse": "Lamentations 3:22-23",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_005",
+          "title": "Prayer for Hope and Strength",
+          "text": "Heavenly Father, I need both hope and strength today. Help me not to give up when challenges arise. Fill my heart with confidence in Your promises and renew my spirit. Thank You for being my refuge and strength through every trial. I trust You completely. Amen.",
+          "verse": "Isaiah 40:31",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_006",
+          "title": "Prayer for Trusting God's Plan",
+          "text": "Lord, I do not always understand what You are doing, but I choose to trust You. Help me believe that Your plans are better than my own. Fill my heart with hope and peace as I surrender my future to You. Thank You for leading me with wisdom and love. Amen.",
+          "verse": "Proverbs 3:5-6",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_007",
+          "title": "Prayer for Hope After Disappointment",
+          "text": "Father, disappointment can make it hard to keep hoping. Please heal my heart and help me trust You again. Remind me that one setback does not determine my future. Fill me with faith and expectation for what You will do next. Thank You for Your unfailing love and faithfulness. Amen.",
+          "verse": "Psalm 34:18",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_008",
+          "title": "Prayer for God's Promises",
+          "text": "Lord, help me remember Your promises when life feels uncertain. Let Your Word strengthen my faith and fill my heart with hope. Remind me that You always keep Your promises and never fail. Thank You for being trustworthy and faithful in every season. Amen.",
+          "verse": "Numbers 23:19",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_009",
+          "title": "Prayer for Hope During Trials",
+          "text": "Father, these challenges feel difficult, but I know You are with me. Help me hold on to hope and trust that You are working through every situation. Give me strength to persevere and faith to believe that better days are ahead. Thank You for never leaving me. Amen.",
+          "verse": "Romans 8:28",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_010",
+          "title": "Prayer for a Hopeful Heart",
+          "text": "Lord, fill my heart with hope today. Remove doubt, fear, and discouragement from my mind. Help me focus on Your goodness and faithfulness. Let hope rise within me and remind me that You are in control. Thank You for being my source of confidence and peace. Amen.",
+          "verse": "Hebrews 10:23",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_011",
+          "title": "Prayer for Hope in Uncertainty",
+          "text": "Father, when the future feels uncertain, help me remember that You already know the way ahead. Give me peace when I do not have all the answers. Strengthen my trust in You and fill me with hope. Thank You for guiding my steps every day. Amen.",
+          "verse": "Psalm 32:8",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_012",
+          "title": "Prayer for Hope in God's Timing",
+          "text": "Lord, help me trust that Your timing is perfect. When answers do not come quickly, keep my heart hopeful and patient. Teach me to wait with faith instead of frustration. Thank You for knowing what is best for me and working everything according to Your plan. Amen.",
+          "verse": "Ecclesiastes 3:11",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_013",
+          "title": "Prayer for Hope in Healing",
+          "text": "Father, I place my healing journey into Your hands. When progress feels slow, help me remain hopeful. Strengthen my faith and remind me that You are my healer. Thank You for Your care, compassion, and power to restore. I trust You completely. Amen.",
+          "verse": "Jeremiah 17:14",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_014",
+          "title": "Prayer for Hope and Peace",
+          "text": "Lord, fill my heart with both hope and peace. Help me release my worries and trust You with every situation. Let Your presence calm my fears and strengthen my faith. Thank You for being my refuge and source of comfort. Amen.",
+          "verse": "John 14:27",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_015",
+          "title": "Prayer for Hope for My Family",
+          "text": "Father, I pray for my family today. Fill our hearts with hope and confidence in Your promises. Help us trust You through every challenge and celebrate Your blessings together. Thank You for guiding and protecting our family each day. Amen.",
+          "verse": "Joshua 24:15",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_016",
+          "title": "Prayer for Hope Over Fear",
+          "text": "Lord, fear often tries to steal my hope. Help me focus on Your truth instead of my worries. Fill my heart with courage and confidence in Your care. Thank You for reminding me that You are always with me and that I do not need to be afraid. Amen.",
+          "verse": "Isaiah 41:10",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_017",
+          "title": "Prayer for New Opportunities",
+          "text": "Father, thank You for being the God of new beginnings. Help me remain hopeful as I step into new opportunities. Open the doors that align with Your purpose and guide me along the right path. Thank You for leading me into a hopeful future. Amen.",
+          "verse": "Isaiah 43:19",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_018",
+          "title": "Prayer for Hope After Failure",
+          "text": "Lord, failure can make me feel discouraged, but I know You are not finished with me. Help me learn from my mistakes and keep moving forward. Fill my heart with hope and confidence in Your grace. Thank You for giving me fresh starts and new opportunities. Amen.",
+          "verse": "Philippians 3:13-14",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_019",
+          "title": "Prayer for God's Faithfulness",
+          "text": "Father, thank You for being faithful through every season of my life. When I look back, I can see Your hand guiding me. Help me trust You for the future and remain hopeful in every circumstance. Thank You for never failing me. Amen.",
+          "verse": "Deuteronomy 7:9",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_020",
+          "title": "Prayer for Hope During Change",
+          "text": "Lord, change can feel unsettling, but I know You remain the same. Help me trust You during seasons of transition and uncertainty. Fill my heart with peace and hope. Thank You for walking with me through every change and guiding my path. Amen.",
+          "verse": "Hebrews 13:8",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_021",
+          "title": "Prayer for Confidence in Christ",
+          "text": "Father, help me place my confidence in Christ rather than my circumstances. When challenges arise, remind me that You are greater than anything I face. Fill me with hope and courage. Thank You for being my strength and security every day. Amen.",
+          "verse": "Philippians 4:13",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_022",
+          "title": "Prayer for Joyful Hope",
+          "text": "Lord, let hope fill my heart with joy. Help me focus on the blessings You have given and the promises You have spoken. Thank You for the future You are preparing and for Your goodness in my life. May hope and joy grow stronger in me each day. Amen.",
+          "verse": "Romans 12:12",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_023",
+          "title": "Prayer for Hope in God's Love",
+          "text": "Father, thank You for Your unfailing love. When I feel discouraged, remind me that nothing can separate me from Your love. Fill my heart with hope and confidence in Your care. Thank You for holding me securely in Your hands. Amen.",
+          "verse": "Romans 8:38-39",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_024",
+          "title": "Prayer for Hope Every Day",
+          "text": "Lord, help me wake up each day with hope in my heart. Let me trust Your promises, follow Your guidance, and rely on Your strength. Fill me with peace and confidence as I walk through life. Thank You for being my constant source of hope. Amen.",
+          "verse": "Psalm 71:14",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_025",
+          "title": "Prayer for Lasting Hope",
+          "text": "Heavenly Father, thank You for the hope I have in You. No matter what challenges come my way, help me remain confident in Your promises. Strengthen my faith, fill my heart with peace, and remind me that You are always working for my good. Thank You for being my eternal source of hope. In Jesus' name, Amen.",
+          "verse": "Hebrews 6:19",
+          "category": "hope"
+        }
+      ]
+    }
+  ]
+}

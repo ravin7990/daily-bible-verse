@@ -1,175 +1,438 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import SEO from '@/components/layout/SEO'
-import { Skeleton, SkeletonLines } from '@/components/ui/Skeleton'
-import { ref as dbRef, get, child } from 'firebase/database'
-import { rtdb } from '@/firebase/config'
-import type { BibleBook } from '@/types'
-
-// Standard Bible book list
-const BOOKS: BibleBook[] = [
-  { id: 1,  name: 'Genesis',          abbrev: 'Gen',  chapters: 50 },
-  { id: 2,  name: 'Exodus',           abbrev: 'Exo',  chapters: 40 },
-  { id: 3,  name: 'Leviticus',        abbrev: 'Lev',  chapters: 27 },
-  { id: 4,  name: 'Numbers',          abbrev: 'Num',  chapters: 36 },
-  { id: 5,  name: 'Deuteronomy',      abbrev: 'Deu',  chapters: 34 },
-  { id: 6,  name: 'Joshua',           abbrev: 'Jos',  chapters: 24 },
-  { id: 7,  name: 'Judges',           abbrev: 'Jdg',  chapters: 21 },
-  { id: 8,  name: 'Ruth',             abbrev: 'Rut',  chapters: 4  },
-  { id: 9,  name: '1 Samuel',         abbrev: '1Sa',  chapters: 31 },
-  { id: 10, name: '2 Samuel',         abbrev: '2Sa',  chapters: 24 },
-  { id: 11, name: '1 Kings',          abbrev: '1Ki',  chapters: 22 },
-  { id: 12, name: '2 Kings',          abbrev: '2Ki',  chapters: 25 },
-  { id: 19, name: 'Psalms',           abbrev: 'Psa',  chapters: 150},
-  { id: 20, name: 'Proverbs',         abbrev: 'Pro',  chapters: 31 },
-  { id: 23, name: 'Isaiah',           abbrev: 'Isa',  chapters: 66 },
-  { id: 40, name: 'Matthew',          abbrev: 'Mat',  chapters: 28 },
-  { id: 41, name: 'Mark',             abbrev: 'Mar',  chapters: 16 },
-  { id: 42, name: 'Luke',             abbrev: 'Luk',  chapters: 24 },
-  { id: 43, name: 'John',             abbrev: 'Joh',  chapters: 21 },
-  { id: 44, name: 'Acts',             abbrev: 'Act',  chapters: 28 },
-  { id: 45, name: 'Romans',           abbrev: 'Rom',  chapters: 16 },
-  { id: 46, name: '1 Corinthians',    abbrev: '1Co',  chapters: 16 },
-  { id: 47, name: '2 Corinthians',    abbrev: '2Co',  chapters: 13 },
-  { id: 48, name: 'Galatians',        abbrev: 'Gal',  chapters: 6  },
-  { id: 49, name: 'Ephesians',        abbrev: 'Eph',  chapters: 6  },
-  { id: 50, name: 'Philippians',      abbrev: 'Phi',  chapters: 4  },
-  { id: 58, name: 'Hebrews',          abbrev: 'Heb',  chapters: 13 },
-  { id: 59, name: 'James',            abbrev: 'Jam',  chapters: 5  },
-  { id: 66, name: 'Revelation',       abbrev: 'Rev',  chapters: 22 },
-]
-
-interface VerseData {
-  [verseNum: string]: string
-}
+import {
+  BIBLE_VERSIONS,
+  loadBibleVersion,
+  type ParsedBook,
+  type ParsedChapter,
+  type ParsedVerse,
+} from '@/utils/bibleService'
+import clsx from 'clsx'
 
 export default function Bible() {
-  const [selectedBook,    setBook]    = useState<BibleBook>(BOOKS.find(b => b.name === 'John')!)
-  const [selectedChapter, setChapter] = useState(3)
-  const [verses,          setVerses]  = useState<VerseData>({})
-  const [loading,         setLoading] = useState(false)
-  const [error,           setError]   = useState<string | null>(null)
+  const [selectedVersionKey, setVersionKey] = useState<string>('WEB')
+  const [books, setBooks]                   = useState<ParsedBook[]>([])
+  const [selectedBookIndex, setBookIndex]   = useState<number>(42) // John (index 42 in 0-indexed list)
+  const [selectedChapterNum, setChapterNum] = useState<number>(3)  // John 3
+  const [loading, setLoading]               = useState<boolean>(true)
+  const [statusMessage, setStatusMessage]   = useState<string>('')
+  const [error, setError]                   = useState<string | null>(null)
 
+  // Reader UI settings
+  const [testamentFilter, setTestamentFilter] = useState<'ALL' | 'OT' | 'NT'>('ALL')
+  const [bookSearch, setBookSearch]           = useState<string>('')
+  const [fontSize, setFontSize]               = useState<'sm' | 'base' | 'lg' | 'xl'>('base')
+  const [copiedVerse, setCopiedVerse]         = useState<number | null>(null)
+  const [isPlayingAudio, setIsPlayingAudio]   = useState<boolean>(false)
+
+  // Load Bible version when changed
   useEffect(() => {
-    if (!selectedBook) return
     setLoading(true)
     setError(null)
-    setVerses({})
+    setStatusMessage(`Preparing ${selectedVersionKey}...`)
 
-    const path = `bible/NIV/${selectedBook.abbrev}/${selectedChapter}`
-    get(child(dbRef(rtdb), path))
-      .then(snap => {
-        if (snap.exists()) {
-          setVerses(snap.val() as VerseData)
-        } else {
-          setError('Chapter not found. The Bible may still be loading.')
-        }
+    loadBibleVersion(selectedVersionKey, msg => setStatusMessage(msg))
+      .then(loadedBooks => {
+        setBooks(loadedBooks)
         setLoading(false)
       })
-      .catch(() => {
-        setError('Unable to load Bible text. Please check your connection.')
+      .catch(err => {
+        setError(err.message || 'Unable to load Bible version.')
         setLoading(false)
       })
-  }, [selectedBook, selectedChapter])
+  }, [selectedVersionKey])
+
+  // Current active book and chapter
+  const currentBook: ParsedBook | undefined = books[selectedBookIndex] || books[0]
+
+  const currentChapter: ParsedChapter | undefined = useMemo(() => {
+    if (!currentBook) return undefined
+    return currentBook.chapters.find(c => c.chapter === selectedChapterNum) || currentBook.chapters[0]
+  }, [currentBook, selectedChapterNum])
+
+  // Filtered books for the book selector modal / dropdown
+  const filteredBooks = useMemo(() => {
+    return books.filter(b => {
+      const matchesTestament =
+        testamentFilter === 'ALL' ||
+        (testamentFilter === 'OT' && b.testament === 'OT') ||
+        (testamentFilter === 'NT' && b.testament === 'NT')
+
+      const matchesSearch =
+        !bookSearch.trim() || b.name.toLowerCase().includes(bookSearch.toLowerCase().trim())
+
+      return matchesTestament && matchesSearch
+    })
+  }, [books, testamentFilter, bookSearch])
+
+  // Navigation handlers
+  function handlePrevChapter() {
+    if (!currentBook) return
+    if (selectedChapterNum > 1) {
+      setChapterNum(selectedChapterNum - 1)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else if (selectedBookIndex > 0) {
+      const prevBook = books[selectedBookIndex - 1]
+      setBookIndex(selectedBookIndex - 1)
+      setChapterNum(prevBook.chapters.length)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
+  function handleNextChapter() {
+    if (!currentBook) return
+    if (selectedChapterNum < currentBook.chapters.length) {
+      setChapterNum(selectedChapterNum + 1)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else if (selectedBookIndex < books.length - 1) {
+      setBookIndex(selectedBookIndex + 1)
+      setChapterNum(1)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
+  function handleCopyVerse(verse: ParsedVerse) {
+    if (!currentBook) return
+    const text = `"${verse.text}" — ${currentBook.name} ${currentChapter?.chapter}:${verse.number} (${selectedVersionKey})`
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedVerse(verse.number)
+      setTimeout(() => setCopiedVerse(null), 2000)
+    })
+  }
+
+  function toggleSpeech() {
+    if (!('speechSynthesis' in window) || !currentChapter || !currentBook) return
+
+    if (isPlayingAudio) {
+      window.speechSynthesis.cancel()
+      setIsPlayingAudio(false)
+      return
+    }
+
+    window.speechSynthesis.cancel()
+    const fullText = `${currentBook.name} chapter ${currentChapter.chapter}. ` +
+      currentChapter.verses.map(v => `${v.number}. ${v.text}`).join(' ')
+
+    const utterance = new SpeechSynthesisUtterance(fullText)
+    utterance.rate = 0.95
+    utterance.onend = () => setIsPlayingAudio(false)
+    utterance.onerror = () => setIsPlayingAudio(false)
+
+    // Set Hindi voice if Hindi is selected
+    if (selectedVersionKey === 'HINDI') {
+      utterance.lang = 'hi-IN'
+    } else if (selectedVersionKey === 'RV1909') {
+      utterance.lang = 'es-ES'
+    } else {
+      utterance.lang = 'en-US'
+    }
+
+    setIsPlayingAudio(true)
+    window.speechSynthesis.speak(utterance)
+  }
+
+  const selectedVersionInfo = BIBLE_VERSIONS.find(v => v.key === selectedVersionKey) || BIBLE_VERSIONS[0]
 
   return (
     <>
       <SEO
-        title="Read the Bible"
-        description="Read the Bible online. Browse books, chapters, and verses from the New International Version (NIV)."
+        title={`Read the Holy Bible — ${selectedVersionInfo.name}`}
+        description={`Read the full 66 books of the Holy Bible online. Complete Old & New Testament with translations: WEB, KJV, ASV, BSB, Hindi, and Spanish.`}
         canonical="/bible"
       />
 
-      <main id="main-content" className="max-w-3xl mx-auto px-4 py-8">
+      <main id="main-content" className="max-w-4xl mx-auto px-4 py-8">
+        {/* ── Page Header ── */}
         <header className="mb-6">
-          <h1 className="section-title mb-1">Read the Bible</h1>
-          <p className="text-gray-500 text-sm">New International Version (NIV)</p>
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-sacred-600 uppercase tracking-widest mb-1">
+            <span>✝</span> Complete Scripture Reader
+          </div>
+          <h1 className="section-title mb-1">The Holy Bible</h1>
+          <p className="text-gray-500 text-sm">
+            Read and search all 66 sacred books with multiple authentic translations
+          </p>
         </header>
 
-        {/* Book + Chapter selectors */}
-        <div className="flex gap-3 mb-6">
-          <div className="flex-1">
-            <label htmlFor="book-select" className="sr-only">Select book</label>
-            <select
-              id="book-select"
-              value={selectedBook.id}
-              onChange={e => {
-                const book = BOOKS.find(b => b.id === Number(e.target.value))!
-                setBook(book)
-                setChapter(1)
-              }}
-              className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-sacred-500"
-            >
-              {BOOKS.map(book => (
-                <option key={book.id} value={book.id}>{book.name}</option>
-              ))}
-            </select>
+        {/* ── Controls Toolbar ── */}
+        <div className="card p-4 mb-6 shadow-sm space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {/* 1. Version Selector */}
+            <div>
+              <label htmlFor="version-select" className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">
+                Translation
+              </label>
+              <select
+                id="version-select"
+                value={selectedVersionKey}
+                onChange={e => setVersionKey(e.target.value)}
+                className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm bg-white font-medium focus:ring-2 focus:ring-sacred-500 focus:outline-none"
+              >
+                {BIBLE_VERSIONS.map(v => (
+                  <option key={v.key} value={v.key}>
+                    {v.name} ({v.language})
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* 2. Book Selector */}
+            <div>
+              <label htmlFor="book-select" className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">
+                Book ({books.length} Books)
+              </label>
+              <select
+                id="book-select"
+                disabled={loading || books.length === 0}
+                value={selectedBookIndex}
+                onChange={e => {
+                  setBookIndex(Number(e.target.value))
+                  setChapterNum(1)
+                }}
+                className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm bg-white font-medium focus:ring-2 focus:ring-sacred-500 focus:outline-none"
+              >
+                {books.map((b, idx) => (
+                  <option key={b.id || idx} value={idx}>
+                    {idx + 1}. {b.name} ({b.chapters.length} ch)
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* 3. Chapter Selector */}
+            <div>
+              <label htmlFor="chapter-select" className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">
+                Chapter
+              </label>
+              <select
+                id="chapter-select"
+                disabled={loading || !currentBook}
+                value={selectedChapterNum}
+                onChange={e => setChapterNum(Number(e.target.value))}
+                className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm bg-white font-medium focus:ring-2 focus:ring-sacred-500 focus:outline-none"
+              >
+                {currentBook?.chapters.map(c => (
+                  <option key={c.chapter} value={c.chapter}>
+                    Chapter {c.chapter}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
-          <div className="w-28">
-            <label htmlFor="chapter-select" className="sr-only">Select chapter</label>
-            <select
-              id="chapter-select"
-              value={selectedChapter}
-              onChange={e => setChapter(Number(e.target.value))}
-              className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-sacred-500"
-            >
-              {Array.from({ length: selectedBook.chapters }, (_, i) => i + 1).map(ch => (
-                <option key={ch} value={ch}>Ch. {ch}</option>
+
+          {/* Quick Filter & Search Bar for Books */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-gray-100">
+            <div className="inline-flex rounded-lg bg-gray-100 p-0.5" role="group" aria-label="Filter testament">
+              {(['ALL', 'OT', 'NT'] as const).map(t => (
+                <button
+                  key={t}
+                  onClick={() => setTestamentFilter(t)}
+                  className={clsx(
+                    'px-3 py-1 text-xs font-semibold rounded-md transition-colors',
+                    testamentFilter === t ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-600 hover:text-gray-900'
+                  )}
+                >
+                  {t === 'ALL' ? 'All (66)' : t === 'OT' ? 'Old Testament (39)' : 'New Testament (27)'}
+                </button>
               ))}
-            </select>
+            </div>
+
+            {/* Font Size & Audio Controls */}
+            <div className="flex items-center gap-2">
+              {'speechSynthesis' in window && (
+                <button
+                  onClick={toggleSpeech}
+                  disabled={loading}
+                  className={clsx(
+                    'inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-lg border transition-colors',
+                    isPlayingAudio
+                      ? 'bg-sacred-600 text-white border-sacred-600'
+                      : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
+                  )}
+                  aria-label={isPlayingAudio ? 'Stop reading' : 'Listen to chapter audio'}
+                >
+                  <span>{isPlayingAudio ? '⏹️' : '🔊'}</span>
+                  <span className="hidden sm:inline">{isPlayingAudio ? 'Stop' : 'Listen'}</span>
+                </button>
+              )}
+
+              <div className="inline-flex rounded-lg border border-gray-200 bg-white p-0.5 text-xs font-bold text-gray-600">
+                <button
+                  onClick={() => setFontSize('sm')}
+                  className={clsx('px-2 py-1 rounded', fontSize === 'sm' && 'bg-sacred-100 text-sacred-800')}
+                  title="Small text"
+                >
+                  A-
+                </button>
+                <button
+                  onClick={() => setFontSize('base')}
+                  className={clsx('px-2 py-1 rounded', fontSize === 'base' && 'bg-sacred-100 text-sacred-800')}
+                  title="Normal text"
+                >
+                  A
+                </button>
+                <button
+                  onClick={() => setFontSize('lg')}
+                  className={clsx('px-2 py-1 rounded', fontSize === 'lg' && 'bg-sacred-100 text-sacred-800')}
+                  title="Large text"
+                >
+                  A+
+                </button>
+                <button
+                  onClick={() => setFontSize('xl')}
+                  className={clsx('px-2 py-1 rounded', fontSize === 'xl' && 'bg-sacred-100 text-sacred-800')}
+                  title="Extra large text"
+                >
+                  A++
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Breadcrumb */}
-        <p className="text-xs text-gray-400 uppercase tracking-wider mb-4">
-          {selectedBook.name} · Chapter {selectedChapter}
-        </p>
-
-        {/* Verses */}
+        {/* ── Error Banner ── */}
         {error && (
-          <div role="alert" className="card p-4 text-red-600 text-sm bg-red-50 border-red-200 mb-4">{error}</div>
+          <div role="alert" className="card p-4 text-red-800 bg-red-50 border-red-200 mb-6">
+            <p className="font-semibold text-sm mb-1">Failed to load translation</p>
+            <p className="text-xs">{error}</p>
+          </div>
         )}
 
-        <div className="card p-5 sm:p-6">
-          {loading ? (
-            <div className="space-y-3">
-              {Array.from({ length: 12 }).map((_, i) => (
-                <div key={i} className="flex gap-3">
-                  <Skeleton className="h-4 w-5 shrink-0" />
-                  <SkeletonLines lines={1} />
+        {/* ── Reader Viewport ── */}
+        {loading ? (
+          <div className="card p-12 text-center text-gray-500 animate-pulse">
+            <span className="text-4xl block mb-3 animate-spin">✝</span>
+            <h3 className="font-serif font-bold text-lg text-gray-800 mb-1">
+              Loading {selectedVersionInfo.name}
+            </h3>
+            <p className="text-xs text-gray-400">{statusMessage || 'Preparing scripture text...'}</p>
+          </div>
+        ) : !currentBook || !currentChapter ? (
+          <div className="card p-10 text-center text-gray-500">
+            <p>No chapter data found.</p>
+          </div>
+        ) : (
+          <article className="card shadow-sm overflow-hidden animate-fade-in">
+            {/* Chapter Header Banner */}
+            <div className="bg-gradient-to-r from-sacred-800 via-sacred-700 to-sacred-900 text-white p-6 sm:p-8 flex items-center justify-between">
+              <div>
+                <span className="text-xs uppercase font-bold tracking-widest text-gold-300">
+                  {currentBook.testament === 'OT' ? 'Old Testament' : 'New Testament'}
+                </span>
+                <h2 className="font-serif text-2xl sm:text-3xl font-bold mt-1">
+                  {currentBook.name} {currentChapter.chapter}
+                </h2>
+                <p className="text-xs text-white/80 mt-1">
+                  {selectedVersionInfo.name} • {currentChapter.verses.length} verses
+                </p>
+              </div>
+
+              <div className="text-4xl opacity-30 select-none font-serif" aria-hidden="true">
+                ✝
+              </div>
+            </div>
+
+            {/* Verses Container */}
+            <div
+              className={clsx(
+                'p-6 sm:p-10 leading-relaxed font-serif text-gray-900 space-y-4 select-text',
+                fontSize === 'sm' && 'text-sm sm:text-base leading-relaxed',
+                fontSize === 'base' && 'text-base sm:text-lg leading-loose',
+                fontSize === 'lg' && 'text-lg sm:text-xl leading-loose',
+                fontSize === 'xl' && 'text-xl sm:text-2xl leading-loose'
+              )}
+            >
+              {currentChapter.verses.map(v => (
+                <div
+                  key={v.number}
+                  id={`verse-${v.number}`}
+                  onClick={() => handleCopyVerse(v)}
+                  className="group relative cursor-pointer hover:bg-gold-50/50 p-1.5 -mx-1.5 rounded-lg transition-colors"
+                  title="Click to copy verse"
+                >
+                  <sup className="font-sans font-bold text-sacred-600 text-xs sm:text-sm mr-2 select-none group-hover:text-gold-600">
+                    {v.number}
+                  </sup>
+                  <span className="text-gray-800 group-hover:text-black">{v.text}</span>
+
+                  {copiedVerse === v.number && (
+                    <span className="ml-2 font-sans text-xs bg-sacred-600 text-white px-2 py-0.5 rounded-md shadow-sm">
+                      Copied! ✓
+                    </span>
+                  )}
                 </div>
               ))}
             </div>
-          ) : (
-            <div className="space-y-3">
-              {Object.entries(verses).map(([verseNum, text]) => (
-                <p key={verseNum} className="text-gray-700 leading-relaxed">
-                  <sup className="text-sacred-500 font-bold text-xs mr-1">{verseNum}</sup>
-                  {text}
-                </p>
-              ))}
-            </div>
-          )}
-        </div>
 
-        {/* Prev / Next chapter */}
-        <div className="flex justify-between mt-4">
-          <button
-            onClick={() => setChapter(c => Math.max(1, c - 1))}
-            disabled={selectedChapter <= 1}
-            className="btn-secondary text-sm disabled:opacity-40"
-            aria-label="Previous chapter"
-          >
-            ← Previous
-          </button>
-          <button
-            onClick={() => setChapter(c => Math.min(selectedBook.chapters, c + 1))}
-            disabled={selectedChapter >= selectedBook.chapters}
-            className="btn-secondary text-sm disabled:opacity-40"
-            aria-label="Next chapter"
-          >
-            Next →
-          </button>
-        </div>
+            {/* Chapter Navigation Footer */}
+            <footer className="bg-gray-50 border-t border-gray-100 p-4 sm:p-6 flex items-center justify-between">
+              <button
+                onClick={handlePrevChapter}
+                disabled={selectedBookIndex === 0 && selectedChapterNum === 1}
+                className="btn-ghost text-xs sm:text-sm border border-gray-200 disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5"
+              >
+                <span>←</span>
+                <span>Previous Chapter</span>
+              </button>
+
+              <div className="text-xs text-gray-400 font-medium hidden sm:block">
+                Click any verse to copy
+              </div>
+
+              <button
+                onClick={handleNextChapter}
+                disabled={selectedBookIndex === books.length - 1 && selectedChapterNum === currentBook.chapters.length}
+                className="btn-primary text-xs sm:text-sm flex items-center gap-1.5"
+              >
+                <span>Next Chapter</span>
+                <span>→</span>
+              </button>
+            </footer>
+          </article>
+        )}
+
+        {/* ── All 66 Books Quick Grid ── */}
+        <section className="mt-12 card p-6" aria-label="Browse all 66 books">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+            <h3 className="font-serif font-bold text-lg text-gray-900">
+              Browse All Books of the Bible
+            </h3>
+            <input
+              type="text"
+              placeholder="Search books (e.g. Genesis, John)..."
+              value={bookSearch}
+              onChange={e => setBookSearch(e.target.value)}
+              className="border border-gray-200 rounded-xl px-3 py-1.5 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-sacred-500 w-full sm:w-64"
+            />
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
+            {filteredBooks.map((b, idx) => {
+              const originalIndex = books.indexOf(b)
+              const isSelected = originalIndex === selectedBookIndex
+              return (
+                <button
+                  key={b.id || idx}
+                  onClick={() => {
+                    setBookIndex(originalIndex)
+                    setChapterNum(1)
+                    window.scrollTo({ top: 180, behavior: 'smooth' })
+                  }}
+                  className={clsx(
+                    'p-2.5 rounded-xl border text-left text-xs transition-all',
+                    isSelected
+                      ? 'bg-sacred-600 text-white border-sacred-600 shadow-md font-semibold'
+                      : 'bg-white text-gray-700 border-gray-200 hover:border-sacred-300 hover:bg-gray-50'
+                  )}
+                >
+                  <p className="font-semibold truncate">{b.name}</p>
+                  <p className={clsx('text-[10px] mt-0.5', isSelected ? 'text-sacred-200' : 'text-gray-400')}>
+                    {b.chapters.length} chapters
+                  </p>
+                </button>
+              )
+            })}
+          </div>
+        </section>
       </main>
     </>
   )

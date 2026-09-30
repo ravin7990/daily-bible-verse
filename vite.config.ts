@@ -26,7 +26,16 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,json}'],
+        globIgnores: ['**/bibles/**', '**/stats.html'],
         runtimeCaching: [
+          {
+            urlPattern: /.*\/bibles\/.*\.json/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'bible-versions-cache',
+              expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 365 },
+            },
+          },
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
             handler: 'CacheFirst',
