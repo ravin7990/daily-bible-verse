@@ -54,11 +54,15 @@ export interface Prayer {
 
 // ── Jesus Teaching types ──────────────────────────────────────────────────
 export interface JesusTeaching {
-  id:          string
+  id:          number | string
+  topic?:      string
   title:       string
-  scripture:   string
-  content:     string
   reference:   string
+  teaching?:   string
+  meaning?:    string
+  application?: string
+  content?:    string
+  scripture?:  string
   tag?:        string
   image_name?: string
 }
