@@ -21,7 +21,7 @@ export default function Stories() {
   const PER_PAGE = 12
 
   useEffect(() => {
-    fetch('/stories.json')
+    fetch(`${import.meta.env.BASE_URL}stories.json`)
       .then(r => r.json())
       .then((data: Story[]) => { setStories(data); setStoriesLoading(false) })
       .catch(() => setStoriesLoading(false))

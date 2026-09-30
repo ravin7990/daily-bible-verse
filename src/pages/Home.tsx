@@ -23,7 +23,7 @@ export default function Home() {
       setLoading(false)
     })
     // Fetch only first 6 stories lazily
-    fetch('/stories.json')
+    fetch(`${import.meta.env.BASE_URL}stories.json`)
       .then(r => r.json())
       .then((data: Story[]) => { setFeatured(data.slice(0, 6)); setStoriesLoading(false) })
       .catch(() => setStoriesLoading(false))

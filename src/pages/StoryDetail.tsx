@@ -42,7 +42,7 @@ export default function StoryDetail() {
   const [stories, setStories] = useState<Story[]>([])
 
   useEffect(() => {
-    fetch('/stories.json')
+    fetch(`${import.meta.env.BASE_URL}stories.json`)
       .then(r => r.json())
       .then((data: Story[]) => setStories(data))
       .catch(() => {})
