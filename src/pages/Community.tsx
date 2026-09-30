@@ -57,7 +57,7 @@ export default function Community() {
                   : 'bg-white text-gray-600 border-gray-200 hover:border-sacred-300'
               }`}
             >
-              {cat === 'Daily Backgrounds' ? '📅 Daily Backgrounds' : cat}
+              {cat === 'Past Daily Verses' ? '📅 Past Daily Verses' : cat}
             </button>
           ))}
         </div>

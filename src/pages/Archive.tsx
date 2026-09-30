@@ -8,22 +8,26 @@ import clsx from 'clsx'
 
 function getMonthOptions() {
   const options: { key: string; label: string }[] = []
-  // Show 16 months (Sept 2025 – Dec 2026)
-  for (let y = 2025; y <= 2026; y++) {
+  const now = new Date()
+  const currentY = now.getFullYear()
+  const currentM = now.getMonth() + 1
+
+  // Show months from Sept 2025 up to current month (strictly exclude future months)
+  for (let y = 2025; y <= currentY; y++) {
     const startM = y === 2025 ? 9 : 1
-    const endM   = y === 2026 ? 12 : 12
+    const endM   = y === currentY ? currentM : 12
     for (let m = startM; m <= endM; m++) {
       const key   = `${y}_${String(m).padStart(2, '0')}`
       const label = new Date(y, m - 1, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
       options.push({ key, label })
     }
   }
-  return options.reverse() // newest first
+  return options.reverse() // Newest month first
 }
 
 export default function Archive() {
   const months = getMonthOptions()
-  const [selectedMonth, setSelectedMonth] = useState(months[0].key)
+  const [selectedMonth, setSelectedMonth] = useState(months[0]?.key || '2026_09')
   const [entries, setEntries] = useState<DailyContent[]>([])
   const [selectedDate, setSelectedDate] = useState<string | null>(null)
   const [dayContent, setDayContent] = useState<DailyContent | null>(null)
@@ -32,13 +36,23 @@ export default function Archive() {
 
   useEffect(() => {
     setLoading(true)
-    setSelectedDate(null)
-    setDayContent(null)
     fetchMonthContent(selectedMonth).then((data: DailyContent[]) => {
-      setEntries(data)
+      // Strictly include only past and today's verses (NEVER reveal future dates)
+      const valid = data.filter(e => e.date <= today)
+      setEntries(valid)
       setLoading(false)
+
+      if (valid.length > 0) {
+        // Pre-select today if present, or the newest available past verse in this month
+        const match = valid.find(e => e.date === today) || valid[valid.length - 1]
+        setSelectedDate(match.date)
+        setDayContent(match)
+      } else {
+        setSelectedDate(null)
+        setDayContent(null)
+      }
     })
-  }, [selectedMonth])
+  }, [selectedMonth, today])
 
   function handleDaySelect(entry: DailyContent) {
     setSelectedDate(entry.date)
@@ -53,14 +67,14 @@ export default function Archive() {
     <>
       <SEO
         title="Verse Archive"
-        description="Browse all past Bible verses by date. Revisit daily Scripture, reflections, and prayers from previous months."
+        description="Browse all past Bible verses by date. Revisit daily Scripture, reflections, prayers, and wallpapers from previous dates."
         canonical="/archive"
       />
 
       <main id="main-content" className="max-w-6xl mx-auto px-4 py-8">
         <header className="mb-6">
           <h1 className="section-title mb-1">Verse Archive</h1>
-          <p className="text-gray-500 text-sm">Browse past daily verses by date</p>
+          <p className="text-gray-500 text-sm">Browse past daily verses and wallpapers by date</p>
         </header>
 
         <div className="flex flex-col lg:flex-row gap-6">
@@ -83,7 +97,7 @@ export default function Archive() {
 
             {/* Date list */}
             <div
-              className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm"
+              className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm max-h-[500px] overflow-y-auto"
               role="listbox"
               aria-label="Select a date"
             >
@@ -92,9 +106,9 @@ export default function Archive() {
                   <div key={i} className="h-12 border-b border-gray-50 animate-pulse bg-gray-100" />
                 ))
               ) : entries.length === 0 ? (
-                <p className="p-4 text-sm text-gray-400">No verses found for this month.</p>
+                <p className="p-4 text-sm text-gray-400">No past verses found for this month.</p>
               ) : (
-                entries.map(entry => (
+                [...entries].reverse().map(entry => (
                   <button
                     key={entry.date}
                     role="option"
@@ -105,10 +119,13 @@ export default function Archive() {
                       selectedDate === entry.date
                         ? 'bg-sacred-50 text-sacred-700 font-semibold'
                         : 'text-gray-700 hover:bg-gray-50',
-                      entry.date === today && 'ring-inset ring-1 ring-gold-400'
+                      entry.date === today && 'ring-inset ring-1 ring-gold-400 font-medium'
                     )}
                   >
-                    <span>{formatShortDate(entry.date)}</span>
+                    <span>
+                      {entry.date === today ? '✨ ' : ''}
+                      {formatShortDate(entry.date)}
+                    </span>
                     <span className="text-xs text-gray-400 truncate max-w-[120px]">
                       {entry.verse_of_the_day.reference}
                     </span>
