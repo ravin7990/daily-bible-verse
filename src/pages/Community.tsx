@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import SEO from '@/components/layout/SEO'
 import { Skeleton } from '@/components/ui/Skeleton'
 import { fetchCommunityCreations } from '@/firebase/firestore'
-import { fetchGalleryImages, GALLERY_CATEGORIES, type GalleryImage } from '@/firebase/storage'
+import { fetchGalleryImages, WALLPAPER_CATEGORIES, type GalleryImage } from '@/firebase/storage'
 import type { CommunityCreation } from '@/types'
 
 export default function Community() {
@@ -93,7 +93,7 @@ export default function Community() {
             role="group"
             aria-label="Filter gallery wallpapers by category"
           >
-            {GALLERY_CATEGORIES.map(cat => (
+            {WALLPAPER_CATEGORIES.map(cat => (
               <button
                 key={cat}
                 onClick={() => setCategory(cat)}
