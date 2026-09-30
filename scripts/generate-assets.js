@@ -64,7 +64,7 @@ async function generatePngs() {
 
 // 3. Generate comprehensive sitemap.xml
 function generateSitemap() {
-  const baseUrl = process.env.VITE_SITE_URL || 'https://yourusername.github.io'
+  const baseUrl = process.env.VITE_SITE_URL || 'https://ravin7990.github.io/daily-bible-verse'
   const today = new Date().toISOString().slice(0, 10)
 
   const staticRoutes = [
@@ -121,7 +121,7 @@ function generateSitemap() {
 
 // 4. Generate llms.txt & llms-full.txt for Agentic Browsing (Lighthouse / PageSpeed AI agent index)
 function generateLlmsTxt() {
-  const baseUrl = process.env.VITE_SITE_URL || 'https://yourusername.github.io'
+  const baseUrl = process.env.VITE_SITE_URL || 'https://ravin7990.github.io/daily-bible-verse'
 
   const llmsContent = `# Bible Verse of the Day
 > Daily Scripture, Reflection, Prayer, and Life Application from the Word of God.

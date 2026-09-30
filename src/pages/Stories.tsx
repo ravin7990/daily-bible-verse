@@ -5,7 +5,7 @@ import { StoryCardSkeleton } from '@/components/ui/Skeleton'
 import { storiesCollectionSchema } from '@/utils/structuredData'
 import type { Story } from '@/types'
 
-const SITE_URL = import.meta.env.VITE_SITE_URL ?? 'https://yourusername.github.io'
+const SITE_URL = import.meta.env.VITE_SITE_URL ?? 'https://ravin7990.github.io/daily-bible-verse'
 
 // Derive unique tags (computed once from fetched data)
 function getUniqueTags(stories: Story[]) {

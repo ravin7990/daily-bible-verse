@@ -11,8 +11,8 @@ interface SEOProps {
 }
 
 const SITE_NAME = 'Bible Verse of the Day'
-const BASE_URL  = import.meta.env.VITE_SITE_URL ?? 'https://yourusername.github.io'
-const OG_IMAGE  = `${BASE_URL}/og-image.png`
+const BASE_URL  = import.meta.env.VITE_SITE_URL ?? 'https://ravin7990.github.io/daily-bible-verse'
+const OG_IMAGE  = `${BASE_URL}/icons/icon-512.png`
 
 export default function SEO({
   title,

@@ -8,7 +8,7 @@ import { fetchDailyContent, todayStr } from '@/utils/dateUtils'
 import { websiteSchema, dailyVerseSchema } from '@/utils/structuredData'
 import type { DailyContent, Story } from '@/types'
 
-const SITE_URL = import.meta.env.VITE_SITE_URL ?? 'https://yourusername.github.io'
+const SITE_URL = import.meta.env.VITE_SITE_URL ?? 'https://ravin7990.github.io/daily-bible-verse'
 
 export default function Home() {
   const [content, setContent]               = useState<DailyContent | null>(null)

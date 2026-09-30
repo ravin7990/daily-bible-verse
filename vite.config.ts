@@ -5,7 +5,7 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig({
-  base: process.env.VITE_BASE_PATH || '/',
+  base: process.env.VITE_BASE_PATH || (process.env.NODE_ENV === 'production' ? '/daily-bible-verse/' : '/'),
   plugins: [
     react(),
     VitePWA({

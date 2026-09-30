@@ -5,7 +5,7 @@ import StoryBanner from '@/components/ui/StoryBanner'
 import { storySchema } from '@/utils/structuredData'
 import type { Story } from '@/types'
 
-const SITE_URL = import.meta.env.VITE_SITE_URL ?? 'https://yourusername.github.io'
+const SITE_URL = import.meta.env.VITE_SITE_URL ?? 'https://ravin7990.github.io/daily-bible-verse'
 
 interface ExpandableSectionProps {
   title: string

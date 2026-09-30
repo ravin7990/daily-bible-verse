@@ -5,15 +5,15 @@
 Bible Verse of the Day is a mobile-first, high-performance web and mobile app that delivers daily biblical devotionals, over 180+ contextualized Bible stories, Jesus's teachings from the Gospels, curated prayers across key categories, and complete New International Version (NIV) Bible chapter readings.
 
 ## Key Sections
-- [Daily Verse & Devotional](https://yourusername.github.io/): Today's curated scripture verse, deep reflection, guided prayer, and practical life application.
-- [Verse Archive](https://yourusername.github.io/archive): Historical archive of past daily verses organized by month (2025 - 2026).
-- [Bible Stories](https://yourusername.github.io/stories): Over 180 narrative Bible stories complete with tags (Prophecy, Faith, Miracles, Kings, Jesus), reflections, and prayers.
-- [Prayer Library](https://yourusername.github.io/prayers): Prayers categorized by Morning, Evening, Healing, Strength, Thanksgiving, Protection, Forgiveness, and Family.
-- [Jesus Teachings](https://yourusername.github.io/teachings): Core teachings and parables of Jesus Christ recorded in the Gospels.
-- [Read the Bible](https://yourusername.github.io/bible): Complete NIV Bible reader by book and chapter.
-- [Community Creations](https://yourusername.github.io/community): Verse art and studio creations shared by the global faith community.
+- [Daily Verse & Devotional](https://ravin7990.github.io/daily-bible-verse/): Today's curated scripture verse, deep reflection, guided prayer, and practical life application.
+- [Verse Archive](https://ravin7990.github.io/daily-bible-verse/archive): Historical archive of past daily verses organized by month (2025 - 2026).
+- [Bible Stories](https://ravin7990.github.io/daily-bible-verse/stories): Over 180 narrative Bible stories complete with tags (Prophecy, Faith, Miracles, Kings, Jesus), reflections, and prayers.
+- [Prayer Library](https://ravin7990.github.io/daily-bible-verse/prayers): Prayers categorized by Morning, Evening, Healing, Strength, Thanksgiving, Protection, Forgiveness, and Family.
+- [Jesus Teachings](https://ravin7990.github.io/daily-bible-verse/teachings): Core teachings and parables of Jesus Christ recorded in the Gospels.
+- [Read the Bible](https://ravin7990.github.io/daily-bible-verse/bible): Complete NIV Bible reader by book and chapter.
+- [Community Creations](https://ravin7990.github.io/daily-bible-verse/community): Verse art and studio creations shared by the global faith community.
 
 ## Technical Specifications
 - Built with: React 18, Vite, TypeScript, Tailwind CSS, Firebase RTDB & Firestore.
-- API / Data Endpoints: Public JSON datasets for offline reading and static indexing at https://yourusername.github.io/stories.json.
+- API / Data Endpoints: Public JSON datasets for offline reading and static indexing at https://ravin7990.github.io/daily-bible-verse/stories.json.
 - Open Graph, JSON-LD schema (Article, WebSite, CollectionPage, Organization) on all primary pages.
