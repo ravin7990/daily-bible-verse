@@ -1,4 +1,4 @@
-import { ref, listAll, getDownloadURL } from 'firebase/storage'
+import { ref, listAll, getDownloadURL, type StorageReference } from 'firebase/storage'
 import { storage } from './config'
 
 export interface GalleryImage {
@@ -6,25 +6,41 @@ export interface GalleryImage {
   name: string
   url: string
   category: string
-  aspectRatio?: '9:16' | '3:4' | '1:1' | 'standard'
 }
 
-export const WALLPAPER_CATEGORIES = [
+export const APPROVED_CATEGORIES = [
   'All',
-  'Phone (9:16)',
-  'Portrait (3:4)',
-  'Square (1:1)',
-  'Share Backgrounds',
-  'Hope',
-  'Strength',
+  'Daily Backgrounds',
   'Faith',
-  'Love',
   'Grace',
+  'Hope',
+  'Love',
   'Peace',
   'Praise',
+  'Prayer',
+  'Strength',
 ] as const
 
-async function fetchFromFolder(folderName: string, categoryLabel: string, aspectRatio?: GalleryImage['aspectRatio']): Promise<GalleryImage[]> {
+export type ApprovedCategory = typeof APPROVED_CATEGORIES[number]
+
+/**
+ * Recursively collect all files under a storage directory (e.g. imagebackground/2026/09)
+ */
+async function collectFilesRecursively(folderRef: StorageReference): Promise<StorageReference[]> {
+  try {
+    const res = await listAll(folderRef)
+    const subPromises = res.prefixes.map(prefix => collectFilesRecursively(prefix))
+    const subItems = await Promise.all(subPromises)
+    return [...res.items, ...subItems.flat()]
+  } catch {
+    return []
+  }
+}
+
+/**
+ * Fetch images from a single folder reference
+ */
+async function fetchFromFolder(folderName: string, categoryLabel: string): Promise<GalleryImage[]> {
   try {
     const folderRef = ref(storage, folderName)
     const listRes = await listAll(folderRef)
@@ -37,7 +53,6 @@ async function fetchFromFolder(folderName: string, categoryLabel: string, aspect
             name: item.name.replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' '),
             url,
             category: categoryLabel,
-            aspectRatio,
           }
         } catch {
           return null
@@ -51,76 +66,92 @@ async function fetchFromFolder(folderName: string, categoryLabel: string, aspect
 }
 
 /**
- * Fetch images from Firebase Storage based on user's exact folders:
- * - New_9_16 / new_9_16
- * - New_3_4 / new_3_4
- * - New_1_1 / new_1_1
- * - share_backgrounds
- * - gallery_images/{category}
+ * Fetch all files from imagebackground folder and all its subfolders
  */
-export async function fetchGalleryImages(filter = 'All'): Promise<GalleryImage[]> {
+async function fetchAllImageBackgrounds(): Promise<GalleryImage[]> {
   try {
-    // 1. Phone 9:16
-    if (filter === 'Phone (9:16)') {
-      let items = await fetchFromFolder('New_9_16', 'Phone 9:16', '9:16')
-      if (items.length === 0) items = await fetchFromFolder('new_9_16', 'Phone 9:16', '9:16')
-      return items
+    const rootRef = ref(storage, 'imagebackground')
+    const allRefs = await collectFilesRecursively(rootRef)
+    const images = await Promise.all(
+      allRefs.map(async item => {
+        try {
+          const url = await getDownloadURL(item)
+          return {
+            id: item.fullPath,
+            name: item.name.replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' '),
+            url,
+            category: 'Daily Backgrounds',
+          }
+        } catch {
+          return null
+        }
+      })
+    )
+    return images.filter(Boolean) as GalleryImage[]
+  } catch {
+    return []
+  }
+}
+
+/**
+ * Fetch category images checking both gallery_images/{cat} and {cat}
+ */
+async function fetchCategoryImages(cat: string): Promise<GalleryImage[]> {
+  const lower = cat.toLowerCase()
+  const [fromGallery, fromRoot] = await Promise.all([
+    fetchFromFolder(`gallery_images/${lower}`, cat),
+    fetchFromFolder(lower, cat),
+  ])
+
+  const seen = new Set<string>()
+  const merged: GalleryImage[] = []
+  for (const img of [...fromGallery, ...fromRoot]) {
+    if (!seen.has(img.id)) {
+      seen.add(img.id)
+      merged.push(img)
+    }
+  }
+  return merged
+}
+
+/**
+ * Fetch approved images:
+ * - faith, grace, hope, love, peace, praise, prayer, strength
+ * - all folders from /imagebackground
+ *
+ * EXCLUDED: /New_1_1, /New_3_4, /New_9_16, /community_creations, /share_backgrounds
+ */
+export async function fetchGalleryImages(filter: string = 'All'): Promise<GalleryImage[]> {
+  try {
+    if (filter === 'Daily Backgrounds') {
+      return await fetchAllImageBackgrounds()
     }
 
-    // 2. Portrait 3:4
-    if (filter === 'Portrait (3:4)') {
-      let items = await fetchFromFolder('New_3_4', 'Portrait 3:4', '3:4')
-      if (items.length === 0) items = await fetchFromFolder('new_3_4', 'Portrait 3:4', '3:4')
-      return items
-    }
-
-    // 3. Square 1:1
-    if (filter === 'Square (1:1)') {
-      let items = await fetchFromFolder('New_1_1', 'Square 1:1', '1:1')
-      if (items.length === 0) items = await fetchFromFolder('new_1_1', 'Square 1:1', '1:1')
-      return items
-    }
-
-    // 4. Share backgrounds
-    if (filter === 'Share Backgrounds') {
-      return await fetchFromFolder('share_backgrounds', 'Share Backgrounds', 'standard')
-    }
-
-    // 5. Specific themed category under gallery_images
     if (filter !== 'All') {
-      const lower = filter.toLowerCase()
-      return await fetchFromFolder(`gallery_images/${lower}`, filter, 'standard')
+      return await fetchCategoryImages(filter)
     }
 
-    // 6. 'All' - Fetch from Wallpapers (9:16, 3:4, 1:1), share_backgrounds, and gallery_images
-    const folderQueries = [
-      fetchFromFolder('New_9_16', 'Phone (9:16)', '9:16'),
-      fetchFromFolder('new_9_16', 'Phone (9:16)', '9:16'),
-      fetchFromFolder('New_3_4', 'Portrait (3:4)', '3:4'),
-      fetchFromFolder('new_3_4', 'Portrait (3:4)', '3:4'),
-      fetchFromFolder('New_1_1', 'Square (1:1)', '1:1'),
-      fetchFromFolder('new_1_1', 'Square (1:1)', '1:1'),
-      fetchFromFolder('share_backgrounds', 'Share Backgrounds', 'standard'),
-      fetchFromFolder('gallery_images', 'Gallery', 'standard'),
-      fetchFromFolder('gallery_images/hope', 'Hope', 'standard'),
-      fetchFromFolder('gallery_images/strength', 'Strength', 'standard'),
-      fetchFromFolder('gallery_images/faith', 'Faith', 'standard'),
-      fetchFromFolder('gallery_images/love', 'Love', 'standard'),
+    // Filter === 'All': Query all approved categories and imagebackground
+    const categoryNames = ['Faith', 'Grace', 'Hope', 'Love', 'Peace', 'Praise', 'Prayer', 'Strength']
+    const queries = [
+      fetchAllImageBackgrounds(),
+      ...categoryNames.map(cat => fetchCategoryImages(cat)),
     ]
 
-    const allResults = await Promise.all(folderQueries)
-    // Deduplicate by ID
+    const allBatches = await Promise.all(queries)
     const seen = new Set<string>()
     const merged: GalleryImage[] = []
-    for (const img of allResults.flat()) {
+
+    for (const img of allBatches.flat()) {
       if (!seen.has(img.id)) {
         seen.add(img.id)
         merged.push(img)
       }
     }
+
     return merged
   } catch (error) {
-    console.warn('Firebase Storage fetch warning (ensure CORS is enabled):', error)
+    console.warn('Firebase Storage fetch warning:', error)
     return []
   }
 }
