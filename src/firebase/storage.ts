@@ -9,6 +9,23 @@ export interface GalleryImage {
   date?: string
 }
 
+export interface GalleryItemRef {
+  id: string
+  name: string
+  storageRef?: StorageReference
+  url?: string
+  category: string
+  date?: string
+}
+
+export interface PaginatedGalleryResult {
+  images: GalleryImage[]
+  totalCount: number
+  totalPages: number
+  currentPage: number
+  hasMore: boolean
+}
+
 export const APPROVED_CATEGORIES = [
   'All',
   'Past Daily Verses',
@@ -114,7 +131,15 @@ export async function fetchDailyBackgroundUri(dateStr: string): Promise<string |
 }
 
 /**
- * Recursively collect storage refs under a folder
+ * In-memory caches to guarantee lightning-fast page transitions:
+ * - refsCache: stores the list of collected StorageReferences & metadata per category
+ * - downloadUrlCache: stores resolved download URLs so no URL is ever fetched twice
+ */
+const refsCache = new Map<string, GalleryItemRef[]>()
+const downloadUrlCache = new Map<string, string>()
+
+/**
+ * Recursively collect storage refs under a folder without resolving download URLs
  */
 async function collectFilesRecursively(folderRef: StorageReference): Promise<StorageReference[]> {
   try {
@@ -128,10 +153,11 @@ async function collectFilesRecursively(folderRef: StorageReference): Promise<Sto
 }
 
 /**
- * Fetch all past and today's images from imagebackground.
- * STRICT RULE: Never show future / next day images. Only show past days and today.
+ * Fetch all past and today's item references from imagebackground.
+ * STRICT RULE: Never show future / next day images. Only past days and today.
+ * Does NOT call getDownloadURL — only collects references and metadata.
  */
-export async function fetchPastDailyBackgrounds(): Promise<GalleryImage[]> {
+export async function fetchPastDailyBackgroundRefs(): Promise<GalleryItemRef[]> {
   try {
     const today = new Date().toISOString().slice(0, 10)
     const now = new Date()
@@ -202,136 +228,253 @@ export async function fetchPastDailyBackgrounds(): Promise<GalleryImage[]> {
       }
     }
 
-    // 3. Resolve download URLs and metadata
-    const images = await Promise.all(
-      approvedRefs.map(async item => {
-        try {
-          const url = await getDownloadURL(item)
-          const date = extractDateFromPath(item.name) || extractDateFromPath(item.fullPath)
-          const displayName = date
-            ? `Daily Verse — ${new Date(date + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`
-            : item.name.replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' ')
+    // Convert StorageReferences to GalleryItemRef metadata
+    const itemRefs: GalleryItemRef[] = approvedRefs.map(item => {
+      const date = extractDateFromPath(item.name) || extractDateFromPath(item.fullPath)
+      const displayName = date
+        ? `Daily Verse — ${new Date(date + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`
+        : item.name.replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' ')
 
-          return {
-            id: item.fullPath,
-            name: displayName,
-            url,
-            category: 'Past Daily Verses',
-            date: date || undefined,
-          }
-        } catch {
-          return null
-        }
-      })
-    )
-
-    const validImages = images.filter(Boolean) as GalleryImage[]
+      return {
+        id: item.fullPath,
+        name: displayName,
+        storageRef: item,
+        category: 'Past Daily Verses',
+        date: date || undefined,
+      }
+    })
 
     // Sort newest date first (today, yesterday, older...)
-    return validImages.sort((a, b) => {
+    return itemRefs.sort((a, b) => {
       if (a.date && b.date) return b.date.localeCompare(a.date)
       if (a.date) return -1
       if (b.date) return 1
       return 0
     })
   } catch (error) {
-    console.warn('Error fetching past daily backgrounds:', error)
+    console.warn('Error fetching past daily background refs:', error)
     return []
   }
 }
 
 /**
- * Fetch images from a category folder
+ * Fetch item references from a category folder without resolving URLs
  */
-async function fetchFromFolder(folderName: string, categoryLabel: string): Promise<GalleryImage[]> {
+async function fetchFolderRefs(folderName: string, categoryLabel: string): Promise<GalleryItemRef[]> {
   try {
     const folderRef = ref(storage, folderName)
     const listRes = await listAll(folderRef)
-    const images = await Promise.all(
-      listRes.items.map(async item => {
-        try {
-          const url = await getDownloadURL(item)
-          return {
-            id: item.fullPath,
-            name: item.name.replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' '),
-            url,
-            category: categoryLabel,
-          }
-        } catch {
-          return null
-        }
-      })
-    )
-    return images.filter(Boolean) as GalleryImage[]
+    return listRes.items.map(item => ({
+      id: item.fullPath,
+      name: item.name.replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' '),
+      storageRef: item,
+      category: categoryLabel,
+    }))
   } catch {
     return []
   }
 }
 
 /**
- * Fetch themed category images (faith, grace, hope, love, peace, praise, prayer, strength)
+ * Fetch themed category item refs (faith, grace, hope, love, peace, praise, prayer, strength)
  */
-async function fetchCategoryImages(cat: string): Promise<GalleryImage[]> {
+async function fetchCategoryItemRefs(cat: string): Promise<GalleryItemRef[]> {
   const lower = cat.toLowerCase()
   const [fromGallery, fromRoot] = await Promise.all([
-    fetchFromFolder(`gallery_images/${lower}`, cat),
-    fetchFromFolder(lower, cat),
+    fetchFolderRefs(`gallery_images/${lower}`, cat),
+    fetchFolderRefs(lower, cat),
   ])
 
   const seen = new Set<string>()
-  const merged: GalleryImage[] = []
-  for (const img of [...fromGallery, ...fromRoot]) {
-    if (!seen.has(img.id)) {
-      seen.add(img.id)
-      merged.push(img)
+  const merged: GalleryItemRef[] = []
+  for (const item of [...fromGallery, ...fromRoot]) {
+    if (!seen.has(item.id)) {
+      seen.add(item.id)
+      merged.push(item)
     }
   }
   return merged
 }
 
 /**
- * Fetch approved gallery images:
- * - Categories: faith, grace, hope, love, peace, praise, prayer, strength
- * - Daily backgrounds: only past and today's images from /imagebackground (never future/next day)
- *
- * EXCLUDED: /New_1_1, /New_3_4, /New_9_16, /community_creations, /share_backgrounds
+ * Get all approved item references for a given category.
+ * Cached in memory so directory listings only run once per session.
  */
-export async function fetchGalleryImages(filter: string = 'All'): Promise<GalleryImage[]> {
-  try {
-    if (
-      filter === 'Past Daily Verses' ||
-      filter === 'Daily Backgrounds' ||
-      filter === 'Old Verses' ||
-      filter === 'Older Verses'
-    ) {
-      return await fetchPastDailyBackgrounds()
-    }
+export async function getApprovedItemRefs(category: string = 'All'): Promise<GalleryItemRef[]> {
+  if (refsCache.has(category)) {
+    return refsCache.get(category)!
+  }
 
-    if (filter !== 'All') {
-      return await fetchCategoryImages(filter)
-    }
+  let results: GalleryItemRef[] = []
 
-    // Filter === 'All': Query past daily backgrounds + all 8 themed categories
+  if (
+    category === 'Past Daily Verses' ||
+    category === 'Daily Backgrounds' ||
+    category === 'Old Verses' ||
+    category === 'Older Verses'
+  ) {
+    results = await fetchPastDailyBackgroundRefs()
+  } else if (category !== 'All') {
+    results = await fetchCategoryItemRefs(category)
+  } else {
+    // Category === 'All': Query past daily backgrounds + all 8 themed categories
     const categoryNames = ['Faith', 'Grace', 'Hope', 'Love', 'Peace', 'Praise', 'Prayer', 'Strength']
     const queries = [
-      fetchPastDailyBackgrounds(),
-      ...categoryNames.map(cat => fetchCategoryImages(cat)),
+      fetchPastDailyBackgroundRefs(),
+      ...categoryNames.map(cat => fetchCategoryItemRefs(cat)),
     ]
 
     const allBatches = await Promise.all(queries)
     const seen = new Set<string>()
-    const merged: GalleryImage[] = []
 
-    for (const img of allBatches.flat()) {
-      if (!seen.has(img.id)) {
-        seen.add(img.id)
-        merged.push(img)
+    for (const item of allBatches.flat()) {
+      if (!seen.has(item.id)) {
+        seen.add(item.id)
+        results.push(item)
+      }
+    }
+  }
+
+  refsCache.set(category, results)
+  return results
+}
+
+/**
+ * Resolve download URLs for a specific page of max 10 images.
+ * STRICT LIMIT: Only resolves getDownloadURL for at most pageSize (10) items per call.
+ */
+export async function resolveImagePage(
+  items: GalleryItemRef[],
+  page: number = 1,
+  pageSize: number = 10
+): Promise<PaginatedGalleryResult> {
+  const totalCount = items.length
+  const totalPages = Math.max(1, Math.ceil(totalCount / pageSize))
+  const currentPage = Math.min(Math.max(1, page), totalPages)
+
+  const startIndex = (currentPage - 1) * pageSize
+  const endIndex = startIndex + pageSize
+  const pageItems = items.slice(startIndex, endIndex)
+
+  // Resolve download URLs strictly for this page's 10 items
+  const resolvedImages = await Promise.all(
+    pageItems.map(async item => {
+      try {
+        if (item.url) {
+          return {
+            id: item.id,
+            name: item.name,
+            url: item.url,
+            category: item.category,
+            date: item.date,
+          }
+        }
+
+        if (downloadUrlCache.has(item.id)) {
+          return {
+            id: item.id,
+            name: item.name,
+            url: downloadUrlCache.get(item.id)!,
+            category: item.category,
+            date: item.date,
+          }
+        }
+
+        if (item.storageRef) {
+          const url = await getDownloadURL(item.storageRef)
+          downloadUrlCache.set(item.id, url)
+          return {
+            id: item.id,
+            name: item.name,
+            url,
+            category: item.category,
+            date: item.date,
+          }
+        }
+
+        return null
+      } catch {
+        return null
+      }
+    })
+  )
+
+  const validImages = resolvedImages.filter(Boolean) as GalleryImage[]
+
+  return {
+    images: validImages,
+    totalCount,
+    totalPages,
+    currentPage,
+    hasMore: currentPage < totalPages,
+  }
+}
+
+/**
+ * Fetch approved gallery images with pagination (Max 10 images per page).
+ *
+ * @param category - Category filter (e.g. 'All', 'Past Daily Verses', 'Faith', etc.)
+ * @param page - Page number (1-indexed)
+ * @param pageSize - Maximum images per page (default: 10)
+ * @param localFallbacks - Optional local fallback images to merge
+ */
+export async function fetchGalleryImagesPaginated(
+  category: string = 'All',
+  page: number = 1,
+  pageSize: number = 10,
+  localFallbacks: GalleryImage[] = []
+): Promise<PaginatedGalleryResult> {
+  try {
+    const remoteRefs = await getApprovedItemRefs(category)
+
+    // Convert local fallbacks to GalleryItemRef if needed
+    const localRefs: GalleryItemRef[] = localFallbacks
+      .filter(loc => category === 'All' || loc.category === category)
+      .map(loc => ({
+        id: loc.id,
+        name: loc.name,
+        url: loc.url,
+        category: loc.category,
+        date: loc.date,
+      }))
+
+    // Deduplicate between remote and local
+    const seen = new Set<string>()
+    const allItems: GalleryItemRef[] = []
+
+    for (const item of [...remoteRefs, ...localRefs]) {
+      if (!seen.has(item.id)) {
+        seen.add(item.id)
+        allItems.push(item)
       }
     }
 
-    return merged
+    return await resolveImagePage(allItems, page, pageSize)
   } catch (error) {
-    console.warn('Firebase Storage fetch warning:', error)
-    return []
+    console.warn('Firebase Storage fetch error:', error)
+    // Fallback to local items with pagination
+    const filteredLocal = localFallbacks.filter(
+      loc => category === 'All' || loc.category === category
+    )
+    const localRefs: GalleryItemRef[] = filteredLocal.map(loc => ({
+      id: loc.id,
+      name: loc.name,
+      url: loc.url,
+      category: loc.category,
+    }))
+
+    return await resolveImagePage(localRefs, page, pageSize)
   }
+}
+
+/**
+ * Backward-compatible helper to fetch a single page of images (default 10)
+ */
+export async function fetchGalleryImages(
+  filter: string = 'All',
+  page: number = 1,
+  pageSize: number = 10
+): Promise<GalleryImage[]> {
+  const result = await fetchGalleryImagesPaginated(filter, page, pageSize)
+  return result.images
 }
