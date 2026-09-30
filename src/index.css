@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900 font-sans antialiased;
+  }
+
+  /* Skip to main content link for accessibility */
+  .skip-link {
+    @apply absolute -top-10 left-4 z-50 bg-sacred-600 text-white px-4 py-2 rounded-md text-sm font-semibold;
+    transition: top 0.2s;
+  }
+  .skip-link:focus {
+    @apply top-4;
+  }
+
+  /* Focus ring visible for keyboard navigation */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-sacred-500;
+  }
+}
+
+/* ── Components ── */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-sacred-600 hover:bg-sacred-700 active:bg-sacred-800
+           text-white font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sacred-500;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 bg-white hover:bg-gray-50 active:bg-gray-100
+           text-gray-700 font-semibold px-5 py-2.5 rounded-xl border border-gray-200 transition-colors duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden;
+  }
+
+  .verse-text {
+    @apply font-serif text-lg sm:text-xl leading-relaxed text-gray-800 italic;
+  }
+
+  .section-title {
+    @apply text-2xl sm:text-3xl font-bold text-gray-900 font-serif;
+  }
+
+  .tag-badge {
+    @apply inline-block text-xs font-semibold uppercase tracking-wider
+           bg-gold-100 text-gold-700 px-2.5 py-1 rounded-full;
+  }
+}
+
+/* ── Utilities ── */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Hide scrollbar but allow scrolling */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Safe-area padding for mobile notch/home bar */
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .pt-safe { padding-top:    env(safe-area-inset-top,    0px); }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
