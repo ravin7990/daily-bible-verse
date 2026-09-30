@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import BottomNav from '@/components/layout/BottomNav'
+import ErrorBoundary from '@/components/layout/ErrorBoundary'
 import ScrollToTop from '@/components/ui/ScrollToTop'
 import { VerseCardSkeleton } from '@/components/ui/Skeleton'
 
@@ -36,20 +37,22 @@ export default function App() {
       <ScrollToTop />
       <Header />
 
-      <Suspense fallback={<PageLoader />}>
-        <Routes>
-          <Route path="/"                    element={<Home />} />
-          <Route path="/archive"             element={<Archive />} />
-          <Route path="/stories"             element={<Stories />} />
-          <Route path="/stories/:id"         element={<StoryDetail />} />
-          <Route path="/stories/:id/:slug"   element={<StoryDetail />} />
-          <Route path="/prayers"             element={<Prayers />} />
-          <Route path="/teachings"           element={<Teachings />} />
-          <Route path="/bible"               element={<Bible />} />
-          <Route path="/community"           element={<Community />} />
-          <Route path="*"                    element={<NotFound />} />
-        </Routes>
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/"                    element={<Home />} />
+            <Route path="/archive"             element={<Archive />} />
+            <Route path="/stories"             element={<Stories />} />
+            <Route path="/stories/:id"         element={<StoryDetail />} />
+            <Route path="/stories/:id/:slug"   element={<StoryDetail />} />
+            <Route path="/prayers"             element={<Prayers />} />
+            <Route path="/teachings"           element={<Teachings />} />
+            <Route path="/bible"               element={<Bible />} />
+            <Route path="/community"           element={<Community />} />
+            <Route path="*"                    element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </ErrorBoundary>
 
       <Footer />
       <BottomNav />
