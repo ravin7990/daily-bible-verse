@@ -3,31 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#4338ca" />
+    <meta name="theme-color" content="#1f2939" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1523" media="(prefers-color-scheme: dark)" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="canonical" href="https://ravin7990.github.io/daily-bible-verse/" />
 
-    <!-- Preload critical fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!--
+      Fonts are self-hosted and inlined by the bundler (see src/index.css).
+      These preloads fetch them in parallel with the CSS instead of paying a
+      render-blocking round trip to fonts.googleapis.com.
+    -->
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin
+      href="/daily-bible-verse/fonts/inter-latin.woff2"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin
+      href="/daily-bible-verse/fonts/lora-latin.woff2"
     />
 
-    <title>Bible Verse of the Day | Daily Scripture &amp; Reflection</title>
+    <title>Bible Verse of the Day | Daily Scripture, Reflection &amp; Prayer</title>
     <meta
       name="description"
-      content="Start every day with God's Word. Get today's Bible verse, devotional reflection, daily prayer, and life application. Free daily devotional app."
+      content="Start every day with God's Word. Free daily Bible verse with reflection, prayer and life application, plus 180+ Bible stories, 500+ prayers and a complete 66-book Bible reader."
     />
+    <meta
+      name="keywords"
+      content="bible verse of the day, daily bible verse, verse of the day, bible verses, daily devotional, bible reflection, bible prayer, scripture of the day"
+    />
+    <meta name="author" content="Bible Verse of the Day" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="format-detection" content="telephone=no" />
+
+    <!-- Social / agentic browsing -->
+    <meta property="og:site_name" content="Bible Verse of the Day" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <!-- GitHub Pages Single Page App Redirect Support -->
     <script type="text/javascript">
       (function(l) {
         if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
+          var decoded = l.search.slice(1).split('&').map(function(s) {
             return s.replace(/~and~/g, '&')
           }).join('?');
           window.history.replaceState(null, null,

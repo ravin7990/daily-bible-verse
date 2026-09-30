@@ -8,7 +8,7 @@ interface SkeletonProps {
 export function Skeleton({ className }: { className?: string }) {
   return (
     <div
-      className={clsx('animate-pulse bg-gray-200 rounded-lg', className)}
+      className={clsx('animate-pulse bg-parchment-200 rounded-lg', className)}
       aria-hidden="true"
     />
   )
@@ -39,13 +39,13 @@ export function VerseCardSkeleton() {
 
 export function StoryCardSkeleton() {
   return (
-    <div className="card overflow-hidden" aria-busy="true" aria-label="Loading story…">
-      <Skeleton className="h-44 w-full rounded-none" />
-      <div className="p-4 space-y-2">
-        <Skeleton className="h-3 w-20" />
-        <Skeleton className="h-5 w-3/4" />
-        <SkeletonLines lines={2} />
+    <div className="card p-5 sm:p-6 space-y-3 h-full" aria-busy="true" aria-label="Loading story">
+      <div className="flex items-center justify-between gap-3">
+        <Skeleton className="h-5 w-20 rounded-full" />
+        <Skeleton className="h-3 w-16" />
       </div>
+      <Skeleton className="h-5 w-3/4" />
+      <SkeletonLines lines={3} />
     </div>
   )
 }

@@ -13,11 +13,12 @@ if (!fs.existsSync(iconsDir)) {
 }
 
 // 1. Generate crisp vector SVG for PWA and favicon
+//    Palette matches the new ink/gold brand tokens in tailwind.config.ts.
 const svgIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
     <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4f46e5" />
-      <stop offset="100%" stop-color="#312e81" />
+      <stop offset="0%" stop-color="#2f3c52" />
+      <stop offset="100%" stop-color="#0d1523" />
     </linearGradient>
     <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
       <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.25" />
@@ -25,7 +26,7 @@ const svgIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" w
   </defs>
   <!-- Background with rounded corners -->
   <rect width="512" height="512" rx="112" fill="url(#grad)" />
-  
+
   <!-- Latin cross with subtle bevel and shadow -->
   <g filter="url(#shadow)">
     <!-- Vertical beam -->
@@ -33,7 +34,7 @@ const svgIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" w
     <!-- Horizontal beam -->
     <rect x="136" y="180" width="240" height="60" rx="12" fill="#ffffff" />
     <!-- Gold accent center radiant ray -->
-    <circle cx="256" cy="210" r="16" fill="#fbbf24" />
+    <circle cx="256" cy="210" r="16" fill="#e8c062" />
   </g>
 </svg>`
 
@@ -149,10 +150,41 @@ Bible Verse of the Day is a mobile-first, high-performance web and mobile app th
   console.log('✅ Generated llms.txt and llms-full.txt for Agentic Browsing')
 }
 
+// 5. Generate a lightweight stories payload for the home page
+//    stories.json is ~920 kB because every entry embeds its full story body.
+//    The home page only renders six cards, so it fetches this slimmed file
+//    (~2 kB) instead. Regenerated on every build so it can never drift.
+function generateFeaturedStories() {
+  const storiesPath = path.resolve(publicDir, 'stories.json')
+  if (!fs.existsSync(storiesPath)) {
+    console.warn('⚠️  stories.json not found; skipping stories-featured.json')
+    return
+  }
+
+  const stories = JSON.parse(fs.readFileSync(storiesPath, 'utf8'))
+  const FEATURED_COUNT = 6
+  // Only the fields StoryCard actually renders.
+  const featured = stories.slice(0, FEATURED_COUNT).map(
+    ({ id, title, tag, summary, read_time, scripture }) => ({
+      id, title, tag, summary, read_time, scripture,
+    }),
+  )
+
+  const out = path.resolve(publicDir, 'stories-featured.json')
+  fs.writeFileSync(out, JSON.stringify(featured))
+  const savedKb = (
+    (fs.statSync(storiesPath).size - fs.statSync(out).size) / 1024
+  ).toFixed(0)
+  console.log(
+    `✅ Generated stories-featured.json (${featured.length} stories, ~${savedKb} kB saved on home page)`,
+  )
+}
+
 async function main() {
   await generatePngs()
   generateSitemap()
   generateLlmsTxt()
+  generateFeaturedStories()
 }
 
 main().catch(console.error)

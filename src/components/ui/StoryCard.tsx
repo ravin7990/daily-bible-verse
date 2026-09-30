@@ -1,22 +1,21 @@
 import { Link } from 'react-router-dom'
 import type { Story } from '@/types'
 import { slugify } from '@/utils/dateUtils'
+import Icon, { type IconName } from '@/components/ui/Icon'
 
-const TAG_ICONS: Record<string, string> = {
-  prophecy: '📜',
-  miracle: '✨',
-  faith: '🛡️',
-  wisdom: '🌿',
-  resurrection: '✝️',
-  passion: '🕊️',
-}
+/** Map a story tag to a consistent icon instead of an emoji. */
+const TAG_ICONS: { match: string; icon: IconName }[] = [
+  { match: 'prophecy',     icon: 'scroll'   },
+  { match: 'miracle',      icon: 'sparkle'  },
+  { match: 'faith',        icon: 'shield'   },
+  { match: 'wisdom',       icon: 'leaf'     },
+  { match: 'resurrection', icon: 'bible'    },
+  { match: 'passion',      icon: 'heart'    },
+]
 
-function getTagIcon(tag: string): string {
+function getTagIcon(tag: string): IconName {
   const lower = tag.toLowerCase()
-  for (const [key, icon] of Object.entries(TAG_ICONS)) {
-    if (lower.includes(key)) return icon
-  }
-  return '📖'
+  return TAG_ICONS.find(({ match }) => lower.includes(match))?.icon ?? 'book'
 }
 
 interface StoryCardProps {
@@ -28,37 +27,43 @@ export default function StoryCard({ story }: StoryCardProps) {
   const icon = getTagIcon(story.tag)
 
   return (
-    <article className="card p-5 sm:p-6 flex flex-col justify-between hover:shadow-md hover:border-sacred-300 transition-all duration-200 group">
+    <article
+      className="card relative p-5 sm:p-6 flex flex-col h-full
+                 hover:shadow-lift hover:border-gold-300 transition-all duration-200 group"
+    >
       <div>
-        {/* Top Badges */}
-        <div className="flex items-center justify-between mb-3">
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider bg-sacred-50 text-sacred-700 px-3 py-1 rounded-full border border-sacred-100">
-            <span aria-hidden="true">{icon}</span>
+        <div className="flex items-center justify-between gap-3 mb-3">
+          <span className="tag-badge">
+            <Icon name={icon} className="w-3.5 h-3.5 mr-1 inline align-[-2px]" />
             {story.tag}
           </span>
-          <span className="text-xs text-gray-400 font-medium">⏱️ {story.read_time}</span>
+          <span className="inline-flex items-center gap-1 text-xs text-ink-500 font-medium shrink-0">
+            <Icon name="clock" className="w-3.5 h-3.5" />
+            {story.read_time}
+          </span>
         </div>
 
-        {/* Title */}
-        <h2 className="font-serif font-bold text-gray-900 text-lg sm:text-xl leading-snug mb-2 group-hover:text-sacred-700 transition-colors">
-          <Link to={href} className="before:absolute before:inset-0 relative">
+        {/* The stretched link makes the whole card clickable while keeping a
+            single, correctly-labelled link in the accessibility tree. */}
+        <h3 className="font-serif font-semibold text-ink-900 text-lg sm:text-xl leading-snug mb-2 group-hover:text-gold-800 transition-colors">
+          <Link to={href} className="after:absolute after:inset-0 after:content-['']">
             {story.title}
           </Link>
-        </h2>
+        </h3>
 
-        {/* Summary */}
-        <p className="text-sm text-gray-600 line-clamp-3 leading-relaxed mb-4 font-serif">
+        <p className="text-sm text-ink-600 line-clamp-3 leading-relaxed font-serif">
           {story.summary}
         </p>
       </div>
 
-      {/* Bottom Footer */}
-      <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
-        <span className="text-gray-400 italic truncate max-w-[190px]">
-          {story.scripture}
-        </span>
-        <span className="text-sacred-600 font-semibold group-hover:translate-x-0.5 transition-transform flex items-center gap-1 shrink-0">
-          Read Story <span>→</span>
+      <div className="mt-4 pt-3 border-t border-parchment-200 flex items-center justify-between gap-3 text-xs">
+        <span className="text-ink-500 italic truncate">{story.scripture}</span>
+        <span
+          aria-hidden="true"
+          className="inline-flex items-center gap-1 font-semibold text-gold-800 shrink-0
+                     group-hover:translate-x-0.5 transition-transform"
+        >
+          Read <Icon name="arrowRight" className="w-3.5 h-3.5" />
         </span>
       </div>
     </article>

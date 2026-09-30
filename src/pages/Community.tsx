@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import SEO from '@/components/layout/SEO'
 import { Skeleton } from '@/components/ui/Skeleton'
+import PageHeader from '@/components/ui/PageHeader'
+import Icon from '@/components/ui/Icon'
 import {
   fetchGalleryImagesPaginated,
   APPROVED_CATEGORIES,
@@ -154,16 +156,13 @@ export default function Community() {
         canonical="/community"
       />
 
-      <main id="main-content" className="max-w-6xl mx-auto px-4 py-8">
-        <header className="mb-6">
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-sacred-600 uppercase tracking-widest mb-1">
-            <span>🖼️</span> Sacred Scripture Gallery
-          </div>
-          <h1 className="section-title mb-1">Wallpapers &amp; Devotional Backgrounds</h1>
-          <p className="text-gray-500 text-sm">
-            Inspiring scripture wallpapers and devotional backgrounds from daily verses and sacred collections
-          </p>
-        </header>
+      <main id="main-content" className="shell pb-16 sm:pb-20 py-8">
+        <PageHeader
+          icon="image"
+          eyebrow="Sacred Scripture Gallery"
+          title="Wallpapers &amp; Devotional Backgrounds"
+          subtitle="Inspiring scripture wallpapers and devotional backgrounds from daily verses and sacred collections."
+        />
 
         {/* Category Chips */}
         <div
@@ -178,11 +177,11 @@ export default function Community() {
               aria-pressed={selectedCategory === cat}
               className={`shrink-0 text-xs font-semibold px-3.5 py-1.5 rounded-full border transition-colors ${
                 selectedCategory === cat
-                  ? 'bg-sacred-600 text-white border-sacred-600 shadow-sm'
-                  : 'bg-white text-gray-600 border-gray-200 hover:border-sacred-300'
+                  ? 'bg-ink-800 text-white border-ink-800 shadow-soft'
+                  : 'bg-white text-ink-700 border-parchment-300 hover:border-gold-400'
               }`}
             >
-              {cat === 'Past Daily Verses' ? '📅 Past Daily Verses' : cat}
+              {cat === 'Past Daily Verses' ? 'Past Daily Verses' : cat}
             </button>
           ))}
         </div>
@@ -191,7 +190,7 @@ export default function Community() {
         <div ref={galleryTopRef} className="scroll-mt-20" />
 
         {/* Status Bar */}
-        <div className="flex flex-wrap items-center justify-between text-xs text-gray-500 mb-4 pb-2 border-b border-gray-100 gap-2">
+        <div className="flex flex-wrap items-center justify-between text-xs text-ink-600 mb-4 pb-2 border-b border-parchment-200 gap-2">
           <span>
             {totalCount > 0 ? (
               <>
@@ -199,7 +198,7 @@ export default function Community() {
                 <strong>{totalCount}</strong> images
                 {selectedCategory !== 'All' && ` in "${selectedCategory}"`}
                 {' • '}
-                <span className="text-sacred-600 font-medium">Max 10 per page</span>
+                <span className="text-ink-700 font-medium">Max 10 per page</span>
               </>
             ) : (
               'Loading images…'
@@ -207,7 +206,7 @@ export default function Community() {
           </span>
 
           {totalPages > 1 && (
-            <span className="bg-gray-100 text-gray-700 px-2.5 py-0.5 rounded-md font-medium">
+            <span className="bg-parchment-200 text-ink-800 px-2.5 py-0.5 rounded-md font-medium">
               Page {currentPage} of {totalPages}
             </span>
           )}
@@ -228,13 +227,17 @@ export default function Community() {
             ))}
           </div>
         ) : images.length === 0 ? (
-          <div className="card p-10 text-center text-gray-500 my-8">
-            <span className="text-5xl block mb-3" aria-hidden="true">
-              🖼️
+          <div className="card p-10 text-center text-ink-600 my-8">
+            <span
+              aria-hidden="true"
+              className="grid place-items-center w-14 h-14 rounded-full bg-parchment-100
+                         text-ink-400 mx-auto mb-3"
+            >
+              <Icon name="image" className="w-7 h-7" />
             </span>
-            <h3 className="font-semibold text-lg text-gray-800 mb-2">No Images in {selectedCategory}</h3>
+            <h3 className="font-semibold text-lg text-ink-900 mb-2">No Images in {selectedCategory}</h3>
             <p className="text-sm max-w-md mx-auto">
-              Images found in <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sacred-600">imagebackground/</code>{' '}
+              Images found in <code className="bg-parchment-200 px-1.5 py-0.5 rounded text-ink-700">imagebackground/</code>{' '}
               and themed category folders will be displayed here.
             </p>
           </div>
@@ -244,10 +247,10 @@ export default function Community() {
               {images.map(img => (
                 <div
                   key={img.id}
-                  className="card break-inside-avoid mb-3 overflow-hidden group cursor-pointer transition-all hover:shadow-md hover:border-sacred-200"
+                  className="card break-inside-avoid mb-3 overflow-hidden group cursor-pointer transition-all hover:shadow-md hover:border-parchment-300"
                   onClick={() => setLightboxImage(img.url)}
                 >
-                  <div className="relative overflow-hidden bg-gray-100 min-h-[160px]">
+                  <div className="relative overflow-hidden bg-parchment-200 min-h-[160px]">
                     <img
                       src={img.url}
                       alt={img.name}
@@ -267,7 +270,7 @@ export default function Community() {
                   </div>
 
                   <div className="p-2.5 flex items-center justify-between gap-1">
-                    <span className="text-[11px] font-semibold text-gray-600 truncate max-w-[140px]">
+                    <span className="text-[11px] font-semibold text-ink-700 truncate max-w-[140px]">
                       {img.name}
                     </span>
                     <div className="flex items-center gap-1 shrink-0">
@@ -277,11 +280,11 @@ export default function Community() {
                         target="_blank"
                         rel="noreferrer"
                         onClick={e => e.stopPropagation()}
-                        className="text-xs bg-gray-100 hover:bg-sacred-50 hover:text-sacred-600 text-gray-700 px-2 py-1 rounded-md transition-colors"
+                        className="text-xs bg-parchment-200 hover:bg-parchment-100 hover:text-ink-700 text-ink-800 px-2 py-1 rounded-md transition-colors"
                         title="Download Wallpaper"
                         aria-label={`Download ${img.name}`}
                       >
-                        ⬇
+                        <Icon name="download" className="w-4 h-4" />
                       </a>
                     </div>
                   </div>
@@ -291,22 +294,22 @@ export default function Community() {
 
             {/* Pagination Controls Section */}
             {totalPages > 1 && (
-              <div className="mt-10 pt-6 border-t border-gray-100 flex flex-col items-center gap-4">
+              <div className="mt-10 pt-6 border-t border-parchment-200 flex flex-col items-center gap-4">
                 {/* 1. "Load More" Button (Appends next 10 images) */}
                 {hasMore && (
                   <button
                     onClick={handleLoadMore}
                     disabled={loadingMore}
-                    className="w-full sm:w-auto px-8 py-3 bg-sacred-600 text-white rounded-2xl font-semibold text-sm hover:bg-sacred-700 shadow-sm transition disabled:opacity-50 flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto px-8 py-3 bg-ink-800 text-white rounded-2xl font-semibold text-sm hover:bg-ink-900 shadow-soft transition disabled:opacity-50 flex items-center justify-center gap-2"
                   >
                     {loadingMore ? (
                       <>
-                        <span className="inline-block animate-spin" aria-hidden="true">⏳</span>
+                        <span className="inline-block animate-spin" aria-hidden="true"><Icon name="archive" className="w-4 h-4" /></span>
                         Loading Next 10 Images…
                       </>
                     ) : (
                       <>
-                        <span>⬇️</span> Load More (+10 Images) — {totalCount - images.length} remaining
+                        <Icon name="download" className="w-4 h-4" /> Load More (+10 Images) — {totalCount - images.length} remaining
                       </>
                     )}
                   </button>
@@ -322,17 +325,17 @@ export default function Community() {
                   <button
                     onClick={() => handleGoToPage(currentPage - 1)}
                     disabled={currentPage === 1 || loading}
-                    className="px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-medium text-gray-600 hover:bg-gray-100 transition disabled:opacity-40 disabled:cursor-not-allowed"
+                    className="px-3 py-1.5 rounded-lg border border-parchment-300 text-xs font-medium text-ink-700 hover:bg-parchment-200 transition disabled:opacity-40 disabled:cursor-not-allowed"
                     aria-label="Go to previous page"
                   >
-                    ← Previous
+                    <Icon name="arrowRight" className="w-3.5 h-3.5 rotate-180" /> Previous
                   </button>
 
                   {/* Page Numbers */}
                   {getPaginationPages().map((p, idx) => {
                     if (p === '...') {
                       return (
-                        <span key={`dots-${idx}`} className="px-2 text-gray-400 text-xs select-none">
+                        <span key={`dots-${idx}`} className="px-2 text-ink-500 text-xs select-none">
                           …
                         </span>
                       )
@@ -349,8 +352,8 @@ export default function Community() {
                         aria-current={isActive ? 'page' : undefined}
                         className={`min-w-[32px] h-8 px-2 rounded-lg text-xs font-semibold transition ${
                           isActive
-                            ? 'bg-sacred-600 text-white shadow-xs'
-                            : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 hover:border-gray-300'
+                            ? 'bg-ink-800 text-white shadow-xs'
+                            : 'bg-white text-ink-700 border border-parchment-300 hover:bg-parchment-100 hover:border-parchment-300'
                         }`}
                       >
                         {pageNum}
@@ -362,10 +365,10 @@ export default function Community() {
                   <button
                     onClick={() => handleGoToPage(currentPage + 1)}
                     disabled={currentPage === totalPages || loading}
-                    className="px-3 py-1.5 rounded-lg border border-gray-200 text-xs font-medium text-gray-600 hover:bg-gray-100 transition disabled:opacity-40 disabled:cursor-not-allowed"
+                    className="px-3 py-1.5 rounded-lg border border-parchment-300 text-xs font-medium text-ink-700 hover:bg-parchment-200 transition disabled:opacity-40 disabled:cursor-not-allowed"
                     aria-label="Go to next page"
                   >
-                    Next →
+                    Next <Icon name="arrowRight" className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
@@ -386,11 +389,13 @@ export default function Community() {
           <div className="w-full flex justify-between items-center max-w-4xl text-white">
             <span className="text-sm font-semibold">Wallpaper Preview</span>
             <button
+              type="button"
               onClick={() => setLightboxImage(null)}
-              className="text-white hover:text-gray-300 text-2xl font-bold p-1 leading-none"
-              aria-label="Close"
+              className="grid place-items-center w-11 h-11 -mr-2 rounded-lg text-white
+                         hover:bg-white/15 transition-colors"
+              aria-label="Close wallpaper preview"
             >
-              ✕
+              <Icon name="close" className="w-6 h-6" />
             </button>
           </div>
 
@@ -413,7 +418,7 @@ export default function Community() {
               rel="noreferrer"
               className="btn-primary text-xs px-4 py-2 flex items-center gap-1.5"
             >
-              <span>⬇️</span> Download Wallpaper
+              <Icon name="download" className="w-4 h-4" /> Download Wallpaper
             </a>
             <button
               onClick={() => {
@@ -421,7 +426,7 @@ export default function Community() {
               }}
               className="btn-ghost text-white text-xs px-4 py-2 border border-white/20"
             >
-              📋 Copy Link
+              <Icon name="copy" className="w-4 h-4" /> Copy Link
             </button>
             <button
               onClick={() => setLightboxImage(null)}

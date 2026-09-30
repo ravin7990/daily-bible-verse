@@ -1,3 +1,39 @@
+/* ══════════════════════════════════════════════════════════════
+   Self-hosted variable fonts (latin subset only)
+   Replaces the render-blocking Google Fonts <link> in index.html.
+   unicode-range means non-latin subsets are never downloaded.
+   ══════════════════════════════════════════════════════════════ */
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/daily-bible-verse/fonts/inter-latin.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora Variable';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/daily-bible-verse/fonts/lora-latin.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora Variable';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/daily-bible-verse/fonts/lora-latin-italic.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,55 +42,87 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-white text-gray-900 font-sans antialiased;
+    @apply bg-parchment-50 text-ink-800 font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Warm, low-cost selection colour */
+  ::selection {
+    @apply bg-gold-200 text-ink-900;
   }
 
   /* Skip to main content link for accessibility */
   .skip-link {
-    @apply absolute -top-10 left-4 z-50 bg-sacred-600 text-white px-4 py-2 rounded-md text-sm font-semibold;
+    @apply absolute -top-16 left-4 z-50 bg-ink-900 text-white px-4 py-2 rounded-md text-sm font-semibold;
     transition: top 0.2s;
   }
   .skip-link:focus {
-    @apply top-4;
+    @apply top-4 outline-none ring-2 ring-gold-400 ring-offset-2;
   }
 
   /* Focus ring visible for keyboard navigation */
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-sacred-500;
+    @apply outline-none ring-2 ring-ink-800 ring-offset-2 ring-offset-parchment-50;
+  }
+
+  /* Dark surfaces need a light ring */
+  .on-dark :focus-visible {
+    @apply ring-gold-300 ring-offset-transparent;
   }
 }
 
 /* ── Components ── */
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-sacred-600 hover:bg-sacred-700 active:bg-sacred-800
+    @apply inline-flex items-center justify-center gap-2 bg-ink-800 hover:bg-ink-900 active:bg-ink-950
            text-white font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200
-           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sacred-500;
+           shadow-soft;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 bg-white hover:bg-gray-50 active:bg-gray-100
-           text-gray-700 font-semibold px-5 py-2.5 rounded-xl border border-gray-200 transition-colors duration-200;
+    @apply inline-flex items-center justify-center gap-2 bg-white hover:bg-parchment-100 active:bg-parchment-200
+           text-ink-800 font-semibold px-5 py-2.5 rounded-xl border border-parchment-300 transition-colors duration-200;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 bg-gold-600 hover:bg-gold-700 active:bg-gold-800
+           text-white font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200 shadow-soft;
   }
 
   .card {
-    @apply bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden;
+    @apply bg-white rounded-2xl shadow-soft border border-parchment-200;
   }
 
+  /* Scripture — the emotional centrepiece. Serif, generous leading. */
   .verse-text {
-    @apply font-serif text-lg sm:text-xl leading-relaxed text-gray-800 italic;
+    @apply font-serif text-lg sm:text-xl leading-[1.75] text-ink-800 italic;
   }
 
   .section-title {
-    @apply text-2xl sm:text-3xl font-bold text-gray-900 font-serif;
+    @apply text-2xl sm:text-3xl font-bold text-ink-900 font-serif tracking-tight;
+  }
+
+  /* Small uppercase label above a heading */
+  .eyebrow {
+    @apply inline-flex items-center gap-1.5 text-[11px] font-semibold text-gold-700
+           uppercase tracking-eyebrow mb-2;
   }
 
   .tag-badge {
     @apply inline-block text-xs font-semibold uppercase tracking-wider
-           bg-gold-100 text-gold-700 px-2.5 py-1 rounded-full;
+           bg-gold-50 text-gold-800 px-2.5 py-1 rounded-full;
+  }
+
+  /* Page shell: consistent gutters + reading width across all pages */
+  .shell {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .shell-narrow {
+    @apply mx-auto w-full max-w-3xl px-4 sm:px-6;
   }
 }
 
@@ -62,6 +130,9 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
   }
 
   /* Hide scrollbar but allow scrolling */
@@ -71,12 +142,33 @@
   /* Safe-area padding for mobile notch/home bar */
   .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
   .pt-safe { padding-top:    env(safe-area-inset-top,    0px); }
+
+  /* Reserve space so the fixed bottom nav never covers content */
+  .pb-nav { padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px)); }
+  @screen md {
+    .pb-nav { padding-bottom: 0; }
+  }
+
+  /* Promote hero media to its own layer to keep LCP paint cheap */
+  .hero-media {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 520px;
+  }
 }
 
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ── Print: verse should be readable on paper, chrome hidden ── */
+@media print {
+  header, footer, nav, .no-print { display: none !important; }
+  body { @apply bg-white text-black; }
+  .card { @apply border-0 shadow-none; }
 }

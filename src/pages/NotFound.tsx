@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import SEO from '@/components/layout/SEO'
+import Icon from '@/components/ui/Icon'
 
 export default function NotFound() {
   return (
@@ -11,16 +12,31 @@ export default function NotFound() {
       />
       <main
         id="main-content"
-        className="min-h-[60vh] flex flex-col items-center justify-center px-4 text-center"
+        className="shell-narrow min-h-[60vh] flex flex-col items-center justify-center py-20 text-center"
       >
-        <span className="text-6xl mb-4" aria-hidden="true">📖</span>
-        <h1 className="font-serif text-3xl font-bold text-gray-900 mb-2">Page Not Found</h1>
-        <p className="text-gray-500 mb-6 max-w-sm">
-          This page doesn't exist. Let's guide you back to God's Word.
+        <span
+          aria-hidden="true"
+          className="grid place-items-center w-16 h-16 rounded-2xl bg-ink-800 text-gold-300 mb-5 shadow-soft"
+        >
+          <Icon name="book" className="w-8 h-8" />
+        </span>
+        <p className="eyebrow">Error 404</p>
+        <h1 className="font-serif text-3xl sm:text-4xl font-bold text-ink-900 mb-3 tracking-tight">
+          Page Not Found
+        </h1>
+        <p className="text-ink-600 mb-8 max-w-sm text-pretty">
+          This page doesn&rsquo;t exist. Let&rsquo;s guide you back to God&rsquo;s Word.
         </p>
-        <Link to="/" className="btn-primary">
-          ← Return Home
-        </Link>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <Link to="/" className="btn-primary">
+            <Icon name="home" className="w-4 h-4" />
+            Return Home
+          </Link>
+          <Link to="/archive" className="btn-secondary">
+            <Icon name="archive" className="w-4 h-4" />
+            Browse Archive
+          </Link>
+        </div>
       </main>
     </>
   )

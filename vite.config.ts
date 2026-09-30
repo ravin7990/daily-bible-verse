@@ -15,8 +15,8 @@ export default defineConfig({
         name: 'Bible Verse of the Day',
         short_name: 'BibleVerse',
         description: 'Daily Bible verses, reflections, stories, and prayers.',
-        theme_color: '#4338ca',
-        background_color: '#ffffff',
+        theme_color: '#1f2939',
+        background_color: '#fdfbf7',
         display: 'standalone',
         icons: [
           { src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
@@ -26,7 +26,20 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,json}'],
-        globIgnores: ['**/bibles/**', '**/stats.html'],
+        // Keep the precache lean. The multi-megabyte Bible translations are
+        // fetched on demand and cached by the runtime rules below; precaching
+        // them would bloat the install and slow the service worker startup.
+        globIgnores: [
+          '**/bibles/**',
+          '**/stats.html',
+          '**/stories.json',
+          '**/prayer.json',
+          '**/prayers_full_merged.json',
+          '**/jesus_teachings.json',
+        ],
+        // Fonts stay precached (124 kB total) since they are on the critical
+        // rendering path and are preloaded in index.html.
+        maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
         runtimeCaching: [
           {
             urlPattern: /.*\/bibles\/.*\.json/i,

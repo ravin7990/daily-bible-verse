@@ -1,46 +1,44 @@
 import { NavLink } from 'react-router-dom'
+import Icon, { type IconName } from '@/components/ui/Icon'
 
-const tabs = [
-  { to: '/',          label: 'Home',       icon: '🏠' },
-  { to: '/archive',   label: 'Archive',    icon: '📅' },
-  { to: '/community', label: 'Wallpapers', icon: '🖼️' },
-  { to: '/stories',   label: 'Stories',    icon: '📖' },
-  { to: '/prayers',   label: 'Prayers',    icon: '🙏' },
+const tabs: { to: string; label: string; icon: IconName }[] = [
+  { to: '/',          label: 'Today',      icon: 'home'    },
+  { to: '/archive',   label: 'Archive',    icon: 'archive' },
+  { to: '/stories',   label: 'Stories',    icon: 'book'    },
+  { to: '/prayers',   label: 'Prayers',    icon: 'prayer'  },
+  { to: '/community', label: 'Wallpapers', icon: 'image'   },
 ]
 
 export default function BottomNav() {
   return (
     <nav
-      aria-label="Mobile navigation"
-      className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white border-t border-gray-200 pb-safe"
+      aria-label="Primary"
+      className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-parchment-50/95
+                 backdrop-blur-md border-t border-parchment-200 pb-safe"
     >
-      <ul className="flex items-stretch h-16" role="list">
+      <ul className="grid grid-cols-5">
         {tabs.map(({ to, label, icon }) => (
-          <li key={to} className="flex-1">
+          <li key={to}>
             <NavLink
               to={to}
               end={to === '/'}
               className={({ isActive }) =>
-                `flex flex-col items-center justify-center h-full gap-0.5 text-xs font-medium transition-colors ${
-                  isActive
-                    ? 'text-sacred-700'
-                    : 'text-gray-500 hover:text-gray-800'
+                `flex flex-col items-center justify-center gap-1 h-[60px] text-[11px] font-medium transition-colors ${
+                  isActive ? 'text-ink-900' : 'text-ink-500'
                 }`
               }
-              aria-current={undefined}
             >
               {({ isActive }) => (
                 <>
+                  {/* Active marker sits above the icon, not as a colour-only cue */}
                   <span
-                    className={`text-xl leading-none ${isActive ? 'scale-110' : ''} transition-transform`}
                     aria-hidden="true"
-                  >
-                    {icon}
-                  </span>
-                  <span>{label}</span>
-                  {isActive && (
-                    <span className="sr-only">(current page)</span>
-                  )}
+                    className={`w-8 h-[3px] rounded-full transition-colors ${
+                      isActive ? 'bg-gold-600' : 'bg-transparent'
+                    }`}
+                  />
+                  <Icon name={icon} className="w-[22px] h-[22px]" />
+                  <span className="leading-none">{label}</span>
                 </>
               )}
             </NavLink>

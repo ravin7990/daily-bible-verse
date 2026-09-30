@@ -2,6 +2,8 @@ import { useState, useMemo, useEffect } from 'react'
 import SEO from '@/components/layout/SEO'
 import StoryCard from '@/components/ui/StoryCard'
 import { StoryCardSkeleton } from '@/components/ui/Skeleton'
+import PageHeader from '@/components/ui/PageHeader'
+import Icon from '@/components/ui/Icon'
 import { storiesCollectionSchema } from '@/utils/structuredData'
 import type { Story } from '@/types'
 
@@ -60,25 +62,36 @@ export default function Stories() {
         jsonLd={storiesCollectionSchema(`${SITE_URL}/stories`)}
       />
 
-      <main id="main-content" className="max-w-6xl mx-auto px-4 py-8">
-        {/* Header */}
-        <header className="mb-6">
-          <h1 className="section-title mb-1">Bible Stories</h1>
-          <p className="text-gray-500 text-sm">{stories.length} stories across {ALL_TAGS.length - 1} categories</p>
-        </header>
+      <main id="main-content" className="shell pb-16 sm:pb-20 py-8">
+        <PageHeader
+          icon="book"
+          eyebrow="Scripture Narratives"
+          title="Bible Stories"
+          subtitle={
+            stories.length > 0
+              ? `${stories.length} stories across ${ALL_TAGS.length - 1} categories, each with Scripture, reflection and prayer.`
+              : 'In-depth Bible stories with Scripture, reflection, prayer and life application.'
+          }
+        />
 
         {/* Search */}
         <div className="mb-4">
           <label htmlFor="story-search" className="sr-only">Search stories</label>
           <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" aria-hidden="true">🔍</span>
+            <span
+              aria-hidden="true"
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-400 pointer-events-none"
+            >
+              <Icon name="search" className="w-4 h-4" />
+            </span>
             <input
               id="story-search"
               type="search"
               value={search}
               onChange={e => handleSearch(e.target.value)}
               placeholder="Search stories…"
-              className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-sacred-500"
+              className="w-full pl-10 pr-4 py-2.5 border border-parchment-300 rounded-xl
+                         text-sm bg-white"
               aria-label="Search Bible stories"
             />
           </div>
@@ -97,8 +110,8 @@ export default function Stories() {
               aria-pressed={activeTag === tag}
               className={`shrink-0 text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors ${
                 activeTag === tag
-                  ? 'bg-sacred-600 text-white border-sacred-600'
-                  : 'bg-white text-gray-600 border-gray-200 hover:border-sacred-300'
+                  ? 'bg-ink-800 text-white border-ink-800'
+                  : 'bg-white text-ink-700 border-parchment-300 hover:border-gold-400'
               }`}
             >
               {tag}
@@ -107,7 +120,7 @@ export default function Stories() {
         </div>
 
         {/* Result count */}
-        <p className="text-sm text-gray-400 mb-4" aria-live="polite">
+        <p className="text-sm text-ink-500 mb-4" aria-live="polite">
           {filtered.length === stories.length
             ? `Showing all ${stories.length} stories`
             : `${filtered.length} stories found`}
@@ -115,12 +128,20 @@ export default function Stories() {
 
         {/* Grid */}
         {storiesLoading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {Array.from({ length: 6 }).map((_, i) => <StoryCardSkeleton key={i} />)}
-          </div>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <li key={i}><StoryCardSkeleton /></li>
+            ))}
+          </ul>
         ) : filtered.length === 0 ? (
-          <div className="text-center py-16 text-gray-400">
-            <span className="text-4xl block mb-3" aria-hidden="true">📭</span>
+          <div className="text-center py-16 text-ink-500">
+            <span
+              aria-hidden="true"
+              className="grid place-items-center w-14 h-14 rounded-full bg-parchment-100
+                         text-ink-400 mx-auto mb-3"
+            >
+              <Icon name="search" className="w-7 h-7" />
+            </span>
             <p>No stories match your search.</p>
             <button
               onClick={() => { setSearch(''); setTag('All') }}
