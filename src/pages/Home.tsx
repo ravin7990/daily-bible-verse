@@ -387,7 +387,7 @@ export default function Home() {
         </section>
 
         {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            5. FEATURED BIBLE STORIES WITH PHOTOGRAPHIC ARTWORK
+            5. FEATURED BIBLE STORIES
         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         <section className="max-w-6xl mx-auto px-4 mb-16" aria-label="Featured Bible stories">
           <div className="flex items-center justify-between mb-6">
@@ -395,7 +395,7 @@ export default function Home() {
               <div className="inline-flex items-center gap-1.5 text-xs font-bold text-sacred-600 uppercase tracking-widest mb-1">
                 <span>📖</span> Scripture Narratives
               </div>
-              <h2 className="section-title">Illustrated Bible Stories</h2>
+              <h2 className="section-title">Bible Stories & Narratives</h2>
             </div>
             <Link
               to="/stories"
