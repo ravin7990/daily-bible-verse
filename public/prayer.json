@@ -179,6 +179,55 @@
           "text": "Heavenly Father, before I do anything else today, I choose to spend this moment with You. Thank You for Your love, mercy, and faithfulness. Guide my steps, guard my heart, and direct my thoughts. Help me honor You in everything I do. Let this day be filled with purpose, peace, and opportunities to reflect Your goodness. I place this day completely in Your hands. Amen.",
           "verse": "Psalm 143:8",
           "category": "morning"
+        },
+        {
+          "id": "morning_prayer_026",
+          "title": "Prayer for a Fresh Start",
+          "text": "Lord, thank You for this brand new morning and the chance to begin again. Wash away yesterday's mistakes and help me start today with a clean heart. Fill me with purpose and direction as I go about my tasks. Let me carry Your peace into every conversation and decision. Thank You for mercies that are new every morning. Amen.",
+          "verse": "Lamentations 3:22-23",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_027",
+          "title": "Prayer for Focus Today",
+          "text": "Father, my mind is often pulled in many directions. Help me focus on what matters most today and set aside distractions. Give me clarity in my priorities and discipline to follow through. Let me honor You in the small tasks as well as the big ones. Thank You for ordering my steps. Amen.",
+          "verse": "Psalm 90:12",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_028",
+          "title": "Prayer for a Grateful Start",
+          "text": "Heavenly Father, before my feet even hit the ground, I want to thank You. Thank You for rest, for breath, and for another chance to serve You. Help me carry this gratitude through every hour of the day. Let it shape how I treat others and how I face challenges. Thank You for Your endless goodness. Amen.",
+          "verse": "Psalm 118:24",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_029",
+          "title": "Prayer for Energy and Vitality",
+          "text": "Lord, I ask for strength and energy to meet the demands of this day. Refresh my body and sharpen my mind. Help me not to rely on my own limited reserves but on Your unlimited supply. Give me endurance for the tasks ahead and joy in the process. Thank You for renewing me daily. Amen.",
+          "verse": "Isaiah 40:31",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_030",
+          "title": "Prayer for a Blessed Beginning",
+          "text": "Father, I dedicate the first moments of this day to You. Let everything that follows be built on that foundation. Bless my work, my words, and my relationships today. Help me be a light to everyone I encounter. Thank You for going before me into this day. Amen.",
+          "verse": "Psalm 5:3",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_031",
+          "title": "Prayer for Direction",
+          "text": "Lord, show me the path You want me to walk today. Order my steps according to Your Word and keep me from wandering into distraction or sin. Help me recognize Your voice above the noise of the world. Thank You for never leaving me to figure things out alone. Amen.",
+          "verse": "Psalm 37:23",
+          "category": "morning"
+        },
+        {
+          "id": "morning_prayer_032",
+          "title": "Prayer for a Purposeful Day",
+          "text": "Father, help me see today not as routine, but as an opportunity to serve You. Give me eyes to notice the people who need encouragement and a heart willing to help. Let my work reflect excellence and my attitude reflect gratitude. Thank You for giving my life meaning and purpose. Amen.",
+          "verse": "Ephesians 2:10",
+          "category": "morning"
         }
       ]
     },
@@ -360,6 +409,55 @@
           "title": "Prayer for Complete Surrender",
           "text": "Lord, today I surrender every fear, worry, and anxious thought to You. I cannot carry these burdens alone, but You can. Fill my heart with peace, my mind with truth, and my spirit with hope. Help me trust You completely and rest in Your love. Thank You for holding me securely in Your hands. Amen.",
           "verse": "1 Peter 5:7",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_026",
+          "title": "Prayer for a Quiet Mind",
+          "text": "Lord, my thoughts keep spinning and I cannot seem to slow them down. Please quiet my mind and help me rest in Your presence. Remind me that worrying changes nothing but trusting You changes everything. Fill the space where anxiety lives with Your peace instead. Thank You for being closer than my next breath. Amen.",
+          "verse": "Isaiah 26:3",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_027",
+          "title": "Prayer Before a Difficult Conversation",
+          "text": "Father, I feel my heart racing at the thought of what I need to say today. Give me calm words, a steady voice, and a peaceful heart. Help me trust You with the outcome instead of trying to control it. Thank You for going ahead of me into this conversation. Amen.",
+          "verse": "Luke 12:12",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_028",
+          "title": "Prayer for Physical Symptoms of Anxiety",
+          "text": "Lord, my body feels the weight of my worry today. Please calm my racing heart and steady my breathing. Help me remember that You made my body and You care about what I'm carrying in it. Bring peace to both my mind and my physical self. Thank You for being my healer in every sense. Amen.",
+          "verse": "Psalm 34:17-18",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_029",
+          "title": "Prayer for Anxiety About the Unknown",
+          "text": "Father, I don't know what's coming, and that uncertainty is hard to sit with. Help me trust that You already know and You are already there. Replace my fear of the unknown with confidence in Your presence. Thank You for holding my future even when I cannot see it. Amen.",
+          "verse": "Deuteronomy 31:6",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_030",
+          "title": "Prayer for Social Anxiety",
+          "text": "Lord, being around others sometimes fills me with unease. Help me remember that my worth does not depend on others' opinions of me. Give me confidence rooted in Your love, not in approval from people. Calm my nerves and help me be present in the moment. Thank You for accepting me exactly as I am. Amen.",
+          "verse": "Galatians 1:10",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_031",
+          "title": "Prayer for Anxiety Over Decisions",
+          "text": "Father, I am torn between choices and afraid of making the wrong one. Give me wisdom to see clearly and peace to move forward. Remind me that You can redirect my steps even when I stumble. Thank You for guiding me even through uncertainty. Amen.",
+          "verse": "James 1:5",
+          "category": "anxiety"
+        },
+        {
+          "id": "anxiety_prayer_032",
+          "title": "Prayer to Slow Down",
+          "text": "Lord, I am rushing through life anxious and out of breath. Help me slow down and remember that You are not in a hurry with me. Teach me to rest in Your timing instead of racing against the clock. Thank You for inviting me to walk with You at a peaceful pace. Amen.",
+          "verse": "Psalm 46:10",
           "category": "anxiety"
         }
       ]
@@ -543,6 +641,55 @@
           "text": "Heavenly Father, as this day comes to an end, I thank You for being with me through every moment. Thank You for Your protection, provision, and guidance. Forgive my failures and help me grow closer to You. Grant me peaceful sleep and renewed strength for tomorrow. I trust my life completely into Your hands. In Jesus' name, Amen.",
           "verse": "Psalm 3:5",
           "category": "night"
+        },
+        {
+          "id": "night_prayer_026",
+          "title": "Prayer for an Unfinished Day",
+          "text": "Lord, today didn't go the way I planned, and I have things left undone. Help me release the weight of what didn't get finished and trust You with tomorrow. Give me rest tonight so I can begin again with a clear mind. Thank You for grace that covers my shortcomings. Amen.",
+          "verse": "Matthew 6:34",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_027",
+          "title": "Prayer for a Quiet Mind at Bedtime",
+          "text": "Father, as I lay down, my mind wants to keep running through the day. Help me set it all aside and rest in Your peace. Quiet every thought that isn't from You. Thank You for watching over me while I sleep. Amen.",
+          "verse": "Psalm 4:8",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_028",
+          "title": "Prayer for Renewed Rest",
+          "text": "Lord, my body and mind are tired from the day. Grant me deep, restorative sleep tonight. Heal what is weary in me and prepare me for tomorrow. Thank You for designing rest as a gift, not a weakness. Amen.",
+          "verse": "Psalm 127:2",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_029",
+          "title": "Prayer for Those Who Can't Sleep",
+          "text": "Father, sleep feels far from me tonight. Calm my racing thoughts and heavy heart. Remind me that You are awake even when I cannot rest, and You are watching over everything I'm worried about. Thank You for staying near through every restless hour. Amen.",
+          "verse": "Psalm 121:3-4",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_030",
+          "title": "Prayer of Reflection",
+          "text": "Lord, as this day ends, help me see where You were at work, even in small ways. Thank You for the good moments and the lessons in the hard ones. Help me carry forward what I learned and release what I don't need to keep. Thank You for walking through today with me. Amen.",
+          "verse": "Psalm 143:5",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_031",
+          "title": "Prayer for Tomorrow's Provision",
+          "text": "Father, before I close my eyes, I trust You with tomorrow's needs. You already know what I'll face and what I'll require. Help me rest instead of trying to plan for every possibility. Thank You for being faithful one day at a time. Amen.",
+          "verse": "Matthew 6:11",
+          "category": "night"
+        },
+        {
+          "id": "night_prayer_032",
+          "title": "Prayer for Peaceful Dreams",
+          "text": "Lord, guard my mind tonight from troubling thoughts and dreams. Fill my sleep with peace instead of worry. Let me wake up refreshed and ready for what You have planned. Thank You for being present even in my rest. Amen.",
+          "verse": "Proverbs 3:24",
+          "category": "night"
         }
       ]
     },
@@ -724,6 +871,55 @@
           "title": "Prayer for Wholeness",
           "text": "Heavenly Father, I ask for healing in every part of my life. Restore my body, renew my mind, strengthen my spirit, and fill my heart with peace. Help me trust Your love and rest in Your promises. Thank You for making all things new and for walking with me every day. In Jesus' name, Amen.",
           "verse": "3 John 1:2",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_026",
+          "title": "Prayer for a Loved One's Healing",
+          "text": "Lord, I bring someone I love before You who needs healing today. You see their pain more clearly than I do. Touch their body, calm their fears, and surround them with people who can help. Give them strength for this season and give me wisdom in how to support them. Thank You for caring about them even more than I do. Amen.",
+          "verse": "James 5:14-15",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_027",
+          "title": "Prayer for Healing Before a Procedure",
+          "text": "Father, I am anxious about what lies ahead medically. Guide the hands of everyone involved in my care. Give me peace as I wait and courage as I go through it. Thank You for being present in the waiting room, the operating room, and the recovery. Amen.",
+          "verse": "Psalm 41:3",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_028",
+          "title": "Prayer for Chronic Pain",
+          "text": "Lord, this pain has lingered longer than I hoped. Some days it is hard to keep believing for relief. Please give me strength for today, regardless of how I feel. Remind me that You see every day of suffering and You have not forgotten me. Thank You for staying close in the waiting. Amen.",
+          "verse": "2 Corinthians 12:9",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_029",
+          "title": "Prayer for Mental Health Healing",
+          "text": "Father, my mind feels burdened in ways that are hard to explain. Please bring healing to the parts of me that struggle silently. Surround me with people who understand and resources that help. Thank You for caring about my mind as much as my body. Amen.",
+          "verse": "Psalm 34:18",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_030",
+          "title": "Prayer for Strength to Follow Treatment",
+          "text": "Lord, following through with treatment is harder than I expected. Give me discipline on the difficult days and hope when progress feels slow. Help me trust the process even when I don't see immediate results. Thank You for the people and resources helping me heal. Amen.",
+          "verse": "Galatians 6:9",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_031",
+          "title": "Prayer for Healing of the Whole Person",
+          "text": "Father, I don't just need my body healed — I need my heart and mind restored too. Touch every part of me that has been affected by this season. Thank You for being a God who cares about wholeness, not just symptoms. Amen.",
+          "verse": "3 John 1:2",
+          "category": "healing"
+        },
+        {
+          "id": "healing_prayer_032",
+          "title": "Prayer of Thanks for Healing Progress",
+          "text": "Lord, thank You for the healing You have already brought, even if it isn't complete. Help me notice and celebrate small improvements. Give me patience for what still needs to heal and gratitude for what already has. Thank You for being faithful in this process. Amen.",
+          "verse": "Psalm 103:2-3",
           "category": "healing"
         }
       ]
@@ -907,6 +1103,55 @@
           "text": "Heavenly Father, I surrender every fear, worry, and uncertainty to You. Fill my heart with Your perfect peace and help me trust You completely. Remind me daily that You are with me, guiding and protecting me. Thank You for being my refuge, strength, and source of courage. In Jesus' name, Amen.",
           "verse": "Isaiah 26:3",
           "category": "fear"
+        },
+        {
+          "id": "fear_prayer_026",
+          "title": "Prayer Facing a Specific Fear",
+          "text": "Lord, there is something specific I am afraid of today. Help me name it honestly before You instead of letting it grow in silence. Remind me that You are with me in the exact situation I fear. Thank You for meeting me here, not just in general but in this particular moment. Amen.",
+          "verse": "Isaiah 41:10",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_027",
+          "title": "Prayer for Fear of Change",
+          "text": "Father, change is unsettling, and I don't like not knowing what's ahead. Help me trust that You remain the same even when everything around me shifts. Give me courage to step into what's new instead of clinging to what's familiar out of fear. Thank You for going with me into every new season. Amen.",
+          "verse": "Hebrews 13:8",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_028",
+          "title": "Prayer for Fear of Rejection",
+          "text": "Lord, the fear of being rejected keeps me from being honest and open. Help me find my security in You rather than in others' approval. Give me courage to be myself even when I'm afraid of how it will be received. Thank You for accepting me fully and completely. Amen.",
+          "verse": "Romans 8:31",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_029",
+          "title": "Prayer for Fear at Night",
+          "text": "Father, fear feels louder in the dark and quiet hours. Remind me that You do not sleep and You are watching over me right now. Calm my racing thoughts and help me rest, knowing You are near. Thank You for being my protector through every night. Amen.",
+          "verse": "Psalm 121:4",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_030",
+          "title": "Prayer for Parents Facing Fear for Their Children",
+          "text": "Lord, I am afraid for the safety and future of my children. Help me trust You with what I cannot control. Watch over them when I am not there and guide them even when I cannot see the path. Thank You for loving them more than I ever could. Amen.",
+          "verse": "Isaiah 54:13",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_031",
+          "title": "Prayer for Fear of Public Speaking",
+          "text": "Father, I am dreading having to speak in front of others. Calm my nerves and give me clear thoughts and a steady voice. Help me remember that my worth doesn't rest on this one moment going perfectly. Thank You for equipping me for what You've called me to do. Amen.",
+          "verse": "Exodus 4:12",
+          "category": "fear"
+        },
+        {
+          "id": "fear_prayer_032",
+          "title": "Prayer to Replace Fear with Faith",
+          "text": "Lord, I choose today to replace fear with faith, even though it feels difficult. Help me take one step of trust at a time. Remind me that faith doesn't mean the absence of fear, but choosing to move forward anyway. Thank You for walking with me in that choice. Amen.",
+          "verse": "2 Corinthians 5:7",
+          "category": "fear"
         }
       ]
     },
@@ -1088,6 +1333,55 @@
           "title": "Prayer for a Life-Changing Breakthrough",
           "text": "Heavenly Father, I place every dream, need, and challenge before You. I ask for a breakthrough that brings glory to Your name. Open doors, make a way, and strengthen my faith. Help me trust You completely and remain faithful through every season. Thank You for the miracles You are preparing and for Your unfailing love. In Jesus' name, Amen.",
           "verse": "Mark 10:27",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_026",
+          "title": "Prayer for a Long-Awaited Breakthrough",
+          "text": "Lord, I have been waiting for this breakthrough for so long. Help me not to lose heart in the delay. Strengthen my faith to keep believing even when I don't see progress. Thank You for working on my behalf even in the waiting. Amen.",
+          "verse": "Habakkuk 2:3",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_027",
+          "title": "Prayer for Breakthrough in Business",
+          "text": "Father, I bring my work and business before You. Open doors that lead to growth and close ones that would lead me astray. Give me wisdom in every decision and favor in every negotiation. Thank You for being interested in the details of my work. Amen.",
+          "verse": "Deuteronomy 8:18",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_028",
+          "title": "Prayer for Breakthrough After Setback",
+          "text": "Lord, this setback has been discouraging, but I know it is not the end of the story. Help me learn what I need to from this season and move forward with renewed hope. Turn what looked like failure into a stepping stone. Thank You for redeeming disappointments. Amen.",
+          "verse": "Genesis 50:20",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_029",
+          "title": "Prayer for Breakthrough in Relationships",
+          "text": "Father, there is a relationship in my life that needs a breakthrough. Soften hearts, open honest communication, and remove pride that keeps us apart. Help both of us be willing to change what needs to change. Thank You for being a God who restores what is broken. Amen.",
+          "verse": "Ezekiel 36:26",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_030",
+          "title": "Prayer for a Miracle",
+          "text": "Lord, I am facing something that feels impossible by human means. I ask boldly for a miracle, trusting that nothing is too hard for You. Even if the answer isn't what I expect, help me trust Your wisdom. Thank You for being a God who still does the impossible. Amen.",
+          "verse": "Luke 1:37",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_031",
+          "title": "Prayer for Perseverance Toward Breakthrough",
+          "text": "Father, I feel tempted to give up right before what could be my breakthrough. Give me strength to keep going one more day, one more step. Remind me that perseverance is often the last thing standing between me and the answer. Thank You for sustaining me until then. Amen.",
+          "verse": "Galatians 6:9",
+          "category": "breakthrough"
+        },
+        {
+          "id": "breakthrough_prayer_032",
+          "title": "Prayer for Breakthrough in a Stuck Season",
+          "text": "Lord, everything feels stagnant right now, like nothing is moving forward. Please bring fresh momentum into this season. Show me if there's something I need to change, and give me courage to act on it. Thank You for not leaving me stuck forever. Amen.",
+          "verse": "Isaiah 43:19",
           "category": "breakthrough"
         }
       ]
@@ -1271,6 +1565,55 @@
           "text": "Heavenly Father, we dedicate our home and family to You. Fill our lives with Your peace, wisdom, protection, and love. Help us honor You in all we do and trust You in every season. Thank You for Your presence in our home and Your blessings upon our family. In Jesus' name, Amen.",
           "verse": "Psalm 127:1",
           "category": "family"
+        },
+        {
+          "id": "family_prayer_026",
+          "title": "Prayer for a Family Member Far Away",
+          "text": "Lord, I think of a family member who is far from home today. Watch over them and keep them safe. Bridge the distance between us with Your presence in both our lives. Help us stay connected in heart even when we can't be close in person. Thank You for caring for them as much as I do. Amen.",
+          "verse": "Psalm 139:9-10",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_027",
+          "title": "Prayer for a Difficult Family Relationship",
+          "text": "Father, one relationship in my family feels strained right now. Give me patience and wisdom in how I respond. Soften both our hearts and help us find common ground. Thank You for caring about restoration more than I do. Amen.",
+          "verse": "Romans 12:18",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_028",
+          "title": "Prayer for Aging Parents",
+          "text": "Lord, I ask for Your care over my aging parents. Give them health, comfort, and dignity in this season of life. Give me patience and wisdom as I support them. Thank You for the years they have poured into me. Amen.",
+          "verse": "Exodus 20:12",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_029",
+          "title": "Prayer for a New Baby in the Family",
+          "text": "Father, thank You for the new life You have brought into our family. Watch over this little one and give the parents strength and wisdom. Fill our home with joy as we welcome this new blessing. Thank You for the gift of new life. Amen.",
+          "verse": "Psalm 127:3",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_030",
+          "title": "Prayer for Siblings",
+          "text": "Lord, thank You for my siblings and the bond we share. Help us support one another through every season, even when we disagree. Remove jealousy or rivalry and replace it with genuine love. Thank You for the gift of growing up together. Amen.",
+          "verse": "Proverbs 17:17",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_031",
+          "title": "Prayer for Extended Family Gatherings",
+          "text": "Father, as our family gathers together, help our time be filled with warmth and not tension. Give us patience with each other's differences and grace for old wounds. Let our time together strengthen our bonds. Thank You for the family You've given me. Amen.",
+          "verse": "Colossians 3:14",
+          "category": "family"
+        },
+        {
+          "id": "family_prayer_032",
+          "title": "Prayer for a Family in Transition",
+          "text": "Lord, our family is going through a season of change. Help us adjust with grace and support one another through the uncertainty. Give us patience with the process and hope for what's ahead. Thank You for being the constant in every season of change. Amen.",
+          "verse": "Hebrews 13:8",
+          "category": "family"
         }
       ]
     },
@@ -1453,6 +1796,55 @@
           "text": "Heavenly Father, create in me a heart that forgives as You forgive. Help me release every hurt, offense, and disappointment into Your hands. Fill me with love, peace, and compassion. Thank You for Your mercy that never ends and for teaching me the beauty of forgiveness. In Jesus' name, Amen.",
           "verse": "Luke 23:34",
           "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_026",
+          "title": "Prayer for Forgiving Someone Who Hasn't Apologized",
+          "text": "Lord, the person who hurt me has never said they're sorry, and forgiveness still feels hard. Help me let go of the debt I feel they owe me, not because they deserve it, but because I need to be free. Give me peace even without an apology. Thank You for freeing me through forgiveness. Amen.",
+          "verse": "Mark 11:25",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_027",
+          "title": "Prayer for Forgiving a Betrayal",
+          "text": "Father, this betrayal cut deeper than I expected, and forgiveness feels almost impossible right now. Help me take it one step at a time instead of expecting instant healing. Give me wisdom about boundaries while I work toward forgiveness. Thank You for understanding this pain fully. Amen.",
+          "verse": "Psalm 55:12-14",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_028",
+          "title": "Prayer for Forgiving a Friend",
+          "text": "Lord, a friendship has been strained by hurt feelings. Help me approach this with humility, whether I need to forgive or be forgiven. Give us both the courage to talk honestly. Thank You for the value of restored friendships. Amen.",
+          "verse": "Proverbs 17:9",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_029",
+          "title": "Prayer for Releasing Anger",
+          "text": "Father, anger has been simmering in me longer than it should. Help me release it before it turns into bitterness. Show me healthy ways to process what I'm feeling. Thank You for giving me freedom from carrying this weight. Amen.",
+          "verse": "Ephesians 4:26-27",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_030",
+          "title": "Prayer for Forgiving in a Marriage",
+          "text": "Lord, hurt has come between me and my spouse. Help us both extend grace and take responsibility where needed. Give us patience to rebuild trust and humility to apologize. Thank You for being the foundation of our marriage. Amen.",
+          "verse": "Colossians 3:13",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_031",
+          "title": "Prayer for a Softer Heart",
+          "text": "Father, my heart has grown hard toward someone who hurt me. Soften it again. Help me see them the way You see them, without excusing the wrong but without holding on to hate. Thank You for softening my heart toward You first. Amen.",
+          "verse": "Ezekiel 36:26",
+          "category": "forgiveness"
+        },
+        {
+          "id": "forgiveness_prayer_032",
+          "title": "Prayer for Ongoing Forgiveness",
+          "text": "Lord, forgiveness isn't a one-time decision for this situation — I need to keep choosing it. Help me release the hurt again each time it resurfaces. Thank You for Your patience with me as I learn to forgive fully. Amen.",
+          "verse": "Matthew 18:21-22",
+          "category": "forgiveness"
         }
       ]
     },
@@ -1633,6 +2025,55 @@
           "id": "gratitude_prayer_025",
           "title": "Prayer of Thankfulness",
           "text": "Heavenly Father, thank You for every blessing, every lesson, and every moment of Your faithfulness. Thank You for Your love, grace, protection, and provision. Help me never forget Your goodness and always approach life with gratitude. Let my heart overflow with thanksgiving and praise. In Jesus' name, Amen.",
+          "verse": "Psalm 118:24",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_026",
+          "title": "Prayer of Thanks for Small Things",
+          "text": "Lord, thank You for the small things I usually overlook — a warm meal, a kind word, a moment of quiet. Teach me to notice these gifts throughout my day. Let gratitude for the little things grow into a deeper appreciation for Your constant care. Thank You for filling ordinary days with grace. Amen.",
+          "verse": "Psalm 136:1",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_027",
+          "title": "Prayer of Thanks in a Hard Season",
+          "text": "Father, even in this difficult season, I can find things to thank You for. Help me look for them instead of only seeing what's wrong. Thank You for the people supporting me and the strength I didn't know I had. Amen.",
+          "verse": "1 Thessalonians 5:18",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_028",
+          "title": "Prayer of Thanks for Answered Prayer",
+          "text": "Lord, thank You for answering my prayer. I don't want to move on too quickly without acknowledging what You've done. Help me remember this answer the next time I'm tempted to doubt. Thank You for hearing me. Amen.",
+          "verse": "Psalm 116:1-2",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_029",
+          "title": "Prayer of Thanks for Work",
+          "text": "Father, thank You for the work I get to do, even on the hard days. Thank You for the ability to earn a living and contribute something meaningful. Help me do my work with gratitude instead of complaint. Amen.",
+          "verse": "Colossians 3:23",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_030",
+          "title": "Prayer of Thanks for Community",
+          "text": "Lord, thank You for the people who surround me — friends, neighbors, and community. Thank You for the encouragement and support they offer. Help me be a source of that same encouragement to others. Amen.",
+          "verse": "Ecclesiastes 4:9-10",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_031",
+          "title": "Prayer of Thanks for Growth",
+          "text": "Father, thank You for how far You have brought me. Looking back, I see growth I didn't notice while it was happening. Thank You for shaping me through both joys and struggles. Amen.",
+          "verse": "Philippians 1:6",
+          "category": "gratitude"
+        },
+        {
+          "id": "gratitude_prayer_032",
+          "title": "Prayer of Thanks for Today",
+          "text": "Lord, thank You simply for today — for the chance to live, breathe, and be present. Help me not take a single day for granted. Thank You for the gift of now. Amen.",
           "verse": "Psalm 118:24",
           "category": "gratitude"
         }
@@ -1817,6 +2258,1875 @@
           "text": "Heavenly Father, thank You for the hope I have in You. No matter what challenges come my way, help me remain confident in Your promises. Strengthen my faith, fill my heart with peace, and remind me that You are always working for my good. Thank You for being my eternal source of hope. In Jesus' name, Amen.",
           "verse": "Hebrews 6:19",
           "category": "hope"
+        },
+        {
+          "id": "hope_prayer_026",
+          "title": "Prayer for Hope When Nothing Seems to Change",
+          "text": "Lord, things have looked the same for a while now, and hope is hard to hold on to. Help me trust that You are working even when I see no visible change. Renew my hope today, even in small measure. Thank You for being active behind the scenes. Amen.",
+          "verse": "Isaiah 40:31",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_027",
+          "title": "Prayer for Hope for the Next Generation",
+          "text": "Father, I pray for hope not just for myself but for those coming after me. Give the younger generation wisdom, faith, and courage for what lies ahead. Thank You for being faithful across generations. Amen.",
+          "verse": "Psalm 78:4",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_028",
+          "title": "Prayer for Hope in the Middle of Grief",
+          "text": "Lord, grief and hope feel hard to hold at the same time, but I know they can coexist. Help me grieve honestly while still trusting there is more ahead. Thank You for meeting me in both. Amen.",
+          "verse": "Psalm 30:5",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_029",
+          "title": "Prayer for Hope in a New Chapter",
+          "text": "Father, thank You for closing one chapter and opening another. Help me step into what's next with hope instead of fear. Thank You for the good You have planned ahead. Amen.",
+          "verse": "Isaiah 43:18-19",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_030",
+          "title": "Prayer for Hope Rooted in Scripture",
+          "text": "Lord, help my hope be rooted in Your Word, not just my circumstances. Let Your promises anchor me when everything else feels shaky. Thank You for a hope that does not disappoint. Amen.",
+          "verse": "Romans 5:5",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_031",
+          "title": "Prayer for Hope to Share with Others",
+          "text": "Father, let the hope You have given me overflow into encouragement for others. Help me be someone who brings light into other people's discouragement. Thank You for making my hope a gift I can share. Amen.",
+          "verse": "1 Peter 3:15",
+          "category": "hope"
+        },
+        {
+          "id": "hope_prayer_032",
+          "title": "Prayer for Steady Hope",
+          "text": "Lord, help my hope stay steady, not rising and falling with every circumstance. Anchor it in who You are rather than what's happening around me. Thank You for being unchanging even when life isn't. Amen.",
+          "verse": "Hebrews 6:19",
+          "category": "hope"
+        }
+      ]
+    },
+    {
+      "id": "love",
+      "name": "Love & Relationships Prayers",
+      "icon": "ic_love",
+      "prayers": [
+        {
+          "id": "love_prayer_001",
+          "title": "Prayer for God's Love to Fill Me",
+          "text": "Heavenly Father, thank You for loving me first, before I ever loved You. Help me understand the depth of Your love and let it fill every empty place in my heart. May Your love shape how I see myself and how I treat others. Thank You for a love that never runs out. In Jesus' name, Amen.",
+          "verse": "1 John 4:19",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_002",
+          "title": "Prayer for a Healthy Relationship",
+          "text": "Lord, I ask for Your guidance in my relationship. Help us build trust, communicate honestly, and treat each other with respect. Remove selfishness and pride and replace it with patience and grace. Thank You for the gift of companionship. Amen.",
+          "verse": "1 Corinthians 13:4-7",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_003",
+          "title": "Prayer for Someone I Love",
+          "text": "Father, I lift up someone I care deeply about. Watch over them, guide them, and fill their life with Your peace. Help me love them well, without trying to control or fix everything. Thank You for the gift of loving and being loved. Amen.",
+          "verse": "John 15:12",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_004",
+          "title": "Prayer for Finding Love",
+          "text": "Lord, I long for companionship and sometimes wonder if it will come. Help me trust Your timing instead of forcing what isn't right. Give me patience and contentment while I wait, and wisdom to recognize what's good when it comes. Thank You for knowing what I need. Amen.",
+          "verse": "Ecclesiastes 3:1",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_005",
+          "title": "Prayer for Loving Difficult People",
+          "text": "Father, there is someone in my life who is hard to love. Help me see them through Your eyes instead of my frustration. Give me patience and compassion, even when it's not returned. Thank You for loving me when I was hard to love too. Amen.",
+          "verse": "Matthew 5:44",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_006",
+          "title": "Prayer for Self-Love Rooted in God",
+          "text": "Lord, help me see myself the way You see me — valuable, loved, and made with purpose. Free me from harsh self-criticism and comparison. Let my confidence come from being Your child, not from perfection. Thank You for calling me worthy of love. Amen.",
+          "verse": "Psalm 139:14",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_007",
+          "title": "Prayer for Love That Lasts",
+          "text": "Father, help the love in my relationships be built on commitment, not just feelings. Give us strength to stay faithful through both easy and hard seasons. Thank You for being the example of steadfast love. Amen.",
+          "verse": "1 Corinthians 13:8",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_008",
+          "title": "Prayer for Healing After Heartbreak",
+          "text": "Lord, my heart is broken from a relationship that ended. Please heal the wound and help me not carry bitterness into the future. Restore my confidence in love and in Your plan for me. Thank You for mending what is broken. Amen.",
+          "verse": "Psalm 147:3",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_009",
+          "title": "Prayer for Loving Without Fear",
+          "text": "Father, past hurts make me afraid to fully love again. Help me open my heart without being ruled by fear of getting hurt. Fill me with Your perfect love that drives out fear. Thank You for restoring my ability to trust and love. Amen.",
+          "verse": "1 John 4:18",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_010",
+          "title": "Prayer for Friendship",
+          "text": "Lord, thank You for the friends You have placed in my life. Deepen these friendships and help me be a faithful friend in return. Bring people into my life who encourage my faith and support me in hard times. Thank You for the gift of true friendship. Amen.",
+          "verse": "Proverbs 18:24",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_011",
+          "title": "Prayer for Loving Sacrificially",
+          "text": "Father, teach me to love others sacrificially, putting their needs alongside my own. Help me give generously of my time and attention. Thank You for showing me what sacrificial love looks like through Christ. Amen.",
+          "verse": "John 15:13",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_012",
+          "title": "Prayer for a Long-Distance Relationship",
+          "text": "Lord, distance makes this relationship harder to maintain. Help us stay connected in heart even when we're apart. Give us patience and creativity to nurture our bond. Thank You for closing the gap that distance creates. Amen.",
+          "verse": "1 Corinthians 13:7",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_013",
+          "title": "Prayer for Patience in Relationships",
+          "text": "Father, help me be patient with the people I love, especially when they disappoint me. Remind me that patience is a form of love in action. Thank You for being patient with me every day. Amen.",
+          "verse": "1 Corinthians 13:4",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_014",
+          "title": "Prayer for Loving My Neighbor",
+          "text": "Lord, help me love the people around me, not just those closest to me. Open my eyes to the needs of neighbors, coworkers, and strangers. Give me a heart that looks for ways to bless others. Thank You for calling me to love beyond my inner circle. Amen.",
+          "verse": "Mark 12:31",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_015",
+          "title": "Prayer for Repairing a Broken Relationship",
+          "text": "Father, this relationship has been damaged, and I don't know how to fix it. Give both of us humility to admit fault and courage to reach out. Thank You for being a God who restores what feels beyond repair. Amen.",
+          "verse": "Romans 12:18",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_016",
+          "title": "Prayer for Expressing Love Well",
+          "text": "Lord, help me express love in ways that truly reach the people I care about. Teach me to notice how they best receive love and give it generously in that way. Thank You for teaching me through Your own example. Amen.",
+          "verse": "1 John 3:18",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_017",
+          "title": "Prayer for Contentment in Singleness",
+          "text": "Father, help me be content in this season of singleness, trusting that You have a purpose for it. Free me from comparing my life to others'. Fill this season with meaning and joy, whatever comes next. Thank You for being enough for me. Amen.",
+          "verse": "Philippians 4:11",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_018",
+          "title": "Prayer for a Loving Home",
+          "text": "Lord, let our home be a place filled with love, laughter, and grace. Help us extend patience and kindness to each other daily. Thank You for making our home a reflection of Your love. Amen.",
+          "verse": "Proverbs 24:3-4",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_019",
+          "title": "Prayer for Loving Truthfully",
+          "text": "Father, help me love people enough to be honest with them, even when it's uncomfortable. Give me the right words and the right timing. Thank You for showing me that real love speaks truth in kindness. Amen.",
+          "verse": "Ephesians 4:15",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_020",
+          "title": "Prayer for Grace in Conflict",
+          "text": "Lord, disagreements are testing the love in this relationship. Help us extend grace instead of keeping score. Give us humility to apologize and generosity to forgive. Thank You for teaching us to love through conflict, not just in ease. Amen.",
+          "verse": "Colossians 3:13",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_021",
+          "title": "Prayer for Loving Consistency",
+          "text": "Father, help my love be consistent, not dependent on my mood or convenience. Teach me to show up for the people I care about, day after day. Thank You for Your consistent love toward me. Amen.",
+          "verse": "Lamentations 3:22-23",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_022",
+          "title": "Prayer for Love in Aging Relationships",
+          "text": "Lord, thank You for relationships that have lasted through the years. Help us keep growing together instead of growing apart. Renew the affection and appreciation we have for each other. Thank You for the gift of lasting love. Amen.",
+          "verse": "Ecclesiastes 4:9-12",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_023",
+          "title": "Prayer for Loving Despite Rejection",
+          "text": "Father, my love wasn't returned the way I hoped, and it hurts. Help me not close my heart because of it. Give me the strength to keep loving others without bitterness. Thank You for a love that never fails, even when people do. Amen.",
+          "verse": "Romans 8:38-39",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_024",
+          "title": "Prayer for Love That Reflects Christ",
+          "text": "Lord, help my love for others reflect the love You have shown me — patient, kind, and forgiving. Let people see You in how I treat them. Thank You for being the perfect model of love. Amen.",
+          "verse": "1 John 4:11",
+          "category": "love"
+        },
+        {
+          "id": "love_prayer_025",
+          "title": "Prayer for a Heart Full of Love",
+          "text": "Heavenly Father, fill my heart so full of Your love that it overflows into every relationship I have. Help me love without keeping score, forgive without holding grudges, and give without expecting return. Thank You for being the source of every good love I experience. In Jesus' name, Amen.",
+          "verse": "1 Corinthians 13:13",
+          "category": "love"
+        }
+      ]
+    },
+    {
+      "id": "depression",
+      "name": "Depression & Sadness Prayers",
+      "icon": "ic_depression",
+      "prayers": [
+        {
+          "id": "depression_prayer_001",
+          "title": "Prayer When Everything Feels Heavy",
+          "text": "Lord, everything feels heavier than it should today. I don't have the energy to explain it all, but You already know. Please carry what I cannot carry right now. Give me just enough strength to get through today. Thank You for staying close even when I feel far from everything. Amen.",
+          "verse": "Psalm 34:18",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_002",
+          "title": "Prayer for Getting Out of Bed",
+          "text": "Father, some mornings even getting up feels impossible. Please give me a small measure of strength for this moment. I don't need to see the whole day, just the next step. Thank You for meeting me exactly where I am. Amen.",
+          "verse": "Lamentations 3:22-23",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_003",
+          "title": "Prayer for Numbness",
+          "text": "Lord, I feel numb, like I can't access joy or sadness or anything in between. Please don't let this numbness convince me that You've left. Remind me that feelings change even when they don't seem to right now. Thank You for holding on to me when I can't hold on to much. Amen.",
+          "verse": "Psalm 42:11",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_004",
+          "title": "Prayer for Hope in Darkness",
+          "text": "Father, this darkness feels like it won't lift. I ask for even a small flicker of hope today. Help me hold on, even loosely, to the belief that things can get better. Thank You for being present in the dark, not just the light. Amen.",
+          "verse": "Psalm 30:5",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_005",
+          "title": "Prayer for Strength to Seek Help",
+          "text": "Lord, I know I need support beyond what I can give myself. Give me courage to reach out to a professional, a friend, or someone who can help. Remove the shame that keeps me silent. Thank You for providing people equipped to help me heal. Amen.",
+          "verse": "Proverbs 11:14",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_006",
+          "title": "Prayer for Sadness Without Clear Cause",
+          "text": "Father, I feel sad without being able to point to a reason. Help me be gentle with myself instead of demanding an explanation. Meet me in this feeling and don't let me feel alone in it. Thank You for understanding what I can't. Amen.",
+          "verse": "Psalm 43:5",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_007",
+          "title": "Prayer for Isolation",
+          "text": "Lord, I've been pulling away from people, and it's making things harder. Give me the courage to reach out, even in small ways. Bring someone into my life who can sit with me in this. Thank You for not designing me to go through this alone. Amen.",
+          "verse": "Ecclesiastes 4:9-10",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_008",
+          "title": "Prayer for a Bad Day",
+          "text": "Father, today has been especially hard. Help me get through the next hour without needing to solve everything else. Thank You for being present in the bad days, not just the good ones. Amen.",
+          "verse": "Psalm 55:22",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_009",
+          "title": "Prayer for Restoring Joy",
+          "text": "Lord, joy feels distant right now. I'm not asking for everything to feel good again instantly, just for a small step toward it. Restore to me even a little bit of the joy I used to know. Thank You for being patient with the slow process of healing. Amen.",
+          "verse": "Psalm 51:12",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_010",
+          "title": "Prayer for Feeling Unseen",
+          "text": "Father, I feel like no one notices what I'm going through. Remind me that You see me completely, even the parts I hide from others. Thank You for a love that doesn't require me to explain myself first. Amen.",
+          "verse": "Genesis 16:13",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_011",
+          "title": "Prayer for Patience With Myself",
+          "text": "Lord, I'm frustrated with how long this heaviness has lasted. Help me be patient with my own healing instead of demanding it happen faster. Thank You for not rushing me and for meeting me with grace. Amen.",
+          "verse": "Galatians 6:9",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_012",
+          "title": "Prayer for Family Members Who Are Struggling",
+          "text": "Father, someone I love is struggling with depression, and I don't always know how to help. Give me wisdom, patience, and the right words. Help me support them without trying to fix everything myself. Thank You for caring for them even more than I do. Amen.",
+          "verse": "Galatians 6:2",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_013",
+          "title": "Prayer for Small Wins",
+          "text": "Lord, today I want to thank You for the small things I managed to do, even if they seem insignificant. Help me count these as real progress. Thank You for meeting me in small steps forward. Amen.",
+          "verse": "Zechariah 4:10",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_014",
+          "title": "Prayer for Anger Underneath Sadness",
+          "text": "Father, I feel angry underneath my sadness, and I don't fully understand why. Help me process these feelings honestly instead of suppressing them. Thank You for being able to handle every layer of what I'm feeling. Amen.",
+          "verse": "Psalm 62:8",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_015",
+          "title": "Prayer for a Reason to Keep Going",
+          "text": "Lord, some days I struggle to find a reason to keep going. Please remind me, even in small ways, that my life has meaning and purpose. Thank You for not giving up on me, even when I struggle to see why I should keep going. Amen.",
+          "verse": "Jeremiah 29:11",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_016",
+          "title": "Prayer for Comfort in Sadness",
+          "text": "Father, comfort me in this sadness the way only You can. Send people, words, or moments of peace that remind me I'm not abandoned. Thank You for being close to the brokenhearted. Amen.",
+          "verse": "Psalm 34:18",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_017",
+          "title": "Prayer for Trusting God in the Fog",
+          "text": "Lord, everything feels foggy and unclear right now, including my faith. Help me trust You even when I can't feel You clearly. Thank You for staying faithful even when my faith feels weak. Amen.",
+          "verse": "Mark 9:24",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_018",
+          "title": "Prayer for Resilience",
+          "text": "Father, give me resilience to keep facing each day, even when it's hard. Help me not measure my worth by how well I'm coping. Thank You for strength that comes from You, not from my own willpower alone. Amen.",
+          "verse": "Isaiah 40:29",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_019",
+          "title": "Prayer for Gentle Self-Talk",
+          "text": "Lord, my inner voice has been harsh and critical lately. Help me speak to myself with the same compassion You show me. Replace self-criticism with truth about who I am in You. Thank You for seeing me with grace. Amen.",
+          "verse": "Psalm 139:14",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_020",
+          "title": "Prayer for Physical Care During Depression",
+          "text": "Father, I know that basic care for my body matters, even when depression makes it hard. Help me eat, move, and rest, even in small ways. Thank You for caring about both my mind and my body. Amen.",
+          "verse": "1 Corinthians 6:19-20",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_021",
+          "title": "Prayer for Not Being Defined by This Season",
+          "text": "Lord, help me remember that this season does not define my whole life. Depression is something I'm walking through, not who I am. Thank You for the identity You've given me that doesn't change with my feelings. Amen.",
+          "verse": "2 Corinthians 5:17",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_022",
+          "title": "Prayer for Trusting the Process of Healing",
+          "text": "Father, healing isn't happening as quickly as I'd like, and that's discouraging. Help me trust that progress, even slow progress, is still progress. Thank You for walking with me through the whole process, not just the finish line. Amen.",
+          "verse": "Philippians 1:6",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_023",
+          "title": "Prayer for Community Support",
+          "text": "Lord, bring people into my life who can support me through this. Help me let them in instead of pushing them away. Thank You for designing community as part of healing. Amen.",
+          "verse": "Ecclesiastes 4:9-10",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_024",
+          "title": "Prayer for a Glimmer of Light",
+          "text": "Father, I don't need everything to feel better all at once — just a glimmer of light today. Help me notice it when it comes, even if it's small. Thank You for being the light that never fully goes out. Amen.",
+          "verse": "John 1:5",
+          "category": "depression"
+        },
+        {
+          "id": "depression_prayer_025",
+          "title": "Prayer for Holding On",
+          "text": "Heavenly Father, today I simply ask for the strength to hold on. I don't need to have all the answers or feel completely better. I just need to know that You are holding on to me too. Thank You for never letting go, even in my darkest moments. In Jesus' name, Amen.",
+          "verse": "Isaiah 41:10",
+          "category": "depression"
+        }
+      ]
+    },
+    {
+      "id": "guidance",
+      "name": "Guidance & Wisdom Prayers",
+      "icon": "ic_guidance",
+      "prayers": [
+        {
+          "id": "guidance_prayer_001",
+          "title": "Prayer for Wisdom in a Decision",
+          "text": "Lord, I am facing a decision and I need Your wisdom. Help me see clearly what I cannot see on my own. Guide my thoughts and give me peace about the right path. Thank You for promising wisdom to those who ask. Amen.",
+          "verse": "James 1:5",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_002",
+          "title": "Prayer for Direction in Life",
+          "text": "Father, I feel uncertain about the direction my life is heading. Show me the next step, even if I can't see the whole path yet. Help me trust that You are leading me even in the unclear moments. Thank You for going before me. Amen.",
+          "verse": "Proverbs 3:5-6",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_003",
+          "title": "Prayer for Discernment",
+          "text": "Lord, help me discern what is truly from You versus what is just my own preference or fear. Sharpen my spiritual senses and give me clarity. Thank You for speaking to those who are listening. Amen.",
+          "verse": "1 Kings 3:9",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_004",
+          "title": "Prayer Before a Big Decision",
+          "text": "Father, this decision feels significant and I don't want to rush it. Give me patience to seek counsel and pray before I act. Confirm Your direction in ways I can recognize. Thank You for caring about the details of my life. Amen.",
+          "verse": "Proverbs 15:22",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_005",
+          "title": "Prayer for Wisdom in Words",
+          "text": "Lord, help me choose my words wisely today, especially in difficult conversations. Give me the right words at the right time and restraint when I should stay quiet. Thank You for guiding not just my actions but my speech. Amen.",
+          "verse": "Proverbs 15:1",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_006",
+          "title": "Prayer for Guidance in Career",
+          "text": "Father, guide me in decisions about my career and work. Show me where my gifts can be best used and where You are calling me. Give me patience while I wait for clarity. Thank You for having a plan for my work life. Amen.",
+          "verse": "Proverbs 16:3",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_007",
+          "title": "Prayer for Wisdom in Parenting",
+          "text": "Lord, parenting requires wisdom I don't always have. Guide me in raising my children with love and discipline. Help me model faith in a way they can see and follow. Thank You for entrusting them to me. Amen.",
+          "verse": "Proverbs 22:6",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_008",
+          "title": "Prayer for Guidance When Confused",
+          "text": "Father, I feel confused about what's true and what's not in this situation. Cut through the noise and give me clarity. Help me trust You even in the confusion. Thank You for being a God of clarity, not chaos. Amen.",
+          "verse": "1 Corinthians 14:33",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_009",
+          "title": "Prayer for Wise Counsel",
+          "text": "Lord, surround me with wise people who will speak truth into my life. Help me be humble enough to listen, even when it's hard to hear. Thank You for providing guidance through others, not just directly. Amen.",
+          "verse": "Proverbs 11:14",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_010",
+          "title": "Prayer for Trusting God's Timing",
+          "text": "Father, I want answers now, but I know Your timing is often different from mine. Help me be patient and trust that guidance will come when I need it. Thank You for never being late. Amen.",
+          "verse": "Ecclesiastes 3:11",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_011",
+          "title": "Prayer for Guidance in Finances",
+          "text": "Lord, give me wisdom in how I manage my money. Help me be a good steward, avoid unnecessary debt, and give generously. Guide my financial decisions according to Your principles. Thank You for providing for my needs. Amen.",
+          "verse": "Proverbs 21:5",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_012",
+          "title": "Prayer for Wisdom to Say No",
+          "text": "Father, help me know when to say no, even to good things, so I can say yes to what matters most. Give me discernment about my limits and courage to honor them. Thank You for teaching me balance. Amen.",
+          "verse": "Ecclesiastes 3:1",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_013",
+          "title": "Prayer for Guidance Through Scripture",
+          "text": "Lord, help me find guidance through Your Word today. Open my understanding as I read and apply what I learn to my situation. Thank You for a Bible that speaks into every circumstance. Amen.",
+          "verse": "Psalm 119:105",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_014",
+          "title": "Prayer for Guidance in a New Season",
+          "text": "Father, I'm entering a season I've never faced before. Give me wisdom to navigate what's unfamiliar. Help me lean on You instead of relying only on past experience. Thank You for being present in every new chapter. Amen.",
+          "verse": "Isaiah 43:19",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_015",
+          "title": "Prayer for Guidance When Plans Change",
+          "text": "Lord, my plans have changed unexpectedly, and I need Your guidance for what comes next. Help me be flexible instead of anxious. Show me the good that can come from this shift. Thank You for redirecting my steps when needed. Amen.",
+          "verse": "Proverbs 16:9",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_016",
+          "title": "Prayer for Wisdom in Conflict",
+          "text": "Father, help me navigate this conflict with wisdom instead of emotion. Give me clarity about what to say and what to leave unsaid. Thank You for guiding me toward resolution rather than escalation. Amen.",
+          "verse": "James 3:17",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_017",
+          "title": "Prayer for Guidance in Education",
+          "text": "Lord, guide my studies and decisions about learning. Help me focus on what will truly serve my purpose. Give me discipline and clarity as I pursue this path. Thank You for the opportunity to learn and grow. Amen.",
+          "verse": "Proverbs 1:5",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_018",
+          "title": "Prayer for Guidance in Uncertainty",
+          "text": "Father, I don't have clear direction right now, and that's uncomfortable. Help me trust You in the not-knowing. Give me peace to wait without anxiety. Thank You for guiding me even through unclear seasons. Amen.",
+          "verse": "Psalm 32:8",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_019",
+          "title": "Prayer for Godly Wisdom Over Worldly Wisdom",
+          "text": "Lord, help me seek wisdom that comes from You rather than just cultural trends or popular opinion. Give me discernment to recognize the difference. Thank You for a wisdom that stands the test of time. Amen.",
+          "verse": "James 3:17",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_020",
+          "title": "Prayer for Guidance in Leadership",
+          "text": "Father, I've been given responsibility to lead others. Give me the wisdom to lead with humility and the courage to make hard calls. Thank You for equipping those You call. Amen.",
+          "verse": "1 Kings 3:9",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_021",
+          "title": "Prayer for Guidance About Relationships",
+          "text": "Lord, give me discernment about which relationships to invest in and which to release. Help me recognize healthy influence versus harmful patterns. Thank You for guiding me toward relationships that build me up. Amen.",
+          "verse": "1 Corinthians 15:33",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_022",
+          "title": "Prayer for a Teachable Heart",
+          "text": "Father, give me a teachable heart that welcomes correction and new understanding. Keep me from pride that resists guidance. Thank You for continuing to shape and teach me. Amen.",
+          "verse": "Proverbs 9:9",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_023",
+          "title": "Prayer for Guidance in Moving",
+          "text": "Lord, I'm considering a move, and I need Your clarity. Show me if this is the right step and give me peace about the decision. Thank You for going ahead of me into new places. Amen.",
+          "verse": "Genesis 12:1-2",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_024",
+          "title": "Prayer for Guidance Amid Advice from Others",
+          "text": "Father, I'm receiving conflicting advice from people around me. Help me filter it through Your Word and Your peace. Give me the discernment to know what to follow and what to set aside. Thank You for being the ultimate source of guidance. Amen.",
+          "verse": "Proverbs 19:20",
+          "category": "guidance"
+        },
+        {
+          "id": "guidance_prayer_025",
+          "title": "Prayer for a Life Guided by God",
+          "text": "Heavenly Father, I surrender my plans and ask You to guide every part of my life. Order my steps, sharpen my discernment, and give me the wisdom to walk in Your ways. Thank You for never leaving me to navigate life alone. In Jesus' name, Amen.",
+          "verse": "Psalm 32:8",
+          "category": "guidance"
+        }
+      ]
+    },
+    {
+      "id": "strength",
+      "name": "Strength & Perseverance Prayers",
+      "icon": "ic_strength",
+      "prayers": [
+        {
+          "id": "strength_prayer_001",
+          "title": "Prayer for Strength Today",
+          "text": "Lord, I don't have much strength left, but I know You do. Fill me with what I need to get through today. Help me take it one moment at a time instead of trying to carry the whole week. Thank You for being my strength when mine runs out. Amen.",
+          "verse": "Isaiah 40:29",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_002",
+          "title": "Prayer for Perseverance",
+          "text": "Father, I want to give up, but I know quitting now would cost me something valuable. Give me the endurance to keep going. Remind me why I started and help me finish well. Thank You for strengthening me for the long road. Amen.",
+          "verse": "Galatians 6:9",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_003",
+          "title": "Prayer for Strength in Weakness",
+          "text": "Lord, I feel weak, and I don't have it all together. Remind me that Your power works best through my weakness, not my strength. Help me lean on You instead of pretending to be fine. Thank You for meeting me in my limits. Amen.",
+          "verse": "2 Corinthians 12:9",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_004",
+          "title": "Prayer for Strength During a Long Fight",
+          "text": "Father, this battle has gone on longer than I expected. Give me stamina to keep fighting without losing hope. Refresh my spirit even in the middle of the struggle. Thank You for sustaining me through long seasons. Amen.",
+          "verse": "Isaiah 40:31",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_005",
+          "title": "Prayer for Physical Strength",
+          "text": "Lord, my body feels tired and worn down. Restore my physical strength and energy. Help me care for my health in ways that honor You. Thank You for the body You've given me. Amen.",
+          "verse": "Nehemiah 8:10",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_006",
+          "title": "Prayer for Emotional Strength",
+          "text": "Father, emotionally I feel drained today. Strengthen my heart and mind so I can face what's ahead. Help me process my feelings without being overwhelmed by them. Thank You for being a steady presence in emotional storms. Amen.",
+          "verse": "Psalm 73:26",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_007",
+          "title": "Prayer for Strength to Resist Temptation",
+          "text": "Lord, I feel the pull toward something I know isn't good for me. Give me strength to resist and wisdom to remove myself from the situation if needed. Thank You for always providing a way out. Amen.",
+          "verse": "1 Corinthians 10:13",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_008",
+          "title": "Prayer for Strength in Caregiving",
+          "text": "Father, caring for someone else is taking a lot out of me. Give me strength for today and rest when I need it. Help me not to neglect my own well-being while caring for another. Thank You for sustaining caregivers like me. Amen.",
+          "verse": "Galatians 6:9",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_009",
+          "title": "Prayer for Strength to Try Again",
+          "text": "Lord, my last attempt didn't go the way I hoped. Give me the courage to try again instead of giving up completely. Thank You for giving second chances and fresh starts. Amen.",
+          "verse": "Philippians 3:13-14",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_010",
+          "title": "Prayer for Inner Strength",
+          "text": "Father, strengthen me from the inside out. Let my strength come from my relationship with You, not just my circumstances. Thank You for building resilience in me through every trial. Amen.",
+          "verse": "Ephesians 3:16",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_011",
+          "title": "Prayer for Strength Under Pressure",
+          "text": "Lord, the pressure I'm under feels intense right now. Help me stay steady instead of crumbling under the weight. Give me clarity to make good decisions even under stress. Thank You for being my rock in pressured moments. Amen.",
+          "verse": "Psalm 62:6",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_012",
+          "title": "Prayer for Strength to Set Boundaries",
+          "text": "Father, I struggle to set boundaries with people who take advantage of my time and energy. Give me the strength and courage to say no when I need to. Thank You for valuing my well-being. Amen.",
+          "verse": "Proverbs 25:28",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_013",
+          "title": "Prayer for Strength in Grief",
+          "text": "Lord, grief has worn me down more than I expected. Give me strength to face each day without pretending I'm okay when I'm not. Thank You for carrying me through this loss. Amen.",
+          "verse": "Psalm 34:18",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_014",
+          "title": "Prayer for Strength to Forgive",
+          "text": "Father, forgiveness requires more strength than I feel I have right now. Give me the ability to let go, even when it's hard. Thank You for modeling forgiveness so I have a strength to draw from. Amen.",
+          "verse": "Colossians 3:13",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_015",
+          "title": "Prayer for Strength as a Parent",
+          "text": "Lord, parenting is demanding more energy than I have some days. Renew my strength and patience for my children. Help me lead them well, even when I'm tired. Thank You for sustaining parents through every season. Amen.",
+          "verse": "Isaiah 40:29",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_016",
+          "title": "Prayer for Strength to Face Fear",
+          "text": "Father, fear is trying to hold me back today. Give me strength to move forward anyway. Thank You for being my courage when mine runs low. Amen.",
+          "verse": "Joshua 1:9",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_017",
+          "title": "Prayer for Strength in the Workplace",
+          "text": "Lord, work has been demanding and draining lately. Give me the endurance to keep showing up with integrity and excellence. Thank You for strength that carries me through long days. Amen.",
+          "verse": "Colossians 3:23",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_018",
+          "title": "Prayer for Strength to Change",
+          "text": "Father, change is hard, and I need strength to follow through on it. Help me stay committed even when it's uncomfortable. Thank You for transforming me a little at a time. Amen.",
+          "verse": "Philippians 1:6",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_019",
+          "title": "Prayer for Strength Through Community",
+          "text": "Lord, thank You for the people who strengthen me when I'm weak. Help me lean on them without feeling ashamed. Thank You for designing us to support one another. Amen.",
+          "verse": "Ecclesiastes 4:9-10",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_020",
+          "title": "Prayer for Strength to Keep Faith",
+          "text": "Father, my faith feels weak right now, but I don't want to let it go. Strengthen my belief even in small measure. Thank You for not requiring perfect faith, just willing faith. Amen.",
+          "verse": "Mark 9:24",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_021",
+          "title": "Prayer for Strength in Recovery",
+          "text": "Lord, recovery is slower than I want it to be. Give me strength to keep showing up for the process. Thank You for celebrating small progress with me. Amen.",
+          "verse": "Galatians 6:9",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_022",
+          "title": "Prayer for Strength to Speak Up",
+          "text": "Father, I need courage to speak up about something important. Give me the right words and the strength to say them, even if it's uncomfortable. Thank You for equipping me to use my voice. Amen.",
+          "verse": "Esther 4:14",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_023",
+          "title": "Prayer for Strength During Loneliness",
+          "text": "Lord, loneliness has taken a toll on my strength. Remind me that You are near, even when people aren't. Give me courage to reach out and strength to keep going. Thank You for being present always. Amen.",
+          "verse": "Deuteronomy 31:6",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_024",
+          "title": "Prayer for Strength to Finish Well",
+          "text": "Father, I've come a long way, and I don't want to stop before the finish line. Give me endurance for the last stretch. Thank You for helping me get this far already. Amen.",
+          "verse": "2 Timothy 4:7",
+          "category": "strength"
+        },
+        {
+          "id": "strength_prayer_025",
+          "title": "Prayer for Unshakeable Strength",
+          "text": "Heavenly Father, I ask for strength that doesn't depend on my circumstances. Root me deeply in You so that whatever comes, I can stand firm. Thank You for being my rock, my fortress, and my unfailing source of strength. In Jesus' name, Amen.",
+          "verse": "Psalm 18:2",
+          "category": "strength"
+        }
+      ]
+    },
+    {
+      "id": "work_finances",
+      "name": "Work & Finances Prayers",
+      "icon": "ic_work_finances",
+      "prayers": [
+        {
+          "id": "work_finances_prayer_001",
+          "title": "Prayer for Provision",
+          "text": "Lord, You know my financial needs before I even ask. Please provide for what is necessary and give me wisdom to manage what I have. Help me trust You instead of worrying about what's missing. Thank You for being a faithful provider. Amen.",
+          "verse": "Philippians 4:19",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_002",
+          "title": "Prayer for a Job Search",
+          "text": "Father, I'm searching for work and it feels discouraging at times. Open the right doors and close the ones that aren't for me. Give me patience while I wait and confidence in interviews. Thank You for knowing exactly where I'm meant to be. Amen.",
+          "verse": "Jeremiah 29:11",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_003",
+          "title": "Prayer for Wisdom in Spending",
+          "text": "Lord, help me be a wise steward of the money You've given me. Show me where I'm being wasteful and help me prioritize what truly matters. Thank You for trusting me with resources to manage. Amen.",
+          "verse": "Luke 16:10",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_004",
+          "title": "Prayer for Debt Relief",
+          "text": "Father, debt feels like a heavy weight I'm carrying. Give me wisdom and discipline to work toward freedom from it. Provide opportunities to pay it down faster than I expect. Thank You for being a God of freedom, not bondage. Amen.",
+          "verse": "Romans 13:8",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_005",
+          "title": "Prayer for a Difficult Boss or Coworker",
+          "text": "Lord, this workplace relationship is challenging. Give me patience and wisdom in how I respond. Help me maintain integrity even when it's hard. Thank You for giving me strength to handle difficult people with grace. Amen.",
+          "verse": "Romans 12:18",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_006",
+          "title": "Prayer for Career Growth",
+          "text": "Father, I desire to grow in my career, but I want it to align with Your purpose for me. Open doors for advancement that fit Your plan. Give me patience if growth is slower than I'd like. Thank You for guiding my professional path. Amen.",
+          "verse": "Proverbs 16:3",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_007",
+          "title": "Prayer for Contentment with Finances",
+          "text": "Lord, help me be content with what I have rather than constantly wanting more. Free me from comparing my finances to others'. Thank You for teaching me the value of contentment. Amen.",
+          "verse": "Philippians 4:11-12",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_008",
+          "title": "Prayer for Business Decisions",
+          "text": "Father, I'm facing important decisions in my business. Give me wisdom, discernment, and courage to make the right calls. Bless the work of my hands and guide my strategy. Thank You for being interested in my work. Amen.",
+          "verse": "Proverbs 16:3",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_009",
+          "title": "Prayer for Generosity",
+          "text": "Lord, help me hold my finances loosely and be generous with what You've given me. Show me opportunities to bless others through giving. Thank You for the joy that comes from generosity. Amen.",
+          "verse": "2 Corinthians 9:7",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_010",
+          "title": "Prayer for Job Loss",
+          "text": "Father, losing my job has left me uncertain and afraid. Provide for my needs during this transition and open a new door soon. Help me trust that this isn't the end of my story. Thank You for being my provider in every season. Amen.",
+          "verse": "Psalm 37:25",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_011",
+          "title": "Prayer for Balance Between Work and Life",
+          "text": "Lord, I've let work take over too much of my time and energy. Help me find balance and prioritize what matters most. Give me wisdom to say no to overcommitment. Thank You for reminding me that rest matters too. Amen.",
+          "verse": "Exodus 20:9-10",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_012",
+          "title": "Prayer for Financial Wisdom for the Future",
+          "text": "Father, help me plan wisely for the future without becoming anxious about it. Give me discipline to save and wisdom to invest well. Thank You for caring about both today's needs and tomorrow's. Amen.",
+          "verse": "Proverbs 21:20",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_013",
+          "title": "Prayer for Purpose in Work",
+          "text": "Lord, help me see meaning in my work, even in the mundane tasks. Remind me that whatever I do, I can do it for Your glory. Thank You for giving purpose to ordinary work. Amen.",
+          "verse": "Colossians 3:23",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_014",
+          "title": "Prayer for Financial Fear",
+          "text": "Father, fear about money keeps creeping into my thoughts. Replace that fear with trust in Your provision. Help me take practical steps while resting in Your care. Thank You for being my ultimate security. Amen.",
+          "verse": "Matthew 6:31-33",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_015",
+          "title": "Prayer for a New Business Venture",
+          "text": "Lord, I'm stepping into something new with my work. Give me courage, wisdom, and favor as I begin. Protect me from unwise risks and guide me toward good decisions. Thank You for going with me into this new endeavor. Amen.",
+          "verse": "Proverbs 16:3",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_016",
+          "title": "Prayer for Coworkers",
+          "text": "Father, I ask for Your blessing on my coworkers today. Help our workplace be a positive environment built on respect and teamwork. Give me opportunities to be a light among them. Thank You for the people I work alongside. Amen.",
+          "verse": "Colossians 3:23-24",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_017",
+          "title": "Prayer for Recovering from a Financial Setback",
+          "text": "Lord, this financial setback has been discouraging. Help me not lose hope and give me wisdom to rebuild. Thank You for being a God of restoration, even in finances. Amen.",
+          "verse": "Joel 2:25",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_018",
+          "title": "Prayer for Integrity at Work",
+          "text": "Father, help me maintain integrity in my work, even when it costs me something. Give me courage to do what's right rather than what's easy. Thank You for valuing honesty over shortcuts. Amen.",
+          "verse": "Proverbs 11:3",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_019",
+          "title": "Prayer for a Promotion or New Opportunity",
+          "text": "Lord, I'm hoping for growth in my career. If this opportunity is right for me, open the door clearly. If it's not, help me be at peace and trust something better is ahead. Thank You for having the best plan for my path. Amen.",
+          "verse": "Psalm 75:6-7",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_020",
+          "title": "Prayer for Freedom from Comparison",
+          "text": "Father, I compare my financial situation to others too often. Free me from that comparison and help me focus on Your provision in my own life. Thank You for meeting my needs according to Your riches. Amen.",
+          "verse": "Galatians 6:4",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_021",
+          "title": "Prayer for Small Business Owners",
+          "text": "Lord, bless the work of small business owners striving to provide for their families. Give wisdom in every decision and provision during slow seasons. Thank You for the courage it takes to build something new. Amen.",
+          "verse": "Proverbs 31:16",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_022",
+          "title": "Prayer for Financial Peace",
+          "text": "Father, give me peace about my finances, even in uncertain times. Help me trust You with what I cannot control and be diligent with what I can. Thank You for being my peace in every situation. Amen.",
+          "verse": "Philippians 4:6-7",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_023",
+          "title": "Prayer for Retirement Planning",
+          "text": "Lord, guide my planning for the future, including retirement. Give me wisdom to prepare responsibly without being consumed by worry. Thank You for caring about every season of my life. Amen.",
+          "verse": "Proverbs 6:6-8",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_024",
+          "title": "Prayer for a Fresh Start Financially",
+          "text": "Father, thank You for giving fresh starts, even in finances. Help me learn from past mistakes and move forward wisely. Thank You for redemption that reaches every part of life, including money. Amen.",
+          "verse": "Isaiah 43:18-19",
+          "category": "work_finances"
+        },
+        {
+          "id": "work_finances_prayer_025",
+          "title": "Prayer for Trusting God as Provider",
+          "text": "Heavenly Father, I place my work and finances into Your hands. Help me labor diligently while trusting You as my ultimate provider. Give me wisdom, contentment, and generosity in how I manage what You've entrusted to me. Thank You for never failing to provide. In Jesus' name, Amen.",
+          "verse": "Matthew 6:33",
+          "category": "work_finances"
+        }
+      ]
+    },
+    {
+      "id": "marriage",
+      "name": "Marriage Prayers",
+      "icon": "ic_marriage",
+      "prayers": [
+        {
+          "id": "marriage_prayer_001",
+          "title": "Prayer for Our Marriage",
+          "text": "Lord, thank You for the gift of marriage. Strengthen the bond between my spouse and me. Help us grow closer through both joyful and difficult seasons. Thank You for making us a team. Amen.",
+          "verse": "Ecclesiastes 4:12",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_002",
+          "title": "Prayer for Communication in Marriage",
+          "text": "Father, help my spouse and me communicate honestly and kindly. Remove misunderstandings and give us patience to listen well. Thank You for the gift of open, honest conversation. Amen.",
+          "verse": "Ephesians 4:29",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_003",
+          "title": "Prayer for a Struggling Marriage",
+          "text": "Lord, our marriage is going through a hard season. Give us both humility to work through our issues instead of giving up. Renew our love and commitment to each other. Thank You for being present even in our struggles. Amen.",
+          "verse": "1 Corinthians 13:7",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_004",
+          "title": "Prayer for Unity in Marriage",
+          "text": "Father, help my spouse and me become more united, not more divided. Align our goals, values, and decisions. Thank You for making two into one. Amen.",
+          "verse": "Mark 10:8-9",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_005",
+          "title": "Prayer for Rekindled Affection",
+          "text": "Lord, life has become routine, and affection between us has cooled. Help us intentionally rekindle our love and appreciation for each other. Thank You for the love story You are still writing for us. Amen.",
+          "verse": "Song of Solomon 8:7",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_006",
+          "title": "Prayer for My Spouse",
+          "text": "Father, I lift up my spouse to You today. Bless them, strengthen them, and give them peace. Help me be a source of support and encouragement to them. Thank You for the gift they are in my life. Amen.",
+          "verse": "Proverbs 31:10-12",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_007",
+          "title": "Prayer for Forgiveness Between Spouses",
+          "text": "Lord, help my spouse and me forgive each other when we hurt one another. Remove pride that keeps us from apologizing. Thank You for grace that covers our marriage. Amen.",
+          "verse": "Colossians 3:13",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_008",
+          "title": "Prayer for Financial Unity in Marriage",
+          "text": "Father, help my spouse and me be united in how we handle our finances. Remove conflict over money and give us shared wisdom and goals. Thank You for guiding us as a team. Amen.",
+          "verse": "Amos 3:3",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_009",
+          "title": "Prayer for Trust in Marriage",
+          "text": "Lord, help trust grow stronger between my spouse and me. Heal any wounds that have made trust difficult. Give us both faithfulness and honesty in our actions. Thank You for rebuilding what's broken. Amen.",
+          "verse": "Proverbs 31:11",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_010",
+          "title": "Prayer for Newlyweds",
+          "text": "Father, bless this new marriage as it begins. Give this couple wisdom, patience, and deep love for one another. Help them build their foundation on You. Thank You for the beginning of this journey together. Amen.",
+          "verse": "Genesis 2:24",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_011",
+          "title": "Prayer for a Long Marriage",
+          "text": "Lord, thank You for the years my spouse and I have shared. Help our love keep growing deeper, not just older. Renew our commitment and gratitude for each other. Thank You for the gift of lasting love. Amen.",
+          "verse": "Ecclesiastes 4:9-10",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_012",
+          "title": "Prayer for Patience in Marriage",
+          "text": "Father, give me patience with my spouse, especially in our differences. Help me extend grace instead of frustration. Thank You for teaching me patience through this relationship. Amen.",
+          "verse": "1 Corinthians 13:4",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_013",
+          "title": "Prayer for Marriage During Hard Times",
+          "text": "Lord, external pressures are testing our marriage right now. Help us support each other instead of turning against one another. Thank You for strengthening our bond through trials. Amen.",
+          "verse": "Ecclesiastes 4:12",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_014",
+          "title": "Prayer for Respect in Marriage",
+          "text": "Father, help my spouse and me treat each other with respect, even in disagreements. Remove contempt and criticism, and replace it with kindness. Thank You for teaching us mutual honor. Amen.",
+          "verse": "Ephesians 5:33",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_015",
+          "title": "Prayer for Marriage and Parenting Together",
+          "text": "Lord, help my spouse and me parent as a united team. Give us shared wisdom and patience as we raise our children. Thank You for partnering us together in this responsibility. Amen.",
+          "verse": "Proverbs 22:6",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_016",
+          "title": "Prayer for Intimacy in Marriage",
+          "text": "Father, help my spouse and me nurture true intimacy — emotional, physical, and spiritual. Remove distractions that keep us distant. Thank You for designing marriage for closeness. Amen.",
+          "verse": "Genesis 2:24",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_017",
+          "title": "Prayer for Healing After an Affair",
+          "text": "Lord, betrayal has deeply wounded our marriage. If restoration is possible, guide us through the difficult process of rebuilding trust. Give us wisdom, patience, and healing beyond what feels possible. Thank You for being a God who restores. Amen.",
+          "verse": "Joel 2:25",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_018",
+          "title": "Prayer for Gratitude in Marriage",
+          "text": "Father, help me not take my spouse for granted. Fill me with gratitude for who they are and what they contribute to our life together. Thank You for the specific person You gave me. Amen.",
+          "verse": "1 Thessalonians 5:18",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_019",
+          "title": "Prayer for Marriage Through Illness",
+          "text": "Lord, illness has changed the dynamic of our marriage. Give us strength to support each other through this season. Help our love deepen even amid difficulty. Thank You for being present in sickness and in health. Amen.",
+          "verse": "Ecclesiastes 4:10",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_020",
+          "title": "Prayer for Marriage Priorities",
+          "text": "Father, help my spouse and I keep our marriage a priority amid busy schedules. Give us intentionality about spending time together. Thank You for the value of investing in our relationship. Amen.",
+          "verse": "Genesis 2:24",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_021",
+          "title": "Prayer for Marriage Facing Infertility",
+          "text": "Lord, the pain of infertility has been hard on our marriage. Help us support each other through grief and uncertainty. Give us peace about our future family and unity in the process. Thank You for holding our hopes and disappointments together. Amen.",
+          "verse": "1 Samuel 1:27",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_022",
+          "title": "Prayer for Wisdom in Marriage Decisions",
+          "text": "Father, give my spouse and me wisdom as we make decisions together. Help us communicate clearly and reach agreement with patience. Thank You for guiding us as one. Amen.",
+          "verse": "Proverbs 15:22",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_023",
+          "title": "Prayer for Protecting the Marriage",
+          "text": "Lord, protect our marriage from outside influences that could weaken it. Help us guard our time, attention, and hearts for each other. Thank You for helping us build strong boundaries. Amen.",
+          "verse": "Proverbs 4:23",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_024",
+          "title": "Prayer for a Marriage Rooted in Faith",
+          "text": "Father, help our marriage be built on a foundation of faith in You. Draw my spouse and me closer to You and to each other. Thank You for being the center that holds our marriage together. Amen.",
+          "verse": "Ecclesiastes 4:12",
+          "category": "marriage"
+        },
+        {
+          "id": "marriage_prayer_025",
+          "title": "Prayer for a Blessed Marriage",
+          "text": "Heavenly Father, thank You for the gift of marriage. Bless our union with love, patience, and grace for each day ahead. Help us grow closer to each other and to You with each passing year. Thank You for writing our story together. In Jesus' name, Amen.",
+          "verse": "Ecclesiastes 4:9-12",
+          "category": "marriage"
+        }
+      ]
+    },
+    {
+      "id": "grief",
+      "name": "Grief & Loss Prayers",
+      "icon": "ic_grief",
+      "prayers": [
+        {
+          "id": "grief_prayer_001",
+          "title": "Prayer After a Loss",
+          "text": "Lord, my heart is broken from this loss. I don't fully understand it, but I trust that You see my pain. Comfort me in ways only You can. Thank You for being close to the brokenhearted. Amen.",
+          "verse": "Psalm 34:18",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_002",
+          "title": "Prayer for Comfort in Grief",
+          "text": "Father, grief feels overwhelming right now. Wrap me in Your comfort and remind me I am not alone in this sorrow. Give me strength for each hour, not just each day. Thank You for holding my grief with me. Amen.",
+          "verse": "2 Corinthians 1:3-4",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_003",
+          "title": "Prayer for Strength to Grieve",
+          "text": "Lord, help me not suppress this grief but allow myself to feel it fully. Give me the strength to cry, to mourn, and to process the loss honestly. Thank You for making space for sorrow. Amen.",
+          "verse": "Ecclesiastes 3:4",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_004",
+          "title": "Prayer for the Loss of a Loved One",
+          "text": "Father, losing someone I love has left a hole that nothing else fills. Comfort me in the days ahead and help me hold on to the good memories. Thank You for the time I had with them and for Your presence now. Amen.",
+          "verse": "John 11:35-36",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_005",
+          "title": "Prayer for Anniversary of a Loss",
+          "text": "Lord, this date brings back memories of loss that still hurt. Comfort me as I remember, and give me peace instead of only pain. Thank You for walking with me through every anniversary. Amen.",
+          "verse": "Psalm 147:3",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_006",
+          "title": "Prayer for Grieving a Relationship",
+          "text": "Father, this relationship ending feels like a death of its own kind. Help me grieve what was lost and find hope for what's ahead. Thank You for understanding every kind of loss. Amen.",
+          "verse": "Ecclesiastes 3:1",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_007",
+          "title": "Prayer for Grieving a Dream",
+          "text": "Lord, a dream I held onto isn't happening the way I hoped, and I need to grieve that loss too. Help me release it without bitterness. Show me what new hope might look like. Thank You for holding space for every kind of grief. Amen.",
+          "verse": "Proverbs 13:12",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_008",
+          "title": "Prayer for Someone Grieving",
+          "text": "Father, I lift up someone I know who is grieving right now. Comfort them in ways beyond what I can offer. Give me wisdom in how to support them. Thank You for caring for them even more than I do. Amen.",
+          "verse": "Romans 12:15",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_009",
+          "title": "Prayer for Peace Amid Grief",
+          "text": "Lord, I don't need grief to disappear, just some peace to sit alongside it. Calm the chaos in my heart and mind. Thank You for offering peace even in sorrow. Amen.",
+          "verse": "John 14:27",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_010",
+          "title": "Prayer for Grief During the Holidays",
+          "text": "Father, holidays highlight this absence more than usual. Help me get through these days with grace for myself. Give me comfort in new traditions and peace with old memories. Thank You for being present in every season. Amen.",
+          "verse": "Psalm 147:3",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_011",
+          "title": "Prayer for Grieving a Miscarriage",
+          "text": "Lord, the loss of this pregnancy has broken my heart in ways hard to put into words. Comfort me and my family through this grief. Thank You for seeing this loss even when others may not fully understand it. Amen.",
+          "verse": "Psalm 56:8",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_012",
+          "title": "Prayer for Complicated Grief",
+          "text": "Father, my grief is complicated by mixed feelings I don't fully understand. Help me process this honestly instead of feeling guilty for how I feel. Thank You for understanding complexity I can't explain. Amen.",
+          "verse": "Psalm 62:8",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_013",
+          "title": "Prayer for Hope After Loss",
+          "text": "Lord, even in this loss, help me hold onto hope for the future. Remind me that grief and hope can coexist. Thank You for being the God of new beginnings even after deep loss. Amen.",
+          "verse": "Romans 15:13",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_014",
+          "title": "Prayer for Grieving a Pet",
+          "text": "Father, losing this pet has been harder than I expected. Thank You for the companionship and joy they brought into my life. Comfort me in this loss, even if others don't understand its weight. Amen.",
+          "verse": "Psalm 147:3",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_015",
+          "title": "Prayer for Grief and Anger",
+          "text": "Lord, I feel angry as part of my grief, and I don't know what to do with that feeling. Help me process it honestly instead of suppressing it. Thank You for being able to handle my anger and my sorrow. Amen.",
+          "verse": "Psalm 62:8",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_016",
+          "title": "Prayer for the First Year of Loss",
+          "text": "Father, this first year without them has been filled with firsts that hurt. Help me navigate each milestone with Your comfort. Thank You for walking through this year with me. Amen.",
+          "verse": "Isaiah 41:10",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_017",
+          "title": "Prayer for Children Grieving",
+          "text": "Lord, I ask for comfort for children who are grieving a loss. Help the adults around them respond with wisdom and gentleness. Comfort their young hearts in ways they can understand. Thank You for loving children through their pain. Amen.",
+          "verse": "Matthew 19:14",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_018",
+          "title": "Prayer for Grieving a Job or Career Loss",
+          "text": "Father, losing this job feels like losing a part of my identity. Help me grieve this loss and find hope for what's next. Thank You for reminding me that my worth isn't defined by my work. Amen.",
+          "verse": "Jeremiah 29:11",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_019",
+          "title": "Prayer for Grieving Health",
+          "text": "Lord, I am grieving the health or abilities I've lost. Help me adjust to this new reality with grace instead of only frustration. Thank You for meeting me in this difficult adjustment. Amen.",
+          "verse": "2 Corinthians 12:9",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_020",
+          "title": "Prayer for Grieving Alongside Others",
+          "text": "Father, help our family or community grieve together well. Give us patience with each other's different grieving styles. Thank You for the strength found in mourning together. Amen.",
+          "verse": "Romans 12:15",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_021",
+          "title": "Prayer for the Weight of Sudden Loss",
+          "text": "Lord, this loss came suddenly, and I haven't had time to process it. Help me take things one moment at a time. Thank You for being present even in the shock and confusion. Amen.",
+          "verse": "Psalm 34:18",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_022",
+          "title": "Prayer for Finding Meaning After Loss",
+          "text": "Father, help me find meaning in the wake of this loss, without minimizing the pain. Show me how this experience might shape me for good. Thank You for bringing purpose even out of sorrow. Amen.",
+          "verse": "Romans 8:28",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_023",
+          "title": "Prayer for Loneliness in Grief",
+          "text": "Lord, grief has made me feel isolated, even around others. Help me find people who can sit with me in this sorrow. Thank You for never leaving me to grieve completely alone. Amen.",
+          "verse": "Deuteronomy 31:6",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_024",
+          "title": "Prayer for Grace in the Grieving Process",
+          "text": "Father, grieving isn't linear, and some days feel harder than others. Help me give myself grace for however this process unfolds. Thank You for Your patience with me through it all. Amen.",
+          "verse": "Ecclesiastes 3:1-4",
+          "category": "grief"
+        },
+        {
+          "id": "grief_prayer_025",
+          "title": "Prayer for Comfort and Eternal Hope",
+          "text": "Heavenly Father, comfort me in this season of grief. Remind me that this loss is not the end of the story, and that You hold both my sorrow and my hope. Thank You for the promise of eternity and for staying close to me now. In Jesus' name, Amen.",
+          "verse": "Revelation 21:4",
+          "category": "grief"
+        }
+      ]
+    },
+    {
+      "id": "praise",
+      "name": "Praise & Worship Prayers",
+      "icon": "ic_praise",
+      "prayers": [
+        {
+          "id": "praise_prayer_001",
+          "title": "Prayer of Praise for Who God Is",
+          "text": "Lord, I praise You simply for who You are — holy, faithful, loving, and just. You don't need anything from me, yet You care deeply for me. Thank You for being worthy of all praise. Amen.",
+          "verse": "Psalm 145:3",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_002",
+          "title": "Prayer of Worship in the Morning",
+          "text": "Father, before the day gets busy, I want to worship You. Thank You for the gift of life and breath. Let my first thoughts today be focused on Your goodness. Amen.",
+          "verse": "Psalm 5:3",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_003",
+          "title": "Prayer of Praise for Creation",
+          "text": "Lord, Your creation declares Your glory in ways words cannot. Thank You for the beauty around me that points back to You. Help me notice it more often and praise You for it. Amen.",
+          "verse": "Psalm 19:1",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_004",
+          "title": "Prayer of Praise in Hard Times",
+          "text": "Father, even in difficulty, I choose to praise You. You are still good, even when circumstances are hard. Thank You for being worthy of worship in every season. Amen.",
+          "verse": "Habakkuk 3:17-18",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_005",
+          "title": "Prayer of Thanksgiving and Praise",
+          "text": "Lord, I bring You praise mixed with thanksgiving today. Thank You for Your blessings, and I praise You simply for being God. Let my heart overflow with worship. Amen.",
+          "verse": "Psalm 100:4",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_006",
+          "title": "Prayer of Praise for Salvation",
+          "text": "Father, thank You for the gift of salvation through Jesus. I praise You for a love that reaches even the unworthy. Let my life be a continual response of worship. Amen.",
+          "verse": "Psalm 40:3",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_007",
+          "title": "Prayer of Praise for Answered Prayer",
+          "text": "Lord, thank You for hearing and answering my prayers. I praise You for Your faithfulness in following through on what You promised. Let this answer strengthen my worship, not just my gratitude. Amen.",
+          "verse": "Psalm 116:1-2",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_008",
+          "title": "Prayer of Praise for God's Power",
+          "text": "Father, I praise You for Your power that spoke the universe into existence. Nothing is too hard for You. Let my worship reflect awe at who You are. Amen.",
+          "verse": "Jeremiah 32:17",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_009",
+          "title": "Prayer of Praise for Faithfulness",
+          "text": "Lord, Your faithfulness has never failed me, even when I have failed You. I praise You for consistency I could never earn on my own. Thank You for being trustworthy in every season. Amen.",
+          "verse": "Lamentations 3:22-23",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_010",
+          "title": "Prayer of Worship Through Song",
+          "text": "Father, let the songs I sing today be sincere worship, not empty words. Fill my heart with genuine praise as I sing. Thank You for giving me a voice to worship You with. Amen.",
+          "verse": "Psalm 96:1",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_011",
+          "title": "Prayer of Praise for God's Love",
+          "text": "Lord, Your love is beyond what I can fully comprehend. I praise You for loving me so completely. Thank You for a love that never runs out. Amen.",
+          "verse": "1 John 4:16",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_012",
+          "title": "Prayer of Praise for Provision",
+          "text": "Father, I praise You for providing for my needs, even the ones I don't always notice. Thank You for being a generous God. Let gratitude turn into worship today. Amen.",
+          "verse": "Philippians 4:19",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_013",
+          "title": "Prayer of Praise When Feeling Empty",
+          "text": "Lord, I don't feel much like praising You right now, but I choose to anyway. Let my act of worship shift my heart, even when my feelings lag behind. Thank You for being worthy regardless of how I feel. Amen.",
+          "verse": "Psalm 42:11",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_014",
+          "title": "Prayer of Praise for Victory",
+          "text": "Father, thank You for the victory You've given me over a struggle I've faced. I praise You for being the source of that breakthrough. Let my testimony bring You glory. Amen.",
+          "verse": "1 Corinthians 15:57",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_015",
+          "title": "Prayer of Praise for Community Worship",
+          "text": "Lord, thank You for the community of believers I get to worship alongside. Strengthen our unity as we praise You together. Thank You for the encouragement found in shared worship. Amen.",
+          "verse": "Psalm 133:1",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_016",
+          "title": "Prayer of Praise for God's Word",
+          "text": "Father, I praise You for Your Word that guides and comforts me. Thank You for speaking to me through Scripture. Let my worship include gratitude for Your truth. Amen.",
+          "verse": "Psalm 119:105",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_017",
+          "title": "Prayer of Praise for God's Mercy",
+          "text": "Lord, I praise You for mercy that meets me every single day. Thank You for not giving me what I deserve, but grace instead. Let this mercy move me to deeper worship. Amen.",
+          "verse": "Lamentations 3:22-23",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_018",
+          "title": "Prayer of Praise in Nature",
+          "text": "Father, as I look at the sky, the sea, or the mountains, I am reminded of Your greatness. Thank You for a world that constantly points back to You. Let creation inspire my worship today. Amen.",
+          "verse": "Psalm 19:1",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_019",
+          "title": "Prayer of Praise for Peace",
+          "text": "Lord, thank You for the peace You give that surpasses understanding. I praise You for being my calm in every storm. Let my heart worship You even in chaos. Amen.",
+          "verse": "Philippians 4:7",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_020",
+          "title": "Prayer of Praise for Grace",
+          "text": "Father, Your grace continues to amaze me. I praise You for extending kindness I haven't earned. Thank You for making grace the foundation of my relationship with You. Amen.",
+          "verse": "Ephesians 2:8-9",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_021",
+          "title": "Prayer of Praise for Eternal Hope",
+          "text": "Lord, I praise You for the hope of eternity with You. Thank You for a future that outlasts every earthly struggle. Let this hope fill my worship with joy. Amen.",
+          "verse": "1 Peter 1:3",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_022",
+          "title": "Prayer of Praise Before Sleep",
+          "text": "Father, before I rest tonight, I want to praise You for this day. Thank You for Your presence throughout it, seen and unseen. Let my last thoughts be ones of worship. Amen.",
+          "verse": "Psalm 63:6",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_023",
+          "title": "Prayer of Praise for Personal Growth",
+          "text": "Lord, I praise You for the ways You have grown and matured me. Thank You for being patient through the process. Let this growth turn into gratitude and worship. Amen.",
+          "verse": "Philippians 1:6",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_024",
+          "title": "Prayer of Praise for Presence",
+          "text": "Father, I praise You for never leaving me, even in my most difficult moments. Thank You for a presence that doesn't depend on my performance. Let this truth deepen my worship. Amen.",
+          "verse": "Deuteronomy 31:8",
+          "category": "praise"
+        },
+        {
+          "id": "praise_prayer_025",
+          "title": "Prayer of Continual Praise",
+          "text": "Heavenly Father, let my life be a continual song of praise to You. Whether in joy or sorrow, plenty or need, help me worship You with a sincere heart. Thank You for being worthy of praise in every circumstance. In Jesus' name, Amen.",
+          "verse": "Psalm 34:1",
+          "category": "praise"
+        }
+      ]
+    },
+    {
+      "id": "salvation",
+      "name": "Salvation Prayers",
+      "icon": "ic_salvation",
+      "prayers": [
+        {
+          "id": "salvation_prayer_001",
+          "title": "Prayer to Receive Christ",
+          "text": "Lord Jesus, I recognize my need for You. I believe You died for my sins and rose again. I ask You to come into my life and be my Savior and Lord. Thank You for forgiving me and giving me new life. In Jesus' name, Amen.",
+          "verse": "Romans 10:9",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_002",
+          "title": "Prayer for Assurance of Salvation",
+          "text": "Father, sometimes I doubt whether I'm truly saved. Remind me that salvation is based on Your promise, not my feelings. Give me confidence in what Christ has already accomplished for me. Thank You for a salvation that is secure. Amen.",
+          "verse": "1 John 5:13",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_003",
+          "title": "Prayer for a Loved One's Salvation",
+          "text": "Lord, I long for someone I love to know You. Draw them close to Yourself and open their heart to the truth. Give me patience and wisdom as I share Your love with them. Thank You for pursuing every person You've created. Amen.",
+          "verse": "2 Peter 3:9",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_004",
+          "title": "Prayer of Repentance",
+          "text": "Father, I confess the ways I have fallen short and turned from You. I turn away from sin and turn toward You. Thank You for grace that welcomes me back every time. Amen.",
+          "verse": "Acts 3:19",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_005",
+          "title": "Prayer for Understanding Grace",
+          "text": "Lord, help me fully grasp that salvation is a gift, not something I earn. Free me from trying to work for what You've already given freely. Thank You for grace through faith alone. Amen.",
+          "verse": "Ephesians 2:8-9",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_006",
+          "title": "Prayer for Boldness to Share the Gospel",
+          "text": "Father, give me courage to share the good news of Jesus with others. Remove fear of rejection and replace it with love for the people I'm speaking to. Thank You for using ordinary people to share extraordinary news. Amen.",
+          "verse": "Romans 1:16",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_007",
+          "title": "Prayer for a New Believer",
+          "text": "Lord, thank You for this new life in Christ. Help this new believer grow in faith, understanding, and community. Surround them with people who will disciple and encourage them. Thank You for the beginning of their journey with You. Amen.",
+          "verse": "2 Corinthians 5:17",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_008",
+          "title": "Prayer for Freedom from Guilt",
+          "text": "Father, I still feel guilty over past sins, even though I know I'm forgiven. Help me fully receive the freedom Christ purchased for me. Thank You for removing my sin as far as the east is from the west. Amen.",
+          "verse": "Psalm 103:12",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_009",
+          "title": "Prayer for Understanding the Cross",
+          "text": "Lord, help me understand more deeply what Jesus did on the cross for me. Let it move me from head knowledge to heart transformation. Thank You for a sacrifice I could never repay. Amen.",
+          "verse": "John 3:16",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_010",
+          "title": "Prayer for Someone Far from God",
+          "text": "Father, I think of someone who feels far from You right now. Pursue their heart and bring people into their life who can point them to You. Thank You for never giving up on anyone. Amen.",
+          "verse": "Luke 15:20",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_011",
+          "title": "Prayer for Growing in Faith After Salvation",
+          "text": "Lord, thank You for saving me. Now help me grow deeper in my relationship with You through prayer, Scripture, and community. Thank You for a faith that is meant to grow, not stay stagnant. Amen.",
+          "verse": "2 Peter 3:18",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_012",
+          "title": "Prayer for the Church's Mission",
+          "text": "Father, use the church to reach people who don't yet know You. Give believers courage and love to share the gospel. Thank You for including us in Your mission. Amen.",
+          "verse": "Matthew 28:19-20",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_013",
+          "title": "Prayer for Children to Know Christ",
+          "text": "Lord, I pray for children to come to know You at a young age. Protect their hearts and surround them with faithful influences. Thank You for welcoming children into Your kingdom. Amen.",
+          "verse": "Matthew 19:14",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_014",
+          "title": "Prayer for Renewed Passion for the Gospel",
+          "text": "Father, my passion for sharing the gospel has faded. Reignite my heart with love for people who don't know You. Thank You for a message that never loses its power. Amen.",
+          "verse": "Romans 1:16",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_015",
+          "title": "Prayer for Returning to Faith",
+          "text": "Lord, I have drifted from my faith, and I want to return. Welcome me back the way You welcome every prodigal. Thank You for grace that meets me exactly where I am. Amen.",
+          "verse": "Luke 15:20",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_016",
+          "title": "Prayer for Salvation of a Family Member",
+          "text": "Father, I long for a family member to come to know You. Soften their heart and remove obstacles that keep them from faith. Thank You for working even when I cannot see it. Amen.",
+          "verse": "Acts 16:31",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_017",
+          "title": "Prayer for Understanding Eternal Life",
+          "text": "Lord, help me grasp the reality of eternal life through Christ. Let this truth shape how I live today. Thank You for a hope that reaches beyond this life. Amen.",
+          "verse": "John 3:16",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_018",
+          "title": "Prayer for Living Out My Faith",
+          "text": "Father, help my life reflect the salvation I've received. Let my actions match my faith, so others can see You through me. Thank You for transforming me from the inside out. Amen.",
+          "verse": "James 2:17",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_019",
+          "title": "Prayer for Those Who Feel Unworthy of Salvation",
+          "text": "Lord, remind me that salvation isn't about being good enough — it's about grace. Help me accept that I am worthy of Your love simply because You made me and love me. Thank You for a gift I didn't earn. Amen.",
+          "verse": "Romans 5:8",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_020",
+          "title": "Prayer for Baptism",
+          "text": "Father, thank You for the gift of baptism as a public declaration of faith. Strengthen my commitment to follow You as I take this step. Thank You for walking with me into this new chapter. Amen.",
+          "verse": "Romans 6:4",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_021",
+          "title": "Prayer for Understanding Justification",
+          "text": "Lord, help me understand that through faith, I am made right with You, not through my own works. Free me from striving to earn what has already been freely given. Thank You for justification through Christ. Amen.",
+          "verse": "Romans 5:1",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_022",
+          "title": "Prayer for Those Questioning Faith",
+          "text": "Father, I have honest questions about my faith right now. Help me bring them to You instead of running from them. Give me clarity and deeper trust through the process of asking. Thank You for not being afraid of my questions. Amen.",
+          "verse": "Mark 9:24",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_023",
+          "title": "Prayer for Salvation to Transform Daily Life",
+          "text": "Lord, let my salvation be more than a one-time decision — let it transform how I live every day. Shape my habits, thoughts, and relationships according to Your truth. Thank You for ongoing transformation. Amen.",
+          "verse": "Romans 12:2",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_024",
+          "title": "Prayer for Missionaries and Evangelists",
+          "text": "Father, bless those who dedicate their lives to sharing the gospel around the world. Give them protection, provision, and open doors. Thank You for their willingness to go where You send them. Amen.",
+          "verse": "Romans 10:14-15",
+          "category": "salvation"
+        },
+        {
+          "id": "salvation_prayer_025",
+          "title": "Prayer of Gratitude for Salvation",
+          "text": "Heavenly Father, thank You for the gift of salvation through Jesus Christ. I could never earn it, yet You gave it freely. Help me live in gratitude for this gift every single day, and help me share it generously with others. In Jesus' name, Amen.",
+          "verse": "Ephesians 2:8-9",
+          "category": "salvation"
+        }
+      ]
+    },
+    {
+      "id": "children",
+      "name": "Children & Parenting Prayers",
+      "icon": "ic_children",
+      "prayers": [
+        {
+          "id": "children_prayer_001",
+          "title": "Prayer for My Children",
+          "text": "Lord, I lift up my children to You today. Protect them, guide them, and help them grow in wisdom and faith. Surround them with good influences and keep them close to You. Thank You for the gift they are in my life. Amen.",
+          "verse": "Proverbs 22:6",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_002",
+          "title": "Prayer for Patience as a Parent",
+          "text": "Father, parenting tests my patience more than I expected. Help me respond with calm and grace instead of frustration. Thank You for being patient with me as I learn to parent well. Amen.",
+          "verse": "James 1:19",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_003",
+          "title": "Prayer for Wisdom in Discipline",
+          "text": "Lord, give me wisdom in how I discipline my children. Help me correct with love, not anger, and teach them right from wrong with patience. Thank You for guiding me as I raise them. Amen.",
+          "verse": "Proverbs 22:15",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_004",
+          "title": "Prayer for a Child's Safety",
+          "text": "Father, watch over my child wherever they are today. Protect them from harm, danger, and bad influences. Give me peace knowing they are in Your care even when I'm not with them. Amen.",
+          "verse": "Psalm 121:7-8",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_005",
+          "title": "Prayer for a Child's Faith",
+          "text": "Lord, help my child come to know and love You deeply. Plant seeds of faith in their heart that will grow throughout their life. Thank You for caring about their spiritual growth as much as I do. Amen.",
+          "verse": "Proverbs 22:6",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_006",
+          "title": "Prayer for a Struggling Child",
+          "text": "Father, my child is going through a hard time, and it's hard to watch. Give them strength and give me wisdom in how to support them. Thank You for loving them even more than I do. Amen.",
+          "verse": "Isaiah 41:10",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_007",
+          "title": "Prayer for a Teenager",
+          "text": "Lord, parenting a teenager brings new challenges. Help me communicate with them in ways they can hear, and give them wisdom to make good choices. Thank You for guiding them through this important stage. Amen.",
+          "verse": "Proverbs 4:1",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_008",
+          "title": "Prayer for a Child Starting School",
+          "text": "Father, as my child begins this new school experience, calm their nerves and mine. Give them courage to make friends and confidence to learn. Thank You for watching over them in this new environment. Amen.",
+          "verse": "Deuteronomy 31:6",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_009",
+          "title": "Prayer for Patience with a Toddler",
+          "text": "Lord, this stage is exhausting and testing my patience daily. Give me energy and grace for the tantrums and the sleepless nights. Thank You for the joy hidden within this challenging season. Amen.",
+          "verse": "Galatians 6:9",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_010",
+          "title": "Prayer for Adoption",
+          "text": "Father, guide us through the process of adoption with patience and hope. Prepare our hearts and home for the child You have for us. Thank You for adopting us into Your family first. Amen.",
+          "verse": "Ephesians 1:5",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_011",
+          "title": "Prayer for a Rebellious Child",
+          "text": "Lord, my child is pushing against boundaries right now, and it's painful. Give me wisdom and patience while I hold firm to what's right. Draw their heart back to You and to our family. Thank You for never giving up on them. Amen.",
+          "verse": "Proverbs 29:17",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_012",
+          "title": "Prayer for Blended Family Parenting",
+          "text": "Father, blending our family brings unique challenges. Help all of us adjust with grace and patience. Build trust and unity among us over time. Thank You for creating this new family with purpose. Amen.",
+          "verse": "Colossians 3:14",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_013",
+          "title": "Prayer for a Child with Special Needs",
+          "text": "Lord, give me strength and wisdom to care for my child's unique needs. Surround us with support and resources. Help me celebrate their gifts, not just their challenges. Thank You for making them exactly as they are. Amen.",
+          "verse": "Psalm 139:14",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_014",
+          "title": "Prayer for Single Parents",
+          "text": "Father, give strength to parents raising children on their own. Provide for their needs and give them wisdom for every decision they carry alone. Thank You for being a father to the fatherless and helper to the weary. Amen.",
+          "verse": "Psalm 68:5",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_015",
+          "title": "Prayer for a Child's Friendships",
+          "text": "Lord, guide the friendships my child makes. Surround them with good influences and give them discernment to choose wisely. Thank You for caring about who they spend time with. Amen.",
+          "verse": "Proverbs 13:20",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_016",
+          "title": "Prayer for Modeling Faith to My Children",
+          "text": "Father, help my life be a genuine example of faith for my children to follow. Let them see You through how I live, not just what I say. Thank You for the privilege of raising them. Amen.",
+          "verse": "Deuteronomy 6:6-7",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_017",
+          "title": "Prayer for a Sick Child",
+          "text": "Lord, my child is unwell, and it breaks my heart. Bring healing to their body and comfort to their spirit. Give me strength to care for them well. Thank You for caring for them even more than I do. Amen.",
+          "verse": "Jeremiah 17:14",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_018",
+          "title": "Prayer for Grandparents",
+          "text": "Father, thank You for grandparents and the wisdom and love they bring to our family. Bless their health and give them joy in their relationship with grandchildren. Thank You for their generational influence. Amen.",
+          "verse": "Proverbs 17:6",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_019",
+          "title": "Prayer for Balancing Work and Parenting",
+          "text": "Lord, help me balance the demands of work with being present for my children. Give me wisdom in how I spend my time and energy. Thank You for grace when I fall short in either area. Amen.",
+          "verse": "Ecclesiastes 3:1",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_020",
+          "title": "Prayer for a Child Leaving Home",
+          "text": "Father, my child is stepping into independence, and it's both exciting and hard to release them. Give them wisdom for this new chapter and give me peace as I let go. Thank You for guiding them even when I can't. Amen.",
+          "verse": "Jeremiah 29:11",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_021",
+          "title": "Prayer for Protecting Children from Harmful Influences",
+          "text": "Lord, protect my children from harmful media, people, and situations. Give me discernment about what to allow into their lives. Thank You for helping me guard their hearts and minds. Amen.",
+          "verse": "Philippians 4:8",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_022",
+          "title": "Prayer for Foster Parents",
+          "text": "Father, give strength and love to foster parents caring for children who need stability. Provide for their needs and give them wisdom to love well, even temporarily. Thank You for the sacrifice of opening their homes. Amen.",
+          "verse": "James 1:27",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_023",
+          "title": "Prayer for a Child's Confidence",
+          "text": "Lord, help my child grow in confidence rooted in who they are in You, not in comparison to others. Protect them from insecurity and self-doubt. Thank You for making them uniquely and wonderfully. Amen.",
+          "verse": "Psalm 139:14",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_024",
+          "title": "Prayer for Parenting with Grace",
+          "text": "Father, help me parent with grace instead of perfectionism. Forgive me for the mistakes I make and help me apologize to my children when needed. Thank You for teaching us both through this journey. Amen.",
+          "verse": "Colossians 3:21",
+          "category": "children"
+        },
+        {
+          "id": "children_prayer_025",
+          "title": "Prayer for Raising Godly Children",
+          "text": "Heavenly Father, I dedicate my children to You. Help me raise them with love, wisdom, and faith. Guide them toward a lifelong relationship with You, and help me be the parent they need. Thank You for trusting me with this precious responsibility. In Jesus' name, Amen.",
+          "verse": "Proverbs 22:6",
+          "category": "children"
         }
       ]
     }
