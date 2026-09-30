@@ -1,12 +1,13 @@
 import { Link, NavLink } from 'react-router-dom'
 
 const navLinks = [
-  { to: '/',          label: 'Home'      },
-  { to: '/archive',   label: 'Archive'   },
-  { to: '/stories',   label: 'Stories'   },
-  { to: '/prayers',   label: 'Prayers'   },
-  { to: '/teachings', label: 'Teachings' },
-  { to: '/bible',     label: 'Bible'     },
+  { to: '/',          label: 'Home'       },
+  { to: '/archive',   label: 'Archive'    },
+  { to: '/stories',   label: 'Stories'    },
+  { to: '/community', label: 'Wallpapers' },
+  { to: '/prayers',   label: 'Prayers'    },
+  { to: '/teachings', label: 'Teachings'  },
+  { to: '/bible',     label: 'Bible'      },
 ]
 
 export default function Header() {

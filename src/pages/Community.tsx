@@ -3,6 +3,41 @@ import SEO from '@/components/layout/SEO'
 import { Skeleton } from '@/components/ui/Skeleton'
 import { fetchGalleryImages, APPROVED_CATEGORIES, type GalleryImage } from '@/firebase/storage'
 
+const BASE = import.meta.env.BASE_URL || '/'
+
+const LOCAL_WALLPAPERS: GalleryImage[] = [
+  {
+    id: 'local-daily-hero',
+    name: 'Today’s Sacred Word Background',
+    url: `${BASE}images/daily_hero_bg.webp`,
+    category: 'Past Daily Verses',
+  },
+  {
+    id: 'local-daily-light',
+    name: 'Morning Light Devotional',
+    url: `${BASE}images/daily_bg_light.webp`,
+    category: 'Grace',
+  },
+  {
+    id: 'local-share-1',
+    name: 'Scripture Artwork — Faith & Truth',
+    url: `${BASE}images/bg_share_1.png`,
+    category: 'Faith',
+  },
+  {
+    id: 'local-share-2',
+    name: 'Peace in Prayer Artwork',
+    url: `${BASE}images/bg_share_2.png`,
+    category: 'Prayer',
+  },
+  {
+    id: 'local-share-3',
+    name: 'Hope & Endurance Devotional Art',
+    url: `${BASE}images/bg_share_3.png`,
+    category: 'Hope',
+  },
+]
+
 export default function Community() {
   const [selectedCategory, setCategory]   = useState<string>('All')
   const [images, setImages]               = useState<GalleryImage[]>([])
@@ -13,13 +48,30 @@ export default function Community() {
   useEffect(() => {
     setLoading(true)
     setError(null)
+
+    // Filter local base wallpapers for instant feedback
+    const baseLocal =
+      selectedCategory === 'All'
+        ? LOCAL_WALLPAPERS
+        : LOCAL_WALLPAPERS.filter(img => img.category === selectedCategory)
+
     fetchGalleryImages(selectedCategory)
       .then(data => {
-        setImages(data)
+        // Merge Firebase items with local wallpapers, deduplicating IDs
+        const seen = new Set<string>()
+        const merged: GalleryImage[] = []
+        for (const img of [...data, ...baseLocal]) {
+          if (!seen.has(img.id) && !seen.has(img.url)) {
+            seen.add(img.id)
+            seen.add(img.url)
+            merged.push(img)
+          }
+        }
+        setImages(merged)
         setLoading(false)
       })
       .catch(() => {
-        setError('Unable to load images. Please verify Firebase Storage CORS and connection.')
+        setImages(baseLocal)
         setLoading(false)
       })
   }, [selectedCategory])
@@ -27,16 +79,19 @@ export default function Community() {
   return (
     <>
       <SEO
-        title="Sacred Wallpapers & Daily Backgrounds"
+        title="Sacred Wallpapers & Daily Devotional Backgrounds"
         description="Browse inspiring Bible verse wallpapers, sacred devotional backgrounds from imagebackground, faith, grace, hope, love, peace, praise, prayer, and strength."
         canonical="/community"
       />
 
       <main id="main-content" className="max-w-6xl mx-auto px-4 py-8">
         <header className="mb-6">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-sacred-600 uppercase tracking-widest mb-1">
+            <span>🖼️</span> Sacred Scripture Gallery
+          </div>
           <h1 className="section-title mb-1">Wallpapers & Devotional Backgrounds</h1>
           <p className="text-gray-500 text-sm">
-            Inspiring scripture wallpapers from devotional backgrounds and themed collections
+            Inspiring scripture wallpapers and devotional backgrounds from daily verses and sacred themed collections
           </p>
         </header>
 
@@ -78,10 +133,13 @@ export default function Community() {
           </div>
         ) : images.length === 0 ? (
           <div className="card p-10 text-center text-gray-500 my-8">
-            <span className="text-5xl block mb-3" aria-hidden="true">🖼️</span>
+            <span className="text-5xl block mb-3" aria-hidden="true">
+              🖼️
+            </span>
             <h3 className="font-semibold text-lg text-gray-800 mb-2">No Images in {selectedCategory}</h3>
             <p className="text-sm max-w-md mx-auto">
-              Images found in <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sacred-600">imagebackground/</code> and themed category folders will be displayed here.
+              Images found in <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sacred-600">imagebackground/</code>{' '}
+              and themed category folders will be displayed here.
             </p>
           </div>
         ) : (
@@ -99,83 +157,81 @@ export default function Community() {
                     loading="lazy"
                     className="w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                  <span className="absolute top-2 left-2 text-[10px] font-semibold bg-black/50 backdrop-blur-sm text-white px-2 py-0.5 rounded-full">
-                    {img.category}
-                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                    <span className="text-white text-xs font-medium truncate">{img.name}</span>
+                  </div>
                 </div>
-                <div className="p-3 flex items-center justify-between">
-                  <span className="text-xs text-gray-700 font-medium truncate" title={img.name}>
-                    {img.name}
-                  </span>
+
+                <div className="p-2.5 flex items-center justify-between">
+                  <span className="text-[11px] font-semibold text-gray-500 truncate max-w-[130px]">{img.name}</span>
                   <a
                     href={img.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     download
+                    target="_blank"
+                    rel="noreferrer"
                     onClick={e => e.stopPropagation()}
-                    className="text-xs text-sacred-600 hover:text-sacred-800 font-semibold p-1"
-                    title="Download wallpaper"
+                    className="text-xs bg-gray-100 hover:bg-sacred-50 hover:text-sacred-600 text-gray-700 px-2 py-1 rounded-md transition-colors shrink-0"
+                    title="Download Wallpaper"
                   >
-                    ⬇️
+                    ⬇
                   </a>
                 </div>
               </div>
             ))}
           </div>
         )}
-
-        {/* Lightbox Modal */}
-        {lightboxImage && (
-          <div
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={() => setLightboxImage(null)}
-          >
-            <div
-              className="relative max-w-3xl max-h-[90vh] overflow-hidden rounded-2xl bg-black shadow-2xl"
-              onClick={e => e.stopPropagation()}
-            >
-              <img
-                src={lightboxImage}
-                alt="Enlarged wallpaper view"
-                className="max-h-[80vh] w-auto mx-auto object-contain"
-              />
-              <div className="p-4 bg-gray-900 text-white flex justify-between items-center">
-                <a
-                  href={lightboxImage}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary text-xs py-1.5 px-3"
-                  download
-                >
-                  Download High-Res
-                </a>
-                <button
-                  onClick={() => setLightboxImage(null)}
-                  className="text-gray-300 hover:text-white text-sm font-semibold px-3 py-1"
-                >
-                  ✕ Close
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* App promo card */}
-        <div className="card p-6 mt-12 bg-gradient-to-br from-sacred-50 to-sacred-100 border-sacred-200 text-center">
-          <h2 className="font-serif text-xl font-bold text-sacred-800 mb-2">Daily Verse Backgrounds</h2>
-          <p className="text-sm text-gray-600 mb-4 max-w-md mx-auto">
-            Get daily scripture paired with beautiful Christian photography and art every morning on mobile.
-          </p>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.bible.verseoftheday2026"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary mx-auto w-fit"
-          >
-            Download Free App
-          </a>
-        </div>
       </main>
+
+      {/* Lightbox Modal */}
+      {lightboxImage && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Wallpaper Preview"
+          className="fixed inset-0 z-50 bg-black/90 flex flex-col items-center justify-between p-4 sm:p-6"
+          onClick={() => setLightboxImage(null)}
+        >
+          <div className="w-full flex justify-between items-center max-w-4xl text-white">
+            <span className="text-sm font-semibold">Wallpaper Preview</span>
+            <button
+              onClick={() => setLightboxImage(null)}
+              className="text-white hover:text-gray-300 text-2xl font-bold p-1 leading-none"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+          </div>
+
+          <div
+            className="flex-1 flex items-center justify-center max-w-4xl max-h-[75vh] my-4"
+            onClick={e => e.stopPropagation()}
+          >
+            <img
+              src={lightboxImage}
+              alt="Wallpaper preview"
+              className="max-h-full max-w-full object-contain rounded-xl shadow-2xl"
+            />
+          </div>
+
+          <div className="flex items-center gap-3" onClick={e => e.stopPropagation()}>
+            <a
+              href={lightboxImage}
+              download
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary text-xs px-4 py-2 flex items-center gap-1.5"
+            >
+              <span>⬇️</span> Download Wallpaper
+            </a>
+            <button
+              onClick={() => setLightboxImage(null)}
+              className="btn-ghost text-white text-xs px-4 py-2 border border-white/20"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </>
   )
 }
