@@ -113,6 +113,16 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-1.5 sm:gap-2">
+            <Link
+              to="/settings"
+              aria-label="Settings"
+              title="Settings"
+              className="grid place-items-center w-11 h-11 rounded-lg text-ink-800
+                         hover:bg-parchment-200/70 transition-colors"
+            >
+              <Icon name="settings" className="w-[22px] h-[22px]" />
+            </Link>
+
             <UserMenu />
 
             <button

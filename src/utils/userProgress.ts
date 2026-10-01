@@ -118,8 +118,11 @@ export function useReadingPlan() {
  * (`read_chapters_set_WEB`), so progress follows the user across devices and
  * across translations independently.
  *
- * Chapter tokens are `bookIndex(1-based) + chapter(3-digit padded)` encoded as a
- * number, e.g. John 3 -> "43" + "003" -> 43003. The app uses the same encoding.
+ * Chapter tokens use the app's `"<bookIndex>-<chapter>"` string form with a
+ * *0-based* book index (BibleProgressTracker.markVerseAsRead). The web
+ * previously encoded these as a packed number, `bookIndex1Based * 1000 +
+ * chapter` ("43003" for John 3), which no phone build has ever read - so every
+ * chapter completed on the web was invisible to the app and vice versa.
  */
 export function useBibleProgress(versionKey: string) {
     const [prefs, setPrefs] = usePrefs(PREFS.BIBLE_PROGRESS)
@@ -127,14 +130,14 @@ export function useBibleProgress(versionKey: string) {
   const chaptersKey = `read_chapters_set_${versionKey}`
   const versesKey = `read_verses_set_${versionKey}`
 
-  const readChapters = useMemo<number[]>(() => {
+  const readChapters = useMemo<string[]>(() => {
     const raw = prefs[chaptersKey]
-    return Array.isArray(raw) ? raw.map(Number).filter(n => !Number.isNaN(n)) : []
+    return Array.isArray(raw) ? raw.map(String) : []
   }, [prefs, chaptersKey])
 
-  const readVerses = useMemo<number[]>(() => {
+  const readVerses = useMemo<string[]>(() => {
     const raw = prefs[versesKey]
-    return Array.isArray(raw) ? raw.map(Number).filter(n => !Number.isNaN(n)) : []
+    return Array.isArray(raw) ? raw.map(String) : []
   }, [prefs, versesKey])
 
   const currentStreak = Number(prefs.current_streak ?? 0) || 0
@@ -149,10 +152,16 @@ export function useBibleProgress(versionKey: string) {
     return Array.isArray(raw) ? raw.map(String).sort() : []
   }, [prefs.activity_dates_set])
 
-  /** Encode a chapter reference the way the app stores it. */
+  /** Encode a chapter reference exactly as BibleProgressTracker does. */
   const chapterToken = useCallback(
-    (bookIndex: number, chapter: number) =>
-      Number(`${bookIndex + 1}${String(chapter).padStart(3, '0')}`),
+    (bookIndex: number, chapter: number) => `${bookIndex}-${chapter}`,
+    [],
+  )
+
+  /** Encode a verse reference exactly as BibleProgressTracker does. */
+  const verseToken = useCallback(
+    (bookIndex: number, chapter: number, verse: number) =>
+      `${bookIndex}-${chapter}-${verse}`,
     [],
   )
 
@@ -167,12 +176,12 @@ export function useBibleProgress(versionKey: string) {
 
     setPrefs(prev => {
       const existing = Array.isArray(prev[chaptersKey])
-        ? (prev[chaptersKey] as string[]).map(Number)
+        ? (prev[chaptersKey] as string[]).map(String)
         : []
       if (existing.includes(token)) return prev
 
       const patch: Record<string, string | number | string[]> = {
-        [chaptersKey]: [...existing, token].map(String),
+        [chaptersKey]: [...existing, token],
       }
 
       if (lastReadDate !== today) {
@@ -195,13 +204,13 @@ export function useBibleProgress(versionKey: string) {
     })
   }, [setPrefs, chaptersKey, chapterToken, lastReadDate, currentStreak, maxStreak])
 
-  const markVerseRead = useCallback((token: number) => {
+  const markVerseRead = useCallback((token: string) => {
     setPrefs(prev => {
       const existing = Array.isArray(prev[versesKey])
-        ? (prev[versesKey] as string[]).map(Number)
+        ? (prev[versesKey] as string[]).map(String)
         : []
       if (existing.includes(token)) return prev
-      return { ...prev, [versesKey]: [...existing, token].map(String) }
+      return { ...prev, [versesKey]: [...existing, token] }
     })
   }, [setPrefs, versesKey])
 
@@ -211,7 +220,7 @@ export function useBibleProgress(versionKey: string) {
   )
 
   const isVerseRead = useCallback(
-    (token: number) => readVerses.includes(token),
+    (token: string) => readVerses.includes(token),
     [readVerses],
   )
 
@@ -228,6 +237,7 @@ export function useBibleProgress(versionKey: string) {
     isChapterRead,
     isVerseRead,
     chapterToken,
+    verseToken,
   }
 }
 

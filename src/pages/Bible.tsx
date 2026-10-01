@@ -1,9 +1,11 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import SEO from '@/components/layout/SEO'
 import { useLastRead, useBibleProgress } from '@/utils/userProgress'
 import PageHeader from '@/components/ui/PageHeader'
 import Icon from '@/components/ui/Icon'
+import VerseNoteDialog from '@/components/bible/VerseNoteDialog'
+import VerseHighlightPalette from '@/components/bible/VerseHighlightPalette'
 import {
   BIBLE_VERSIONS,
   loadBibleManifest,
@@ -13,6 +15,14 @@ import {
   type ParsedChapter,
   type ParsedVerse,
 } from '@/utils/bibleService'
+import {
+  createVerseId,
+  highlightSegments,
+  highlightSwatch,
+  useVerseHighlights,
+  useVerseNotes,
+  type HighlightColorName,
+} from '@/utils/verseAnnotations'
 import clsx from 'clsx'
 
 export default function Bible() {
@@ -38,6 +48,16 @@ export default function Bible() {
   const [fontSize, setFontSize]               = useState<'sm' | 'base' | 'lg' | 'xl'>('base')
   const [copiedVerse, setCopiedVerse]         = useState<number | null>(null)
   const [isPlayingAudio, setIsPlayingAudio]   = useState<boolean>(false)
+
+  /* Personal notes + highlights. Both live in the same SharedPreferences files
+     the app uses, so `usePrefs` reads localStorage signed out and the merged
+     cloud copy once signed in -- including edits made on the phone. */
+  const { getNote, saveNote, deleteNote, count: noteCount } = useVerseNotes()
+  const { getHighlight, toggleHighlight, removeHighlight, count: highlightCount } = useVerseHighlights()
+
+  // Which verse currently has its editor / palette open (null = none).
+  const [noteVerse, setNoteVerse]     = useState<number | null>(null)
+  const [paletteVerse, setPaletteVerse] = useState<number | null>(null)
 
   // 1. Book list: one tiny request per translation, cached after first load.
   useEffect(() => {
@@ -120,6 +140,29 @@ export default function Bible() {
     return currentBook.chapters.find(c => c.chapter === selectedChapterNum) || currentBook.chapters[0]
   }, [currentBook, selectedChapterNum])
 
+  /* 3b. Verse-level deep link: /bible?book=43&chapter=3&verse=16, used by the
+        Notes & Highlights page. Waits for the chapter's text, then centres the
+        verse so the jump is obvious. */
+  const deepLinkVerse = searchParams.get('verse')
+  const verseScrolled = useRef(false)
+
+  useEffect(() => {
+    if (verseScrolled.current || manifestLoading || bookLoading || !currentChapter) return
+
+    const verseNumber = Number(deepLinkVerse)
+    if (!verseNumber) return
+    verseScrolled.current = true
+
+    const target = document.getElementById(`verse-${verseNumber}`)
+    if (!target) return
+    // Defer a beat so the browser has painted the verse list.
+    const t = window.setTimeout(
+      () => target.scrollIntoView({ block: 'center', behavior: 'smooth' }),
+      80,
+    )
+    return () => window.clearTimeout(t)
+  }, [manifestLoading, bookLoading, currentChapter, deepLinkVerse])
+
   /* 4. Record the position + chapter completion so it syncs to the app. */
   const { savePosition } = useLastRead()
   const { markChapterRead } = useBibleProgress(selectedVersionKey)
@@ -181,6 +224,38 @@ export default function Bible() {
     })
   }
 
+  /* ── Notes & highlights ───────────────────────────────────────────────────
+     Verse ids are the app's `LikedVersePrefs.createUniqueVerseId` strings, so a
+     highlight written here is the same key the phone writes for John 3:16. */
+  const readerBookName = currentBook?.name ?? currentBookMeta?.name ?? ''
+
+  function verseIdFor(verseNumber: number): string {
+    if (!readerBookName || !currentChapter) return ''
+    return createVerseId(readerBookName, currentChapter.chapter, verseNumber)
+  }
+
+  /* Leaving the passage closes whatever editor was open, the same way the app's
+     bottom sheet is dismissed on navigation. */
+  useEffect(() => {
+    setNoteVerse(null)
+    setPaletteVerse(null)
+  }, [selectedBookIndex, selectedChapterNum])
+
+  function toggleNoteEditor(verseNumber: number) {
+    setPaletteVerse(null)
+    setNoteVerse(prev => (prev === verseNumber ? null : verseNumber))
+  }
+
+  function togglePalette(verseNumber: number) {
+    setNoteVerse(null)
+    setPaletteVerse(prev => (prev === verseNumber ? null : verseNumber))
+  }
+
+  function pickHighlightColor(verseNumber: number, color: HighlightColorName) {
+    const verseId = verseIdFor(verseNumber)
+    if (verseId) toggleHighlight(verseId, color)
+  }
+
   function toggleSpeech() {
     if (!('speechSynthesis' in window) || !currentChapter || !currentBook) return
 
@@ -228,6 +303,20 @@ export default function Bible() {
           eyebrow="Complete Scripture Reader"
           title="The Holy Bible"
           subtitle="Read and search all 66 sacred books with multiple authentic translations."
+          actions={
+            <Link
+              to="/bible/notes"
+              className="btn-secondary !px-4 !py-2 text-xs whitespace-nowrap"
+            >
+              <Icon name="note" className="w-4 h-4" />
+              Notes &amp; Highlights
+              {(noteCount + highlightCount) > 0 && (
+                <span className="ml-1 rounded-full bg-gold-100 text-gold-800 px-1.5 py-0.5 text-[10px] font-bold">
+                  {noteCount + highlightCount}
+                </span>
+              )}
+            </Link>
+          }
         />
 
         {/* ── Controls Toolbar ── */}
@@ -429,26 +518,110 @@ export default function Bible() {
                 fontSize === 'xl' && 'text-xl sm:text-2xl leading-loose'
               )}
             >
-              {currentChapter.verses.map(v => (
-                <div
-                  key={v.number}
-                  id={`verse-${v.number}`}
-                  onClick={() => handleCopyVerse(v)}
-                  className="group relative cursor-pointer hover:bg-gold-50/50 p-1.5 -mx-1.5 rounded-lg transition-colors"
-                  title="Click to copy verse"
-                >
-                  <sup className="font-sans font-bold text-ink-700 text-xs sm:text-sm mr-2 select-none group-hover:text-gold-600">
-                    {v.number}
-                  </sup>
-                  <span className="text-ink-900 group-hover:text-black">{v.text}</span>
+              {currentChapter.verses.map(v => {
+                const verseId = verseIdFor(v.number)
+                const highlight = verseId ? getHighlight(verseId) : null
+                const note = verseId ? getNote(verseId) : ''
+                const swatch = highlight ? highlightSwatch(highlight.colorName) : null
+                const segments = highlightSegments(v.text, v.number, highlight)
 
-                  {copiedVerse === v.number && (
-                    <span className="ml-2 font-sans text-xs bg-ink-800 text-white px-2 py-0.5 rounded-md shadow-soft">
-                      Copied
+                return (
+                  <div
+                    key={v.number}
+                    id={`verse-${v.number}`}
+                    onClick={() => handleCopyVerse(v)}
+                    className="group relative cursor-pointer hover:bg-gold-50/50 p-1.5 -mx-1.5 rounded-lg transition-colors"
+                    title="Click to copy verse"
+                  >
+                    <sup
+                      className={clsx(
+                        'font-sans font-bold text-xs sm:text-sm mr-2 select-none',
+                        note ? 'text-gold-700' : 'text-ink-700 group-hover:text-gold-600',
+                      )}
+                    >
+                      {v.number}
+                    </sup>
+
+                    {segments ? (
+                      /* A range highlight made on the phone: only the selected
+                         words carry the colour, as VerseAdapter renders it. */
+                      <span className="text-ink-900 group-hover:text-black">
+                        {segments.before}
+                        <mark
+                          className="rounded-sm px-0.5 text-ink-900"
+                          style={{ backgroundColor: swatch?.wash }}
+                        >
+                          {segments.marked}
+                        </mark>
+                        {segments.after}
+                      </span>
+                    ) : (
+                      <span
+                        className={clsx('rounded-sm', swatch && 'px-1 -mx-1')}
+                        style={swatch ? { backgroundColor: swatch.wash } : undefined}
+                      >
+                        <span className="text-ink-900 group-hover:text-black">{v.text}</span>
+                      </span>
+                    )}
+
+                    {copiedVerse === v.number && (
+                      <span className="ml-2 font-sans text-xs bg-ink-800 text-white px-2 py-0.5 rounded-md shadow-soft">
+                        Copied
+                      </span>
+                    )}
+
+                    {/* Per-verse tools. Kept in the flow rather than absolutely
+                        positioned so long verses wrap underneath them. */}
+                    <span
+                      className="ml-2 align-top font-sans text-[11px] whitespace-nowrap inline-flex items-center gap-0.5"
+                      onClick={e => e.stopPropagation()}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => toggleNoteEditor(v.number)}
+                        aria-expanded={noteVerse === v.number}
+                        title={note ? 'Edit note' : 'Add a note'}
+                        aria-label={note ? `Edit note on verse ${v.number}` : `Add a note on verse ${v.number}`}
+                        className={clsx(
+                          'p-1 rounded-md transition-colors',
+                          note
+                            ? 'text-gold-700 hover:bg-gold-100'
+                            : 'text-ink-300 hover:text-ink-700 hover:bg-parchment-100',
+                          noteVerse === v.number && 'bg-gold-100 text-gold-800',
+                        )}
+                      >
+                        <Icon name="note" className="w-3.5 h-3.5" />
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => togglePalette(v.number)}
+                        aria-expanded={paletteVerse === v.number}
+                        title="Highlight this verse"
+                        aria-label={`Highlight verse ${v.number}`}
+                        className={clsx(
+                          'p-1 rounded-md transition-colors',
+                          highlight
+                            ? 'hover:bg-parchment-100'
+                            : 'text-ink-300 hover:text-ink-700 hover:bg-parchment-100',
+                        )}
+                        style={highlight ? { color: swatch?.solid } : undefined}
+                      >
+                        <Icon name="highlighter" className="w-3.5 h-3.5" />
+                      </button>
                     </span>
-                  )}
-                </div>
-              ))}
+
+                    {paletteVerse === v.number && (
+                      <VerseHighlightPalette
+                        current={highlight}
+                        onPick={color => pickHighlightColor(v.number, color)}
+                        onClear={() => { if (verseId) removeHighlight(verseId) }}
+                        onClose={() => setPaletteVerse(null)}
+                      />
+                    )}
+                  </div>
+                )
+              })}
             </div>
 
             {/* Chapter Navigation Footer */}
@@ -463,7 +636,7 @@ export default function Bible() {
               </button>
 
               <div className="text-xs text-ink-500 font-medium hidden sm:block">
-                Click any verse to copy
+                Click any verse to copy · use the pencil and highlighter to annotate
               </div>
 
               <button
@@ -523,6 +696,18 @@ export default function Bible() {
             })}
           </div>
         </section>
+
+        {/* ── Note editor (portalled, so it is never clipped by the reader) ── */}
+        <VerseNoteDialog
+          open={noteVerse !== null}
+          reference={noteVerse !== null && currentChapter && currentBookMeta
+            ? `${currentBookMeta.name} ${currentChapter.chapter}:${noteVerse}`
+            : ''}
+          initialText={noteVerse !== null ? getNote(verseIdFor(noteVerse)) : ''}
+          onSave={text => { if (noteVerse !== null) saveNote(verseIdFor(noteVerse), text) }}
+          onDelete={() => { if (noteVerse !== null) deleteNote(verseIdFor(noteVerse)) }}
+          onClose={() => setNoteVerse(null)}
+        />
       </main>
     </>
   )

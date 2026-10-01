@@ -38,15 +38,109 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Base ── */
+/* ── Design tokens ───────────────────────────────────────────────────────
+   The Tailwind palette is expressed as `rgb(var(--token) / <alpha-value>)`
+   (see tailwind.config.ts), so the values live here as space-separated RGB
+   channels. `:root` is the light theme; the `.dark` block below is the only
+   place the palette changes, which is what lets one Settings toggle recolour
+   the whole site without editing a single component. */
 @layer base {
+  :root {
+    /* Ink — deep navy. Also the text ramp: 400-600 are muted copy, 700-950
+       are body/heading copy and dark surfaces. */
+    --ink-50:  244 246 249;
+    --ink-100: 230 234 240;
+    --ink-200: 203 211 224;
+    --ink-300: 163 176 198;
+    --ink-400: 116 134 159;
+    --ink-500: 82 101 128;
+    --ink-600: 61 77 102;
+    --ink-700: 47 60 82;
+    --ink-800: 31 41 57;
+    --ink-900: 22 32 47;
+    --ink-950: 13 21 35;
+
+    /* Parchment — warm neutral surfaces and hairlines. */
+    --parchment-50:  253 251 247;
+    --parchment-100: 250 246 239;
+    --parchment-200: 243 236 224;
+    --parchment-300: 232 221 203;
+
+    /* Gold — the single accent. 600+ is AA-safe for text. */
+    --gold-50:  253 248 237;
+    --gold-100: 249 237 207;
+    --gold-200: 242 217 156;
+    --gold-300: 232 192 98;
+    --gold-400: 220 166 60;
+    --gold-500: 201 138 38;
+    --gold-600: 176 109 29;
+    --gold-700: 145 83 28;
+    --gold-800: 119 67 31;
+    --gold-900: 99 57 30;
+
+    /* Semantic text/surface tokens.
+       A few palette entries mean a *surface* in one component and *body copy*
+       in another (ink-800 is the brand bar and also body text; parchment-200
+       is a hairline border and also light text on that bar). Component classes
+       below use these so they stay correct in both themes; the inline utility
+       classes are handled by the dark overrides at the end of the file. */
+    --bvtv-surface:       255 255 255;
+    --bvtv-text:           47 60 82;   /* ink-700  */
+    --bvtv-text-strong:    31 41 57;   /* ink-800  */
+    --bvtv-text-heading:   22 32 47;   /* ink-900  */
+
+    /* User text size, written by Settings from the app's `textSizeProgress`.
+       1 = the app's default; the whole scale multiplies verse and body copy. */
+    --bvtv-text-scale: 1;
+  }
+
+  /* Dark theme: deep navy surfaces, warm parchment text, brighter gold so the
+     accent still reads on a dark background. */
+  .dark {
+    color-scheme: dark;
+
+    --ink-50:  12 20 33;
+    --ink-100: 20 30 45;
+    --ink-200: 36 49 70;
+    --ink-300: 142 156 178;
+    --ink-400: 127 141 164;
+    --ink-500: 148 162 182;
+    --ink-600: 170 182 200;
+    --ink-700: 194 204 218;
+    --ink-800: 27 40 57;
+    --ink-900: 20 30 45;
+    --ink-950: 10 17 25;
+
+    --parchment-50:  12 20 33;
+    --parchment-100: 20 30 45;
+    --parchment-200: 36 49 70;
+    --parchment-300: 82 98 122;
+
+    --gold-50:  42 34 20;
+    --gold-100: 51 41 24;
+    --gold-200: 232 192 98;
+    --gold-300: 240 208 130;
+    --gold-400: 232 192 98;
+    --gold-500: 226 178 84;
+    --gold-600: 220 166 60;
+    --gold-700: 240 208 130;
+    --gold-800: 245 220 158;
+    --gold-900: 250 233 190;
+
+    --bvtv-surface:     22 32 47;
+    --bvtv-text:        194 204 218;
+    --bvtv-text-strong: 211 219 230;
+    --bvtv-text-heading: 232 237 244;
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-parchment-50 text-ink-800 font-sans antialiased;
+    @apply bg-parchment-50 font-sans antialiased;
+    color: rgb(var(--bvtv-text-strong));
     text-rendering: optimizeLegibility;
   }
 
@@ -85,7 +179,8 @@
 
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 bg-white hover:bg-parchment-100 active:bg-parchment-200
-           text-ink-800 font-semibold px-5 py-2.5 rounded-xl border border-parchment-300 transition-colors duration-200;
+           font-semibold px-5 py-2.5 rounded-xl border border-parchment-300 transition-colors duration-200;
+    color: rgb(var(--bvtv-text-strong));
   }
 
   .btn-gold {
@@ -94,16 +189,42 @@
   }
 
   .card {
-    @apply bg-white rounded-2xl shadow-soft border border-parchment-200;
+    @apply rounded-2xl shadow-soft border border-parchment-200;
+    background-color: rgb(var(--bvtv-surface));
   }
 
-  /* Scripture — the emotional centrepiece. Serif, generous leading. */
+  /* Scripture — the emotional centrepiece. Serif, generous leading.
+     Sized off --bvtv-text-scale, which the Settings text-size slider writes
+     from the app's `textSizeProgress`, so one setting resizes scripture
+     everywhere instead of each component hardcoding a size. */
   .verse-text {
-    @apply font-serif text-lg sm:text-xl leading-[1.75] text-ink-800 italic;
+    @apply font-serif leading-[1.75] italic;
+    color: rgb(var(--bvtv-text-strong));
+    font-size: calc(1.125rem * var(--bvtv-text-scale, 1));
+  }
+  @screen sm {
+    .verse-text {
+      font-size: calc(1.25rem * var(--bvtv-text-scale, 1));
+    }
+  }
+
+  /* Long-form reading copy — devotional sections, stories, chapter text.
+     Same scale as scripture; its smaller base size keeps the app's
+     verse-vs-body ratio of roughly 1 : 0.9. */
+  .body-text {
+    @apply leading-[1.8];
+    color: rgb(var(--bvtv-text));
+    font-size: calc(1rem * var(--bvtv-text-scale, 1));
+  }
+  @screen sm {
+    .body-text {
+      font-size: calc(1.0625rem * var(--bvtv-text-scale, 1));
+    }
   }
 
   .section-title {
-    @apply text-2xl sm:text-3xl font-bold text-ink-900 font-serif tracking-tight;
+    @apply text-2xl sm:text-3xl font-bold font-serif tracking-tight;
+    color: rgb(var(--bvtv-text-heading));
   }
 
   /* Small uppercase label above a heading */
@@ -154,6 +275,65 @@
     content-visibility: auto;
     contain-intrinsic-size: 1px 520px;
   }
+
+  /* Range inputs: two-tone track so the filled part is visible in both themes. */
+  .bvtv-range {
+    @apply w-full appearance-none bg-transparent cursor-pointer;
+  }
+  .bvtv-range::-webkit-slider-runnable-track {
+    @apply h-2 rounded-full bg-parchment-300;
+  }
+  .bvtv-range::-webkit-slider-thumb {
+    @apply appearance-none -mt-[5px] w-4 h-4 rounded-full bg-ink-800 border-2 border-white
+           shadow-soft;
+  }
+  .bvtv-range::-moz-range-track {
+    @apply h-2 rounded-full bg-parchment-300;
+  }
+  .bvtv-range::-moz-range-thumb {
+    @apply w-3.5 h-3.5 rounded-full bg-ink-800 border-2 border-white shadow-soft;
+  }
+
+  /* ── Dark theme, the classes the palette variables cannot resolve ────────
+     The `--ink-*` / `--parchment-*` / `--gold-*` blocks above already
+     recolour almost the whole app. These few are ambiguous: the same token is
+     a dark surface in one place (`bg-ink-800` on the brand bar) and body copy
+     in another (`text-ink-800`), so each role gets its own value here.
+
+     `:where(.dark)` deliberately contributes no specificity, leaving these at
+     0-1-0 — the same weight as the light utility they shadow, but declared
+     later, so they win the tie. That also means an alpha variant such as
+     `bg-white/15` on a hero overlay is left alone. */
+  :where(.dark) .text-ink-800 { color: rgb(var(--bvtv-text-strong)); }
+  :where(.dark) .text-ink-900 { color: rgb(var(--bvtv-text-heading)); }
+  :where(.dark) .text-ink-950 { color: #f5f8fb; }
+
+  /* Light-on-ink copy: the dark bars keep their dark background, so the text
+     sitting on them has to lighten up. */
+  :where(.dark) .text-parchment-200 { color: #cfd8e4; }
+  :where(.dark) .text-parchment-300 { color: #b6c1d1; }
+
+  :where(.dark) .bg-white {
+    background-color: rgb(var(--bvtv-surface));
+  }
+
+  /* White on gold fails contrast in dark, so the gold button inverts. */
+  :where(.dark) .btn-gold {
+    background-color: rgb(var(--gold-300));
+    color: #201603;
+  }
+  :where(.dark) .btn-gold:hover { background-color: rgb(var(--gold-200)); }
+  :where(.dark) .btn-gold:active { background-color: rgb(var(--gold-400)); }
+
+  /* The soft/lift shadows are tuned for light surfaces and all but vanish on
+     a dark one, so cards get their own separation. */
+  :where(.dark) .card {
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 4px 16px rgb(0 0 0 / 0.35);
+  }
+  :where(.dark) .shadow-soft, :where(.dark) .shadow-lift {
+    --tw-shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 4px 16px rgb(0 0 0 / 0.35);
+    --tw-shadow-colored: 0 1px 2px rgb(0 0 0 / 0.4), 0 4px 16px rgb(0 0 0 / 0.35);
+  }
 }
 
 /* ── Reduced motion ── */
@@ -169,6 +349,8 @@
 /* ── Print: verse should be readable on paper, chrome hidden ── */
 @media print {
   header, footer, nav, .no-print { display: none !important; }
-  body { @apply bg-white text-black; }
+  /* Beats the dark-theme utilities above, which would otherwise print a
+     navy page and burn a lot of toner. */
+  body { background: #fff !important; color: #000 !important; }
   .card { @apply border-0 shadow-none; }
 }

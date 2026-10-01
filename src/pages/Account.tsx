@@ -36,11 +36,11 @@ export default function Account() {
   const [likedVerses] = usePrefs(PREFS.LIKED_VERSES)
   const [savedStories] = usePrefs(PREFS.SAVED_STORIES)
 
-  const likedCount = Array.isArray(likedVerses.liked_verse_ids)
-    ? likedVerses.liked_verse_ids.length
+  const likedCount = Array.isArray(likedVerses.liked_verses_set)
+    ? likedVerses.liked_verses_set.length
     : 0
-  const savedStoryCount = Array.isArray(savedStories.saved_story_ids)
-    ? savedStories.saved_story_ids.length
+  const savedStoryCount = Array.isArray(savedStories.saved_stories_set)
+    ? savedStories.saved_stories_set.length
     : 0
 
   const heatmap = useMemo(() => buildHeatmap(progress.activityDates), [progress.activityDates])
@@ -48,13 +48,12 @@ export default function Account() {
   const recentChapters = useMemo(() => {
     return progress.readChapters
       .map(token => {
-        const s = String(token).padStart(5, '0')
-        const bookId = Number(s.slice(0, s.length - 3))
-        const chapter = Number(s.slice(s.length - 3))
-        return { bookId, chapter, name: BOOK_NAMES[bookId - 1] ?? `Book ${bookId}` }
+        // Tokens are "<bookIndex0Based>-<chapter>".
+        const [bookId, chapter] = token.split('-').map(Number)
+        return { bookId, chapter, name: BOOK_NAMES[bookId] ?? `Book ${bookId + 1}` }
       })
-      .filter(c => c.name)
-      .sort((a, b) => a.bookId * 1000 + a.chapter - (b.bookId * 1000 + b.chapter))
+      .filter(c => Number.isFinite(c.bookId) && Number.isFinite(c.chapter) && c.name)
+      .sort((a, b) => a.bookId - b.bookId || a.chapter - b.chapter)
       .slice(0, 12)
   }, [progress.readChapters])
 
@@ -92,6 +91,10 @@ export default function Account() {
             <Link to="/insights" className="btn-ghost border border-parchment-300 flex items-center gap-1.5 text-ink-800">
               <Icon name="sparkle" className="w-4 h-4 text-gold-600" />
               <span>View Reading Insights</span>
+            </Link>
+            <Link to="/settings" className="btn-ghost border border-parchment-300 flex items-center gap-1.5 text-ink-800">
+              <Icon name="settings" className="w-4 h-4 text-ink-500" />
+              <span>Settings</span>
             </Link>
           </div>
 
@@ -280,6 +283,21 @@ export default function Account() {
               <span className="text-ink-600">Saved stories</span>
             </li>
           </ul>
+        </div>
+
+        <div className="card p-5 mb-6 flex items-center justify-between gap-4">
+          <div className="flex items-start gap-3">
+            <Icon name="settings" className="w-5 h-5 text-gold-700 mt-0.5 shrink-0" />
+            <div>
+              <p className="text-sm font-semibold text-ink-900">Settings</p>
+              <p className="text-xs text-ink-600 mt-0.5">
+                Translation, text size, dark mode and verse view.
+              </p>
+            </div>
+          </div>
+          <Link to="/settings" className="btn-secondary !py-2 text-sm shrink-0">
+            Open
+          </Link>
         </div>
 
         <button

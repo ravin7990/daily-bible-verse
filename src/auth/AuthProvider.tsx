@@ -11,6 +11,13 @@ import type { AuthUser } from '@/firebase/auth'
 import {
   readLocalPrefs,
   writeLocalPrefs,
+  readLocalMeta,
+  writeLocalMeta,
+  stampKeys,
+  setNamespace,
+  migrateAnonTo,
+  allPrefsFiles,
+  OWNED_PREFS,
   PREFS,
   type PrefsMap,
 } from '@/utils/localPrefs'
@@ -86,6 +93,24 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }, [])
 
+  /**
+   * Point the local storage layer at the right account.
+   *
+   * Declared before the sync effect below so it wins effect ordering and the
+   * sync merges from the *new* namespace rather than from `anon`. Signing in
+   * folds anonymous progress into the account; signing out drops back to `anon`
+   * so the next account on this device starts clean instead of inheriting the
+   * previous one's private data.
+   */
+  useEffect(() => {
+    if (user?.uid) {
+      setNamespace(user.uid)
+      migrateAnonTo(user.uid, allPrefsFiles())
+    } else {
+      setNamespace(null)
+    }
+  }, [user?.uid])
+
   /* After sign-in, pull everything the app has already backed up. */
   useEffect(() => {
     if (!user || !syncMod) return
@@ -107,6 +132,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       })
 
     return () => { cancelled = true }
+  }, [user, syncMod])
+
+  /* Replay anything that failed to upload while offline. */
+  useEffect(() => {
+    if (!user || !syncMod) return
+    const flush = () => { syncMod.flushOutbox(user.uid).catch(() => {}) }
+    window.addEventListener('online', flush)
+    flush()
+    return () => window.removeEventListener('online', flush)
   }, [user, syncMod])
 
   const requireAuth = useCallback(async <T,>(fn: () => Promise<T>): Promise<T> => {
@@ -193,27 +227,64 @@ export function usePrefs(
   const syncMod = useSyncModule()
   const uid = user && syncMod ? user.uid : null
 
-  // Refresh from the cloud whenever the signed-in user changes.
-  useEffect(() => {
-    let cancelled = false
+  /**
+   * Persist a reconciled snapshot and push whatever the local side won.
+   *
+   * Called both after a local edit and after an incoming cloud change, so the
+   * two platforms converge without either having to poll or reload.
+   */
+  const apply = useCallback((
+    next: PrefsMap,
+    ts: Record<string, number>,
+    dirty: readonly string[],
+  ) => {
+    writeLocalPrefs(file, next)
+    writeLocalMeta(file, ts)
+    setValues(next)
 
+    if (!dirty.length || !uid || !syncMod) return
+    const delta: PrefsMap = {}
+    const deltaTs: Record<string, number> = {}
+    for (const key of dirty) {
+      delta[key] = next[key]
+      deltaTs[key] = ts[key] ?? 0
+    }
+    syncMod.pushPrefs(uid, file, delta, deltaTs).catch(() => {
+      // Offline: queue it rather than dropping the change on the floor.
+      syncMod.queuePush(uid, file, delta, deltaTs)
+    })
+  }, [file, uid, syncMod])
+
+  /**
+   * Reconcile on sign-in, then stay subscribed for live phone -> web updates.
+   *
+   * The listener is torn down on unmount and whenever the account changes, so
+   * switching accounts never leaves a subscription pointed at the previous
+   * user's data.
+   */
+  useEffect(() => {
     if (!uid || !syncMod) {
       setValues(readLocalPrefs(file))
       return
     }
 
-    syncMod.pullPrefs(uid, file)
-      .then(cloud => {
-        if (cancelled) return
-        const local = readLocalPrefs(file)
-        const merged = { ...cloud, ...local }
-        writeLocalPrefs(file, merged)
-        setValues(merged)
-      })
-      .catch(() => {})
+    let cancelled = false
 
-    return () => { cancelled = true }
-  }, [file, uid, syncMod])
+    const stop = syncMod.watchPrefs(uid, file, (cloudValues, cloudTs) => {
+      if (cancelled) return
+      const local = readLocalPrefs(file)
+      const localTs = readLocalMeta(file)
+      const { values: merged, ts, dirty } = syncMod.mergePrefs(
+        local, cloudValues, localTs, cloudTs,
+      )
+      apply(merged, ts, dirty)
+    })
+
+    return () => {
+      cancelled = true
+      stop()
+    }
+  }, [file, uid, syncMod, apply])
 
   /**
    * Apply a patch, or an updater that receives the current values.
@@ -228,10 +299,21 @@ export function usePrefs(
     setValues(prev => {
       const delta = typeof patch === 'function' ? patch(prev) : patch
       const next = { ...prev, ...delta }
+      const keys = Object.keys(delta)
+
+      // Stamp locally first so a crash before the upload still records *when*
+      // the change happened; the next sync can then resolve it correctly.
+      const at = Date.now()
+      const ts = stampKeys(file, keys, at)
       writeLocalPrefs(file, next)
-      if (uid && syncMod) {
+
+      if (uid && syncMod && keys.length) {
+        const deltaTs: Record<string, number> = {}
+        for (const key of keys) deltaTs[key] = ts[key] ?? at
         // Merge-safe: writes only these keys, never the whole node.
-        syncMod.pushPrefs(uid, file, delta).catch(() => {})
+        syncMod.pushPrefs(uid, file, delta, deltaTs).catch(() => {
+          syncMod.queuePush(uid, file, delta, deltaTs)
+        })
       }
       return next
     })

@@ -6,6 +6,7 @@ import BottomNav from '@/components/layout/BottomNav'
 import ErrorBoundary from '@/components/layout/ErrorBoundary'
 import ScrollToTop from '@/components/ui/ScrollToTop'
 import { VerseCardSkeleton } from '@/components/ui/Skeleton'
+import { useAppSettings } from '@/utils/appSettings'
 
 // Lazy-load all pages for code splitting
 const Home        = lazy(() => import('@/pages/Home'))
@@ -15,9 +16,11 @@ const StoryDetail = lazy(() => import('@/pages/StoryDetail'))
 const Prayers     = lazy(() => import('@/pages/Prayers'))
 const Teachings   = lazy(() => import('@/pages/Teachings'))
 const Bible       = lazy(() => import('@/pages/Bible'))
+const BibleNotes  = lazy(() => import('@/pages/BibleNotes'))
 const Community   = lazy(() => import('@/pages/Community'))
 const Plans           = lazy(() => import('@/pages/Plans'))
 const Account         = lazy(() => import('@/pages/Account'))
+const Settings        = lazy(() => import('@/pages/Settings'))
 const ReadingInsights = lazy(() => import('@/pages/ReadingInsights'))
 const NotFound        = lazy(() => import('@/pages/NotFound'))
 
@@ -29,6 +32,18 @@ function PageLoader() {
   )
 }
 
+/**
+ * Keeps the two document-wide settings applied for the whole app.
+ *
+ * The initial application already happened when `@/utils/appSettings` was
+ * imported; subscribing here is what makes an incoming phone sync, or a change
+ * made on the Settings page, repaint the site without a reload.
+ */
+function AppSettingsBridge() {
+  useAppSettings()
+  return null
+}
+
 export default function App() {
   return (
     <>
@@ -37,6 +52,7 @@ export default function App() {
         Skip to main content
       </a>
 
+      <AppSettingsBridge />
       <ScrollToTop />
       <Header />
 
@@ -51,8 +67,10 @@ export default function App() {
             <Route path="/prayers"             element={<Prayers />} />
             <Route path="/teachings"           element={<Teachings />} />
             <Route path="/bible"               element={<Bible />} />
+            <Route path="/bible/notes"        element={<BibleNotes />} />
             <Route path="/plans"               element={<Plans />} />
             <Route path="/account"             element={<Account />} />
+            <Route path="/settings"            element={<Settings />} />
             <Route path="/insights"            element={<ReadingInsights />} />
             <Route path="/community"           element={<Community />} />
             <Route path="*"                    element={<NotFound />} />

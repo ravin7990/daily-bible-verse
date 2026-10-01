@@ -70,11 +70,13 @@ export default function VerseCard({ content, isToday = false }: VerseCardProps) 
   const [bgUrl, setBgUrl]         = useState<string | null>(null)
   const [viewMode, setViewMode]   = useState<'card' | 'wallpaper'>('card')
 
-  /* Saved verses live in LikedVersePreferences so they sync with the app.
-     Previously this was a bare `saved_verses` key in localStorage. */
+  /* Saved verses live in LikedVersePreferences under `liked_verses_set`, which is
+     the exact key LikedVersePrefs.kt writes, so the two stay in lockstep.
+     The old `liked_verse_ids` name never matched the app's key and silently
+     produced an empty set on the phone. */
   const [likedPrefs, setLikedPrefs] = usePrefs(PREFS.LIKED_VERSES)
-  const likedIds = Array.isArray(likedPrefs.liked_verse_ids)
-    ? likedPrefs.liked_verse_ids
+  const likedIds = Array.isArray(likedPrefs.liked_verses_set)
+    ? likedPrefs.liked_verses_set
     : []
   const isSaved = likedIds.includes(content.id)
 
@@ -135,11 +137,10 @@ export default function VerseCard({ content, isToday = false }: VerseCardProps) 
   }
 
   function toggleSave() {
-    // One-time migration from the old unscoped localStorage key.
     const next = likedIds.includes(content.id)
       ? likedIds.filter(id => id !== content.id)
       : [...likedIds, content.id]
-    setLikedPrefs({ liked_verse_ids: next })
+    setLikedPrefs({ liked_verses_set: next })
     try {
       localStorage.removeItem('saved_verses')
     } catch {
