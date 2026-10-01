@@ -16,6 +16,8 @@ const Prayers     = lazy(() => import('@/pages/Prayers'))
 const Teachings   = lazy(() => import('@/pages/Teachings'))
 const Bible       = lazy(() => import('@/pages/Bible'))
 const Community   = lazy(() => import('@/pages/Community'))
+const Plans       = lazy(() => import('@/pages/Plans'))
+const Account     = lazy(() => import('@/pages/Account'))
 const NotFound    = lazy(() => import('@/pages/NotFound'))
 
 function PageLoader() {
@@ -48,6 +50,8 @@ export default function App() {
             <Route path="/prayers"             element={<Prayers />} />
             <Route path="/teachings"           element={<Teachings />} />
             <Route path="/bible"               element={<Bible />} />
+            <Route path="/plans"               element={<Plans />} />
+            <Route path="/account"             element={<Account />} />
             <Route path="/community"           element={<Community />} />
             <Route path="*"                    element={<NotFound />} />
           </Routes>

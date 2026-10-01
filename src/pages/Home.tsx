@@ -162,35 +162,29 @@ export default function Home() {
       <main id="main-content">
         {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
             1. HERO — today's verse
-            Uses a plain gradient scrim rather than a CSS `filter: brightness()`
-            plus blurred glow layers. Filters force the compositor to re-rasterise
-            a full-viewport image, delaying LCP; a static gradient composites once.
-            `fetchPriority="high"` marks this as the LCP element.
+
+            Deliberately image-free. A photo behind the headline made it
+            harder to read, fought the parchment/ink palette, and put ~20 KB
+            on the critical path for a purely decorative layer. The daily
+            artwork is still one tap away via the Wallpaper button and the
+            Wallpapers section. The only decoration is a CSS radial gradient,
+            which paints with no network request and no compositor filter.
         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         <section
           aria-labelledby="hero-title"
-          className="relative isolate overflow-hidden bg-ink-950 on-dark"
+          className="relative isolate overflow-hidden bg-parchment-50 border-b border-parchment-200"
         >
-          <img
-            src={heroBgUrl}
-            alt=""
-            aria-hidden="true"
-            fetchPriority="high"
-            decoding="async"
-            className="absolute inset-0 w-full h-full object-cover object-center"
-          />
-
-          {/* Scrim: a single composited gradient, no filters */}
+          {/* Soft gold wash — pure CSS, no image */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-b from-ink-950/80 via-ink-950/70 to-ink-950/90"
+            className="absolute inset-0 -z-10 bg-[radial-gradient(60%_70%_at_50%_0%,theme(colors.gold.100)_0%,transparent_70%)]"
           />
 
-          <div className="relative shell py-20 sm:py-24 lg:py-28 text-center">
+          <div className="relative shell py-16 sm:py-20 lg:py-24 text-center">
             <div className="max-w-3xl mx-auto">
-              <p className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm
-                            border border-white/20 px-4 py-1.5 rounded-full text-xs font-semibold
-                            uppercase tracking-eyebrow text-gold-200 mb-6">
+              <p className="inline-flex items-center gap-2 bg-white border border-gold-200
+                            shadow-soft px-4 py-1.5 rounded-full text-xs font-semibold
+                            uppercase tracking-eyebrow text-gold-800 mb-6">
                 <Icon name="sparkle" className="w-3.5 h-3.5" />
                 <time dateTime={today}>
                   {new Date().toLocaleDateString('en-US', {
@@ -205,26 +199,26 @@ export default function Home() {
               <h1
                 id="hero-title"
                 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold
-                           tracking-tight text-white leading-tight mb-6"
+                           tracking-tight text-ink-900 leading-tight mb-6 text-balance"
               >
                 Bible Verse of the Day
               </h1>
 
               {loading ? (
                 <div className="animate-pulse space-y-3 max-w-xl mx-auto mt-4" aria-hidden="true">
-                  <div className="h-5 bg-white/20 rounded-full w-3/4 mx-auto" />
-                  <div className="h-5 bg-white/20 rounded-full w-full mx-auto" />
-                  <div className="h-5 bg-white/20 rounded-full w-2/3 mx-auto" />
+                  <div className="h-5 bg-parchment-200 rounded-full w-3/4 mx-auto" />
+                  <div className="h-5 bg-parchment-200 rounded-full w-full mx-auto" />
+                  <div className="h-5 bg-parchment-200 rounded-full w-2/3 mx-auto" />
                 </div>
               ) : content ? (
                 <div className="space-y-5 animate-slide-up">
                   <blockquote className="max-w-2xl mx-auto">
                     <p className="font-serif text-xl sm:text-2xl lg:text-[28px] italic
-                                  leading-[1.5] text-white text-balance">
+                                  leading-[1.5] text-ink-800 text-balance">
                       &ldquo;{content.verse_of_the_day.text}&rdquo;
                     </p>
-                    <p className="mt-5 inline-block bg-gold-500/20 border border-gold-400/40
-                                  text-gold-200 font-semibold text-sm sm:text-base px-4 py-1.5
+                    <p className="mt-5 inline-block bg-gold-50 border border-gold-300
+                                  text-gold-900 font-semibold text-sm sm:text-base px-4 py-1.5
                                   rounded-full tracking-wide">
                       {content.verse_of_the_day.reference}
                     </p>
@@ -240,8 +234,8 @@ export default function Home() {
                         className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl
                                     text-xs sm:text-sm font-semibold border transition-colors ${
                                       isPlaying
-                                        ? 'bg-gold-500 text-ink-950 border-gold-400'
-                                        : 'bg-white/10 hover:bg-white/20 text-white border-white/20'
+                                        ? 'bg-gold-100 text-gold-900 border-gold-300'
+                                        : 'bg-white text-ink-800 border-parchment-300 hover:bg-parchment-100'
                                     }`}
                       >
                         <Icon name={isPlaying ? 'stop' : 'volume'} className="w-4 h-4" />
@@ -253,8 +247,8 @@ export default function Home() {
                       type="button"
                       onClick={handleCopy}
                       className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl
-                                 text-xs sm:text-sm font-semibold bg-white/10 hover:bg-white/20
-                                 text-white border border-white/20 transition-colors"
+                                 text-xs sm:text-sm font-semibold bg-white hover:bg-parchment-100
+                                 text-ink-800 border border-parchment-300 transition-colors"
                     >
                       <Icon name={copied ? 'check' : 'copy'} className="w-4 h-4" />
                       <span>{copied ? 'Copied' : 'Copy'}</span>
@@ -264,8 +258,8 @@ export default function Home() {
                       type="button"
                       onClick={handleShare}
                       className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl
-                                 text-xs sm:text-sm font-semibold bg-white/10 hover:bg-white/20
-                                 text-white border border-white/20 transition-colors"
+                                 text-xs sm:text-sm font-semibold bg-white hover:bg-parchment-100
+                                 text-ink-800 border border-parchment-300 transition-colors"
                     >
                       <Icon name="share" className="w-4 h-4" />
                       <span>Share</span>
@@ -275,8 +269,8 @@ export default function Home() {
                       type="button"
                       onClick={() => setLightboxImage(heroBgUrl)}
                       className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl
-                                 text-xs sm:text-sm font-bold bg-gold-500 hover:bg-gold-400
-                                 text-ink-950 transition-colors"
+                                 text-xs sm:text-sm font-bold bg-gold-600 hover:bg-gold-700
+                                 text-white transition-colors"
                     >
                       <Icon name="image" className="w-4 h-4" />
                       <span>Wallpaper</span>

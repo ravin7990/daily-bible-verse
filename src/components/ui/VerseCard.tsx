@@ -2,6 +2,7 @@ import type { DailyContent } from '@/types'
 import { formatLongDate, todayStr } from '@/utils/dateUtils'
 import { useState, useEffect, useId } from 'react'
 import { fetchDailyBackgroundUri } from '@/utils/lazyBackground'
+import { usePrefs, PREFS } from '@/auth/AuthProvider'
 import Icon from '@/components/ui/Icon'
 import clsx from 'clsx'
 
@@ -68,14 +69,14 @@ export default function VerseCard({ content, isToday = false }: VerseCardProps) 
   const [isPlaying, setIsPlaying] = useState(false)
   const [bgUrl, setBgUrl]         = useState<string | null>(null)
   const [viewMode, setViewMode]   = useState<'card' | 'wallpaper'>('card')
-  const [isSaved, setIsSaved]     = useState(() => {
-    try {
-      const saved = JSON.parse(localStorage.getItem('saved_verses') || '[]')
-      return saved.includes(content.id)
-    } catch {
-      return false
-    }
-  })
+
+  /* Saved verses live in LikedVersePreferences so they sync with the app.
+     Previously this was a bare `saved_verses` key in localStorage. */
+  const [likedPrefs, setLikedPrefs] = usePrefs(PREFS.LIKED_VERSES)
+  const likedIds = Array.isArray(likedPrefs.liked_verse_ids)
+    ? likedPrefs.liked_verse_ids
+    : []
+  const isSaved = likedIds.includes(content.id)
 
   /* Daily wallpaper background from Firebase Storage. Past/today only. */
   useEffect(() => {
@@ -134,19 +135,15 @@ export default function VerseCard({ content, isToday = false }: VerseCardProps) 
   }
 
   function toggleSave() {
+    // One-time migration from the old unscoped localStorage key.
+    const next = likedIds.includes(content.id)
+      ? likedIds.filter(id => id !== content.id)
+      : [...likedIds, content.id]
+    setLikedPrefs({ liked_verse_ids: next })
     try {
-      const saved = JSON.parse(localStorage.getItem('saved_verses') || '[]')
-      let next: string[]
-      if (saved.includes(content.id)) {
-        next = saved.filter((id: string) => id !== content.id)
-        setIsSaved(false)
-      } else {
-        next = [...saved, content.id]
-        setIsSaved(true)
-      }
-      localStorage.setItem('saved_verses', JSON.stringify(next))
+      localStorage.removeItem('saved_verses')
     } catch {
-      // Storage unavailable (private mode). Saving is best-effort.
+      // Ignore: the new store is already authoritative.
     }
   }
   return (

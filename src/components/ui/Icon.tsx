@@ -39,6 +39,7 @@ export type IconName =
   | 'heart'
   | 'shield'
   | 'scroll'
+  | 'user'
 
 interface IconProps {
   name: IconName
@@ -163,6 +164,12 @@ const PATHS: Record<IconName, ReactElement> = {
     <>
       <path d="M6 4.5h11a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6.5" />
       <path d="M9 8.5h6M9 12h6" />
+    </>
+  ),
+  user: (
+    <>
+      <circle cx="12" cy="8" r="4" />
+      <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
     </>
   ),
 }

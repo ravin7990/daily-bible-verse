@@ -42,6 +42,18 @@ export default defineConfig({
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
         runtimeCaching: [
           {
+            // Bible manifests and per-book chapter files. Immutable for a given
+            // deploy, so CacheFirst makes repeat visits instant and enables
+            // offline reading after the first book is opened.
+            urlPattern: /\/bibles\/[A-Z0-9]+\/(manifest|\d+)\.json/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'bible-chapters-cache',
+              expiration: { maxEntries: 500, maxAgeSeconds: 60 * 60 * 24 * 90 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
+          {
             urlPattern: /.*\/bibles\/.*\.json/i,
             handler: 'CacheFirst',
             options: {
@@ -71,9 +83,16 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id: string) {
-          if (id.includes('firebase')) return 'firebase'
           if (id.includes('react-router')) return 'router'
           if (id.includes('react-helmet')) return 'helmet'
+
+          // NOTE: Firebase is deliberately NOT forced into a manual chunk.
+          // Doing so made Rollup hoist the whole SDK (~590 kB) into the entry's
+          // static graph, which Vite then emitted as a <link modulepreload> —
+          // so every signed-out visitor downloaded it before first paint.
+          // Leaving it to the default splitting keeps auth and RTDB behind the
+          // dynamic imports in AuthProvider, where they belong. Firebase is
+          // only ever loaded after sign-in or on a page that needs it.
         },
       },
     },

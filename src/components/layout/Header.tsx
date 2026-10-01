@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import Icon from '@/components/ui/Icon'
+import UserMenu from '@/components/auth/UserMenu'
 
 const navLinks = [
   { to: '/',          label: 'Today'      },
@@ -9,6 +10,7 @@ const navLinks = [
   { to: '/prayers',   label: 'Prayers'    },
   { to: '/teachings', label: 'Teachings'  },
   { to: '/bible',     label: 'Bible'      },
+  { to: '/plans',     label: 'Plans'      },
   { to: '/community', label: 'Wallpapers' },
 ]
 
@@ -110,28 +112,22 @@ export default function Header() {
             </ul>
           </nav>
 
-          <a
-            href="https://play.google.com/store/apps/details?id=com.bible.verseoftheday2026"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden lg:inline-flex btn-primary !px-4 !py-2 text-sm"
-          >
-            <Icon name="download" className="w-4 h-4" />
-            Get the App
-          </a>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <UserMenu />
 
-          <button
-            ref={toggleRef}
-            type="button"
-            onClick={() => setOpen(o => !o)}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            aria-label={open ? 'Close menu' : 'Open menu'}
-            className="md:hidden grid place-items-center w-11 h-11 -mr-2 rounded-lg text-ink-800
-                       hover:bg-parchment-200/70 transition-colors"
-          >
-            <Icon name={open ? 'close' : 'menu'} className="w-6 h-6" />
-          </button>
+            <button
+              ref={toggleRef}
+              type="button"
+              onClick={() => setOpen(o => !o)}
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              aria-label={open ? 'Close menu' : 'Open menu'}
+              className="md:hidden grid place-items-center w-11 h-11 -mr-2 rounded-lg text-ink-800
+                         hover:bg-parchment-200/70 transition-colors"
+            >
+              <Icon name={open ? 'close' : 'menu'} className="w-6 h-6" />
+            </button>
+          </div>
         </div>
       </div>
       <div

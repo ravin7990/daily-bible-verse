@@ -1,10 +1,14 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useRef } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import SEO from '@/components/layout/SEO'
+import { useLastRead, useBibleProgress } from '@/utils/userProgress'
 import PageHeader from '@/components/ui/PageHeader'
 import Icon from '@/components/ui/Icon'
 import {
   BIBLE_VERSIONS,
-  loadBibleVersion,
+  loadBibleManifest,
+  loadBibleBook,
+  type BibleManifestEntry,
   type ParsedBook,
   type ParsedChapter,
   type ParsedVerse,
@@ -13,10 +17,18 @@ import clsx from 'clsx'
 
 export default function Bible() {
   const [selectedVersionKey, setVersionKey] = useState<string>('WEB')
-  const [books, setBooks]                   = useState<ParsedBook[]>([])
-  const [selectedBookIndex, setBookIndex]   = useState<number>(42) // John (index 42 in 0-indexed list)
-  const [selectedChapterNum, setChapterNum] = useState<number>(3)  // John 3
-  const [loading, setLoading]               = useState<boolean>(true)
+
+  // Book list comes from the tiny manifest (~4 KB) so the page shell renders
+  // immediately. Only the book actually being read is downloaded.
+  const [manifest, setManifest]             = useState<BibleManifestEntry[]>([])
+  const [currentBook, setCurrentBook]       = useState<ParsedBook | null>(null)
+  const [selectedBookIndex, setBookIndex]   = useState<number>(42) // John
+  const [selectedChapterNum, setChapterNum] = useState<number>(3)   // John 3
+
+  // `manifestLoading` gates the book list; `bookLoading` gates only the verse
+  // viewport, so switching translations never blanks the whole page.
+  const [manifestLoading, setManifestLoading] = useState(true)
+  const [bookLoading, setBookLoading]       = useState(true)
   const [statusMessage, setStatusMessage]   = useState<string>('')
   const [error, setError]                   = useState<string | null>(null)
 
@@ -27,34 +39,101 @@ export default function Bible() {
   const [copiedVerse, setCopiedVerse]         = useState<number | null>(null)
   const [isPlayingAudio, setIsPlayingAudio]   = useState<boolean>(false)
 
-  // Load Bible version when changed
+  // 1. Book list: one tiny request per translation, cached after first load.
   useEffect(() => {
-    setLoading(true)
+    let cancelled = false
+    setManifestLoading(true)
     setError(null)
-    setStatusMessage(`Preparing ${selectedVersionKey}...`)
 
-    loadBibleVersion(selectedVersionKey, msg => setStatusMessage(msg))
-      .then(loadedBooks => {
-        setBooks(loadedBooks)
-        setLoading(false)
+    loadBibleManifest(selectedVersionKey)
+      .then(list => {
+        if (cancelled) return
+        setManifest(list)
+        setManifestLoading(false)
       })
       .catch(err => {
-        setError(err.message || 'Unable to load Bible version.')
-        setLoading(false)
+        if (cancelled) return
+        setError(err.message || 'Unable to load the book list.')
+        setManifestLoading(false)
       })
+
+    return () => { cancelled = true }
   }, [selectedVersionKey])
 
-  // Current active book and chapter
-  const currentBook: ParsedBook | undefined = books[selectedBookIndex] || books[0]
+  // 2. Verse text: fetched only for the selected book (~70 KB, cached).
+  useEffect(() => {
+    if (manifest.length === 0) return
 
+    let cancelled = false
+    setBookLoading(true)
+    setError(null)
+    setStatusMessage(`Loading ${manifest[selectedBookIndex]?.name ?? ''}...`)
+
+    // Book id is 1-based in the manifest.
+    const bookId = (manifest[selectedBookIndex]?.id ?? selectedBookIndex + 1)
+
+    loadBibleBook(selectedVersionKey, bookId)
+      .then(book => {
+        if (cancelled) return
+        setCurrentBook(book)
+        setBookLoading(false)
+      })
+      .catch(err => {
+        if (cancelled) return
+        setError(err.message || 'Unable to load this book.')
+        setBookLoading(false)
+      })
+
+    return () => { cancelled = true }
+  }, [selectedVersionKey, selectedBookIndex, manifest])
+
+  /* 3. Deep links: /bible?book=43&chapter=3 (used by reading plans and the
+        account page). Manifest ids are 1-based, and this runs once per arrival. */
+  const [searchParams, setSearchParams] = useSearchParams()
+  const deepLinkApplied = useRef(false)
+
+  useEffect(() => {
+    if (deepLinkApplied.current || manifest.length === 0) return
+
+    const bookParam = searchParams.get('book')
+    const chapterParam = searchParams.get('chapter')
+    if (!bookParam) return
+
+    const bookId = Number(bookParam)
+    const index = manifest.findIndex(m => m.id === bookId)
+    if (index !== -1) {
+      setBookIndex(index)
+      setChapterNum(Math.max(1, Number(chapterParam) || 1))
+    }
+    deepLinkApplied.current = true
+    // Intentionally runs only when the manifest first arrives.
+  }, [manifest, searchParams, setSearchParams])
+
+  // Chapter bounds come from the manifest, so they are correct before the
+  // book body has finished downloading.
+  const currentBookMeta = manifest[selectedBookIndex]
+  const totalChapters = currentBookMeta?.chapters ?? 0
+
+  // Current chapter within the loaded book
   const currentChapter: ParsedChapter | undefined = useMemo(() => {
     if (!currentBook) return undefined
     return currentBook.chapters.find(c => c.chapter === selectedChapterNum) || currentBook.chapters[0]
   }, [currentBook, selectedChapterNum])
 
+  /* 4. Record the position + chapter completion so it syncs to the app. */
+  const { savePosition } = useLastRead()
+  const { markChapterRead } = useBibleProgress(selectedVersionKey)
+
+  useEffect(() => {
+    if (!currentBook || !currentChapter || manifestLoading || bookLoading) return
+    savePosition(selectedBookIndex, currentChapter.chapter, 0)
+    markChapterRead(selectedBookIndex, currentChapter.chapter)
+    // Re-run when the reader lands somewhere new, not on every progress write.
+  }, [currentBook, currentChapter, manifestLoading, bookLoading, selectedBookIndex, savePosition, markChapterRead])
+
   // Filtered books for the book selector modal / dropdown
   const filteredBooks = useMemo(() => {
-    return books.filter(b => {
+    return manifest.filter(b => {
       const matchesTestament =
         testamentFilter === 'ALL' ||
         (testamentFilter === 'OT' && b.testament === 'OT') ||
@@ -65,28 +144,28 @@ export default function Bible() {
 
       return matchesTestament && matchesSearch
     })
-  }, [books, testamentFilter, bookSearch])
+  }, [manifest, testamentFilter, bookSearch])
 
   // Navigation handlers
   function handlePrevChapter() {
-    if (!currentBook) return
     if (selectedChapterNum > 1) {
       setChapterNum(selectedChapterNum - 1)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } else if (selectedBookIndex > 0) {
-      const prevBook = books[selectedBookIndex - 1]
-      setBookIndex(selectedBookIndex - 1)
-      setChapterNum(prevBook.chapters.length)
+      const prevIndex = selectedBookIndex - 1
+      setBookIndex(prevIndex)
+      // Jump to the last chapter of the previous book using manifest data,
+      // so this works before the previous book's text has been downloaded.
+      setChapterNum(manifest[prevIndex]?.chapters ?? 1)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
 
   function handleNextChapter() {
-    if (!currentBook) return
-    if (selectedChapterNum < currentBook.chapters.length) {
+    if (selectedChapterNum < totalChapters) {
       setChapterNum(selectedChapterNum + 1)
       window.scrollTo({ top: 0, behavior: 'smooth' })
-    } else if (selectedBookIndex < books.length - 1) {
+    } else if (selectedBookIndex < manifest.length - 1) {
       setBookIndex(selectedBookIndex + 1)
       setChapterNum(1)
       window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -176,11 +255,11 @@ export default function Bible() {
             {/* 2. Book Selector */}
             <div>
               <label htmlFor="book-select" className="block text-xs font-bold text-ink-600 uppercase tracking-wider mb-1">
-                Book ({books.length} Books)
+                Book ({manifest.length} Books)
               </label>
               <select
                 id="book-select"
-                disabled={loading || books.length === 0}
+                disabled={manifestLoading || manifest.length === 0}
                 value={selectedBookIndex}
                 onChange={e => {
                   setBookIndex(Number(e.target.value))
@@ -188,29 +267,31 @@ export default function Bible() {
                 }}
                 className="w-full border border-parchment-300 rounded-xl px-3 py-2 text-sm bg-white font-medium"
               >
-                {books.map((b, idx) => (
-                  <option key={b.id || idx} value={idx}>
-                    {idx + 1}. {b.name} ({b.chapters.length} ch)
+                {manifest.map((b, idx) => (
+                  <option key={b.id} value={idx}>
+                    {idx + 1}. {b.name} ({b.chapters} ch)
                   </option>
                 ))}
               </select>
             </div>
 
-            {/* 3. Chapter Selector */}
+            {/* 3. Chapter Selector — options come from the manifest, so this
+                is populated as soon as the 4 kB manifest arrives rather than
+                waiting for the book's verse text. */}
             <div>
               <label htmlFor="chapter-select" className="block text-xs font-bold text-ink-600 uppercase tracking-wider mb-1">
                 Chapter
               </label>
               <select
                 id="chapter-select"
-                disabled={loading || !currentBook}
+                disabled={manifestLoading || totalChapters === 0}
                 value={selectedChapterNum}
                 onChange={e => setChapterNum(Number(e.target.value))}
                 className="w-full border border-parchment-300 rounded-xl px-3 py-2 text-sm bg-white font-medium"
               >
-                {currentBook?.chapters.map(c => (
-                  <option key={c.chapter} value={c.chapter}>
-                    Chapter {c.chapter}
+                {Array.from({ length: totalChapters }, (_, i) => (
+                  <option key={i + 1} value={i + 1}>
+                    Chapter {i + 1}
                   </option>
                 ))}
               </select>
@@ -239,7 +320,7 @@ export default function Bible() {
               {'speechSynthesis' in window && (
                 <button
                   onClick={toggleSpeech}
-                  disabled={loading}
+                  disabled={bookLoading || !currentChapter}
                   className={clsx(
                     'inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-lg border transition-colors',
                     isPlayingAudio
@@ -296,13 +377,24 @@ export default function Bible() {
         )}
 
         {/* ── Reader Viewport ── */}
-        {loading ? (
+        {manifestLoading || bookLoading ? (
           <div className="card p-12 text-center text-ink-600 animate-pulse">
             <Icon name="bible" className="w-10 h-10 mx-auto mb-3 animate-spin text-ink-400" />
             <h3 className="font-serif font-bold text-lg text-ink-900 mb-1">
-              Loading {selectedVersionInfo.name}
+              {currentBookMeta
+                ? `Loading ${currentBookMeta.name}`
+                : `Loading ${selectedVersionInfo.name}`}
             </h3>
-            <p className="text-xs text-ink-500">{statusMessage || 'Preparing scripture text...'}</p>
+            <p className="text-xs text-ink-500">
+              {statusMessage || 'Preparing scripture text...'}
+            </p>
+            {/* Skeleton keeps the layout stable so the page does not jump when
+                the verses arrive. */}
+            <div className="mt-6 mx-auto max-w-md space-y-2" aria-hidden="true">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className="h-3 bg-parchment-200 rounded-full w-full" />
+              ))}
+            </div>
           </div>
         ) : !currentBook || !currentChapter ? (
           <div className="card p-10 text-center text-ink-600">
@@ -311,22 +403,20 @@ export default function Bible() {
         ) : (
           <article className="card shadow-soft overflow-hidden animate-fade-in">
             {/* Chapter Header Banner */}
-            <div className="bg-gradient-to-r from-sacred-800 via-sacred-700 to-sacred-900 text-white p-6 sm:p-8 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-ink-900 via-ink-800 to-ink-950 text-white p-6 sm:p-8 flex items-center justify-between">
               <div>
-                <span className="text-xs uppercase font-bold tracking-widest text-gold-300">
+                <span className="text-xs uppercase font-bold tracking-eyebrow text-gold-300">
                   {currentBook.testament === 'OT' ? 'Old Testament' : 'New Testament'}
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold mt-1">
                   {currentBook.name} {currentChapter.chapter}
                 </h2>
-                <p className="text-xs text-white/80 mt-1">
-                  {selectedVersionInfo.name} • {currentChapter.verses.length} verses
+                <p className="text-xs text-parchment-200 mt-1">
+                  {selectedVersionInfo.name} · {currentChapter.verses.length} verses
                 </p>
               </div>
 
-              <div className="text-4xl opacity-30 select-none font-serif" aria-hidden="true">
-                
-              </div>
+              <Icon name="bible" className="w-14 h-14 text-white opacity-20 shrink-0" />
             </div>
 
             {/* Verses Container */}
@@ -378,7 +468,7 @@ export default function Bible() {
 
               <button
                 onClick={handleNextChapter}
-                disabled={selectedBookIndex === books.length - 1 && selectedChapterNum === currentBook.chapters.length}
+                disabled={selectedBookIndex === manifest.length - 1 && selectedChapterNum === totalChapters}
                 className="btn-primary text-xs sm:text-sm flex items-center gap-1.5"
               >
                 <span>Next Chapter</span>
@@ -404,12 +494,14 @@ export default function Bible() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
-            {filteredBooks.map((b, idx) => {
-              const originalIndex = books.indexOf(b)
+            {filteredBooks.map(b => {
+              // filteredBooks is derived from manifest, so the manifest index
+              // is the canonical book index the reader state expects.
+              const originalIndex = manifest.indexOf(b)
               const isSelected = originalIndex === selectedBookIndex
               return (
                 <button
-                  key={b.id || idx}
+                  key={b.id}
                   onClick={() => {
                     setBookIndex(originalIndex)
                     setChapterNum(1)
@@ -423,8 +515,8 @@ export default function Bible() {
                   )}
                 >
                   <p className="font-semibold truncate">{b.name}</p>
-                  <p className={clsx('text-[10px] mt-0.5', isSelected ? 'text-gold-700' : 'text-ink-500')}>
-                    {b.chapters.length} chapters
+                  <p className={clsx('text-[10px] mt-0.5', isSelected ? 'text-gold-300' : 'text-ink-500')}>
+                    {b.chapters} chapters
                   </p>
                 </button>
               )

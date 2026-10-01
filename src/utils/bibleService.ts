@@ -6,51 +6,57 @@ export interface BibleVersionInfo {
   name: string
   fileName: string
   language: string
+  /** Per-book transfer size, not the size of the whole translation. */
   sizeLabel: string
 }
 
+/**
+ * `sizeLabel` now advertises what actually transfers on open: a ~4 kB manifest
+ * plus one ~70 kB book. Previously it showed the full translation size (up to
+ * 10.5 MB), which is what made the reader look slow before the split.
+ */
 export const BIBLE_VERSIONS: BibleVersionInfo[] = [
   {
     key: 'WEB',
     name: 'World English Bible (WEB)',
     fileName: 'WEB_bible.json',
     language: 'English',
-    sizeLabel: '4.7 MB',
+    sizeLabel: '~70 KB per book',
   },
   {
     key: 'BSB',
     name: 'Berean Standard Bible (BSB)',
     fileName: 'BSB_bible.json',
     language: 'English',
-    sizeLabel: '7.8 MB',
+    sizeLabel: '~70 KB per book',
   },
   {
     key: 'ASV',
     name: 'American Standard Version (ASV)',
     fileName: 'ASV_bible.json',
     language: 'English',
-    sizeLabel: '8.0 MB',
+    sizeLabel: '~70 KB per book',
   },
   {
     key: 'KJV',
     name: 'King James Version (KJV)',
     fileName: 'bible.json',
     language: 'English',
-    sizeLabel: '5.5 MB',
+    sizeLabel: '~70 KB per book',
   },
   {
     key: 'HINDI',
     name: 'Hindi Holy Bible (पवित्र बाइबिल)',
     fileName: 'bible_hindi.json',
     language: 'Hindi (हिंदी)',
-    sizeLabel: '10.5 MB',
+    sizeLabel: '~70 KB per book',
   },
   {
     key: 'RV1909',
     name: 'Reina-Valera 1909 (Español)',
     fileName: 'RV1909_bible.json',
     language: 'Spanish',
-    sizeLabel: '6.3 MB',
+    sizeLabel: '~70 KB per book',
   },
 ]
 
@@ -90,8 +96,25 @@ export interface ParsedBook {
   chapters: ParsedChapter[]
 }
 
-// In-memory cache across version switches
-const versionCache = new Map<string, ParsedBook[]>()
+/**
+ * Lightweight book descriptor from the per-version manifest.
+ *
+ * The reader only ever displays one chapter, but the old implementation
+ * downloaded the whole translation (up to 10.5 MB) and JSON.parsed all of it
+ * before it could render anything. The manifest is ~4 KB and carries everything
+ * needed to draw the book list and know how many chapters each book has, so the
+ * UI is interactive immediately and verse text is fetched per book on demand.
+ */
+export interface BibleManifestEntry {
+  id: number
+  name: string
+  testament: 'OT' | 'NT'
+  chapters: number
+}
+
+/** In-flight / resolved promises, so repeated asks for a book never refetch. */
+const bookCache = new Map<string, Promise<ParsedBook>>()
+const manifestCache = new Map<string, Promise<BibleManifestEntry[]>>()
 
 /**
  * Normalizes different JSON structures (WEB/ASV/BSB vs Hindi vs KJV) into unified ParsedBook[]
@@ -163,53 +186,91 @@ function normalizeBibleJson(data: any): ParsedBook[] {
   throw new Error('Unsupported Bible JSON structure')
 }
 
+function getVersionInfo(versionKey: string): BibleVersionInfo {
+  return BIBLE_VERSIONS.find(v => v.key.toUpperCase() === versionKey.toUpperCase()) || BIBLE_VERSIONS[0]
+}
+
+const base = () => import.meta.env.BASE_URL || '/'
+
+async function fetchJson<T>(url: string): Promise<T> {
+  const res = await fetch(url)
+  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`)
+  return res.json() as Promise<T>
+}
+
 /**
- * Loads a Bible version:
- * 1. Checks in-memory cache.
- * 2. Tries local bundled file at /bibles/{fileName}.
- * 3. Fallback: fetches from Firebase Storage.
+ * Load the book manifest for a version (~4 KB).
+ *
+ * This is all the reader needs to render its chrome: book names, testament and
+ * chapter counts. Returning it separately from the verse text is what makes the
+ * page feel instant instead of hanging on a multi-megabyte download.
  */
-export async function loadBibleVersion(
+export async function loadBibleManifest(versionKey: string): Promise<BibleManifestEntry[]> {
+  const info = getVersionInfo(versionKey)
+  const cached = manifestCache.get(info.key)
+  if (cached) return cached
+
+  const promise = (async () => {
+    const url = `${base()}bibles/${info.key}/manifest.json`
+    const manifest = await fetchJson<BibleManifestEntry[]>(url)
+    manifestCache.set(info.key, Promise.resolve(manifest))
+    return manifest
+  })()
+
+  manifestCache.set(info.key, promise)
+  return promise
+}
+
+/** Normalise one book's chapter payload (both source shapes) into ParsedChapter[]. */
+function parseChapters(raw: any[]): ParsedChapter[] {
+  return raw.map((c, cIdx) => {
+    const verses = (c.verses || c.Verse || c.verse || []).map((v: any, vIdx: number) => ({
+      number: typeof v === 'object'
+        ? (typeof v.verse === 'number' ? v.verse : typeof v.Verse === 'number' ? v.Verse : vIdx + 1)
+        : vIdx + 1,
+      text: (typeof v === 'string' ? v : (v.text || v.Verse || v.verse || '')).trim(),
+    }))
+    return { chapter: c.chapter || cIdx + 1, verses }
+  })
+}
+
+/**
+ * Load a single book (~70 KB) on demand and cache it.
+ *
+ * Called whenever the reader changes book or translation. Only the book being
+ * read is transferred and parsed, which is roughly 40x less data than the whole
+ * translation and keeps the main thread free.
+ */
+export async function loadBibleBook(
   versionKey: string,
-  onProgress?: (msg: string) => void
-): Promise<ParsedBook[]> {
-  const info = BIBLE_VERSIONS.find(v => v.key.toUpperCase() === versionKey.toUpperCase()) || BIBLE_VERSIONS[0]
+  bookId: number,
+): Promise<ParsedBook> {
+  const info = getVersionInfo(versionKey)
+  const cacheKey = `${info.key}:${bookId}`
 
-  if (versionCache.has(info.key)) {
-    return versionCache.get(info.key)!
-  }
+  const cached = bookCache.get(cacheKey)
+  if (cached) return cached
 
-  onProgress?.(`Loading ${info.name}...`)
+  const promise = (async () => {
+    const manifest = await loadBibleManifest(info.key)
+    const meta = manifest.find(m => m.id === bookId)
+    const name = meta?.name || STANDARD_BOOK_NAMES[bookId - 1] || `Book ${bookId}`
+    const testament = meta?.testament ?? (bookId > 39 ? 'NT' : 'OT')
 
-  const base = import.meta.env.BASE_URL || '/'
-  const localUrl = `${base}bibles/${info.fileName}`
+    const url = `${base()}bibles/${info.key}/${String(bookId).padStart(2, '0')}.json`
+    const chapters = parseChapters(await fetchJson<any[]>(url))
 
-  // 1. Try local URL first
+    return { id: bookId, name, testament, chapters }
+  })()
+
+  // Cache the promise itself so concurrent callers share one request.
+  bookCache.set(cacheKey, promise)
+
   try {
-    const res = await fetch(localUrl)
-    if (res.ok) {
-      const json = await res.json()
-      const parsed = normalizeBibleJson(json)
-      versionCache.set(info.key, parsed)
-      return parsed
-    }
+    return await promise
   } catch (e) {
-    console.warn(`Local fetch failed for ${info.fileName}, trying Firebase Storage fallback:`, e)
-  }
-
-  // 2. Fallback to Firebase Storage
-  onProgress?.(`Fetching ${info.name} from Firebase Storage...`)
-  try {
-    const fileRef = ref(storage, info.fileName)
-    const downloadUrl = await getDownloadURL(fileRef)
-    const res = await fetch(downloadUrl)
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    const json = await res.json()
-    const parsed = normalizeBibleJson(json)
-    versionCache.set(info.key, parsed)
-    return parsed
-  } catch (error) {
-    console.error(`Failed to load Bible version ${info.key}:`, error)
-    throw new Error(`Unable to load ${info.name}. Please check connection.`)
+    // Do not cache failures: a transient network error should be retryable.
+    bookCache.delete(cacheKey)
+    throw e
   }
 }

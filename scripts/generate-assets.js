@@ -75,7 +75,9 @@ function generateSitemap() {
     { url: '/prayers', priority: '0.8', changefreq: 'weekly' },
     { url: '/teachings', priority: '0.8', changefreq: 'weekly' },
     { url: '/bible', priority: '0.7', changefreq: 'monthly' },
+    { url: '/plans', priority: '0.8', changefreq: 'monthly' },
     { url: '/community', priority: '0.7', changefreq: 'daily' },
+    // /account is deliberately excluded: it is user-specific and noIndex.
   ]
 
   let stories = []
@@ -150,7 +152,7 @@ Bible Verse of the Day is a mobile-first, high-performance web and mobile app th
   console.log('✅ Generated llms.txt and llms-full.txt for Agentic Browsing')
 }
 
-// 5. Generate a lightweight stories payload for the home page
+// 4. Generate a lightweight stories payload for the home page
 //    stories.json is ~920 kB because every entry embeds its full story body.
 //    The home page only renders six cards, so it fetches this slimmed file
 //    (~2 kB) instead. Regenerated on every build so it can never drift.
