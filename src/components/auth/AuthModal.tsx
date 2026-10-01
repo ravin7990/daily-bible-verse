@@ -1,4 +1,5 @@
 import { useEffect, useId, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { useAuth } from '@/auth/AuthProvider'
 import Icon from '@/components/ui/Icon'
 
@@ -64,8 +65,6 @@ export default function AuthModal({ open, onClose, reason }: AuthModalProps) {
     }
   }, [open, onClose])
 
-  if (!open) return null
-
   async function handleGoogle() {
     setError(null)
     try {
@@ -99,10 +98,12 @@ export default function AuthModal({ open, onClose, reason }: AuthModalProps) {
       setError((err as Error).message)
     }
   }
-  return (
+  if (!open || typeof document === 'undefined') return null
+
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center
-                 p-0 sm:p-4 bg-ink-950/60 backdrop-blur-sm animate-fade-in"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6
+                 overflow-y-auto bg-ink-950/70 backdrop-blur-sm animate-fade-in"
       onClick={onClose}
       role="presentation"
     >
@@ -111,11 +112,11 @@ export default function AuthModal({ open, onClose, reason }: AuthModalProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="auth-title"
-        className="w-full sm:max-w-md bg-white rounded-t-2xl sm:rounded-2xl shadow-lift
-                   max-h-[92vh] overflow-y-auto animate-slide-up"
+        className="relative w-full max-w-md my-auto bg-white rounded-2xl shadow-lift
+                   overflow-hidden animate-slide-up flex flex-col max-h-[calc(100vh-2rem)]"
         onClick={e => e.stopPropagation()}
       >
-        <div className="flex items-start justify-between gap-4 p-6 pb-4">
+        <div className="flex items-start justify-between gap-4 p-6 pb-4 shrink-0 border-b border-parchment-200">
           <div>
             <p className="eyebrow">Bible Verse of the Day</p>
             <h2 id="auth-title" className="font-serif text-xl font-bold text-ink-900">
@@ -135,7 +136,7 @@ export default function AuthModal({ open, onClose, reason }: AuthModalProps) {
           </button>
         </div>
 
-        <div className="px-6 pb-6">
+        <div className="p-6 overflow-y-auto">
           {reason && (
             <p className="text-sm text-ink-600 bg-parchment-100 border border-parchment-200
                           rounded-xl px-3 py-2.5 mb-4">
@@ -295,7 +296,8 @@ export default function AuthModal({ open, onClose, reason }: AuthModalProps) {
           </p>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
 
