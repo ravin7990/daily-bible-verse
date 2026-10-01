@@ -115,6 +115,16 @@ export default function UserMenu() {
               Your progress
             </Link>
             <Link
+              to="/insights"
+              role="menuitem"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm
+                         text-ink-800 hover:bg-parchment-100 transition-colors"
+            >
+              <Icon name="sparkle" className="w-4 h-4 text-gold-600" />
+              Reading insights
+            </Link>
+            <Link
               to="/plans"
               role="menuitem"
               onClick={() => setOpen(false)}

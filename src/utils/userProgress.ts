@@ -139,6 +139,7 @@ export function useBibleProgress(versionKey: string) {
 
   const currentStreak = Number(prefs.current_streak ?? 0) || 0
   const maxStreak = Number(prefs.max_streak ?? 0) || 0
+  const maxWeeklyStreak = Number(prefs.max_weekly_streak ?? 0) || 0
   const lastReadDate = typeof prefs.last_read_date_string === 'string'
     ? prefs.last_read_date_string
     : ''
@@ -219,6 +220,7 @@ export function useBibleProgress(versionKey: string) {
     readVerses,
     currentStreak,
     maxStreak,
+    maxWeeklyStreak,
     lastReadDate,
     activityDates,
     markChapterRead,

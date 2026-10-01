@@ -85,9 +85,15 @@ export default function Account() {
             Connect your account to carry your reading progress, saved verses and reading
             plans between this website and the mobile app.
           </p>
-          <button type="button" onClick={() => setAuthOpen(true)} className="btn-primary mx-auto">
-            Sign in or create account
-          </button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button type="button" onClick={() => setAuthOpen(true)} className="btn-primary">
+              Sign in or create account
+            </button>
+            <Link to="/insights" className="btn-ghost border border-parchment-300 flex items-center gap-1.5 text-ink-800">
+              <Icon name="sparkle" className="w-4 h-4 text-gold-600" />
+              <span>View Reading Insights</span>
+            </Link>
+          </div>
 
           <div className="card p-5 mt-10 text-left">
             <p className="font-semibold text-ink-900 text-sm mb-2">No account yet?</p>
@@ -136,7 +142,17 @@ export default function Account() {
           </div>
         </div>
 
-        <h2 className="section-title text-xl mb-3">Reading stats</h2>
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="section-title text-xl">Reading stats</h2>
+          <Link
+            to="/insights"
+            className="text-xs font-semibold text-gold-800 hover:text-gold-950 flex items-center gap-1.5 bg-gold-50 border border-gold-200 px-3 py-1.5 rounded-full transition-colors shadow-xs"
+          >
+            <Icon name="sparkle" className="w-3.5 h-3.5 text-gold-600" />
+            <span>Open Full Insights</span>
+            <Icon name="arrowRight" className="w-3 h-3" />
+          </Link>
+        </div>
         <ul className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
           {[
             { label: 'Day streak', value: progress.currentStreak, icon: 'sparkle' as const },
