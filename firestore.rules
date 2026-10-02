@@ -1,0 +1,35 @@
+rules_version = '2';
+
+// Firestore rules.
+//
+// Same principle as the Realtime Database rules: every document is owned by its
+// author, nothing is world-readable unless it is genuinely public content, and
+// any collection that is not listed here is denied outright.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Public read-only editorial content ────────────────────────────────
+    // These are reference data (stories, prayers, teachings, verse images).
+    // They are shipped as static JSON too, so the collection exists only as a
+    // publishing surface.
+    match /stories/{storyId}       { allow read: if true;  allow write: if false; }
+    match /prayers/{prayerId}       { allow read: if true;  allow write: if false; }
+    match /jesus_teachings/{docId}  { allow read: if true;  allow write: if false; }
+    match /verse_images/{docId}     { allow read: if true;  allow write: if false; }
+
+    // ── Community creations ───────────────────────────────────────────────
+    // Anyone signed in may publish. Only the author may edit or delete, and
+    // `likeCount` may only move by one so a client cannot inflate it.
+    match /community_creations/{creationId} {
+      allow get, list: if true;
+      allow create: if request.auth != null
+                    && request.resource.data.authorUid == request.auth.uid
+                    && request.resource.data.keys().hasAll(['imageUrl','verse','reference','authorUid','createdAt']);
+      allow update, delete: if request.auth != null
+                    && resource.data.authorUid == request.auth.uid;
+    }
+
+    // ── Deny everything not explicitly granted ────────────────────────────
+    match /{document=**} { allow read, write: if false; }
+  }
+}

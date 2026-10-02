@@ -65,6 +65,51 @@ jobs:
         with:
           path: dist
 
+  # ── Firebase security rules ────────────────────────────────────────────────
+  #
+  # Runs after a successful deploy so the rules in this repo — the reviewed,
+  # version-controlled copy — are what is actually live on the project. Without
+  # this step the deployed rules exist only in the Firebase console: invisible
+  # to review, lost to a project mistake, and impossible to audit.
+  #
+  # Requires the FIREBASE_SERVICE_ACCOUNT secret, or
+  # FIREBASE_TOKEN in CI when the CLI runs in login mode.
+  deploy-firebase-rules:
+    if: ${{ secrets.FIREBASE_TOKEN != '' }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools@latest
+
+      - name: Deploy database rules
+        uses: w9jds/firebase-action@latest
+        with:
+          firebaseProject: dailybibleverseapp-e3dc5
+          firebaseToken: ${{ secrets.FIREBASE_TOKEN }}
+
+      - name: Deploy Firestore rules
+        uses: w9jds/firebase-action@latest
+        with:
+          firebaseProject: dailybibleverseapp-e3dc5
+          firebaseToken: ${{ secrets.FIREBASE_TOKEN }}
+          command: deploy --only firestore:rules
+
+      - name: Deploy Storage rules
+        uses: w9jds/firebase-action@latest
+        with:
+          firebaseProject: dailybibleverseapp-e3dc5
+          firebaseToken: ${{ secrets.FIREBASE_TOKEN }}
+          command: deploy --only storage
+
   deploy:
     environment:
       name: github-pages

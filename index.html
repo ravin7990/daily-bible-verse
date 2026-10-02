@@ -65,6 +65,32 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="format-detection" content="telephone=no" />
 
+    <!-- ── Security headers ──────────────────────────────────────────────────
+      GitHub Pages cannot send custom response headers, so these are declared as
+      meta elements instead. A meta CSP is weaker than a header (it does not
+      cover `frame-ancestors`, and it cannot stop an already-parked tag), but it
+      still constrains where scripts and images may come from, which is what
+      limits the damage from an injected tag.
+
+      Build a report-only policy first (Content-Security-Policy-Report-Only) if
+      you need to see what a stricter version would break.
+    -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://fundingchoicesmessages.google.com https://securepubads.g.doubleclick.net https://apis.google.com https://www.gstatic.com https://www.googletagmanager.com;
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' data: blob: https:;
+      font-src 'self' data:;
+      connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firebaseapp.com https://*.firebasestorage.app https://securepubads.g.doubleclick.net https://pagead2.googlesyndication.com;
+      frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com https://fundingchoicesmessages.google.com;
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+    " />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta name="x-content-type-options" content="nosniff" />
+    <meta name="google-site-verification" content="" />
+
     <!-- Social / agentic browsing -->
     <meta property="og:site_name" content="Bible Verse of the Day" />
     <meta property="og:type" content="website" />

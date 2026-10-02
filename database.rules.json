@@ -1,0 +1,89 @@
+{
+  "rules": {
+    "user_backups": {
+      "$uid": {
+        // ── Sync-side: this file holds confessions, personal prayers, journal
+        // entries and reading progress. Readable and writable by the owner only.
+        //
+        // `.read` is deliberately scoped to `$uid` rather than to the parent so
+        // one signed-in user can never enumerate another account's backups by
+        // listing `user_backups`.
+        ".read":  "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid",
+
+        // Timestamps sidecar. Owner-only, same reasoning as above.
+        "_ts": {
+          ".read":  "auth != null && auth.uid === $uid",
+          ".write": "auth != null && auth.uid === $uid"
+        },
+
+        // Sync markers. Owner-only, and pinned to server time so a client clock
+        // cannot make its Last-Write-Wins timestamps untrustworthy.
+        "_sync_meta": {
+          ".write": "auth != null && auth.uid === $uid && newData.child('timestamp').val() <= now + 60000",
+          ".validate": "newData.hasChildren(['timestamp'])"
+        },
+        "_web_sync_meta": {
+          ".write": "auth != null && auth.uid === $uid && newData.child('timestamp').val() <= now + 60000",
+          ".validate": "newData.hasChildren(['timestamp'])"
+        },
+
+        "$other": { ".validate": true }
+      }
+    },
+
+    "user_preferences": {
+      "$uid": {
+        ".read":  "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+
+    "global_creations": {
+      ".read": "auth != null",
+      "$creationId": {
+        // A creator may edit or delete their own post, but never re-create one
+        // they deleted by writing to the same id.
+        ".write": "auth != null && ((!data.exists() && newData.child('authorUid').val() === auth.uid) || data.child('authorUid').val() === auth.uid)",
+        ".validate": "newData.hasChildren(['imageUrl', 'verse', 'reference', 'createdAt'])"
+      }
+    },
+
+    "community_prayers": {
+      ".read": "auth != null",
+      "$prayerId": {
+        // Public submissions may be created, but not silently rewritten. The
+        // app writes the whole record with `setValue`, so the ownership check is
+        // on an embedded author field.
+        ".write": "auth != null && ((!data.exists() && newData.child('userId').val() === auth.uid) || data.child('userId').val() === auth.uid)",
+        ".validate": "newData.hasChildren(['title', 'content'])",
+
+        // Anyone signed in may react to a prayer...
+        "likesCount": { ".write": "auth != null && newData.val() <= data.val() + 1 && newData.val() >= data.val() - 1" },
+        "comments": {
+          "$commentId": {
+            // ...but a comment can only be created by its author, and edited or
+            // deleted by that same author.
+            ".write": "auth != null && newData.child('userId').val() === auth.uid && (!data.exists() || data.child('userId').val() === auth.uid)",
+            ".validate": "newData.hasChildren(['text', 'userId'])"
+          }
+        }
+      }
+    },
+
+    "prayers":     { ".read": "auth != null", ".write": false },
+    "verses":      { ".read": "auth != null", ".write": false },
+    "app_feedback": {
+      ".read": false,
+      // Anyone signed in may submit feedback. `.push()` supplies the id, and the
+      // author is stamped from the token so a payload cannot spoof it.
+      ".write": "auth != null && !data.exists() && newData.child('uid').val() === auth.uid",
+      ".validate": "newData.hasChildren(['rating', 'message'])"
+    },
+
+    // Anything not listed above is denied. This is the important default: a new
+    // node added to the app without a rule here fails closed instead of open.
+    ".read":  false,
+    ".write": false
+  }
+}

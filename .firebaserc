@@ -1,0 +1,16 @@
+{
+  "projectId": "dailybibleverseapp-e3dc5",
+  "targets": {
+    "database": {
+      "host": "https://dailybibleverseapp-e3dc5-default-rtdb.firebaseio.com",
+      "rules": "database.rules.json"
+    },
+    "firestore": {
+      "rules": "firestore.rules",
+      "indexes": "firestore.indexes.json"
+    },
+    "storage": {
+      "rules": "storage.rules"
+    }
+  }
+}

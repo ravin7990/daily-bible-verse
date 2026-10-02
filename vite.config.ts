@@ -77,9 +77,19 @@ export default defineConfig({
             options: { cacheName: 'google-fonts-cache', expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 365 } },
           },
           {
-            urlPattern: /^https:\/\/firestore\.googleapis\.com\/.*/i,
+            // Firestore responses are cached in the service worker's Cache
+            // Storage, which is shared by every visitor of the browser profile
+            // and readable by any script running on this origin.
+            //
+            // That is safe today only because the web reads exclusively public
+            // collections (stories, prayers, teachings, verse images). The moment
+            // a private or per-user query is fetched on the client, it lands in
+            // this cache and becomes readable by the next person to use the
+            // device. The allowlist below is deliberately narrow so that adding
+            // a private collection fails closed rather than silently leaking.
+            urlPattern: /^https:\/\/firestore\.googleapis\.com\/v1\/projects\/[^/]+\/databases\/\(default\)\/documents\/(stories|prayers|jesus_teachings|verse_images|community_creations)\b/i,
             handler: 'NetworkFirst',
-            options: { cacheName: 'firestore-cache', expiration: { maxEntries: 50, maxAgeSeconds: 60 * 60 * 24 } },
+            options: { cacheName: 'public-content-cache', expiration: { maxEntries: 50, maxAgeSeconds: 60 * 60 * 24 } },
           },
         ],
       },
