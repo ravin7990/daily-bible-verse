@@ -7,7 +7,7 @@
     "dev": "vite",
     "generate:assets": "node scripts/generate-assets.js",
     "generate:bibles": "node scripts/split-bibles.js",
-    "build": "node scripts/generate-assets.js && node scripts/split-bibles.js && tsc -b && vite build && node -e \"fs.copyFileSync('dist/index.html', 'dist/404.html')\"",
+    "build": "node scripts/generate-assets.js && node scripts/split-bibles.js && tsc -b && vite build",
     "lint": "oxlint",
     "test": "vitest run",
     "preview": "vite preview"

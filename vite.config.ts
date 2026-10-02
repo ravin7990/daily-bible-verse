@@ -4,8 +4,18 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { fileURLToPath, URL } from 'node:url'
 
+/**
+ * Public base path.
+ *
+ * GitHub Pages serves a project site from `/<repo>/`, so the default keeps that
+ * prefix. Set `VITE_BASE_PATH=/` once a custom domain is live, which is also
+ * what stops every internal URL from carrying a stale `/daily-bible-verse`
+ * prefix onto the new host.
+ */
+const BASE_PATH = process.env.VITE_BASE_PATH || '/daily-bible-verse/'
+
 export default defineConfig({
-  base: '/daily-bible-verse/',
+  base: BASE_PATH,
   plugins: [
     react(),
     VitePWA({

@@ -1,0 +1,11 @@
+# ads.txt — Authorised Digital Sellers (IAB Tech Lab spec v1.1)
+#
+# Google reads this file from the site ROOT (https://<your-domain>/ads.txt) to
+# confirm that this publisher ID is authorised to sell inventory on this domain.
+# If the file is missing, approval for the domain is delayed or refused.
+#
+# Replace the publisher ID below with the one shown in your AdSense account
+# (Account > Settings > Account information), then update the same value in the
+# VITE_ADSENSE_CLIENT deploy secret so the site renders the matching script.
+
+google.com, pub-2799573, DIRECT, f08c47fec0942fa0

@@ -10,42 +10,47 @@ const COLUMNS: FooterColumn[] = [
   {
     heading: 'Devotional',
     links: [
-      { to: '/',          label: "Today's Verse"    },
-      { to: '/archive',   label: 'Verse Archive'    },
-      { to: '/prayers',   label: 'Prayer Library'   },
-      { to: '/teachings', label: 'Teachings of Jesus' },
+      { to: '/',           label: "Today's Verse"      },
+      { to: '/archive',    label: 'Verse Archive'      },
+      { to: '/prayers',    label: 'Prayer Library'     },
+      { to: '/teachings',  label: 'Teachings of Jesus' },
+      { to: '/plans',      label: 'Reading Plans'      },
     ],
   },
   {
     heading: 'Read',
     links: [
-      { to: '/bible',   label: 'Bible Reader'      },
-      { to: '/stories', label: 'Bible Stories'     },
-      { to: '/teachings', label: 'Sayings of Jesus' },
+      { to: '/bible',          label: 'Bible Reader'      },
+      { to: '/bible/notes',    label: 'Notes & Highlights'},
+      { to: '/stories',        label: 'Bible Stories'     },
+      { to: '/teachings',      label: 'Sayings of Jesus'  },
+      { to: '/community',      label: 'Verse Wallpapers'  },
     ],
   },
   {
-    heading: 'Popular Verses',
+    heading: 'Company',
     links: [
-      { to: '/archive', label: 'John 3:16'   },
-      { to: '/archive', label: 'Psalm 23:1'  },
-      { to: '/archive', label: 'Philippians 4:13' },
-      { to: '/archive', label: 'Proverbs 3:5-6' },
-    ],
-  },
-  {
-    heading: 'More',
-    links: [
-      { to: '/community', label: 'Verse Wallpapers' },
-      { to: '/bible',     label: 'Read the Bible'   },
+      { to: '/about',   label: 'About'         },
+      { to: '/contact', label: 'Contact'       },
+      { to: '/privacy', label: 'Privacy Policy'},
+      { to: '/terms',   label: 'Terms of Use'  },
     ],
   },
 ]
 
+/**
+ * Trust signals shown under the wordmark.
+ *
+ * The previous list advertised "Ad-free reading", which cannot stay once the
+ * site serves AdSense: a visible claim that there is no advertising, made while
+ * asking to be approved to show advertising, is exactly the kind of
+ * misrepresentation AdSense penalises. "Free to read" is accurate, because
+ * access costs nothing either way.
+ */
 const TRUST: { icon: IconName; label: string }[] = [
-  { icon: 'book',    label: '100% Free'          },
-  { icon: 'shield',  label: 'Ad-free reading'    },
-  { icon: 'download', label: 'Works offline'     },
+  { icon: 'book',    label: 'Free to read'  },
+  { icon: 'shield',  label: 'No sign-up needed' },
+  { icon: 'download', label: 'Works offline' },
 ]
 
 export default function Footer() {
@@ -54,7 +59,7 @@ export default function Footer() {
   return (
     <footer className="mt-20 border-t border-parchment-200 bg-white pb-nav md:pb-0">
       <div className="shell py-12">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Brand + trust signals */}
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="inline-flex items-center gap-2.5 group">
@@ -139,8 +144,12 @@ export default function Footer() {
           className="mt-8 pt-6 border-t border-parchment-200 flex flex-col sm:flex-row
                      items-center justify-between gap-2 text-xs text-ink-500"
         >
-          <p>© {year} Bible Verse of the Day. All rights reserved.</p>
-          <p>Made with care for daily devotionals</p>
+          <p>© {year} Bible Verse of the Day.</p>
+          <p>
+            Scripture translations remain the property of their publishers — see the{' '}
+            <Link to="/privacy" className="underline">Privacy Policy</Link> for the
+            licence that applies to each one.
+          </p>
         </div>
       </div>
     </footer>

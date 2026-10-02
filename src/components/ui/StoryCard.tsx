@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import type { Story } from '@/types'
 import { slugify } from '@/utils/dateUtils'
+import { computeReadTime } from '@/utils/storyMeta'
 import Icon, { type IconName } from '@/components/ui/Icon'
 
 /** Map a story tag to a consistent icon instead of an emoji. */
@@ -39,7 +40,7 @@ export default function StoryCard({ story }: StoryCardProps) {
           </span>
           <span className="inline-flex items-center gap-1 text-xs text-ink-500 font-medium shrink-0">
             <Icon name="clock" className="w-3.5 h-3.5" />
-            {story.read_time}
+            {computeReadTime(story)}
           </span>
         </div>
 

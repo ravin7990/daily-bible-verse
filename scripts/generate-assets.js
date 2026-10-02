@@ -63,7 +63,56 @@ async function generatePngs() {
   console.log('✅ Generated PWA and Apple touch icons (192, 512, 180, SVG)')
 }
 
-// 3. Generate comprehensive sitemap.xml
+// 3. Generate the GitHub Pages SPA fallback (404.html)
+//
+//    GitHub Pages serves 404.html for ANY path it cannot resolve, and it does so
+//    with an HTTP 404 status. The previous build overwrote dist/404.html with a
+//    copy of dist/index.html, which meant every one of the 261 URLs in the
+//    sitemap returned a 404 status to Google while rendering correctly in the
+//    browser. Google reads the status, not the pixels, so none of those pages
+//    could be indexed.
+//
+//    The fix is the standard SPA fallback: redirect the deep link to the app
+//    root with the real path preserved after `/?/`, which returns HTTP 200.
+//    pathSegmentsToKeep must equal the number of path segments in BASE_PATH, or
+//    the app name is stripped from every route.
+function generateSpaFallback() {
+  const basePath = process.env.VITE_BASE_PATH || '/daily-bible-verse/'
+  const segments = basePath.split('/').filter(Boolean).length
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bible Verse of the Day</title>
+    <script>
+      // GitHub Pages has no rewrite rules, so a missing path is served this file.
+      // Redirect to the app root with the original route preserved after "/?/",
+      // which is then restored by the script in index.html. This returns HTTP
+      // 200 for real content pages instead of 404.
+      // Source: https://github.com/rafgraph/spa-github-pages
+      var pathSegmentsToKeep = ${segments};
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
+`
+  fs.writeFileSync(path.resolve(publicDir, '404.html'), html)
+  console.log(
+    `✅ Generated SPA 404.html fallback (keeping ${segments} path segment` +
+    `${segments === 1 ? '' : 's'} for base "${basePath}")`,
+  )
+}
+
+// 4. Generate comprehensive sitemap.xml
 function generateSitemap() {
   const baseUrl = process.env.VITE_SITE_URL || 'https://ravin7990.github.io/daily-bible-verse'
   const today = new Date().toISOString().slice(0, 10)
@@ -77,7 +126,16 @@ function generateSitemap() {
     { url: '/bible', priority: '0.7', changefreq: 'monthly' },
     { url: '/plans', priority: '0.8', changefreq: 'monthly' },
     { url: '/community', priority: '0.7', changefreq: 'daily' },
+
+    // Trust pages. Google AdSense reviewers expect to find these reachable, and
+    // a privacy policy has to be declared in the AdSense console anyway.
+    { url: '/about', priority: '0.3', changefreq: 'yearly' },
+    { url: '/contact', priority: '0.3', changefreq: 'yearly' },
+    { url: '/privacy', priority: '0.3', changefreq: 'yearly' },
+    { url: '/terms', priority: '0.3', changefreq: 'yearly' },
+
     // /account is deliberately excluded: it is user-specific and noIndex.
+    // /settings is deliberately excluded: it holds per-device preferences.
   ]
 
   let stories = []
@@ -130,21 +188,39 @@ function generateLlmsTxt() {
 > Daily Scripture, Reflection, Prayer, and Life Application from the Word of God.
 
 ## Overview
-Bible Verse of the Day is a mobile-first, high-performance web and mobile app that delivers daily biblical devotionals, over 180+ contextualized Bible stories, Jesus's teachings from the Gospels, curated prayers across key categories, and complete New International Version (NIV) Bible chapter readings.
+Bible Verse of the Day is a mobile-first devotional site and app. It offers a daily
+biblical devotional, over 250 contextualised Bible stories with reflections and
+prayers, Jesus's teachings from the Gospels, curated prayers by category, guided
+reading plans, and a complete 66-book Bible reader.
+
+## Bible translations
+The reader offers the World English Bible, King James Version, American Standard
+Version (1901), Reina-Valera 1909 (Spanish), the Berean Standard Bible and the
+Hindi Bible. Public-domain translations are free to reuse; the Berean Standard
+Bible and the Hindi Bible remain the property of their respective copyright
+holders and are displayed with attribution. Per-translation licence details are on
+the /privacy page.
 
 ## Key Sections
 - [Daily Verse & Devotional](${baseUrl}/): Today's curated scripture verse, deep reflection, guided prayer, and practical life application.
-- [Verse Archive](${baseUrl}/archive): Historical archive of past daily verses organized by month (2025 - 2026).
-- [Bible Stories](${baseUrl}/stories): Over 180 narrative Bible stories complete with tags (Prophecy, Faith, Miracles, Kings, Jesus), reflections, and prayers.
-- [Prayer Library](${baseUrl}/prayers): Prayers categorized by Morning, Evening, Healing, Strength, Thanksgiving, Protection, Forgiveness, and Family.
+- [Verse Archive](${baseUrl}/archive): Historical archive of past daily verses organised by month.
+- [Bible Stories](${baseUrl}/stories): Narrative Bible stories with tags (Prophecy, Faith, Miracles, Kings, Jesus), reflections, and prayers.
+- [Prayer Library](${baseUrl}/prayers): Prayers categorised by Morning, Evening, Healing, Strength, Thanksgiving, Protection, Forgiveness, and Family.
 - [Jesus Teachings](${baseUrl}/teachings): Core teachings and parables of Jesus Christ recorded in the Gospels.
-- [Read the Bible](${baseUrl}/bible): Complete NIV Bible reader by book and chapter.
-- [Community Creations](${baseUrl}/community): Verse art and studio creations shared by the global faith community.
+- [Read the Bible](${baseUrl}/bible): Complete Bible reader by book and chapter, in multiple translations.
+- [Reading Plans](${baseUrl}/plans): Guided multi-day reading plans.
+- [Verse Wallpapers](${baseUrl}/community): Shareable devotional backgrounds.
+
+## About and policies
+- [About](${baseUrl}/about): Who we are and how the content is produced.
+- [Contact](${baseUrl}/contact): How to reach us.
+- [Privacy Policy](${baseUrl}/privacy): What data is collected, including advertising cookies.
+- [Terms of Use](${baseUrl}/terms): The terms governing use of this site.
 
 ## Technical Specifications
-- Built with: React 18, Vite, TypeScript, Tailwind CSS, Firebase RTDB & Firestore.
-- API / Data Endpoints: Public JSON datasets for offline reading and static indexing at ${baseUrl}/stories.json.
-- Open Graph, JSON-LD schema (Article, WebSite, CollectionPage, Organization) on all primary pages.
+- Built with: React 19, Vite, TypeScript, Tailwind CSS, Firebase RTDB & Firestore.
+- Public JSON datasets for offline reading at ${baseUrl}/stories.json.
+- Open Graph and JSON-LD schema on all primary pages.
 `
 
   fs.writeFileSync(path.resolve(publicDir, 'llms.txt'), llmsContent)
@@ -184,6 +260,7 @@ function generateFeaturedStories() {
 
 async function main() {
   await generatePngs()
+  generateSpaFallback()
   generateSitemap()
   generateLlmsTxt()
   generateFeaturedStories()

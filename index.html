@@ -8,7 +8,29 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!--
+      Canonical is rewritten per-route by the SEO component from VITE_SITE_URL.
+      The value here is only what crawlers see before hydration.
+    -->
     <link rel="canonical" href="https://ravin7990.github.io/daily-bible-verse/" />
+
+    <!--
+      Google AdSense site verification.
+      Google supplies the exact tag when you connect the domain in the AdSense
+      console (Account > Sites > Add site). Paste it here.
+
+      Do NOT hand-write a ca-pub placeholder: a verification tag with the wrong ID
+      fails verification outright, and shipping a fake one makes the site look
+      like it is already running broken ads.
+    -->
+
+    <!--
+      Preconnect to the Firebase and AdSense origins so first paint is not held up
+      by DNS + TLS for the auth/storage endpoints.
+    -->
+    <link rel="preconnect" href="https://firestore.googleapis.com" />
+    <link rel="preconnect" href="https://identitytoolkit.googleapis.com" />
 
     <!--
       Fonts are self-hosted and inlined by the bundler (see src/index.css).

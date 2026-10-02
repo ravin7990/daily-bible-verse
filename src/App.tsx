@@ -6,6 +6,7 @@ import BottomNav from '@/components/layout/BottomNav'
 import ErrorBoundary from '@/components/layout/ErrorBoundary'
 import ScrollToTop from '@/components/ui/ScrollToTop'
 import { VerseCardSkeleton } from '@/components/ui/Skeleton'
+import CookieConsent from '@/components/layout/CookieConsent'
 import { useAppSettings } from '@/utils/appSettings'
 
 // Lazy-load all pages for code splitting
@@ -23,6 +24,10 @@ const Account         = lazy(() => import('@/pages/Account'))
 const Settings        = lazy(() => import('@/pages/Settings'))
 const ReadingInsights = lazy(() => import('@/pages/ReadingInsights'))
 const NotFound        = lazy(() => import('@/pages/NotFound'))
+const Privacy         = lazy(() => import('@/pages/Privacy'))
+const Terms           = lazy(() => import('@/pages/Terms'))
+const About           = lazy(() => import('@/pages/About'))
+const Contact         = lazy(() => import('@/pages/Contact'))
 
 function PageLoader() {
   return (
@@ -73,6 +78,14 @@ export default function App() {
             <Route path="/settings"            element={<Settings />} />
             <Route path="/insights"            element={<ReadingInsights />} />
             <Route path="/community"           element={<Community />} />
+
+            {/* Trust pages. AdSense reviewers expect these to be reachable,
+                and a privacy policy has to be declared in the AdSense console. */}
+            <Route path="/privacy"            element={<Privacy />} />
+            <Route path="/terms"              element={<Terms />} />
+            <Route path="/about"              element={<About />} />
+            <Route path="/contact"            element={<Contact />} />
+
             <Route path="*"                    element={<NotFound />} />
           </Routes>
         </Suspense>
@@ -80,6 +93,7 @@ export default function App() {
 
       <Footer />
       <BottomNav />
+      <CookieConsent />
     </>
   )
 }

@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import SEO from '@/components/layout/SEO'
 import VerseCard from '@/components/ui/VerseCard'
 import { VerseCardSkeleton } from '@/components/ui/Skeleton'
@@ -29,12 +30,28 @@ function getMonthOptions() {
 
 export default function Archive() {
   const months = getMonthOptions()
-  const [selectedMonth, setSelectedMonth] = useState(months[0]?.key || '2026_09')
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  // Deep linking: /archive?d=2026-01-15 is a real, shareable, indexable URL.
+  // The archive previously collapsed 488 dated devotionals onto a single URL, so
+  // none of them could be discovered or linked to individually.
+  const requestedDate = searchParams.get('d')
+
+  const [selectedMonth, setSelectedMonth] = useState(
+    requestedDate
+      ? requestedDate.replace('-', '_').slice(0, 7)
+      : months[0]?.key || '2026_09',
+  )
   const [entries, setEntries] = useState<DailyContent[]>([])
-  const [selectedDate, setSelectedDate] = useState<string | null>(null)
+  const [selectedDate, setSelectedDate] = useState<string | null>(requestedDate)
   const [dayContent, setDayContent] = useState<DailyContent | null>(null)
   const [loading, setLoading] = useState(false)
   const today = todayStr()
+
+  const selectDate = useCallback((date: string | null, content: DailyContent | null) => {
+    setSelectedDate(date)
+    setDayContent(content)
+  }, [])
 
   useEffect(() => {
     setLoading(true)
@@ -44,21 +61,21 @@ export default function Archive() {
       setEntries(valid)
       setLoading(false)
 
+      // Honour a deep-linked date when it exists in this month; otherwise fall
+      // back to today, or the newest past verse in the month.
       if (valid.length > 0) {
-        // Pre-select today if present, or the newest available past verse in this month
-        const match = valid.find(e => e.date === today) || valid[valid.length - 1]
-        setSelectedDate(match.date)
-        setDayContent(match)
+        const linked = requestedDate ? valid.find(e => e.date === requestedDate) : undefined
+        const match = linked || valid.find(e => e.date === today) || valid[valid.length - 1]
+        selectDate(match.date, match)
       } else {
-        setSelectedDate(null)
-        setDayContent(null)
+        selectDate(null, null)
       }
     })
-  }, [selectedMonth, today])
+  }, [selectedMonth, today, requestedDate, selectDate])
 
   function handleDaySelect(entry: DailyContent) {
-    setSelectedDate(entry.date)
-    setDayContent(entry)
+    selectDate(entry.date, entry)
+    setSearchParams({ d: entry.date }, { replace: true })
     // Scroll to verse on mobile
     setTimeout(() => {
       document.getElementById('archive-verse')?.scrollIntoView({ behavior: 'smooth', block: 'start' })

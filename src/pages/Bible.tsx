@@ -6,6 +6,7 @@ import PageHeader from '@/components/ui/PageHeader'
 import Icon from '@/components/ui/Icon'
 import VerseNoteDialog from '@/components/bible/VerseNoteDialog'
 import VerseHighlightPalette from '@/components/bible/VerseHighlightPalette'
+import TranslationCredit from '@/components/bible/TranslationCredit'
 import {
   BIBLE_VERSIONS,
   loadBibleManifest,
@@ -293,7 +294,7 @@ export default function Bible() {
     <>
       <SEO
         title={`Read the Holy Bible — ${selectedVersionInfo.name}`}
-        description={`Read the full 66 books of the Holy Bible online. Complete Old & New Testament with translations: WEB, KJV, ASV, BSB, Hindi, and Spanish.`}
+        description={`Read the full 66 books of the Holy Bible online. Complete Old & New Testament in six translations: WEB, KJV, ASV, BSB, Hindi and Spanish — with notes, highlights and offline reading.`}
         canonical="/bible"
       />
 
@@ -302,7 +303,7 @@ export default function Bible() {
           icon="bible"
           eyebrow="Complete Scripture Reader"
           title="The Holy Bible"
-          subtitle="Read and search all 66 sacred books with multiple authentic translations."
+          subtitle="Read all 66 books in six translations, with notes, highlights and offline access."
           actions={
             <Link
               to="/bible/notes"
@@ -507,6 +508,12 @@ export default function Bible() {
 
               <Icon name="bible" className="w-14 h-14 text-white opacity-20 shrink-0" />
             </div>
+
+            {/* Translation credit. Required for the in-copyright translations and
+                good practice for the public-domain ones: the reader previously
+                reproduced the Berean Standard Bible and the Hindi Bible with no
+                notice at all. */}
+            <TranslationCredit versionKey={selectedVersionInfo.key} />
 
             {/* Verses Container */}
             <div

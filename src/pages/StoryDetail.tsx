@@ -5,6 +5,7 @@ import StoryBanner from '@/components/ui/StoryBanner'
 import { storySchema } from '@/utils/structuredData'
 import type { Story } from '@/types'
 import Icon, { type IconName } from '@/components/ui/Icon'
+import { computeReadTime } from '@/utils/storyMeta'
 
 const SITE_URL = import.meta.env.VITE_SITE_URL ?? 'https://ravin7990.github.io/daily-bible-verse'
 
@@ -128,7 +129,7 @@ export default function StoryDetail() {
           <StoryBanner
             tag={story.tag}
             title={story.title}
-            readTime={story.read_time}
+            readTime={computeReadTime(story)}
             heightClass="h-52 sm:h-64"
           />
         </div>

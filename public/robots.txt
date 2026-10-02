@@ -1,4 +1,34 @@
+# Robots policy for Bible Verse of the Day.
+#
+# The Sitemap line previously pointed at the placeholder
+# "https://yourusername.github.io/sitemap.xml", which is not this site. Google
+# treats an unresolvable sitemap reference as a soft error, so it is derived from
+# the same VITE_SITE_URL the build uses for canonical URLs and the sitemap.
+
 User-agent: *
 Allow: /
 
-Sitemap: https://yourusername.github.io/sitemap.xml
+# Google AdSense and Google crawlers.
+# `Allow: /` above already covers them, but AdSense documents these agents by
+# name, and naming them explicitly makes the intent unambiguous and survives a
+# future tightening of the wildcard rule.
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# Nothing here is private, but these are per-user or per-device surfaces with no
+# value in an index, so keep them out of crawl budget.
+User-agent: *
+Disallow: /account
+Disallow: /settings
+
+Sitemap: https://ravin7990.github.io/daily-bible-verse/sitemap.xml
+

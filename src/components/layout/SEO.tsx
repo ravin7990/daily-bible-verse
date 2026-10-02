@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async'
+import { SITE_URL, SITE_NAME, ADSENSE_CLIENT } from '@/utils/siteConfig'
 
 interface SEOProps {
   title?:       string
@@ -12,15 +13,13 @@ interface SEOProps {
   jsonLd?:      object | object[]
 }
 
-const SITE_NAME = 'Bible Verse of the Day'
-const BASE_URL  = import.meta.env.VITE_SITE_URL ?? 'https://ravin7990.github.io/daily-bible-verse'
-const OG_IMAGE  = `${BASE_URL}/icons/icon-512.png`
+const OG_IMAGE = `${SITE_URL}/icons/icon-512.png`
 
 /** Join the site origin with a path without doubling or dropping slashes. */
 function absUrl(path?: string): string {
-  if (!path) return BASE_URL
+  if (!path) return SITE_URL
   if (/^https?:\/\//i.test(path)) return path
-  return `${BASE_URL.replace(/\/$/, '')}/${path.replace(/^\//, '')}`
+  return `${SITE_URL.replace(/\/$/, '')}/${path.replace(/^\//, '')}`
 }
 
 export default function SEO({
@@ -69,6 +68,13 @@ export default function SEO({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image"       content={ogImage} />
       <meta name="twitter:image:alt"   content="Bible Verse of the Day" />
+
+      {/* AdSense publisher tag. Emitted only once a real publisher ID is
+          configured via VITE_ADSENSE_CLIENT — an empty or placeholder value
+          would fail AdSense verification and look like broken ad markup. */}
+      {ADSENSE_CLIENT && (
+        <meta name="google-adsense-platform-account" content={ADSENSE_CLIENT} />
+      )}
 
       {/* JSON-LD Structured Data */}
       {schemas.map((schema, i) => (
